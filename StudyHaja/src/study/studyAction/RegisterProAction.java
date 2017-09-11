@@ -45,7 +45,7 @@ public class RegisterProAction implements CommandAction {
 		StudyInfoDAO sdao = new StudyInfoDAO();
 		sdao.insertStudyInfo(studyvo);
 		
-		return "/ahn/registerPro.jsp";
+		return "/ahn/jsp/registerPro.jsp";
 	}
 
 }
