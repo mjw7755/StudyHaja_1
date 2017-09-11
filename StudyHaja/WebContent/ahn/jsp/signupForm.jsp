@@ -55,9 +55,9 @@
 <body>
 <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'> -->
 
-<link rel="stylesheet" href="../css/ahnTable.css">
-<link rel="stylesheet" href="../css/toggle.css">
-<link rel="stylesheet" href="../css/ahnSignup.css">
+<link rel="stylesheet" href="ahn/css/ahnTable.css">
+<link rel="stylesheet" href="ahn/css/toggle.css">
+<link rel="stylesheet" href="ahn/css/ahnSignup.css">
 <form name="signupform" method="post" action="signupPro.do">
 <input type="hidden" name="reg_date" value="${reg_date}">
 <div class="box">
