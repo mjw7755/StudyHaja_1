@@ -37,3 +37,7 @@ drop table study_info;
 create sequence study_num;
 
 select * from study_info;
+
+select * from mvcnotice;
+
+insert into mvcnotice values('추가햇다..','2017-09-09');

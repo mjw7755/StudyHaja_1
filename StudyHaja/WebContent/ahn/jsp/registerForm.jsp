@@ -91,14 +91,14 @@
 		<tr>
 			<th scope="row"><font color="red" size="2em">* </font>진행 시간</th>
 
-			<td><select id="time_select" name="s_hour"><option value="default">00</option>
+			<td><select id="time_select" name="s_hour"><option value="default">시</option>
 										 <c:forEach var="i" begin="0" end="24" step="1">
 										 <option value="${i }">${i }</option>
 										 </c:forEach>
 										 
 			</select><b>&nbsp;시</b>
 							<select id="time_select" name="s_minute">
-										<option value="default">00</option>
+										<option value="default">분</option>
 										<c:forEach var="i" begin="0" end="50" step="10">
 										<c:if test="${i == 0}">
 											<option value="00">00</option>
@@ -111,14 +111,14 @@
 							&nbsp;<b>~</b>&nbsp;
 							
 							<select id="time_select" name="e_hour">
-							 			 <option value="default">00</option>
+							 			 <option value="default">시</option>
 										 <c:forEach var="i" begin="0" end="24" step="1">
 										 <option value="${i }">${i }</option>
-										 </c:forEach>>
+										 </c:forEach>
 										 </select><b>&nbsp;시</b>
 										
 							<select id="time_select" name="e_minute">
-												<option value="default">00</option>
+												<option value="default">분</option>
 												<c:forEach var="i" begin="0" end="50" step="10">
 												<c:if test="${i == 0}">
 													<option value="00">00</option>
@@ -170,12 +170,9 @@
 			<th scope="row"><font color="red" size="2em">* </font>인원</th>
 			<td>
 			<select id="num_select" name="people"> <option selected>인원</option> 
-									<option value="1">1</option>
-									<option value="2">2</option> 
-									<option value="3">3</option> 
-									<option value="4">4</option> 
-									<option value="5">5</option>
-									<option value="6">6</option>
+									 <c:forEach var="i" begin="1" end="10" step="1">
+										 <option value="${i }">${i }</option>
+									 </c:forEach>
 			</select>
 			</td>
 		</tr>
