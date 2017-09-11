@@ -1,0 +1,104 @@
+#first_select {
+    width: 200px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: #006fff;
+    border: 1px solid #006fff;
+    border-radius: 3px;
+    text-align: center;
+    size : 6;
+} 
+#first_select:hover{
+	cursor: pointer;
+}
+
+#second_select {
+    width: 200px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: #006fff;
+    border: 1px solid #006fff;
+    border-radius: 3px;
+    text-align: center;
+     size : 6;
+} 
+#second_select:hover{
+	cursor: pointer;
+}
+
+
+
+#date_select{
+	width: 100px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: #006fff;
+    border: 1px solid #006fff;
+    border-radius: 3px;
+    text-align: center;
+     size : 6;
+}
+#date_select:hover{
+	cursor : pointer;
+}
+#time_select{
+	width: 100px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: #006fff;
+    border: 1px solid #006fff;
+    border-radius: 3px;
+    text-align: center;
+     size : 6;
+}
+#time_select:hover{
+	cursor : pointer;
+}
+#place_select{
+	width: 150px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: #006fff;
+    border: 1px solid #006fff;
+    border-radius: 3px;
+    text-align: center;
+     size : 6;
+}
+#place_select:hover{
+	cursor : pointer;
+}
+#place2_select{
+	width: 150px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: #006fff;
+    border: 1px solid #006fff;
+    border-radius: 3px;
+    text-align: center;
+     size : 6;
+}
+#place2_select:hover{
+	cursor : pointer;
+}
+#num_select{
+	width: 150px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: #006fff;
+    border: 1px solid #006fff;
+    border-radius: 3px;
+    text-align: center;
+     size : 6;
+}
+#num_select:hover{
+	cursor : pointer;
+}
+
+
