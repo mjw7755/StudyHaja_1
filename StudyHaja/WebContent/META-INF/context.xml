@@ -10,7 +10,7 @@
 				username="ahn"
 				password="cyh90920303"
 				driverClassName="oracle.jdbc.OracleDriver"
-				url="jdbc:oracle:thin:@localhost:1521:XE"
+				url="jdbc:oracle:thin:@192.168.0.179:1521:XE"
 			
 				/>
 	
