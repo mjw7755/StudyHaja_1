@@ -20,8 +20,7 @@ public class ListAction implements CommandAction {
 		list = dao.listAll();
 		
 		request.setAttribute("list", list);
-		System.out.println(list.get(0).getSubject());
-		return "/jsp/notice_view.jsp";
+		return "/ram/jsp/notice_view.jsp";
 	}
 
 }

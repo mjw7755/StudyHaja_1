@@ -18,8 +18,10 @@
 		<td colspan="2"><h2>NOTICE</h2></td>
 		<td><a href="#"><h6>+더보기</h6></a></td>
 	</tr>
-	<c:forEach var="list"  items="${list}"> 
+	
+	<c:forEach var="list" items="${list}" end="4"> 
 	<tr>
+
 		<td id="icon">&nbsp;▶</td>
 		<td id="subject">${list.subject }</td>
 		<td>${list.reg_date }</td>
