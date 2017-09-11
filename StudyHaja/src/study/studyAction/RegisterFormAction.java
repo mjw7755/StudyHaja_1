@@ -15,7 +15,7 @@ public class RegisterFormAction implements CommandAction {
 		
 		request.setAttribute("num", num);
 		
-		return "/ahn_jsp/registerForm.jsp";
+		return "/ahn/jsp/registerForm.jsp";
 	}
 
 }
