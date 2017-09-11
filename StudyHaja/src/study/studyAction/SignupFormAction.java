@@ -18,7 +18,7 @@ public class SignupFormAction implements CommandAction {
 		System.out.println (reg_date);
 		request.setAttribute("reg_date", reg_date);*/
 		
-		return "/ahn_jsp/signupForm.jsp";
+		return "/ahn/signupForm.jsp";
 	}
 
 }

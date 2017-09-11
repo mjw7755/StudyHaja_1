@@ -31,7 +31,7 @@ public class SignupProAction implements CommandAction {
 		
 		StudyMemberDAO memberdao = StudyMemberDAO.getInstance();
 		memberdao.insertMember(membervo);
-		return "/ahn_jsp/signupPro.jsp";
+		return "/ahn/signupPro.jsp";
 	}
 
 }
