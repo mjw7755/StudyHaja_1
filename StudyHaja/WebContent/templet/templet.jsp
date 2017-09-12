@@ -8,10 +8,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../jaewoong/css1/moonCss.css">
-<script src="../jaewoong/js/bootstrap.js"></script>
-<script src="../jaewoong/js1/selectJs.js"></script>
-
 <link rel="stylesheet" href="../ahn/css/ahnSignup.css">
 <link rel="stylesheet" href="../ahn/css/ahnTable.css">
 <link rel="stylesheet" href="../ahn/css/toggle.css">
@@ -22,7 +18,7 @@
 <link rel="stylesheet" href="../ahn/css/ahnButton.css">
 <link rel="stylesheet" href="../ahn/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../ram/css/ram3.css" />
-
+ 
 <script src="jquery-1.9.1.js"></script>
 <script src="jquery-ui.js"></script>
 <script src="js/bootstrap.js"></script>

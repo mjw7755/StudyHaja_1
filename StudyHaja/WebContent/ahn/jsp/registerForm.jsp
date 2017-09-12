@@ -6,13 +6,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>모집하기</title>
-<link rel="stylesheet"  href="ahn/css/ahnCheckbox.css">
+<link rel="stylesheet"  href="ahn/css/ahnCheckbox2.css">
 <link rel="stylesheet" href="ahn/css/ahnTable.css">
 <link rel="stylesheet" href="ahn/css/ahnSelect.css">
 <link rel="stylesheet" href="ahn/css/ahnText.css">
 <link rel="stylesheet" href="ahn/css/ahnButton.css">
 <link rel="stylesheet" href="ahn/css/bootstrap.css">
+<<<<<<< HEAD
+<link rel="stylesheet" type="text/css" href="ram/css/ram4.css" />
 
+=======
+<link rel="stylesheet" type="text/css" href="ram/css/ram3.css" />
+>>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
 <script src="ahn/js/selectKind.js"></script>
 <script src="ahn/js/selectAddr.js"></script>
 <script src="jquery-1.9.1.js"></script>

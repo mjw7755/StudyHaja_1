@@ -52,7 +52,7 @@ h1{
   color:white;
   border-radius:4px;
   border: #27ae60 1px solid;
-  margin-top:-550px;
+  margin-top:-450px;
   margin-bottom:20px;
   float:right; 
   margin-left:16px;
@@ -133,7 +133,50 @@ h1{
 	width: 100%;
 	transition: 800ms ease all;
 }
+#btnMain{
+	background: salmon;
+	color: #fff;
+	/*color: skyblue;*/
+	border: none;
+	position: relative;
+	weight: 20px;
+	height: 40px;
+	font-size: 1.6em;
+	padding: 0 2em;
+	cursor: pointer;
+	transition: 800ms ease all;
+	outline: none;
+	border-radius: 7px;
+	width: 300px;
+}
 
+#btnMain:hover{
+	background: #fff;
+	color: #1AAB8A;
+}
+
+#btnMain:before, #btnMain:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2px;
+	width: 0;
+	background: #1AAB8A;
+	transition: 400ms ease all;
+}
+
+#btnMain:after {
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
+}
+
+#btnMain:hover:before, #btnMain:hover:after {
+	width: 100%;
+	transition: 800ms ease all;
+}
 /* text ¹Ú½º css */
 #idtxt{
     -webkit-border-radius: 3px;
@@ -157,8 +200,8 @@ h1{
     font: 13px Helvetica, Arial, serif;
     margin: 0 0 10px;
     padding: 15px 10px 15px 40px;
-    width: 270px;
-    height: 35px;
+    width: 250px;
+    height: 30px;
 }
 #idtxt:focus {
     -webkit-box-shadow: 0 0 2px #ED1C24 inset;
@@ -193,8 +236,8 @@ h1{
     font: 13px Helvetica, Arial, serif;
     margin: 0 0 10px;
     padding: 15px 10px 15px 40px;
-    width: 270px;
-    height: 35px;
+   width: 250px;
+    height: 30px;
 }
 #nametxt:focus {
     -webkit-box-shadow: 0 0 2px #ED1C24 inset;
@@ -229,8 +272,8 @@ h1{
     font: 13px Helvetica, Arial, serif;
     margin: 0 0 10px;
     padding: 15px 10px 15px 40px;
-    width: 270px;
-    height: 35px;
+   width: 250px;
+    height: 30px;
 }
 #passwdtxt2:focus {
     -webkit-box-shadow: 0 0 2px #ED1C24 inset;
@@ -264,8 +307,8 @@ h1{
     font: 13px Helvetica, Arial, serif;
     margin: 0 0 10px;
     padding: 15px 10px 15px 40px;
-    width: 270px;
-    height: 35px;
+    width: 250px;
+    height: 30px;
 }
 #passwdtxt:focus {
     -webkit-box-shadow: 0 0 2px #ED1C24 inset;
@@ -300,8 +343,8 @@ h1{
     font: 13px Helvetica, Arial, serif;
     margin: 0 0 10px;
     padding: 15px 10px 15px 40px;
-    width: 270px;
-    height: 35px;
+    width: 250px;
+    height: 30px;
 }
 #passwdtxt:focus {
     -webkit-box-shadow: 0 0 2px #ED1C24 inset;
@@ -336,8 +379,8 @@ h1{
     font: 13px Helvetica, Arial, serif;
     margin: 0 0 10px;
     padding: 15px 10px 15px 40px;
-    width: 270px;
-    height: 35px;
+    width: 250px;
+    height: 30px;
 }
 #passwd2txt:focus {
     -webkit-box-shadow: 0 0 2px #ED1C24 inset;
@@ -373,8 +416,8 @@ h1{
     font: 13px Helvetica, Arial, serif;
     margin: 0 0 10px;
     padding: 15px 10px 15px 40px;
-    width: 270px;
-    height: 35px;
+   width: 250px;
+    height: 30px;
 }
 #birthtxt:focus {
     -webkit-box-shadow: 0 0 2px #ED1C24 inset;
@@ -410,8 +453,8 @@ h1{
     font: 13px Helvetica, Arial, serif;
     margin: 0 0 10px;
     padding: 15px 10px 15px 40px;
-     width: 270px;
-    height: 35px;
+     width: 250px;
+    height: 30px;
 }
 #teltxt:focus {
    -webkit-box-shadow: 0 0 2px #ED1C24 inset;
@@ -446,8 +489,8 @@ h1{
     font: 13px Helvetica, Arial, serif;
     margin: 0 0 10px;
     padding: 15px 10px 15px 40px;
-     width: 270px;
-    height: 35px;
+     width: 250px;
+    height: 30px;;
 }
 #emailtxt:focus {
     -webkit-box-shadow: 0 0 2px #ED1C24 inset;
