@@ -18,12 +18,10 @@
   	<init-param>
   		<param-name>StudyConfig</param-name>
 
-<<<<<<< HEAD
-  		<param-value>C:\Users\kosta\git\StudyHaja_1\StudyHaja\WebContent\WEB-INF\commandBoard.properties</param-value>
-=======
-  		<param-value>C:/Users/AHN/git/StudyHaja_1/StudyHaja/WebContent/WEB-INF/commandBoard.properties</param-value>
 
->>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
+  		<param-value>C:\Users\kosta\git\StudyHaja_1\StudyHaja\WebContent\WEB-INF\commandBoard.properties</param-value>
+
+  		
   	</init-param>
   </servlet>
   <servlet-mapping>
