@@ -1,20 +1,20 @@
 create table study_info (
-	num number(7) not null,		-- ³»ºÎÀûÀ¸·Î Ã³¸®µÉ ±Û¹øÈ£ 
-	subject varchar2(100) not null,		--Á¦¸ñ
-	kind1 varchar2(30) not null,			-- ºÐ·ù1
-	kind2 varchar2(50) not null,		 -- ºÐ·ù2
-	s_date date not null,   	 -- ½ÃÀÛ³¯Â¥
-	e_date  date not null, 		 -- ³¡³¯Â¥   
-	readcount   number(3) default 0,	  -- Á¶È¸¼ö
-	day varchar2(50) not null, --¿äÀÏ
-	s_time varchar2(20) not null, --½ÃÀÛ ½Ã°£
-	e_time varchar2(20) not null, --³¡ ½Ã°£
-	place1 varchar2(20) not null, --Àå¼Ò1
-	place2 varchar2(20) not null, --Àå¼Ò2
-	place3 varchar2(50) not null, --Àå¼Ò3
-	people number not null, --ÀÎ¿ø 
-	content nvarchar2(2000) not null, --³»¿ë
-	ip varchar2(20)  not null,  --±Û ¾´ °÷ÀÇ ¾ÆÀÌÇÇ
+	num number(7) not null,		-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½Û¹ï¿½È£ 
+	subject varchar2(100) not null,		--ï¿½ï¿½ï¿½ï¿½
+	kind1 varchar2(30) not null,			-- ï¿½Ð·ï¿½1
+	kind2 varchar2(50) not null,		 -- ï¿½Ð·ï¿½2
+	s_date date not null,   	 -- ï¿½ï¿½ï¿½Û³ï¿½Â¥
+	e_date  date not null, 		 -- ï¿½ï¿½ï¿½ï¿½Â¥   
+	readcount   number(3) default 0,	  -- ï¿½ï¿½È¸ï¿½ï¿½
+	day varchar2(50) not null, --ï¿½ï¿½ï¿½ï¿½
+	s_time varchar2(20) not null, --ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	e_time varchar2(20) not null, --ï¿½ï¿½ ï¿½Ã°ï¿½
+	place1 varchar2(20) not null, --ï¿½ï¿½ï¿½1
+	place2 varchar2(20) not null, --ï¿½ï¿½ï¿½2
+	place3 varchar2(50) not null, --ï¿½ï¿½ï¿½3
+	people number not null, --ï¿½Î¿ï¿½ 
+	content nvarchar2(2000) not null, --ï¿½ï¿½ï¿½ï¿½
+	ip varchar2(20)  not null,  --ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	constraint  study_num_pk  primary key(num)
 	
 )SEGMENT creation IMMEDIATE;
@@ -40,4 +40,4 @@ select * from study_info;
 
 select * from mvcnotice;
 
-insert into mvcnotice values('Ãß°¡ÇÞ´Ù..','2017-09-09');
+insert into mvcnotice values('ï¿½ß°ï¿½ï¿½Þ´ï¿½..','2017-09-09');

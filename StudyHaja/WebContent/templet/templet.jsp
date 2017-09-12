@@ -8,6 +8,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../jaewoong/css1/moonCss.css">
+<script src="../jaewoong/js/bootstrap.js"></script>
+<script src="../jaewoong/js1/selectJs.js"></script>
+
 <link rel="stylesheet" href="../ahn/css/ahnSignup.css">
 <link rel="stylesheet" href="../ahn/css/ahnTable.css">
 <link rel="stylesheet" href="../ahn/css/toggle.css">
@@ -17,7 +21,7 @@
 <link rel="stylesheet" href="../ahn/css/ahnText.css">
 <link rel="stylesheet" href="../ahn/css/ahnButton.css">
 <link rel="stylesheet" href="../ahn/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../ram/css/ram4.css" />
+<link rel="stylesheet" type="text/css" href="../ram/css/ram3.css" />
 
 <script src="jquery-1.9.1.js"></script>
 <script src="jquery-ui.js"></script>
@@ -31,15 +35,15 @@
 	<a href="loginForm.do" >LOGIN</a>&nbsp;&nbsp;&nbsp;
 	<a href="signupForm.do" >SIGN-UP</a>
 </div>
-<div class="tpm">
+<!-- <div class="tpm"> -->
 <ul id = "topMenu">
-	<li><a href="#" >Study Together</a></li>
+	<li><a href="registerForm.do" >Study Together</a></li>
 	<li><a href="#" >Study Search</a></li>
 	<li><a href="#" >Study Room</a></li>
 	<li><a href="#" >Notice</a></li>	
 	<li><a href="#" >Q&A</a></li>	
 </ul>
-</div>
+<!-- </div> -->
 
 <div>
 	<jsp:include page="${ CONTENT }"  flush="false"/>
