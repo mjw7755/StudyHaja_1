@@ -13,18 +13,26 @@ a{
 }
 
 #top{/* 로그인버튼이 있는 선택바 색상-검정, 텍스트 정렬-오른쪽, margin지정 */
+    text-align:right;
+    bottom: 760px;
 	color:#000;
-	text-align : right;
-	margin:0px 120px 0px 0px;
-	
+	height: 100%;
+    margin : 0px 150px 10px 0px;
 }
 #topMenu{/* 메뉴바 스타일 지정 */
 	list-style:none;
+    bottom: 700px;
 	width:100%;
+	margin:0px 0px 30px 0px;
+	text-align:center;
+    /* left: 30%; */
+	color:#000;
+	
+/* 	width:100%;
 	background-color : #fff;
 	margin:0px;
 	padding:20px;
-	text-align:center;
+	text-align:center; */
 }
  #topMenu li{
 	display:inline;/* 메뉴바를 한줄로 보여줌 */
