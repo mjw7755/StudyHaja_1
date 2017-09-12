@@ -199,11 +199,11 @@ figure.snip1132.hover img {
         position: fixed;
         left: 90%;
         bottom: 400px;
-        display: none;
+        /* display: none; */
       }
        .scroll_bottom {
         position: fixed;
         left: 90%;
         bottom: 350px;
-        display: none;
+        /* display: none; */
       }

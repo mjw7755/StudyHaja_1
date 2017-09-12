@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
 
 <link rel="stylesheet" type="text/css" href="ram/css/ram3.css" />
-
 <!DOCTYPE html>
 <html> 
 <head>
