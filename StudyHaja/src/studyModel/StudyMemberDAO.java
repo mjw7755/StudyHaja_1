@@ -1,6 +1,7 @@
 package studyModel;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -91,4 +92,5 @@ public class StudyMemberDAO {
 		return -1; //데이터베이스 오류
 		
 	}
+	
 }

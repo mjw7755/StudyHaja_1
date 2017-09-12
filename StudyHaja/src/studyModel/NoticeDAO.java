@@ -58,13 +58,13 @@ public class NoticeDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		ArrayList list = null;
+		ArrayList<NoticeVO> list = null;
 		
 		try {
 			conn = getConnection();
 			StringBuffer sb = new StringBuffer();
 			
-			sb.append("select subject, reg_date from mvcnotice");
+			sb.append("SELECT SUBJECT, REG_DATE FROM MVCNOTICE");
 			
 			pstmt = conn.prepareStatement(sb.toString());
 			rs = pstmt.executeQuery();
@@ -72,9 +72,11 @@ public class NoticeDAO {
 			NoticeVO vo = null;
 			while(rs.next()){
 				vo = new NoticeVO();
-				vo.setSubject(rs.getString("subject"));
-				vo.setReg_date(rs.getTimestamp("reg_date"));
-				
+				vo.setSubject(rs.getString("SUBJECT"));
+				vo.setReg_date(rs.getTimestamp("REG_DATE"));
+				/*System.out.println(rs.getString("subject"));
+				System.out.println(rs.getTimestamp("reg_date"));*/
+
 				list.add(vo);
 			}
 			
@@ -83,6 +85,7 @@ public class NoticeDAO {
 		} finally{
 			CloseUtil.close(rs); CloseUtil.close(pstmt); CloseUtil.close(conn);
 		}
+		
 		return list;
 	}
 }

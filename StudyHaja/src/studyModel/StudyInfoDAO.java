@@ -3,6 +3,7 @@ package studyModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -74,5 +75,43 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 		}
 		
 		return -1;
+	}
+	
+	public ArrayList<StudyInfoVO> selectList(String content) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StudyInfoVO vo = null;
+		ArrayList<StudyInfoVO> studyArr = null;
+		String sql = "select num,kind2,subject,reg_date,readcount from study_info where content = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, content);
+			rs = pstmt.executeQuery();
+			studyArr = new ArrayList<StudyInfoVO>();
+			
+			while(rs.next()){
+				vo = new StudyInfoVO();
+				vo.setNum(rs.getInt("num"));
+				vo.setKind2(rs.getString("kind2"));
+				vo.setSubject(rs.getString("subject"));
+				vo.setReg_date(rs.getTimestamp("reg_date"));
+				vo.setReadcount(rs.getInt("readcount"));
+				
+				studyArr.add(vo);
+			}
+			
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally{
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+			CloseUtil.close(conn);
+		}
+		
+		return studyArr;
 	}
 }

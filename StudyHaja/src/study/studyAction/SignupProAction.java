@@ -13,6 +13,7 @@ public class SignupProAction implements CommandAction {
 	
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
 		request.setCharacterEncoding("utf-8");
 		StudyMemberVO membervo = new StudyMemberVO();
 		

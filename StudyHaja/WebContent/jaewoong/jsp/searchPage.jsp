@@ -192,11 +192,11 @@
 							<table cellpadding="20px" text-align="center" >
 							<tr >
 								<td>전체 <input type="checkbox" id ="allChk" name = "allChk"/></td>
-								<td>JAVA <input type="checkbox" id ="toeChk" name="toeChk"/></td>
-								<td>C/C++ <input type="checkbox" id ="tsChk" name = "tsChk"/></td>
-								<td>Python <input type="checkbox" id ="opChk" name="opChk"/></td>
-								<td>Ruby <input type="checkbox" id ="tpsChk" name = "tpsChk"/></td>
-								<td>Android <input type="checkbox" id ="perChk" name="perChk"/></td>
+								<td>JAVA <input type="checkbox" id ="toeChk" name="toeChk" value="JAVA"/></td>
+								<td>C/C++ <input type="checkbox" id ="tsChk" name = "tsChk" value="C/C++"/></td>
+								<td>Python <input type="checkbox" id ="opChk" name="opChk" value="Python"/></td>
+								<td>Ruby <input type="checkbox" id ="tpsChk" name = "tpsChk" value="Ruby"/></td>
+								<td>Android <input type="checkbox" id ="perChk" name="perChk" value="Android"/></td>
 							</tr>
 							<tr>
 								<td>Objective-C <input type="checkbox" id ="interChk" name = "interChk"/></td>
@@ -316,6 +316,7 @@
 							</tr>
 						</thead>
 						<tbody id="ajaxTable">
+							
 						</tbody>
 					</table>
 					
