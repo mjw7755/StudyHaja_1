@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="ahn/css/ahnText.css">
 <link rel="stylesheet" href="ahn/css/ahnButton.css">
 <link rel="stylesheet" href="ahn/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="ram/css/ram4.css" />
 
 <script src="ahn/js/selectKind.js"></script>
 <script src="ahn/js/selectAddr.js"></script>

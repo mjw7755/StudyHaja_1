@@ -33,7 +33,7 @@
 </div>
 <div class="tpm">
 <ul id = "topMenu">
-	<li><a href="#" >Study Together</a></li>
+	<li><a href="registerForm.do" >Study Together</a></li>
 	<li><a href="#" >Study Search</a></li>
 	<li><a href="#" >Study Room</a></li>
 	<li><a href="#" >Notice</a></li>	
