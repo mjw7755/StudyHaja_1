@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>모집하기</title>
-<link rel="stylesheet"  href="ahn/css/ahnCheckbox.css">
+<link rel="stylesheet"  href="ahn/css/ahnCheckbox2.css">
 <link rel="stylesheet" href="ahn/css/ahnTable.css">
 <link rel="stylesheet" href="ahn/css/ahnSelect.css">
 <link rel="stylesheet" href="ahn/css/ahnText.css">
