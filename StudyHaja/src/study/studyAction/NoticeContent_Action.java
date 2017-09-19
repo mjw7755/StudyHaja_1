@@ -5,8 +5,8 @@ import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.kosta.Model.NoticeDAO;
-import edu.kosta.Model.NoticeVO;
+import studyModel.NoticeDAO;
+import studyModel.NoticeVO;
 
 public class NoticeContent_Action implements CommandAction {
 

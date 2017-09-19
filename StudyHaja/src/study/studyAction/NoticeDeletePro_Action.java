@@ -3,7 +3,7 @@ package study.studyAction;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.kosta.Model.NoticeDAO;
+import studyModel.kosta.Model.NoticeDAO;
 
 public class NoticeDeletePro_Action implements CommandAction {
 
