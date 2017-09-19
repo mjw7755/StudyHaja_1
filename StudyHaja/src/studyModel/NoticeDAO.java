@@ -23,6 +23,8 @@ public class NoticeDAO {
 		return instance;
 	}
 	
+	
+	
 	public NoticeDAO(){	}
 	
 	public Connection getConnection() throws Exception{
