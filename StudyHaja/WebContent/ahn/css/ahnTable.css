@@ -62,7 +62,7 @@ table.mytable th {
 
 }
 table.mytable td {
-    width: 800px;
+    width: 600px;
     padding: 10px;
     vertical-align: top;
     border-right: 1px solid #ccc;

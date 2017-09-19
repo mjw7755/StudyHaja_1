@@ -1,11 +1,10 @@
 package study.studyAction;
 
-<<<<<<< HEAD
-=======
+
 import java.sql.Timestamp;
 
 import java.text.SimpleDateFormat;
->>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
+
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;

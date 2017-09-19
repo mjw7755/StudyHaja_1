@@ -4,11 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
-import studyModel.kosta.Model.NoticeDAO;
-=======
+
 import studyModel.NoticeDAO;
->>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
+
+import studyModel.NoticeDAO;
+
 
 public class NoticeDeletePro_Action implements CommandAction {
 
