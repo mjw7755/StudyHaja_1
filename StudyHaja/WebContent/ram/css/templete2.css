@@ -1,0 +1,60 @@
+a:hover {
+color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
+}
+a{
+	font-weight : 800;
+	font:1.5em ;/* a 선택자 폰트 크기,색상-검정, 텍스트 데코 없앰*/
+	color:#000;
+	text-decoration:none;
+}
+#templete_top{
+    height: 100px;
+}
+#main_icon{
+	float: left;
+	width:23%;
+	text-align: right;
+}
+#top{
+	float: left;
+	width:53%;
+}
+#login{
+	float: left;
+	width:23%;
+}
+#topMenu{/* 메뉴바 스타일 지정 */
+	list-style: none;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+}
+ #topMenu li{
+	display:inline;
+	/* 메뉴바를 한줄로 보여줌 */
+ 	padding-left:50px;
+} 
+ #login2{
+ 	list-style: none;
+    text-align: center;
+    margin-top: 30px;
+ }
+
+ #login2 li{
+	display:inline;
+	padding-right: 15px;
+}
+
+  .scroll_top {
+        position: fixed;
+        left: 90%;
+        bottom: 400px;
+        display: none;
+      }
+       .scroll_bottom {
+        position: fixed;
+        left: 90%;
+        bottom: 350px;
+        display: none;
+      }
+

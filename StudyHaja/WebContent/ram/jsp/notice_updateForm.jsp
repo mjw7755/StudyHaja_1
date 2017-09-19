@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>방명록 글쓰기</title>
+<script type = "text/javascript"></script>
+</head>
+<!-- 답변글의 경우 : 부모글의 글번호, 그룹화번호, 그룹화내의 순서, 들여쓰기  
+		<=== content.jsp 페이지에서 넘어옴.....
+-->
+<center><b>글 수정하기</b></center><br>
+<form action = "notice_updatePro.do?pageNum=${ pageNum }" method="post" name = "updateForm" onsubmit="return writeSave()">
+
+<table width='400' border='1' cellspacing='0' cellpadding='0' align="center">
+
+<tr>
+	<td width="70" align = "center"> 이  름</td>
+	<td width="330">${ vo.writer }
+		<input type="hidden" name="num" value="${ vo.num }"></td>
+	</td>
+	
+</tr>
+<tr>
+	<td width="70" align = "center"> 제  목</td>
+	<td width="330">
+<!-- 	답변인것에 대한 처리 -->
+<input type= "text" size = "40" maxlength="50" name = "subject" value = "${ vo.subject }"></td>
+</tr>
+
+<tr>
+	<td width="70"  align = "center"> 내  용</td>
+	<td width="330"><textarea rows="13" cols="40" name = "content">${ vo.content }</textarea></td>
+</tr>
+
+<tr>
+	<td align="center" colspan="2" >
+	<input type = "submit" value = "글수정">
+	<input type= "reset" value = "다시작성">
+	<p><a href="notice_list.do?pageNum=${ pageNum }">목록목록</a></p>
+</tr>
+</table>
+</form>
+</body>
+</html>

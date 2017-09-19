@@ -1,0 +1,19 @@
+  #notice_list {
+  	margin-top:100px;
+    border-top: 2px solid #444444;
+    border-bottom :2px solid #444444;
+    border-collapse: collapse;
+  }
+  th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+  }
+	#num{
+		width : 50px;
+		font-style: inherit;
+	}
+	#subject2{
+	 width:85%;
+	 color: gray;
+}
+	
