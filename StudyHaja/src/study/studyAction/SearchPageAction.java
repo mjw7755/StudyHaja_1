@@ -1,5 +1,7 @@
 package study.studyAction;
 
+import java.io.PrintWriter;
+
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,15 +10,23 @@ import javax.servlet.http.HttpServletResponse;
 import studyModel.StudyInfoDAO;
 import studyModel.StudyInfoVO;
 
+
 public class SearchPageAction implements CommandAction {
 
+	
+	
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		String content = request.getParameter("content");
 		response.getWriter().write(getJSON(content));
-		
+		System.out.println("내용 : "+content);
+		System.out.println("내용2 : "+getJSON(content));
+		/*ArrayList<StudyInfoVO> vo = new ArrayList<StudyInfoVO>();
+		StudyInfoDAO dao = StudyInfoDAO.getInstance();
+		vo = dao.selectListAll();
+		request.setAttribute("vo", vo);*/
 		
 		return "/jaewoong/jsp/searchPage.jsp";
 	}
@@ -38,5 +48,6 @@ public class SearchPageAction implements CommandAction {
 		return result.toString();
 	}
 
+	
 	
 }
