@@ -25,7 +25,7 @@ public class cafedeleteFormAction implements CommandAction {
 	      request.setAttribute("num", num);
 	      request.setAttribute("pageNum", pageNum);
 	      
-	      return "/jsp/cafedeletePro.jsp" ;
+	      return "/ahn/jsp/cafedeletePro.jsp" ;
 	   }
 
 }

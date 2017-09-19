@@ -22,7 +22,7 @@ public class UpdateFormAction implements CommandAction {
 		request.setAttribute("pageNum", Integer.parseInt(pageNum) );
 		request.setAttribute("vo",  vo);
 		
-		return "/board/updateForm.jsp" ;
+		return "/juju/board/updateForm.jsp" ;
 	}
 
 }

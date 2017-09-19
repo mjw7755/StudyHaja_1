@@ -18,7 +18,7 @@ public class caferegisterformAction implements CommandAction {
 		request.setAttribute("num", num);
 		request.setAttribute("r_no", r_no);
 		
-		return "/jsp/caferegisterForm.jsp";		
+		return "/ahn/jsp/caferegisterForm.jsp";		
 	}
 
 }

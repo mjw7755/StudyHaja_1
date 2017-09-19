@@ -15,7 +15,7 @@ public class DeleteFormAction implements CommandAction {
 		request.setAttribute("num", num);
 		request.setAttribute("pageNum", new Integer(pageNum));
 		
-		return "/board/deleteForm.jsp" ;
+		return "/juju/board/deleteForm.jsp" ;
 	}
 
 	

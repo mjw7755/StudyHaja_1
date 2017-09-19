@@ -7,12 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/ahnTable.css">
-<link rel="stylesheet" href="css/ahnButton.css">
-<link rel="stylesheet" href="css/ahnText.css">
+<link rel="stylesheet" href="ahn/css/ahnTable.css">
+<link rel="stylesheet" href="ahn/css/ahnButton.css">
+<link rel="stylesheet" href="ahn/css/ahnText.css">
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/ahn/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+ 
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
 <!-- Smart Editor -->
 <script type="text/javascript">
 var oEditors = [];
@@ -21,7 +22,7 @@ $(function(){
           oAppRef: oEditors,
           elPlaceHolder: "contents", //textarea에서 지정한 id와 일치해야 합니다. 
           //SmartEditor2Skin.html 파일이 존재하는 경로
-          sSkinURI: "<%=request.getContextPath()%>/se2/SmartEditor2Skin.html",  
+          sSkinURI: "<%=request.getContextPath()%>/ahn/se2/SmartEditor2Skin.html",  
           fCreator: "createSEditor2"
       });
       //저장버튼 클릭시 form 전송

@@ -30,7 +30,7 @@ public class ContentAction implements CommandAction {
 		request.setAttribute("pageNum", new Integer(pageNum));
 		request.setAttribute("vo", vo);		
 		
-		return "/board/content.jsp";
+		return "/juju/board/content.jsp";
 	}
 
 }

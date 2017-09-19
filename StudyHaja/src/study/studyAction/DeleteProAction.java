@@ -23,7 +23,7 @@ public class DeleteProAction implements CommandAction {
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("check", check);
 		
-		return "/board/deletePro.jsp" ;
+		return "/juju/board/deletePro.jsp" ;
 	}
 
 }
