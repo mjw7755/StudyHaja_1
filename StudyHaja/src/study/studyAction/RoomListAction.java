@@ -24,6 +24,7 @@ public class RoomListAction implements CommandAction {
 		if( pageNum == null ) pageNum = "1";
 		
 		int currentPage = Integer.parseInt(pageNum);  // 1
+		System.out.println("1");
 		int startRow = (currentPage * pageSize) - SU ;  // 1
 		int endRow = (currentPage * pageSize) ;  // 7
 		
@@ -50,12 +51,19 @@ public class RoomListAction implements CommandAction {
 		number = count - (currentPage - 1) * pageSize ;		 // ex) 9
 		
 		//해당 뷰에서 사용할 속성(저장)
+		System.out.println("2");
 		request.setAttribute("currentPage", new Integer(currentPage));
+		System.out.println("3");
 		request.setAttribute("startRow", new Integer(startRow));
+		System.out.println("4");
 		request.setAttribute("endRow", new Integer(endRow));
+		System.out.println("5");
 		request.setAttribute("count", new Integer(count));
+		System.out.println("6");
 		request.setAttribute("pageSize", new Integer(pageSize));
+		System.out.println("7");
 		request.setAttribute("number", new Integer(number));
+		System.out.println("8");
 		request.setAttribute("list", list);
 		
 		return "/ahn/jsp/roomList.jsp";

@@ -14,14 +14,18 @@
 </head>
 
 <body>
+
+		
 <br/><br/>
+	<a href="caferegisterForm.do">
+	
 	<div class="back">
-    <div class="button_base b05_3d_roll" onclick="location.href='caferegisterForm.do'">
+    <div class="button_base b05_3d_roll" <!-- onclick="location.href='caferegisterForm.do'" -->
         <div>스터디까페 등록</div>
         <div>스터디까페 등록</div>
     </div>
 </div>
-
+	</a>
 	<center>
 	<c:if test="${ count > 0 }">
 	<table cellpadding="20">
@@ -127,5 +131,6 @@
       		<a href="roomList.do?pageNum=${ startPage + 5 }">[다음]</a>   
          </c:if>
 </c:if>	
+	<input type="hidden" name="pageNum" value="${currentPage}">
 </body>
 </html>

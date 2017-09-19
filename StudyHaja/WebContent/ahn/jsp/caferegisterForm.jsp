@@ -42,9 +42,10 @@ function pasteHTML(filepath){
 </head>
 <center>
 <body>
-<form action="caferegisterPro.do" id = "frm" method="post">
+<form action="caferegisterPro.do?pageNum=1" id = "frm" method="post">
 	<input type="hidden" name="num" value="${num }">
 	<input type="hidden" name="r_no" value="${r_no }">
+	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table border="1" class="mytable">
 		<tr>
 			<th scope="row" style="min-width:100px;"><font color="red" size="2em">* </font>이 름 </th>
@@ -106,7 +107,8 @@ function pasteHTML(filepath){
 		</tr>
 	</table>
 <div class="first">
-	<button id="btnCafe">등록하기</button>	
+	<input type="submit" value="등록하기" id="btnCafe">
+	<!-- <button id="btnCafe">등록하기</button>	 -->
 </div>
 </form>
 </body>
