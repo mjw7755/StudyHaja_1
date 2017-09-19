@@ -24,7 +24,7 @@ public class NoticeDeletePro_Action implements CommandAction {
 		request.setAttribute("num", num);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("check", check);
-		return "/jsp/notice_deletePro.jsp";
+		return "/ram/jsp/notice_deletePro.jsp";
 	}
 
 }

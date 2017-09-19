@@ -32,7 +32,7 @@ public class InsertFormAction implements CommandAction{
 		request.setAttribute("re_step", re_step);
 		request.setAttribute("re_level", re_level);*/
 		
-		return "/jsp/InsertForm.jsp";
+		return "/ahn/jsp/InsertForm.jsp";
 		
 	}
 

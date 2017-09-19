@@ -10,7 +10,7 @@
 </head>
 <body>
 <c:if test="${result==1 }">
-	<script>alert("수정됬습니다")</script>
+	<script>alert("수정완료!")</script>
 	<meta http-equiv="Refresh" content="0; url=Room2.do?num=${num}&pageNum=${pageNum}">
 </c:if>
 <c:if test="${result!=1 }">

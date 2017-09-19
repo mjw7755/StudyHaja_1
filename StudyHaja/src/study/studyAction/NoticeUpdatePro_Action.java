@@ -29,7 +29,7 @@ public class NoticeUpdatePro_Action implements CommandAction {
 		request.setAttribute("num",vo.getNum());
 		request.setAttribute("check", new Integer(check));
 		
-		return "/jsp/notice_updatePro.jsp";
+		return "/ram/jsp/notice_updatePro.jsp";
 	}
 
 }

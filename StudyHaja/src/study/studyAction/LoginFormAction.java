@@ -3,15 +3,12 @@ package study.studyAction;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class NoticeWriteForm_Action implements CommandAction {
+public class LoginFormAction implements CommandAction {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		int num = 0;
-		
-		request.setAttribute("num", num);
-		
-		return "/ram/jsp/notice_writeForm.jsp";
+		// TODO Auto-generated method stub
+		return "/ahn/jsp/loginForm.jsp";
 	}
 
 }

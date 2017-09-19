@@ -24,7 +24,7 @@ import dbclose.util.CloseUtil;
    public Connection getConnection() throws Exception {
       Context ctx = new InitialContext();
 
-      DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc:StudymemberDB");
+      DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc:BoardDB");
 
       DriverManager.setLogWriter(new PrintWriter(System.out));
 

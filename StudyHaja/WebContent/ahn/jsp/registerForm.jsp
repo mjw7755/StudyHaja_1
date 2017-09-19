@@ -12,13 +12,11 @@
 <link rel="stylesheet" href="ahn/css/ahnText.css">
 <link rel="stylesheet" href="ahn/css/ahnButton.css">
 <link rel="stylesheet" href="ahn/css/bootstrap.css">
-<<<<<<< HEAD
+
 <!-- <link rel="stylesheet" type="text/css" href="ram/css/ram4.css" /> -->
-=======
+
 
 <link rel="stylesheet" type="text/css" href="ram/css/ram4.css" />
-
->>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
 
 <link rel="stylesheet" type="text/css" href="ram/css/ram3.css" />
 

@@ -26,7 +26,7 @@ public class NoticeContent_Action implements CommandAction {
 		request.setAttribute("pageNum", new Integer(pageNum));
 		request.setAttribute("vo", vo);		
 		
-		return "/jsp/notice_content.jsp";
+		return "/ram/jsp/notice_content.jsp";
 	}
 
 }
