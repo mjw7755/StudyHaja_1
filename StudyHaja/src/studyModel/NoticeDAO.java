@@ -42,7 +42,7 @@ public class NoticeDAO {
 		try {
 			conn = getConnection();
 			
-			pstmt = conn.prepareStatement("select count(*) from mvcnotice");
+			pstmt = conn.prepareStatement("select count(*) from notice");
 			rs = pstmt.executeQuery();
 			
 			if( rs.next()) count = rs.getInt(1);
@@ -64,7 +64,7 @@ public class NoticeDAO {
 			conn = getConnection();
 			StringBuffer sb = new StringBuffer();
 			
-			sb.append("SELECT SUBJECT, REG_DATE FROM MVCNOTICE");
+			sb.append("SELECT SUBJECT, REG_DATE FROM NOTICE");
 			
 			pstmt = conn.prepareStatement(sb.toString());
 			rs = pstmt.executeQuery();

@@ -48,6 +48,8 @@
 .option-input:checked {
   background: #40e0d0;
 }
+
+
 .option-input:checked::before {
   height: 40px;
   width: 40px;

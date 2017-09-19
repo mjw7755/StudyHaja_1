@@ -1,0 +1,33 @@
+a:hover {
+color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
+}
+a{
+	font:50px ;/* a 선택자 폰트 크기,색상-검정, 텍스트 데코 없앰*/
+	color:#000;
+	text-decoration:none;
+}
+
+#top{
+	padding-top: 20px;
+    width: 1500px;	
+    
+    
+}
+#main_icon{
+	margin:0px 100px 0px 100px;
+}
+#topMenu{/* 메뉴바 스타일 지정 */
+    text-align: center;
+    font-weight: 800;
+    font-size: 20px;
+}  
+ #login{
+	padding-left: 100px;
+    padding-right: 15px;
+    font-weight: 800;
+    text-align: right;
+ }
+ 
+ #sign-up{
+ 	font-weight : 800;
+ }

@@ -12,6 +12,31 @@
  <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="../js/bootstrap.js"></script>
+<script type="text/javascript">
+	var request = new XMLHttprequest();
+	function searchFunction(){
+		
+		request.open("Post","./searchPageAction.do?content="+encodeURIComponent(document.getElementById("content")),true);
+		request.onreadystatechange = searchProcess;
+		request.send(null);
+		
+	}
+	function searchProcess(){
+		var table = document.getElementById("ajaxTable");
+		table.innerHTML = "";
+		if(request.readyState == 4 && request.status == 200){
+			var object = eval('('+request.responseText+')');
+			var result = object.result;
+			for(var i=0;i<result.length;i++){
+				var row = table.insertRow(0);
+				for(var j=0;j<result[i].length;j++){
+					var cell = row.insertCell(0);
+					cell.innerHTML = result[i][j].value;
+				}
+			}
+		}
+	}
+</script>
 <script>
 	$(function(){
 		$("#findjob").click(function(){
@@ -294,8 +319,8 @@
 						  <option>댓글 아이디</option>
 						  <option>댓글 이름</option>
 				</select>
-				<input type="text" class="tb6">
-				<input type="button" id="searchBtn" value="검색">
+				<input type="text" id="content" onkeyup="searchFunction()" class="tb6">
+				<input type="button" id="searchBtn" onclick="searchFunction();" value="검색">
 				</div>
 				<br><br>
 				<h2>모집중인 스터디</h2>

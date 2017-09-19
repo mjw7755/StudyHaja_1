@@ -12,7 +12,6 @@ public class NoticeVO implements Serializable {
 	private Timestamp reg_date;
 	private int readcount;
 	private String content;
-	private String ip;
 	public int getNum() {
 		return num;
 	}
@@ -54,12 +53,6 @@ public class NoticeVO implements Serializable {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public String getIp() {
-		return ip;
-	}
-	public void setIp(String ip) {
-		this.ip = ip;
 	}
 	
 	

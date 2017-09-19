@@ -18,7 +18,7 @@ public class SearchPageAction implements CommandAction {
 		response.getWriter().write(getJSON(content));
 		
 		
-		return null;
+		return "/jaewoong/jsp/searchPage.jsp";
 	}
 
 	public String getJSON(String content) {
@@ -26,11 +26,16 @@ public class SearchPageAction implements CommandAction {
 		StringBuffer result = new StringBuffer("");
 		result.append("{\"result\":[");
 		StudyInfoDAO studyDAO = new StudyInfoDAO();
-		ArrayList<StudyInfoVO> studyMemberList = studyDAO.selectList(content);
-		for(int i=0;i<studyMemberList.size();i++){
-			result.append("[{\"value\": \""+ studyMemberList.get(i).getNum()+"\"},");
+		ArrayList<StudyInfoVO> studyInfoList = studyDAO.selectList(content);
+		for(int i=0;i<studyInfoList.size();i++){
+			result.append("[{\"value\": \""+ studyInfoList.get(i).getNum()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getKind2()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getSubject()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getReg_date()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getReadcount()+"\"}],");
 		}
-		return null;
+		result.append("]}");
+		return result.toString();
 	}
 
 	
