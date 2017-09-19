@@ -30,8 +30,9 @@ public class SearchPageServlet extends HttpServlet {
 		
 		String[] check = request.getParameterValues("check");
 		String td = request.getParameter("td");
+		String selValue = request.getParameter("seValue");
 		/*String subject = request.getParameter("subject");*/
-		String result = td;
+		int result = 123;
 		
 		/*StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
 		ArrayList<StudyInfoVO> studyInfoList = studyDAO.selectListAll();*/
@@ -52,10 +53,9 @@ public class SearchPageServlet extends HttpServlet {
 			td = null;
 		}else {
 			try {
-				System.out.println(td);
-				StudyInfoVO studyTdInfoList = studyDAO.selectContent(td);
-				request.setAttribute("vo", studyTdInfoList);
-				response.getWriter().write(result);
+				
+				
+				response.getWriter().print(getJSONTd(td));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -130,34 +130,34 @@ public class SearchPageServlet extends HttpServlet {
 		return result.toString();
 	}
 	
-	/*public String getJSONTd(String td) throws Exception {
+	public String getJSONTd(String td) throws Exception {
 		if(td == null)td = null;
 		StringBuffer result = new StringBuffer("");
 		result.append("{\"result\":[");
 		StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
 		System.out.println();
-		ArrayList<StudyInfoVO> studyInfoList = studyDAO.selectContentAll(td);
+		StudyInfoVO vo = studyDAO.selectContent(td);
 		
-		System.out.println(studyInfoList.toString() + "여기까지 왔지?");
+		System.out.println(vo.toString() + "여기까지 왔지?");
 		
-		for(int i=0;i<studyInfoList.size();i++){
-			result.append("[{\"value\": \""+ studyInfoList.get(i).getSubject()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getKind2()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getS_date()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getE_date()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getDay()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getS_hour()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getS_minute()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getE_hour()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getE_minute()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getPlace1()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getPlace2()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getPlace3()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getPeople()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getContent()+"\"}],");
-		}
+		
+			result.append("[{\"value\": \""+ vo.getSubject()+"\"},");
+			result.append("{\"value\": \""+ vo.getKind2()+"\"},");
+			result.append("{\"value\": \""+ vo.getS_date()+"\"},");
+			result.append("{\"value\": \""+ vo.getE_date()+"\"},");
+			result.append("{\"value\": \""+ vo.getDay()+"\"},");
+			result.append("{\"value\": \""+ vo.getS_hour()+"\"},");
+			result.append("{\"value\": \""+ vo.getS_minute()+"\"},");
+			result.append("{\"value\": \""+ vo.getE_hour()+"\"},");
+			result.append("{\"value\": \""+ vo.getE_minute()+"\"},");
+			result.append("{\"value\": \""+ vo.getPlace1()+"\"},");
+			result.append("{\"value\": \""+ vo.getPlace2()+"\"},");
+			result.append("{\"value\": \""+ vo.getPlace3()+"\"},");
+			result.append("{\"value\": \""+ vo.getPeople()+"\"},");
+			result.append("{\"value\": \""+ vo.getContent()+"\"}],");
+		
 		result.append("]}");
 		return result.toString();
-	}*/
+	}
 
 }
