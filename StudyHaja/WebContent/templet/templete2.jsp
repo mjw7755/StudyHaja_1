@@ -37,7 +37,7 @@
 <div id = "templete_top">
 
 <div id = "main_icon">
-<a href="list.do" id= "icon"><img src="ram/images/logo3_2.png"/></a>
+<a href="mainlist.do" id= "icon"><img src="ram/images/logo3_2.png"/></a>
 </div>
 
 <div id = "top">
@@ -46,7 +46,7 @@
 	<li><a href="#" >Study Search</a></li>
 	<li><a href="roomList.do" >Study Room</a></li>
 	<li><a href="notice_list.do" >Notice</a></li>	
-	<li><a href="#" >Q&A</a></li>	
+	<li><a href="list.do" >Q&A</a></li>	
 </ul>
 </div>
 

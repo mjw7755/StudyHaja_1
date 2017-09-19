@@ -9,7 +9,7 @@
 <title>게시판</title>
 
 <link href="./view/style.css" rel="stylesheet" type="text/css">
-<script language="JavaScript" src="./view/script.js"></script>
+<script language="JavaScript" src="../view/script.js"></script>
 
 </head>
 <body bgcolor="${ bodyback_c }">  

@@ -10,13 +10,18 @@
 <title>방명록 글쓰기</title>
 <link href = "./view/mystyle.css" rel = "stylesheet" type = text/css">
 <script type = "text/javascript" src = "./view/script.js"></script>
+
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.11.0.min.js" charset="utf-8"></script>
+	
 <script type="text/javascript" src="<%=request.getContextPath()%>/view/script.js"></script>
+
 <script type="text/javascript"
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/editor/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
+	
 <%-- 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style_board.css" type="text/css" /> --%>
 </head>
 
@@ -38,7 +43,7 @@ align="center">
 	</td>
 </tr>
 <tr>
-	<td width="70" bgcolor = "${ value_c }"" align = "center"> 제  목</td>
+	<td width="70" bgcolor = "${ value_c }"" align = "center""> 제  목</td>
 	<td width="330">
 <!-- 	답변인것에 대한 처리 -->
 
@@ -122,10 +127,6 @@ align="center">
 				
 
  		</script>
-
-
-
-
 
 </body>
 </html>
