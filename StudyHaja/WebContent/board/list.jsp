@@ -57,7 +57,7 @@
 		<img src="images/level.gif" width="${ 5 * list.re_level  }" height="16"> 
 	</c:if>
 	   
-	  <a 	href="content.do?num=${list.num }&pageNum=${ currentPage }">
+	  <a 	href="jujucontent.do?num=${list.num }&pageNum=${ currentPage }">
 					${ list.title }</a> 
 	
 	<c:if test="list.readcount >= 3">

@@ -3,8 +3,6 @@ package study.studyAction;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.kosta.roomAction.CommandAction;
-
 public class WriteFormAction implements CommandAction{
 
 	@Override
