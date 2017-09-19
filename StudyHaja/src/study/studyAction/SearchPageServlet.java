@@ -256,7 +256,6 @@ public class SearchPageServlet extends HttpServlet {
 		System.out.println();
 		StudyInfoVO vo = studyDAO.selectContent(td);
 		
-		System.out.println(vo.toString() + "여기까지 왔지?");
 		
 		
 			result.append("[{\"value\": \""+ vo.getSubject()+"\"},");

@@ -22,20 +22,6 @@
 
   		<param-value>C:\Users\kosta\git\StudyHaja_1\StudyHaja\WebContent\WEB-INF\commandBoard.properties</param-value>
 
-
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
-  		<param-value>C:\Users\AHN\git\StudyHaja_1\StudyHaja\WebContent\WEB-INF\commandBoard.properties</param-value>
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
-
-
   	</init-param>
 
   </servlet>

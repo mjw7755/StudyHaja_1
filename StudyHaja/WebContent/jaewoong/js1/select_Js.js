@@ -94,6 +94,181 @@ function doChange(mainSel,targetId){
 		addOption('화성시',targetE);
 	}
 	
+	else if(val == 'gyongnam'){
+		addOption('거제시',targetE);
+		addOption('거창군',targetE);
+		addOption('고성군',targetE);
+		addOption('김해시',targetE);
+		addOption('남해군',targetE);
+		addOption('밀양시',targetE);
+		addOption('사천시',targetE);
+		addOption('산청군',targetE);
+		addOption('양산시',targetE);
+		addOption('의령군',targetE);
+		addOption('진주시',targetE);
+		addOption('창녕군',targetE);
+		addOption('창원시 마산합포구',targetE);
+		addOption('창원시 성산구',targetE);
+		addOption('창원시 의창구',targetE);
+		addOption('창원시 진해구',targetE);
+		addOption('통영시',targetE);
+		addOption('하동군',targetE);
+		addOption('함안군',targetE);
+		addOption('함양군',targetE);
+		addOption('합천군',targetE);
+	}
+	
+	else if(val == 'gyongbuk'){
+		addOption('경산시',targetE);
+		addOption('경주시',targetE);
+		addOption('고령군',targetE);
+		addOption('구미시',targetE);
+		addOption('군위군',targetE);
+		addOption('김천시',targetE);
+		addOption('문경시',targetE);
+		addOption('봉화군',targetE);
+		addOption('상주시',targetE);
+		addOption('성주군',targetE);
+		addOption('안동시',targetE);
+		addOption('영덕군',targetE);
+		addOption('영양군',targetE);
+		addOption('영주시',targetE);
+		addOption('영천시',targetE);
+		addOption('예천군',targetE);
+		addOption('울릉군',targetE);
+		addOption('울진군',targetE);
+		addOption('의성군',targetE);
+		addOption('청도군',targetE);
+		addOption('청송군',targetE);
+		addOption('칠곡군',targetE);
+		addOption('포항시 남구',targetE);
+		addOption('포항시 북구',targetE);
+	}
+	
+	else if(val == 'guangju'){
+		addOption('광산구',targetE);
+		addOption('남구',targetE);
+		addOption('동구',targetE);
+		addOption('북구',targetE);
+		addOption('서구',targetE);
+	}
+	
+	else if(val == 'daegu'){
+		addOption('남구',targetE);
+		addOption('달서구',targetE);
+		addOption('달성군',targetE);
+		addOption('동구',targetE);
+		addOption('북구',targetE);
+		addOption('서구',targetE);
+		addOption('수성구',targetE);
+		addOption('중구',targetE);
+	}
+	
+	else if(val == 'daejeon'){
+		addOption('대덕구',targetE);
+		addOption('동구',targetE);
+		addOption('서구',targetE);
+		addOption('유성구',targetE);
+		addOption('중구',targetE);
+	}
+	
+	else if(val == 'busan'){
+		addOption('강서구',targetE);
+		addOption('금정구',targetE);
+		addOption('기장군',targetE);
+		addOption('남구',targetE);
+		addOption('동구',targetE);
+		addOption('동래구',targetE);
+		addOption('부산진구',targetE);
+		addOption('북구',targetE);
+		addOption('사상구',targetE);
+		addOption('사하구',targetE);
+		addOption('서구',targetE);
+		addOption('수영구',targetE);
+		addOption('연제구',targetE);
+		addOption('영도구',targetE);
+		addOption('중구',targetE);
+		addOption('해운대구',targetE);
+	}
+	
+	else if(val == 'seoul'){
+		addOption('강남구',targetE);
+		addOption('강동구',targetE);
+		addOption('강북구',targetE);
+		addOption('강서구',targetE);
+		addOption('관악구',targetE);
+		addOption('광진구',targetE);
+		addOption('구로구',targetE);
+		addOption('금천구',targetE);
+		addOption('노원구',targetE);
+		addOption('도봉구',targetE);
+		addOption('동대문구',targetE);
+		addOption('동작구',targetE);
+		addOption('마포구',targetE);
+		addOption('서대문구',targetE);
+		addOption('서초구',targetE);
+		addOption('성동구',targetE);
+		addOption('성북구',targetE);
+		addOption('송파구',targetE);
+		addOption('양천구',targetE);
+		addOption('영등포구',targetE);
+		addOption('용산구',targetE);
+		addOption('은평구',targetE);
+		addOption('종로구',targetE);
+		addOption('중구',targetE);
+		addOption('중랑구',targetE);
+	}
+	
+	else if(val == 'saejong'){
+		addOption('세종시',targetE);
+	}
+	
+	else if(val == 'ulsan'){
+		addOption('남구',targetE);
+		addOption('동구',targetE);
+		addOption('북구',targetE);
+		addOption('울주군',targetE);
+		addOption('중구',targetE);
+	}
+	
+	else if(val == 'inchoen'){
+		addOption('강화군',targetE);
+		addOption('계양구',targetE);
+		addOption('남구',targetE);
+		addOption('남동구',targetE);
+		addOption('동구',targetE);
+		addOption('부평구',targetE);
+		addOption('서구',targetE);
+		addOption('연수구',targetE);
+		addOption('옹진군',targetE);
+		addOption('중구',targetE);
+	}
+	
+	else if(val == 'junnam'){
+		addOption('강진군',targetE);
+		addOption('고흥군',targetE);
+		addOption('곡성군',targetE);
+		addOption('광양시',targetE);
+		addOption('구례군',targetE);
+		addOption('나주시',targetE);
+		addOption('담양군',targetE);
+		addOption('목포시',targetE);
+		addOption('무안군',targetE);
+		addOption('보성군',targetE);
+		addOption('순천시',targetE);
+		addOption('신안군',targetE);
+		addOption('여수시',targetE);
+		addOption('영광군',targetE);
+		addOption('영암군',targetE);
+		addOption('완도군',targetE);
+		addOption('장성군',targetE);
+		addOption('장흥군',targetE);
+		addOption('진도군',targetE);
+		addOption('함평군',targetE);
+		addOption('해남군',targetE);
+		addOption('화순군',targetE);
+	}
+	
 	
 	
 }
