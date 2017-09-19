@@ -189,9 +189,9 @@ textarea {
       touch-action: manipulation;
 }
 
-table {
+/* table {
   border-collapse: collapse;
-}
+} */
 
 caption {
   padding-top: 0.75rem;

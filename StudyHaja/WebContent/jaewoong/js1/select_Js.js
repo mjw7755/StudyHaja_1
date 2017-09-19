@@ -1,3 +1,32 @@
+var request = new XMLHttpRequest();
+
+
+
+function searchFunction(){
+	alert("dd");
+	request.open("Post","../../searchPageServlet?subject="+encodeURIComponent(document.getElementById("subject").value),true);
+	request.onreadystatechange = searchProcess;
+	request.send(null);
+}
+
+function searchProcess(){
+	alert("t");
+	var table = document.getElementById("ajaxTable");
+	table.innerHTML = "";
+	if(request.readyState == 4 && request.status == 200){
+		var object = eval('('+request.responseText+')');
+		var result = object.result;
+		
+		for(var i=0;i<result.length;i++){
+			var row = table.insertRow(0);
+			for(var j=0;j<result[i].length;j++){
+				var cell = row.insertCell(j);
+				cell.innerHTML = result[i][j].value;
+			}
+		}
+	}
+} 
+
 function doChange(mainSel,targetId){
 	var val = mainSel.options[mainSel.selectedIndex].value;
 	var targetE = document.getElementById(targetId);

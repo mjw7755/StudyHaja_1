@@ -7,14 +7,17 @@ create table study_info (
 	e_date  date not null, 		 -- ����¥   
 	readcount   number(3) default 0,	  -- ��ȸ��
 	day varchar2(50) not null, --����
-	s_time varchar2(20) not null, --���� �ð�
-	e_time varchar2(20) not null, --�� �ð�
-	place1 varchar2(20) not null, --���1
-	place2 varchar2(20) not null, --���2
+	place1 varchar2(50) not null, --���1
+	place2 varchar2(50) not null, --���2
 	place3 varchar2(50) not null, --���3
 	people number not null, --�ο� 
 	content nvarchar2(2000) not null, --����
 	ip varchar2(20)  not null,  --�� �� ���� ������
+	reg_date date not null,
+	s_hour varchar2(20) not null,
+	s_minute varchar2(20) not null,
+	e_hour varchar2(20) not null,
+	e_minute varchar2(20) not null,
 	constraint  study_num_pk  primary key(num)
 	
 )SEGMENT creation IMMEDIATE;
@@ -32,12 +35,16 @@ create table study_members(
 )segment creation immediate;
 
 select * from study_members;
-
+SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE CONTENT='하하하하';
 drop table study_info;
+rollback
+
 create sequence study_num;
 
+
 select * from study_info;
-
+SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE KIND2 = '토익' or KIND2 = '토익스피킹';
 select * from mvcnotice;
-
+select count(*) from study_info;
+select subject,kind2,s_date,e_date,day,s_hour,s_minute,e_hour,e_minute,place1,place2,place3,people,content from study_info where num = 47;
 insert into mvcnotice values('�߰��޴�..','2017-09-09');
