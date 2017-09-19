@@ -70,6 +70,7 @@ public class SearchPageServlet extends HttpServlet {
 			subject = null;
 		}else {
 			System.out.println("2");
+			System.out.println(subSearch);
 			System.out.println(subject);
 			response.getWriter().write(getJSONsearch(subject,subSearch));
 			System.out.println(getJSON(subject));

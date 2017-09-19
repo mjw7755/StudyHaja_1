@@ -32,7 +32,6 @@
 		 
 		 content =  $("#subject").val();
 	     subSearch = $(".subSearch option:checked").text();
-	    	alert(subSearch);
 	    	$("#tableAjax > tbody").empty();
 	    	$.ajax(
 	 				{
@@ -72,7 +71,13 @@
 	    	$("#tableAjax > tbody").empty();
 	    		var i;
 	    		 if($(this).is(":checked")){
-	    		 checkedValues.push($(this).val());
+	    			 if($("[id='allChkOne']:checked")){
+	    				 $("[id='allChkOne']:checked").each(function(){
+		    				    checkedValues.push($(this).val());	
+		    				});
+	    			 }else {
+	    						checkedValues.push($(this).val());	 
+	    			 }
 	    		 }else {
 	    			 for(i = 0;i<checkedValues.length;i++){
 	    				 if(checkedValues[i]==$(this).val()){
@@ -87,7 +92,7 @@
 	 	    $.ajax(
 	 				{
 	 					type:"post",
-	 					url:"/searchPageServlet",
+	 					url:"../../searchPageServlet",
 	 					data:{
 	 						"check":checkedValues,
 	 							

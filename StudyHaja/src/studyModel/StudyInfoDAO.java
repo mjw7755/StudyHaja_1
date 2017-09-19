@@ -124,15 +124,19 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 		StudyInfoVO vo = null;
 		ArrayList<StudyInfoVO> studyArr = null;
 		
-		if(subSearch.equals(""))
-		
+		if(subSearch.equals("제목")){
+			subSearch = "subject";
+		}else if(subSearch.equals("장소")){
+			subSearch = "place2";
+		}
+			
 		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE ? = ?";
 		try {
 			
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+content+"%");
-			pstmt.setString(2, subSearch);
+			pstmt.setString(1, subSearch);
+			pstmt.setString(2, "%"+content+"%");
 			rs = pstmt.executeQuery();
 			studyArr = new ArrayList<StudyInfoVO>();
 			

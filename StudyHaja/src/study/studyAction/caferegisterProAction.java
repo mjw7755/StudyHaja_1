@@ -31,11 +31,13 @@ public class caferegisterProAction implements CommandAction {
 				vo.setOptions(request.getParameter("options"));
 				vo.setC_day((request.getParameter("c_day")));
 				vo.setWorking_hour(request.getParameter("working_hour"));
-			
+				vo.setWorking_hour2(request.getParameter("working_hour2"));
 				vo.setContents(request.getParameter("contents"));
 				vo.setTel(request.getParameter("tel"));
 				vo.setSeats(request.getParameter("seats"));
 				vo.setReg_date(new Timestamp(System.currentTimeMillis()));
+				
+				request.setAttribute("pageNum", request.getParameter("pageNum"));
 				
 				roomDAO dao = new roomDAO();
 				

@@ -34,6 +34,8 @@ create table study_members(
 	reg_date date not null
 )segment creation immediate;
 
+SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE (select id from study_members) = 'aa';
+
 select * from study_members;
 SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE CONTENT='하하하하';
 drop table study_info;

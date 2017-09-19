@@ -200,6 +200,7 @@ public roomVO getDataDetail(int num) {
               vo.setTel(rs.getString("tel"));
               vo.setSeats(rs.getString("seats"));
               vo.setReg_date(rs.getTimestamp("reg_date"));
+              vo.setWorking_hour2(rs.getString("working_hour2"));
 
    	}
      }catch(Exception e){
@@ -232,8 +233,8 @@ public int insertStudyCafe(roomVO vo){
 		}
 		
 		r_no = number;
-		sb.append("insert into room(num, images, subject, address, area, location, pay, options, c_day, working_hour,  contents, tel, seats, reg_date, r_no ) " );
-		sb.append(" values(room_num.nextval,?,    ?,        ?,     ?,    ?,       ?,   ?,        ?,     ?, 			?, 	      ?,      ?,      ?,       ?)");
+		sb.append("insert into room(num, images, subject, address, area, location, pay, options, c_day, working_hour,  contents, tel, seats, reg_date, working_hour2, r_no ) " );
+		sb.append(" values(room_num.nextval,?,    ?,        ?,     ?,    ?,       ?,   ?,        ?,     ?, 			?, 	      ?,      ?,      ?,  ?,     ?)");
 		
 	
 		pstmt = conn.prepareStatement(sb.toString());
@@ -251,7 +252,8 @@ public int insertStudyCafe(roomVO vo){
 		pstmt.setString(11, vo.getTel()); //tel
 		pstmt.setString(12, vo.getSeats()); //reg_date
 		pstmt.setTimestamp(13, vo.getReg_date()); //s_hour
-		pstmt.setInt(14, r_no);
+		pstmt.setString(14, vo.getWorking_hour2());
+		pstmt.setInt(15, vo.getR_no());
 		//pstmt.setStringForClob()
 		pstmt.executeUpdate();
 	
@@ -330,7 +332,7 @@ public int update(roomVO vo) {
 		System.out.println(passwd);*/
 		
 		//if(passwd.equals(vo.getPasswd())){
-		String sql = "update room set images=?, subject=?, address=?, area=?,location=?, pay=?, options=?, c_day=?, working_hour=?, tel=?, seats=?, contents=? where num=?";
+		String sql = "update room set images=?, subject=?, address=?, area=?,location=?, pay=?, options=?, c_day=?, working_hour=?, tel=?, seats=?, contents=?, working_hour2=? where num=?";
 		
 		pstmt = conn.prepareStatement(sql);
 		
@@ -346,7 +348,8 @@ public int update(roomVO vo) {
 		pstmt.setString(10, vo.getTel());
 		pstmt.setString(11, vo.getSeats());
 		pstmt.setString(12, vo.getContents());
-		pstmt.setInt(13, vo.getNum());
+		pstmt.setString(13, vo.getWorking_hour2());
+		pstmt.setInt(14, vo.getNum());
 		
 		pstmt.executeUpdate();
 		result = 1;
