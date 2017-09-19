@@ -29,7 +29,7 @@ public class WriteFormAction implements CommandAction{
 		request.setAttribute("re_step", re_step);
 		request.setAttribute("re_level", re_level);
 		
-		return "/juju/board/writeForm.jsp" ;
+		return "/board/writeForm.jsp" ;
 	}
 
 }

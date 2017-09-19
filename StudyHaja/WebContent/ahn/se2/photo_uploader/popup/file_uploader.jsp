@@ -6,12 +6,14 @@
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-String path = request.getSession().getServletContext().getRealPath("/") + File.separator + "images" ;
-String filename = "";
+	String path = request.getSession().getServletContext().getRealPath("/") + File.separator + "ahn/se2/upload" ; 
+ /* String path = "C:/Users/AHN/git/StudyHaja_1/StudyHaja/WebContent/ahn/se2/upload";  */
+	String filename = "";
 
 if(request.getContentLength() > 10*1024*1024 ){
 %>
-	<script>alert("업로드 용량(총 10Mytes)을 초과하였습니다.");history.back();</script>
+	<script>alert("업로드 용량(총 10Mytes)을 초과하였습니다.");
+	history.back();</script>
 <%
 	return;
 
