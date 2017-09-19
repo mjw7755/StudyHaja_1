@@ -43,7 +43,7 @@
 <div id = "top">
 <ul id = "topMenu">
 	<li><a href="registerForm.do" >Study Together</a></li>
-	<li><a href="#" >Study Search</a></li>
+	<li><a href="searchPage.do" >Study Search</a></li>
 	<li><a href="roomList.do" >Study Room</a></li>
 	<li><a href="notice_list.do" >Notice</a></li>	
 	<li><a href="list.do" >Q&A</a></li>	

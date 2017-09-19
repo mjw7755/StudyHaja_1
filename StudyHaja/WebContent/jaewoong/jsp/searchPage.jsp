@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
-<link rel="stylesheet" type="text/css" href="../css1/moonCss.css" />
+<link rel="stylesheet" type="text/css" href="jaewoong/css1/moonCss.css" />
 
 <script src="../js1/select_Js.js"></script>
-<link rel="stylesheet" href="../css/bootstrap.css">
+<!-- <link rel="stylesheet" href="../css/bootstrap.css"> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +24,47 @@
  $(function(){
 		 
 	 var checkedValues = [];  
+	 var selValue = null;
+	 var content = null;
+	 
+	 
+	 $("#searchBtn").click(function(){
+		 
+		 content =  $("#subject").val();
+	    	
+	    	
+	    	$("#tableAjax > tbody").empty();
+	    	$.ajax(
+	 				{
+	 					type:"post",
+	 					url:"../../searchPageServlet",
+	 					data:{"subject":content,
+	 						
+	 					},
+	 					
+	 					success:function(data){
+	 						var d = eval("("+data+")");
+	 						var dd = d.result;
+	 						/*페이징 처리  */
+	 						for(var i=0;i<dd.length;i++){
+	 							/* $("#ajaxTable").append('<tr style="cursor:pointer;" id="record'+i+'" onclick="layer_open();return false">'); */
+	 							for(var j=0;j<dd[i].length;j++){
+	 								
+	 								$("#ajaxTable").append('<td>'+dd[i][j].value+'</td>');
+	 							}
+	 							$("#ajaxTable>td").wrapAll('<tr style="cursor:pointer;" id="record"></tr>');
+	 						}		
+	 						
+	 					},
+	 					error : function(msg, error) {
+	 						alert(error);
+	 					}
+	 					
+	 				}		
+	 			)
+	    	
+	    });
+	 
 	    $("input[name=oneChk]").click(function(){
 	    	
 	    	
@@ -45,7 +86,9 @@
 	 				{
 	 					type:"post",
 	 					url:"../../searchPageServlet",
-	 					data:{"check":checkedValues,		
+	 					data:{
+	 						"check":checkedValues,
+	 							
 	 					},
 	 					
 	 					success:function(data){
@@ -89,7 +132,24 @@
 	 					data:{"td":td.eq(0).text()},
 	    				
 	 						success:function(data){
-	 							alert(data);
+	 							var d = eval("("+data+")");
+		 						var dd = d.result;
+		 						
+	 							$("#jae").text(dd[0][0].value);
+	 							$("#bun").text(dd[0][1].value);
+	 							$("#s_d").text(dd[0][2].value);
+	 							$("#e_d").text(dd[0][3].value);
+	 							$("#yo").text(dd[0][4].value);
+	 							$("#s_h").text(dd[0][5].value);
+	 							$("#s_m").text(dd[0][6].value);
+	 							$("#e_h").text(dd[0][7].value);
+	 							$("#e_m").text(dd[0][8].value);
+	 							$("#pOne").text(dd[0][9].value);
+	 							$("#pTwo").text(dd[0][10].value);
+	 							$("#pThr").text(dd[0][11].value);
+	 							$("#inWon").text(dd[0][12].value);
+	 							$("#cury").text(dd[0][13].value);
+	 							
 	 							$("#popup").bPopup({
 	 								
 	 					    		modalClose:true,
@@ -108,6 +168,45 @@
 
 	    });
 	    
+	    $("#subSel").on('change',function(){
+	    	selValue = $("#subSel option:checked").text();
+			
+	    	
+	    	$.ajax(
+	 				{
+	 					type:"post",
+	 					url:"../../searchPageServlet",
+	 					data:{
+	 						"selValue":selValue,		
+	 					},
+	 					
+	 					success:function(data){
+	 						$("#tableAjax > tbody").empty();
+	 						var d = eval("("+data+")");
+	 						var dd = d.result;
+	 						/*페이징 처리  */
+	 						for(var i=0;i<dd.length;i++){
+	 							/* $("#ajaxTable").append('<tr style="cursor:pointer;" id="record'+i+'" onclick="layer_open();return false">'); */
+	 							for(var j=0;j<dd[i].length;j++){
+	 								
+	 								$("#ajaxTable").append('<td>'+dd[i][j].value+'</td>');
+	 							}
+	 							$("#ajaxTable>td").wrapAll('<tr style="cursor:pointer;" id="record"></tr>');
+	 						}	
+	 						
+	 					},
+	 					error : function(msg, error) {
+	 						alert(error);
+	 					}
+	 					
+	 				}		
+	 			)
+	    	
+	    	
+	    });
+	    
+	    
+	   
 	    
 });
 
@@ -475,28 +574,28 @@
 							<div id="popupInner" style="border:1px soild gray">
 								<table id="contentTable">
 								<tr>
-									<td>제  목</td><td>${vo.subject }</td>		
+									<td>제  목</td><td id="jae" style="text-align:center;"></td>		
 								</tr>
 								<tr>
-									<td>분  류</td><td>${vo.kind2 }</td>		
+									<td>분  류</td><td id="bun" style="text-align:center;"></td>		
 								</tr>
 								<tr>
-									<td>기  간</td><td>${vo.s_date } ~ ${vo.e_date }</td>		
+									<td>기  간</td><td id="s_d"></td><td id="e_d"></td>		
 								</tr>
 								<tr>
-									<td>요  일</td><td>${vo.day }</td>		
+									<td>요  일</td><td id="yo" style="text-align:center;"></td>		
 								</tr>
 								<tr>
-									<td>시  간</td><td>${vo.s_hour }:${vo.s_minute }&nbsp;~&nbsp;${vo.e_hour}:${vo.e_minute}</td>		
+									<td>시  간</td><td id="s_h"></td><td id="s_m"></td><td id="e_h"></td><td id="e_m"></td>		
 								</tr>
 								<tr>
-									<td>지  역</td><td>${vo.place1 }&nbsp;${vo.place2 }</td>		
+									<td>지  역</td><td id="pOne"></td><td id="pTwo"></td>		
 								</tr>
 								<tr>
-									<td>장  소</td><td>${vo.place3 }</td>		
+									<td>장  소</td><td id="pThr"></td>		
 								</tr>
 								<tr>
-									<td>인  원</td><td>${vo.people }</td>		
+									<td>인  원</td><td id="inWon"></td>		
 								</tr>
 								</table>
 								<br>
@@ -504,8 +603,8 @@
 									<h4>스터디 커리큘럼</h4>
 								</div>
 								<br>
-								<div style="border:3px solid black">
-										${vo.content }
+								<div style="border:3px solid black" id="cury">
+										
 								</div>
 										
 									
