@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
-<link rel="stylesheet" type="text/css" href="jaewoong/css1/moonCss.css" />
+<link rel="stylesheet" type="text/css" href="jaewoong/css1/moonCss2.css" />
 
-<script src="../js1/select_Js.js"></script>
+<script src="jaewoong/js1/select_Js.js"></script>
 <!-- <link rel="stylesheet" href="../css/bootstrap.css"> -->
 <!DOCTYPE html>
 <html>
@@ -13,9 +13,9 @@
 <title>Insert title here</title>
  <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="../js1/jquery.bpopup.min.js"></script>
+  <script src="jaewoong/js1/jquery.bpopup.min.js"></script>
  
-<script src="../js/bootstrap.js"></script>
+<script src="jaewoong/js/bootstrap.js"></script>
 
 <script type="text/javascript">
 
@@ -26,20 +26,20 @@
 	 var checkedValues = [];  
 	 var selValue = null;
 	 var content = null;
-	 
+	 var subSearch = null;
 	 
 	 $("#searchBtn").click(function(){
 		 
 		 content =  $("#subject").val();
-	    	
-	    	
+	     subSearch = $(".subSearch option:checked").text();
+	    	alert(subSearch);
 	    	$("#tableAjax > tbody").empty();
 	    	$.ajax(
 	 				{
 	 					type:"post",
-	 					url:"../../searchPageServlet",
+	 					url:"/searchPageServlet",
 	 					data:{"subject":content,
-	 						
+	 						"subSearch":subSearch,
 	 					},
 	 					
 	 					success:function(data){
@@ -68,6 +68,7 @@
 	    $("input[name=oneChk]").click(function(){
 	    	
 	    	
+	    	
 	    	$("#tableAjax > tbody").empty();
 	    		var i;
 	    		 if($(this).is(":checked")){
@@ -80,12 +81,13 @@
 	    			 } 
 	    		 }
 	  	    
+	    		 
 	  	   jQuery.ajaxSettings.traditional = true;
 	  	   
 	 	    $.ajax(
 	 				{
 	 					type:"post",
-	 					url:"../../searchPageServlet",
+	 					url:"/searchPageServlet",
 	 					data:{
 	 						"check":checkedValues,
 	 							
@@ -128,7 +130,7 @@
 	    			
 	    			{
 	    				type:"post",
-	 					url:"../../searchPageServlet",
+	 					url:"/searchPageServlet",
 	 					data:{"td":td.eq(0).text()},
 	    				
 	 						success:function(data){
@@ -175,7 +177,7 @@
 	    	$.ajax(
 	 				{
 	 					type:"post",
-	 					url:"../../searchPageServlet",
+	 					url:"/searchPageServlet",
 	 					data:{
 	 						"selValue":selValue,		
 	 					},
@@ -346,26 +348,26 @@
 				<hr>
 				<table class="categoryOne">
 					<tr>
-					<td>		
+					<td id="a_tag">		
 						<a href="#" class="button" id="findjob">취업</a>
 					</td>
 						
-					<td>
+					<td id="a_tag">	
 					<a href="#" class="button" id="language">어학</a>
 						
 					</td>
 					
-					<td>
+					<td id="a_tag">	
 					<a href="#" class="button" id="bank">금융</a>
 					
 					</td>
 					
-					<td>
+					<td id="a_tag">	
 					<a href="#" class="button">프로그래밍</a>
 					
 					</td>
 					
-					<td>
+					<td id="a_tag">	
 					<a href="#" class="button">자기계발</a>
 					
 					</td>
@@ -477,21 +479,21 @@
 					</tr>
 					
 					<tr margin-top=5px;>
-					<td>
+					<td id="a_tag">	
 					<a href="#" class="button">취미</a>
 					
 					</td>
 					
-					<td>
+					<td id="a_tag">	
 					<a href="#" class="button">고시</a>
 					
 					</td>
 					
-					<td>
+					<td id="a_tag">	
 					<a href="#" class="button">학생</a>
 					
 					</td>
-					<td>
+					<td id="a_tag">	
 					<a href="#" class="button">기타</a>
 					
 					</td>
@@ -527,7 +529,7 @@
 				<h2>상세검색</h2>
 				<div class="ddd">
 				<hr>
-				<select id="soflow">
+				<select id="soflow" class="subSearch">
 						  <option>전체</option>
 						  <option>제목</option>
 						  <option>장소</option>

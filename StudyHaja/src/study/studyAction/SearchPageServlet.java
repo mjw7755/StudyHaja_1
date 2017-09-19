@@ -32,6 +32,9 @@ public class SearchPageServlet extends HttpServlet {
 		String td = request.getParameter("td");
 		String selValue = request.getParameter("selValue");
 		String subject = request.getParameter("subject");
+		
+		String subSearch = request.getParameter("subSearch");
+		
 		/*StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
 		ArrayList<StudyInfoVO> studyInfoList = studyDAO.selectListAll();*/
 		if(subject != null && check != null && selValue != null){
@@ -68,7 +71,7 @@ public class SearchPageServlet extends HttpServlet {
 		}else {
 			System.out.println("2");
 			System.out.println(subject);
-			response.getWriter().write(getJSON(subject));
+			response.getWriter().write(getJSONsearch(subject,subSearch));
 			System.out.println(getJSON(subject));
 		}
 		
@@ -101,6 +104,27 @@ public class SearchPageServlet extends HttpServlet {
 		
 		
 	}
+	
+	public String getJSONsearch(String content,String subSearch) {
+		if(content == null) content = "";
+		StringBuffer result = new StringBuffer("");
+		result.append("{\"result\":[");
+		StudyInfoDAO studyDAO = new StudyInfoDAO();
+		ArrayList<StudyInfoVO> studyInfoList = studyDAO.selectList(content);
+		
+		for(int i=0;i<studyInfoList.size();i++){
+			result.append("[{\"value\": \""+ studyInfoList.get(i).getNum()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getKind2()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getSubject()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getReg_date()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getReadcount()+"\"}],");
+		}
+		result.append("]}");
+		return result.toString();
+	}
+
+	
+	
 	
 	public String getJSON(String content) {
 		if(content == null) content = "";

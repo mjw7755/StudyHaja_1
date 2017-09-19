@@ -116,6 +116,49 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 		
 		return studyArr;
 	}
+	
+	public ArrayList<StudyInfoVO> selectListSearch(String content,String subSearch) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StudyInfoVO vo = null;
+		ArrayList<StudyInfoVO> studyArr = null;
+		
+		if(subSearch.equals(""))
+		
+		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE ? = ?";
+		try {
+			
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+content+"%");
+			pstmt.setString(2, subSearch);
+			rs = pstmt.executeQuery();
+			studyArr = new ArrayList<StudyInfoVO>();
+			
+			while(rs.next()){
+				vo = new StudyInfoVO();
+				vo.setNum(rs.getInt(1));
+				vo.setKind2(rs.getString(2));
+				vo.setSubject(rs.getString(3));
+				vo.setReg_date(rs.getTimestamp(4));
+				vo.setReadcount(rs.getInt(5));
+				
+				studyArr.add(vo);
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally{
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+			CloseUtil.close(conn);
+		}
+		
+		return studyArr;
+	}
+	
 	public ArrayList<StudyInfoVO> selectListSelValue(String selValue) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
