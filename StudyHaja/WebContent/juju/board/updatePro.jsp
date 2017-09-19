@@ -11,7 +11,7 @@
   <c:if test="${ check == 0 }">
 	<script type="text/javascript">
 		<!--
-			alert("비밀 번호가 맞지 않습니다.");
+			alert("다른 사람이 작성한 글입니다.");
 			history.go(-1);
 		//-->
 	</script>

@@ -40,8 +40,6 @@
 			<td align="center" width="50">작성자</td>
 			<td align="center" width="50">작성날짜</td>
 			<td align="center" width="50">조회수</td>
-			<td align="center" width="50">I P</td>
-			
 	<c:forEach var="list"  items="${ list }">    		
 	
 		<tr height="30">
@@ -60,17 +58,16 @@
 	</c:if>
 	   
 	  <a 	href="content.do?num=${list.num }&pageNum=${ currentPage }">
-					${ list.subject }</a> 
+					${ list.title }</a> 
 	
 	<c:if test="list.readcount >= 3">
 	 	<img src="images/hot.gif" border="0" height="16"> 
 	</c:if>
 			</td>
-			<td align="center" width="100"><a
-				href="mailto:${ list.email }">${ list.writer }</a></td>
+			<td align="center" width="100">
+			<a>${ list.id }</a></td>
 			<td align="center" width="150">${ list.reg_date }</td>
 			<td align="center" width="150">${ list.readcount }</td>
-			<td align="center" width="150">${ list.ip }</td>
 		</tr>
 	</c:forEach>
 	</table>

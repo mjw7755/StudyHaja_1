@@ -5,7 +5,6 @@
 <%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt"  uri="http://java.sun.com/jstl/fmt_rt" %>
 
-
 <html>
 <head><title>게시판</title>
 <link href="../view/style.css" rel = "stylesheet" type = "text/css">
@@ -26,14 +25,14 @@ bgcolor = "${ bodyback_c }" align="center">
 </tr>
 <tr height="30">
 	<td align="center" width = "125" bgcolor="${ value_c }">작성자</td>
-	<td align="center" width = "125">${ vo.writer }</td>
+	<td align="center" width = "125">${ vo.id }</td>
 	
 	<td align="center" width = "125" bgcolor="${ value_c }">작성일</td>
 	<td align="center" width = "125">${ vo.reg_date }</td>
 </tr>
 <tr height="30">
 	<td align="center" width = "125" bgcolor="${ value_c }">글제목</td>
-	<td align="center" width = "125">${ vo.subject } </td>
+	<td align="center" width = "125">${ vo.title } </td>
 	
 	<td align="center" width = "125" bgcolor="${ value_c }">글내용</td>
 	<td align="center" width = "125"><pre>${ vo.content }</pre></td>
