@@ -27,7 +27,7 @@ public class UpdateProAction implements CommandAction {
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("check", check);	 //jsp페이지로 pageNum이랑 check값들구가
 			
-		return "/board/updatePro.jsp";
+		return "/juju/board/updatePro.jsp";
 	}
 
 }

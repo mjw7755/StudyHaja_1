@@ -3,6 +3,7 @@
     <%@ page import="edu.kosta.roomModel.*" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -216,13 +217,14 @@ body{
 	<center>
 	<hr border-width="3">
 	<div class="first">
-		<form id="frm" action="cafedeletePro.do" method="post">
 		<input type="button" id="btnModify" value="수정하기" onclick="document.location.href='cafeupdateForm.do?num=${list.num}&pageNum=${pageNum}'" >
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
-		<button id="btnDelete" onclick="confirmFunction()">삭제하기</button>
+<!-- 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+ -->	
+ 		<form id="frm" action="cafedeletePro.do">
+		<input type="button" value="삭제하기" id="btnDelete" onclick="confirmFunction()">삭제하기</button>
 		<input type="hidden" name="num" value="${list.num}">
 		<input type="hidden" name="pageNum" value="${pageNum}">
-		</form>
+	</form>
 	</div>
 </body>
 

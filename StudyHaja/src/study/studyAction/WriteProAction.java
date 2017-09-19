@@ -30,7 +30,7 @@ public class WriteProAction implements CommandAction {
 		BoardDAO dao = BoardDAO.getInstance();
 		dao.insert(vo);
 		
-		return "/board/writePro.jsp";
+		return "/juju/board/writePro.jsp";
 	}
 
 }

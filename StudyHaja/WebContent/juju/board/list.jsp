@@ -9,7 +9,7 @@
 <head>
 <title>게시판</title>
 </head>
-<link href="../view/mystyle.css" rel="stylesheet" type="text/css">
+<link href="juju/view/mystyle.css" rel="stylesheet" type="text/css">
 <body bgcolor="${ bodyback_c }">
 
 	<center>

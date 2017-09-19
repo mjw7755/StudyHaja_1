@@ -14,12 +14,10 @@
       var test = confirm("정말 삭제 하시겠습니까?");
 
       if (test == true ) { 
-         
          alert("삭제 되었습니다.");
          document.getElementById('frm').submit();
 
       } else {
-         
          alert("취소 되었습니다.");
          return false;
           // 취소

@@ -49,7 +49,7 @@ public class jujulistAction implements CommandAction {
 		request.setAttribute("number", new Integer(number));
 		request.setAttribute("list", list);
 				
-		return "/board/list.jsp";
+		return "/juju/board/list.jsp";
 	}
 
 }

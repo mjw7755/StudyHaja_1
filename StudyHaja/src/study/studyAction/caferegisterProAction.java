@@ -41,7 +41,7 @@ public class caferegisterProAction implements CommandAction {
 				
 				dao.insertStudyCafe(vo);
 				
-				return "/jsp/caferegisterPro.jsp";
+				return "/ahn/jsp/caferegisterPro.jsp";
 		
 	}
 

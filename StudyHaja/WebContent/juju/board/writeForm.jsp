@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file = "/view/color.jsp" %>
+<%@ include file = "../view/color.jsp" %>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt"  uri="http://java.sun.com/jstl/fmt_rt" %>
 
@@ -8,8 +8,8 @@
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>방명록 글쓰기</title>
-<link href = "./view/mystyle.css" rel = "stylesheet" type = text/css">
-<script type = "text/javascript" src = "./view/script.js"></script>
+<link href = "../view/mystyle.css" rel = "stylesheet" type = text/css">
+<script type = "text/javascript" src = "../view/script.js"></script>
 
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.11.0.min.js" charset="utf-8"></script>
@@ -19,7 +19,7 @@
 <script type="text/javascript"
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 	
-	<script type="text/javascript" src="<%=request.getContextPath()%>/editor/js/HuskyEZCreator.js"
+	<script type="text/javascript" src="<%=request.getContextPath()%>/juju/editor/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
 	
 <%-- 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style_board.css" type="text/css" /> --%>
@@ -81,7 +81,7 @@ align="center">
 					nhn.husky.EZCreator.createInIFrame({
 						oAppRef : oEditors,
 						elPlaceHolder : "content",
-						sSkinURI : "<%=request.getContextPath()%>/editor/SmartEditor2Skin.html",
+						sSkinURI : "<%=request.getContextPath()%>/juju/editor/SmartEditor2Skin.html",
 						htParams : {
 							bUseToolbar : true, // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
 							bUseVerticalResizer : true, // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
