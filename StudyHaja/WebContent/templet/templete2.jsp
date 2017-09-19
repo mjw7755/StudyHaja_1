@@ -43,17 +43,17 @@
 <div id = "top">
 <ul id = "topMenu">
 	<li><a href="registerForm.do" >Study Together</a></li>
-	<li><a href="#" >Study Search</a></li>
+	<li><a href="../jaewoong/jsp/searchPage.jsp" >Study Search</a></li>
 	<li><a href="roomList.do" >Study Room</a></li>
-	<li><a href="#" >Notice</a></li>	
+	<li><a href="notice_list.do" >Notice</a></li>	
 	<li><a href="#" >Q&A</a></li>	
 </ul>
 </div>
 
 <div id = "login">
 <ul id="login2">
-	<li><a href="#">LOGIN</a></li>
-	<li><a href="#">SIGN-UP</a></li>
+	<li><a href="loginForm.do">LOGIN</a></li>
+	<li><a href="InsertForm.do">SIGN-UP</a></li>
 </ul>
 </div>
 </div>
