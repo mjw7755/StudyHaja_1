@@ -34,7 +34,7 @@ $(function(){
      
 });
 function pasteHTML(filepath){
-     var sHTML = '<img src="<%=request.getContextPath()%>/ahn/images/'+filepath+'">'; 
+     var sHTML = '<img src="<%=request.getContextPath()%>/ahn/se2/upload/'+filepath+'">'; 
 /* var sHTML = '<img src="C:/Users/AHN/git/StudyHaja_1/StudyHaja/WebContent/ahn/se2/upload/'+filepath+'">'; */ 
        oEditors.getById["contents"].exec("PASTE_HTML", [sHTML]);
    }
