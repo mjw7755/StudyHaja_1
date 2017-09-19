@@ -28,8 +28,8 @@ align="center">
 	</td>
 </tr>
 <tr>
-	<td width="70" bgcolor = "${ value_c }"" align = "center"> 이  름</td>
-	<td width="330"><input type="text" size= "10" maxlenth="10" name ="writer" value="${ vo.writer }">
+	<td width="330">
+		<input type="hidden"  name ="id" value="${ vo.id }">
 		<input type="hidden" name="num" value="${ vo.num }"></td>
 	</td>
 	
@@ -38,20 +38,12 @@ align="center">
 	<td width="70" bgcolor = "${ value_c }"" align = "center"> 제  목</td>
 	<td width="330">
 <!-- 	답변인것에 대한 처리 -->
-<input type= "text" size = "40" maxlength="50" name = "subject" value = "${ vo.subject }"></td>
+<input type= "text" size = "40" maxlength="50" name = "title" value = "${ vo.title }"></td>
 </tr>
 
 <tr>
-	<td width="70" bgcolor = "${ value_c }"" align = "center"> EMAIL</td>
-	<td width="330"><input type="text" size= "40" maxlenth="30" name ="email" value ="${ vo.email } "></td>
-</tr>
-<tr>
 	<td width="70" bgcolor = "${ value_c }"" align = "center"> 내  용</td>
 	<td width="330"><textarea rows="13" cols="40" name = "content">${ vo.content }</textarea></td>
-</tr>
-<tr>
-	<td width="70" bgcolor = "${ value_c }"" align = "center"> 비밀번호</td>
-	<td width="330"><input type="password" size= "8" maxlenth="10" name ="passwd"></td>
 </tr>
 <tr>
 	<td align="center" colspan="2" bgcolor="${ value_c }"">
