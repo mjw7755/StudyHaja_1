@@ -1,9 +1,9 @@
 package study.studyAction;
 
 import java.text.SimpleDateFormat;
-
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +16,7 @@ public class NoticeList_Action implements CommandAction {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int pageSize=10;
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		
 		String pageNum = request.getParameter("pageNum");
@@ -27,19 +28,17 @@ public class NoticeList_Action implements CommandAction {
 		int endRow = currentPage * pageSize;
 		int count = 0, number= 0;
 		
-		
-		
-		
-		ArrayList<NoticeVO> list2 = new ArrayList<NoticeVO>();
+		//ArrayList<NoticeVO> list2 = new ArrayList<NoticeVO>();
+		List list2 = null;
 		NoticeDAO dao = NoticeDAO.getInstance();
-		list2 = dao.listAll();
+		//list2 = dao.listAll();
 		count = dao.getListAllCount();
 		
 		if(count > 0){
-			list2 = dao.listAll();
+			list2 = dao.getSelectAll(startRow, endRow);
 			
 		}else{
-			list2 = (ArrayList<NoticeVO>) Collections.EMPTY_LIST;
+			list2 = Collections.EMPTY_LIST;
 		}
 		number = count - (currentPage - 1) * pageSize;
 		

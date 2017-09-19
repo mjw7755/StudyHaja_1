@@ -23,8 +23,6 @@ public class NoticeDAO {
 		return instance;
 	}
 	
-	
-	
 	public NoticeDAO(){	}
 	
 	public Connection getConnection() throws Exception{
@@ -58,6 +56,75 @@ public class NoticeDAO {
 		}
 		return count;
 	}
+	
+	
+	
+	
+	
+	
+	public List<NoticeVO> getSelectAll(int start, int end) {
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      ResultSet rs = null;
+	      List list = null;
+
+	      try {
+	         conn = getConnection();
+	         StringBuffer sb = new StringBuffer();
+
+	         // 방법 2>
+	         sb.append(
+	               "SELECT * FROM (SELECT ROWNUM AS R,  X.*   FROM (SELECT *  FROM notice  ORDER BY reg_date desc)  X ) WHERE R BETWEEN ? AND ?");
+	         pstmt = conn.prepareStatement(sb.toString());
+	         pstmt.setInt(1, start);
+	         pstmt.setInt(2, end);
+	         rs = pstmt.executeQuery();
+
+	         if (rs.next()) {
+	            list = new ArrayList(end);
+
+	            do {
+	               NoticeVO vo = new NoticeVO();
+	               vo.setNum(rs.getInt("num"));
+	               // vo.setId(rs.getString("id"));
+	              // vo.setId(rs.getString("id"));
+	               //vo.setTitle(rs.getString("title"));
+	               vo.setReg_date(rs.getTimestamp("reg_date"));
+	               vo.setSubject(rs.getString("subject"));
+	               vo.setReadcount(rs.getInt("readcount"));
+	               //vo.setRef(rs.getInt("ref"));
+	               //vo.setRe_level(rs.getInt("re_level"));
+	               //vo.setRe_step(rs.getInt("re_step"));
+
+	               vo.setContent(rs.getString("content"));
+
+	               // list 객체에 데이터 저장 Bean인 BoardVO 객체에 저장한다.
+	               list.add(vo);
+
+	            } while (rs.next());
+	         } // if end
+
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         CloseUtil.close(rs);
+	         CloseUtil.close(pstmt);
+	         CloseUtil.close(conn);
+	      }
+	      return list;
+	   } // getSelectAll(startRow, endRow) end
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public ArrayList<NoticeVO> listAll() throws SQLException{
 		Connection conn = null;
@@ -237,7 +304,6 @@ public class NoticeDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		System.out.println("되니?");
 		int result = 0;
 		try {
 			conn = getConnection();
