@@ -10,11 +10,9 @@ a{
 #top{
 	padding-top: 20px;
     width: 1500px;	
-    
-    
 }
-#main_icon{
-	margin:0px 100px 0px 100px;
+#main_icon {
+    margin: 0px 0px 0px 100px;
 }
 #topMenu{/* 메뉴바 스타일 지정 */
     text-align: center;
@@ -22,7 +20,7 @@ a{
     font-size: 20px;
 }  
  #login{
-	padding-left: 100px;
+    padding-left: 80px;
     padding-right: 15px;
     font-weight: 800;
     text-align: right;
@@ -30,4 +28,18 @@ a{
  
  #sign-up{
  	font-weight : 800;
- }
+ } 
+ 
+ 
+  .scroll_top {
+        position: fixed;
+        left: 90%;
+        bottom: 400px;
+        display: none;
+      }
+       .scroll_bottom {
+        position: fixed;
+        left: 90%;
+        bottom: 350px;
+        display: none;
+      }

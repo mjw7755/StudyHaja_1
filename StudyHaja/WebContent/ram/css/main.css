@@ -1,35 +1,3 @@
-body{
-	margin:50px 0px;
-	background-color : #000;/*background color black 지정  */
-}
- a:hover {
-color:b;/* a선택자에 마우스 올렸을때 color gray 지정 */
-}
-a{
-	font:1.5em ;/* a 선택자 폰트 크기,색상-흰색, 텍스트 데코 없앰*/
-	color:#fff;
-	text-decoration:none;
-}
-
-#top{/* 로그인버튼이 있는 선택바 색상-흰색, 텍스트 정렬-오른쪽, margin지정 */
-	color:#fff;
-	text-align : right;
-	margin:0px 120px 0px 0px;
-	
-}
-#topMenu{/* 메뉴바 스타일 지정 */
-	list-style:none;
-	width:100%;
-	background-color : #000;
-	margin:0px;
-	padding:20px;
-	text-align:center;
-}
- #topMenu li{
-	display:inline;/* 메뉴바를 한줄로 보여줌 */
-	padding-left:50px;/* 메뉴사이 간격 */
-}  
-/* ----------------------------------------------------------------------------------------- */
 
  #main {
     border: 1px none; 
@@ -41,42 +9,22 @@ a{
     height : 300px;
     margin: auto;
 } 
-
 #main div {
    -webkit-flex: 1; /* Safari 6.1+ */
    flex: 1;
 }
-
-#notice {
-	border: 1px solid; 
-    width: 600px;
-    height : 200px;
-    padding: 5px;
-    margin: auto;
+#notice{
+    width: 50%;
+    border: 2px solid #000;
 }
-
 h2{
-	float: left;
-	position:relative;
-	left:250px;
-	top:-10px;
-}
-h5{
-	float: right;
-	position:relative;
-	right:30px;
-	top:-5px;
+	margin-left: 5%;
 }
 
-#notice_ul {
-	float: left;
-	position:relative;
-	left:-80px;
-	top:40px;
+#subject{
+	 width:70%;
 }
-#notice_ul li{
-	color:#000;
-}
+
 
 /* ----------------------------------------------------------------------------------------- */
 
@@ -87,7 +35,7 @@ figure.snip1132 {
   float: left;
   overflow: hidden; 
   /* margin: 20px 8%; */
-  margin: 20px 20px 20px 160px;
+  margin: 20px 20px 20px 240px;
   min-width: 1200px;
   max-width: 600px;
   max-height: 500px;
@@ -205,3 +153,16 @@ figure.snip1132.hover img {
   -webkit-transform: scale(1.15);
   transform: scale(1.15);
 }
+/* ----------------------------------------------------------------------------------------- */
+   .scroll_top {
+        position: fixed;
+        left: 90%;
+        bottom: 400px;
+        display: none;
+      }
+       .scroll_bottom {
+        position: fixed;
+        left: 90%;
+        bottom: 350px;
+        display: none;
+      }
