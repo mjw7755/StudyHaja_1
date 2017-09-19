@@ -145,7 +145,7 @@
    </table>
       		
          <input type="submit" value = "가입하기" id="btnReg">
-         <a href="list.do"><button type="button" id="btnMain">가입취소</button></a>
+         <a href="mainlist.do"><button type="button" id="btnMain">가입취소</button></a>
       
 
 

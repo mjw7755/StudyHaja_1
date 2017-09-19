@@ -124,7 +124,7 @@ body{
 			</script>
 			<tr>
 				<td>
-				<font size="8"><b>${list.subject }</b></font>
+				<font size="6.5"><b>${list.subject }</b></font>
 				<table>
            <%--  <tr>
             <td id="b"><font size="4.5" color="#BDBDBD"><b>이름 : </b></font></td>
@@ -187,7 +187,7 @@ body{
             <tr> 
             <td colspan="2">
             &nbsp;
-            <img src="ahn/images/parking.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="ahn/images/parking.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <img src="ahn/images/wifi.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <img src="ahn/images/projector.png">&nbsp;&nbsp;&nbsp;&nbsp;<br/>
             <font size="3" color="gray">&nbsp;&nbsp;&nbsp;&nbsp;주차가능</font>

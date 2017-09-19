@@ -20,8 +20,11 @@ public class caferegisterProAction implements CommandAction {
 				roomVO vo= new roomVO();
 
 				vo.setNum(Integer.parseInt(request.getParameter("num")));
+				System.out.println("1");
 				vo.setR_no(Integer.parseInt(request.getParameter("r_no")));
+				System.out.println("2");
 				vo.setSubject(request.getParameter("subject"));
+				System.out.println("3");
 				vo.setImages(request.getParameter("images"));
 				vo.setAddress(request.getParameter("address"));
 				vo.setArea(request.getParameter("area"));
@@ -38,6 +41,9 @@ public class caferegisterProAction implements CommandAction {
 				vo.setReg_date(new Timestamp(System.currentTimeMillis()));
 				
 				request.setAttribute("pageNum", request.getParameter("pageNum"));
+				System.out.println(vo.getNum());
+				System.out.println(request.getParameter("pageNum"));
+				System.out.println("4");
 				
 				roomDAO dao = new roomDAO();
 				
