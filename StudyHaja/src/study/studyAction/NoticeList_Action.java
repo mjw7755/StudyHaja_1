@@ -51,7 +51,7 @@ public class NoticeList_Action implements CommandAction {
 		request.setAttribute("number", new Integer(number));
 		request.setAttribute("list2", list2);
 		
-		return "/jsp/notice_list.jsp";
+		return "/ram/jsp/notice_list.jsp";
 	}
 
 }

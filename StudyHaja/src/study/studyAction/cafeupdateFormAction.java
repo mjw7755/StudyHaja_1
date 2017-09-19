@@ -31,7 +31,7 @@ public class cafeupdateFormAction implements CommandAction {
 		request.setAttribute("pageNum", new Integer(pageNum));
 		request.setAttribute("list", vo);
 		
-		return "/jsp/cafeupdateForm.jsp";	
+		return "/ahn/jsp/cafeupdateForm.jsp";	
 	}
 
 }

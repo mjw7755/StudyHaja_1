@@ -39,7 +39,7 @@
       <p>가나다라</p>
     </div>
   </figcaption>
-  <a href="#"></a>
+  <a href="registerForm.do"></a>
 </figure>
 
  <figure class="snip1132">
@@ -57,15 +57,17 @@
 <figure class="snip1132">
   <img src="ram/images/3.jpg" alt="sample3" />
   <figcaption>
+  <a href="roomList.do">
     <div class="heading">
       <h3><span>Study Room</span></h3>
     </div>
     
     <div class="caption">
       <p>가나다라</p>
+      </a>
     </div>
   </figcaption>
-  <a href="#"></a>
+  
 </figure> 
 </div>
 </body>

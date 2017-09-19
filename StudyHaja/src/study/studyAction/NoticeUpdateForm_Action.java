@@ -21,7 +21,7 @@ public class NoticeUpdateForm_Action implements CommandAction {
 		request.setAttribute("pageNum", Integer.parseInt(pageNum));
 		request.setAttribute("vo", vo);
 		
-		return "/jsp/notice_updateForm.jsp";
+		return "/ram/jsp/notice_updateForm.jsp";
 	}
 
 }

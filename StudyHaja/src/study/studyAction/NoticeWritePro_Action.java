@@ -25,7 +25,7 @@ public class NoticeWritePro_Action implements CommandAction {
 		NoticeDAO dao = NoticeDAO.getInstance();
 		dao.insert(vo);
 		
-		return "/jsp/notice_writePro.jsp";
+		return "/ram/jsp/notice_writePro.jsp";
 	}
 
 }

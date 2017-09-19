@@ -43,7 +43,7 @@ public class cafeupdateProAction implements CommandAction {
 		System.out.println(check);
 		request.setAttribute("num", vo.getNum());
 		request.setAttribute("pageNum", request.getParameter("pageNum"));
-		return "/jsp/cafeupdatePro.jsp";
+		return "/ahn/jsp/cafeupdatePro.jsp";
 	}
 
 }

@@ -13,7 +13,7 @@ public class NoticeDeleteForm_Action implements CommandAction {
 		request.setAttribute("num", new Integer(num));
 		request.setAttribute("pageNum", new Integer(pageNum));
 		
-		return "/jsp/notice_deleteForm.jsp";
+		return "/ram/jsp/notice_deleteForm.jsp";
 	}
 
 }

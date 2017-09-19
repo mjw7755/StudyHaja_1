@@ -34,7 +34,7 @@ public class InsertProAction implements CommandAction {
 		StudymemberDAO dao = StudymemberDAO.getInstance();
 		dao.insert(vo);
 		
-		return "/jsp/InsertPro.jsp";
+		return "/ahn/jsp/InsertPro.jsp";
 	}
 
 }

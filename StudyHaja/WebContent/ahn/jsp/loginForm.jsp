@@ -29,13 +29,13 @@
 	
 </script>
 
-<link rel="stylesheet"  href="../css/ahnLogin.css">
-<link rel="stylesheet" href="../css/ahnTable.css">
+<link rel="stylesheet"  href="ahn/css/ahnLogin.css">
+<link rel="stylesheet" href="ahn/css/ahnTable.css">
 </head>
 
 <body  onload="begin()">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
-<form name="myform" method="post" action="loginPro.jsp" onSubmit="return checkIt()">
+<form name="myform" method="post" action="list.do" onSubmit="return checkIt()">
 
 <div class="box">
 <table align="center">
