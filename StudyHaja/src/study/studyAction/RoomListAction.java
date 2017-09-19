@@ -1,4 +1,4 @@
-package edu.kosta.roomAction;
+package study.studyAction;
 
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import study.studyAction.CommandAction;
 import edu.kosta.roomModel.roomDAO;
 
 public class RoomListAction implements CommandAction {
@@ -57,7 +58,7 @@ public class RoomListAction implements CommandAction {
 		request.setAttribute("number", new Integer(number));
 		request.setAttribute("list", list);
 		
-		return "/jsp/roomList.jsp";
+		return "/ahn/jsp/roomList.jsp";
 	}		
 
 }

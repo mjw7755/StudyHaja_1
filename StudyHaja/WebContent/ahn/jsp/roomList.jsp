@@ -7,9 +7,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="css/figcaption.css">
-<link rel="stylesheet" href="css/ahnButton2.css">
+<link rel="stylesheet" href="ahn/css/figcaption2.css">
+<link rel="stylesheet" href="ahn/css/ahnButton2.css">
 <title>룸 소개</title>
+
 </head>
 
 <body>
@@ -34,42 +35,42 @@
 		<a href="Room2.do?num=${list.num }&pageNum=${currentPage}">
 		<div style="border: 1px; float: left; width: auto;">
 		<figure class="snip1384">
-		<img src = "images/${list.images}" id="mainphoto" alt="sample92" />
+		<img src = "ahn/images/${list.images}" id="mainphoto" alt="sample92" />
 		<figcaption>
 		<h3>${list.subject }</h3>
 		<br/><br/>
 		<table cellspacing="10px">
-			<tr>
+			<tr id="font">
 				<td>지역</td><td>${list.area}</td>
 			</tr>
-			<tr>
+			<tr id="font">
 				<td>위치</td><td>${list.location}</td>
 			</tr>
-			<tr>
+			<tr id="font">
 				<td>비용</td><td>${list.pay}</td>
 			</tr>
-			<tr>
+			<tr id="font">
 				<td>휴무일</td><td>${list.c_day}</td>
 			</tr>
-			<tr>
+			<tr id="font">
 				<td width="100">운영시간</td><td>${list.working_hour}</td>
 			</tr>
-			<tr>
+			<tr id="font">
 				<td></td><td>${list.working_hour2}</td>
 			</tr>
 			
-			<tr>
-				<td align="center" colspan="2" ><br><br><br><br><br><img src="images/phonedining.png" width="30" height="30" id="phone" >&nbsp;&nbsp;${list.tel}</td>
+			<tr id="font">
+				<td align="center" colspan="2" ><br><br><br><br><br><img src="ahn/images/phonedining.png" width="30" height="30" id="phone" >&nbsp;&nbsp;${list.tel}</td>
 			</tr>
 		</table>
 			<i class="ion-ios-arrow-right"></i>
 		</figcaption>
 		</figure></a><br>
 		
-		<img src="images/eyeram.png" width="40" height="40">&nbsp;<font size="3" color="gray">${ list.readcount }</font>
+		<img src="ahn/images/eyeram.png" width="40" height="40">&nbsp;<font size="3" color="gray">${ list.readcount }</font>
 		&nbsp;&nbsp;
 		<c:if test="${list.readcount>=30}">
-			<img src="images/hot.png" height="40" weight="50">
+			<img src="ahn/images/hot.png" height="40" weight="50">
 		</c:if><br><br><br>
 		
 		<%-- <font size="4" color="gray"><b>${ list.subject }</b></font> --%> 

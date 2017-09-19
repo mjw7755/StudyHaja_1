@@ -1,4 +1,4 @@
-package edu.kosta.roomAction;
+package study.studyAction;
 
 import java.sql.Timestamp;
 

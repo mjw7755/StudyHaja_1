@@ -1,9 +1,11 @@
-package edu.kosta.roomAction;
+package study.studyAction;
 
 import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import study.studyAction.CommandAction;
 
 public class caferegisterformAction implements CommandAction {
 

@@ -1,4 +1,4 @@
-package edu.kosta.roomAction;
+package study.studyAction;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import study.studyAction.CommandAction;
 import edu.kosta.roomModel.roomDAO;
 import edu.kosta.roomModel.roomVO;
 

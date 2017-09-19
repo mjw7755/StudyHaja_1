@@ -1,8 +1,9 @@
-package edu.kosta.roomAction;
+package study.studyAction;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import study.studyAction.CommandAction;
 import edu.kosta.roomModel.roomDAO;
 import edu.kosta.roomModel.roomVO;
 

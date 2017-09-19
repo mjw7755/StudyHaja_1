@@ -65,9 +65,9 @@ body{
       }
    }
 </script> 
-<link rel="stylesheet" href="css/ahnTable.css">
-<link rel="stylesheet" href="css/ahnButton.css">
-<link rel="stylesheet" href="css/ahnText.css">
+<link rel="stylesheet" href="ahn/css/ahnTable.css">
+<link rel="stylesheet" href="ahn/css/ahnButton.css">
+<link rel="stylesheet" href="ahn/css/ahnText.css">
 </head>
 <body>
 	
@@ -77,7 +77,7 @@ body{
 	<table>
 		<tr>
 			<td>
-				<img src="images/${list.images}" width="550px" height="350px">
+				<img src="ahn/images/${list.images}" width="550px" height="350px">
 			</td>
 			<td>
 			<div id="map" style= "width:600px;height:350px;"></div>
@@ -186,9 +186,9 @@ body{
             <tr> 
             <td colspan="2">
             &nbsp;
-            <img src="images/parking.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <img src="images/wifi.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <img src="images/projector.png">&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+            <img src="ahn/images/parking.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="ahn/images/wifi.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="ahn/images/projector.png">&nbsp;&nbsp;&nbsp;&nbsp;<br/>
             <font size="3" color="gray">&nbsp;&nbsp;&nbsp;&nbsp;주차가능</font>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <font size="3" color="gray">와이파이</font>

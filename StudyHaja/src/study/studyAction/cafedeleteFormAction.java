@@ -1,11 +1,12 @@
-package edu.kosta.roomAction;
+package study.studyAction;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import study.studyAction.CommandAction;
 import edu.kosta.roomModel.roomDAO;
 
-public class cafedeleteProAction implements CommandAction {
+public class cafedeleteFormAction implements CommandAction {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -26,6 +27,5 @@ public class cafedeleteProAction implements CommandAction {
 	      
 	      return "/jsp/cafedeletePro.jsp" ;
 	   }
-	}
 
-
+}

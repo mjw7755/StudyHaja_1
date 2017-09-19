@@ -1,4 +1,4 @@
-package edu.kosta.roomAction;
+package study.studyAction;
 
 
 import java.sql.Timestamp;
@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import study.studyAction.CommandAction;
 import edu.kosta.roomModel.*;
 
 

@@ -40,6 +40,7 @@ public class ListAction implements CommandAction {
 		request.setAttribute("list", list);
 		/*request.setAttribute("sdf", sdf);*/
 		System.out.println(list.get(0).getSubject());
+		
 		return "/ram/jsp/main_notice.jsp";
 	}
 

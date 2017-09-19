@@ -34,7 +34,7 @@ public class roomDAO {  // controller
 		// 연결은 JNDI & POLL 형태로 연결 객체 생성해서 리턴
 		Context ctx = new InitialContext();
 		//Context env = (Context)ctx.lookup("java:comp/env");
-		DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc:boardDB");	
+		DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc:BoardDB");	
 		//DBMS 에러를 찾는데 도움
 	
 		DriverManager.setLogWriter(new PrintWriter(System.out));

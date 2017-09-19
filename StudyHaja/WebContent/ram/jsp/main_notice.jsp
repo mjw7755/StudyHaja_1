@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
-<link rel="stylesheet" type="text/css" href="css/main_notice.css" />
+<link rel="stylesheet" type="text/css" href="ram/css/main_notice.css" />
 <!-- <script src="js/scroll.js"></script> -->
 <!DOCTYPE html>
 <html> 
@@ -30,7 +30,7 @@
 
 <div>
 <figure class="snip1132">
-  <img src="images/1.jpg" alt="sample" />
+  <img src="ram/images/1.jpg" alt="sample" />
   <figcaption>
     <div class="heading">
       <h3><span>Study Together</span></h3>
@@ -43,7 +43,7 @@
 </figure>
 
  <figure class="snip1132">
-  <img src="images/4.jpg" alt="sample2" />
+  <img src="ram/images/4.jpg" alt="sample2" />
   <figcaption>
     <div class="heading">
       <h3><span>Study Search</span></h3>
@@ -55,7 +55,7 @@
   <a href="#"></a>
 </figure>
 <figure class="snip1132">
-  <img src="images/3.jpg" alt="sample3" />
+  <img src="ram/images/3.jpg" alt="sample3" />
   <figcaption>
     <div class="heading">
       <h3><span>Study Room</span></h3>

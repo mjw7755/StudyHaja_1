@@ -1,7 +1,9 @@
-package edu.kosta.roomAction;
+package study.studyAction;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import edu.kosta.roomAction.CommandAction;
 
 public class ShowAllAction implements CommandAction {
 

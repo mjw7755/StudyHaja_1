@@ -1,15 +1,15 @@
-package edu.kosta.roomAction;
+package study.studyAction;
 
 import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import study.studyAction.CommandAction;
 import edu.kosta.roomModel.roomDAO;
 import edu.kosta.roomModel.roomVO;
 
-public class ContentAction implements CommandAction {
+public class roomContentAction implements CommandAction {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -38,7 +38,7 @@ public class ContentAction implements CommandAction {
 		request.setAttribute("list", vo);
 		
 		
-		return "/jsp/Room2.jsp";
+		return "/ahn/jsp/Room2.jsp";
 	}
 
 }

@@ -1,8 +1,10 @@
-package edu.kosta.roomAction;
+package study.studyAction;
 
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import study.studyAction.CommandAction;
 
 public class InsertFormAction implements CommandAction{
 
