@@ -5,7 +5,24 @@
 
 
 <html>
-<head><title>게시판</title>
+<head>
+<script type="text/javascript">
+
+   function confirmFunction(){
+      var test = confirm("정말 삭제 하시겠습니까?");
+
+      if (test == true ) { 
+         alert("삭제 되었습니다.");
+         document.getElementById('delForm').submit();
+
+      } else {
+         alert("취소 되었습니다.");
+         return false;
+          // 취소
+      }
+   }
+</script> 
+<title>게시판</title>
 <style type="text/css">
 /* div{
 	margin: auto;
@@ -80,7 +97,13 @@ ${vo.content }
 </div>
 <p><a href="notice_list.do?pageNum=${ pageNum }">목록</a>
    <a href="notice_updateForm.do?num=${ vo.num }&pageNum=${ pageNum }">글 수정</a>
-   <a href="notice_deleteForm.do?num=${ vo.num }&pageNum=${ pageNum }">글 삭제</a>
+   <%-- <a href="notice_deleteForm.do?num=${ vo.num }&pageNum=${ pageNum }">글 삭제</a> --%>
+   
+   <form action="notice_deletePro.do" name="delForm" id="delForm">
+   <input type ="button" value ="게시물 삭제" name="del" id = "del" onclick="confirmFunction()">
+  <input type="hidden" name="num" value="${vo.num}">
+		<input type="hidden" name="pageNum" value="${pageNum}">
+   </form>
 </p>
 
 </div>
