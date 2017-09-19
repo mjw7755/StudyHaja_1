@@ -103,7 +103,7 @@ private Map commandMap = new HashMap();
           dp.forward(request, response);
       }else {
          request.setAttribute("CONTENT", view);
-          RequestDispatcher dp = request.getRequestDispatcher("/templet/templet.jsp");
+          RequestDispatcher dp = request.getRequestDispatcher("/templet/templet2.jsp");
           dp.forward(request, response);
       }
       //request.setAttribute("CONTENT", view);

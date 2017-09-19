@@ -89,7 +89,7 @@
 	 					data:{"td":td.eq(0).text()},
 	    				
 	 						success:function(data){
-	 							
+	 							alert(data);
 	 							$("#popup").bPopup({
 	 								
 	 					    		modalClose:true,

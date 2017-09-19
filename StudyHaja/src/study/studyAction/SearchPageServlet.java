@@ -55,7 +55,7 @@ public class SearchPageServlet extends HttpServlet {
 				System.out.println(td);
 				StudyInfoVO studyTdInfoList = studyDAO.selectContent(td);
 				request.setAttribute("vo", studyTdInfoList);
-				response.getWriter().write(studyTdInfoList+"");
+				response.getWriter().write(result);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

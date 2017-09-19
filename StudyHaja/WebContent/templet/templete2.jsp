@@ -2,7 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
-<link rel="stylesheet" href="css/templete2.css">
+<link rel="stylesheet" href="../ram/css/templete2.css">
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +37,7 @@
 <div id = "templete_top">
 
 <div id = "main_icon">
-<a href="list.do" id= "icon"><img src="images/logo3_2.png"/></a>
+<a href="list.do" id= "icon"><img src="../ram/images/logo3_2.png"/></a>
 </div>
 
 <div id = "top">
@@ -68,9 +68,9 @@
 </div> --%>
 
 <div class="scroll">
-      <a href="#" class="scroll_top"><img src="images/scroll_top5.png"/></a>
-      <a href="#" class="scroll_bottom"><img src="images/scroll_bottom5.png"/></a>
+      <a href="#" class="scroll_top"><img src="../ram/images/scroll_top5.png"/></a>
+      <a href="#" class="scroll_bottom"><img src="../ram/images/scroll_bottom5.png"/></a>
 </div>
-<script src="js/scroll.js"></script>
+<script src="ram/js/scroll.js"></script>
 </body>
 </html>
