@@ -14,6 +14,7 @@
 		  onsubmit="return deleteSave()"	 name="delForm">
 	<input type="hidden" >
 	<table width="360" border="1" cellspacing="0" cellpadding="0"  align="center">
+	<input type="hidden"  name="num"  value="${ num }">
 		<tr height="30"> 
 			<td align="center">
 			<input type="submit"  value="글삭제">

@@ -5,17 +5,18 @@
 
 <fmt:requestEncoding   value="utf-8" />
 
-<c:if test="check == 0">
+ <c:if test="check == 0">
 		<script type="text/javascript">
 			alert("비밀 번호가 맞지 않습니다.");
 		</script>
 </c:if>
 
 <c:if test="check == 1">
-		<meta  http-equiv="Refresh"  content="0; url=notice_list.do?pageNum=${ pageNum }" >
-</c:if> --
+		<meta  http-equiv="Refresh"  content="0; url=list.do?pageNum=${ pageNum }" >
+</c:if>
+<%-- <a href="list.do?pageNum=${ pageNum }"></a> --%>
 <br>
 <a href="javascript:history.go(-1)">[글삭제 폼으로 돌아가기]</a>
-<c:redirect  url="notice_list.do" />
+<%-- <c:redirect  url="notice_list.do" /> --%>
 
 

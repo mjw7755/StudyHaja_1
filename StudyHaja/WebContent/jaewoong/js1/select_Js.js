@@ -1,8 +1,9 @@
-var request = new XMLHttpRequest();
 
 
 
-function searchFunction(){
+/*function searchFunction(){
+	var request = new XMLHttpRequest();
+
 	alert("dd");
 	request.open("Post","../../searchPageServlet?subject="+encodeURIComponent(document.getElementById("subject").value),true);
 	request.onreadystatechange = searchProcess;
@@ -25,7 +26,7 @@ function searchProcess(){
 			}
 		}
 	}
-} 
+} */
 
 function doChange(mainSel,targetId){
 	var val = mainSel.options[mainSel.selectedIndex].value;

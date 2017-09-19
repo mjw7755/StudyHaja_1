@@ -116,6 +116,250 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 		
 		return studyArr;
 	}
+	public ArrayList<StudyInfoVO> selectListSelValue(String selValue) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StudyInfoVO vo = null;
+		ArrayList<StudyInfoVO> studyArr = null;
+		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE place2 = ?";
+		try {
+			
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,selValue);
+			rs = pstmt.executeQuery();
+			studyArr = new ArrayList<StudyInfoVO>();
+			
+			while(rs.next()){
+				vo = new StudyInfoVO();
+				vo.setNum(rs.getInt(1));
+				vo.setKind2(rs.getString(2));
+				vo.setSubject(rs.getString(3));
+				vo.setReg_date(rs.getTimestamp(4));
+				vo.setReadcount(rs.getInt(5));
+				
+				studyArr.add(vo);
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally{
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+			CloseUtil.close(conn);
+		}
+		
+		return studyArr;
+	}
+	
+	/*3개 다들어왔을때*/
+	public ArrayList<StudyInfoVO> selectList(String content,String[] check, String selValue) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StudyInfoVO vo = null;
+		ArrayList<StudyInfoVO> studyArr = null;
+		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE ";
+		
+		if(check.length > 1){
+			for(int i=0;i<check.length;i++){
+				if(i == check.length-1){
+					sql += "kind2 = '"+check[i]+"' and ";
+				}else{
+					sql += "kind2 = '"+check[i]+"' or ";
+				}
+			}
+		}else {
+			sql += "KIND2 = '"+check[0]+"' and ";
+		}
+		
+		sql += "subject like '%"+content+"%' and place2 = '"+selValue+"'";
+		
+		try {
+			
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			studyArr = new ArrayList<StudyInfoVO>();
+			
+			while(rs.next()){
+				vo = new StudyInfoVO();
+				vo.setNum(rs.getInt(1));
+				vo.setKind2(rs.getString(2));
+				vo.setSubject(rs.getString(3));
+				vo.setReg_date(rs.getTimestamp(4));
+				vo.setReadcount(rs.getInt(5));
+				
+				studyArr.add(vo);
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally{
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+			CloseUtil.close(conn);
+		}
+		
+		return studyArr;
+	}
+	/*3개 메소드 끝*/
+	
+	/*2-3개 들어왔을때*/
+	public ArrayList<StudyInfoVO> selectList(String[] check, String selValue) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StudyInfoVO vo = null;
+		ArrayList<StudyInfoVO> studyArr = null;
+		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE ";
+		
+		if(check.length > 1){
+			for(int i=0;i<check.length;i++){
+				if(i == check.length-1){
+					sql += "kind2 = '"+check[i]+"' and ";
+				}else{
+					sql += "kind2 = '"+check[i]+"' or ";
+				}
+			}
+		}else {
+			sql += "KIND2 = '"+check[0]+"' and ";
+		}
+		
+		sql += "place2 = '"+selValue+"'";
+		
+		try {
+			
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			studyArr = new ArrayList<StudyInfoVO>();
+			
+			while(rs.next()){
+				vo = new StudyInfoVO();
+				vo.setNum(rs.getInt(1));
+				vo.setKind2(rs.getString(2));
+				vo.setSubject(rs.getString(3));
+				vo.setReg_date(rs.getTimestamp(4));
+				vo.setReadcount(rs.getInt(5));
+				
+				studyArr.add(vo);
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally{
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+			CloseUtil.close(conn);
+		}
+		
+		return studyArr;
+	}
+	/*3개 메소드 끝*/
+	
+	
+	/*2-2개 들어왔을때*/
+	public ArrayList<StudyInfoVO> selectList(String content, String selValue) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StudyInfoVO vo = null;
+		ArrayList<StudyInfoVO> studyArr = null;
+		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE ";
+		
+		
+		sql += "subject like '%"+content+"%' and place2 = '"+selValue+"'";
+		
+		try {
+			
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			studyArr = new ArrayList<StudyInfoVO>();
+			
+			while(rs.next()){
+				vo = new StudyInfoVO();
+				vo.setNum(rs.getInt(1));
+				vo.setKind2(rs.getString(2));
+				vo.setSubject(rs.getString(3));
+				vo.setReg_date(rs.getTimestamp(4));
+				vo.setReadcount(rs.getInt(5));
+				
+				studyArr.add(vo);
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally{
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+			CloseUtil.close(conn);
+		}
+		
+		return studyArr;
+	}
+	/*3개 메소드 끝*/
+	
+	
+	/*2-1개 들어왔을때*/
+	public ArrayList<StudyInfoVO> selectList(String content,String[] check) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StudyInfoVO vo = null;
+		ArrayList<StudyInfoVO> studyArr = null;
+		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE ";
+		
+		if(check.length > 1){
+			for(int i=0;i<check.length;i++){
+				if(i == check.length-1){
+					sql += "kind2 = '"+check[i]+"' and";
+				}else{
+					sql += "kind2 = '"+check[i]+"' or ";
+				}
+			}
+		}else {
+			sql += "KIND2 = '"+check[0]+"' and ";
+		}
+		
+		sql += "subject like '%"+content+"%'";
+		
+		try {
+			
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			studyArr = new ArrayList<StudyInfoVO>();
+			
+			while(rs.next()){
+				vo = new StudyInfoVO();
+				vo.setNum(rs.getInt(1));
+				vo.setKind2(rs.getString(2));
+				vo.setSubject(rs.getString(3));
+				vo.setReg_date(rs.getTimestamp(4));
+				vo.setReadcount(rs.getInt(5));
+				
+				studyArr.add(vo);
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally{
+			CloseUtil.close(rs);
+			CloseUtil.close(pstmt);
+			CloseUtil.close(conn);
+		}
+		
+		return studyArr;
+	}
+	/*3개 메소드 끝*/
 	
 	public ArrayList<StudyInfoVO> selectListAll() {
 		Connection conn = null;
@@ -186,13 +430,13 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			if(check.length > 1){
 				for(int i=0;i<check.length;i++){
 					if(i == check.length-1){
-						sql += "kind2 = "+"'"+check[i]+"'";
+						sql += "kind2 = '"+check[i]+"'";
 					}else{
-						sql += "kind2 = "+"'"+check[i]+"'"+" or ";
+						sql += "kind2 = '"+check[i]+"' or ";
 					}
 				}
 			}else {
-				sql += "KIND2 = "+"'"+check[0]+"'";
+				sql += "KIND2 = '"+check[0]+"'";
 			}
 			
 			pstmt = conn.prepareStatement(sql);

@@ -41,7 +41,9 @@ rollback
 
 create sequence study_num;
 
+SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE kind2 = '토익' and subject like '%할%' and place2 = '인제군';
 
+SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE place2 = '인제군';
 select * from study_info;
 SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE KIND2 = '토익' or KIND2 = '토익스피킹';
 select * from mvcnotice;

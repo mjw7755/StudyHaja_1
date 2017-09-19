@@ -19,7 +19,7 @@
     float:right;
   }
   td {
-    border-bottom: 1px solid #444444;
+    border-bottom: 1px solid #BDBDBD;
     padding: 10px;
   }
 	#num{
@@ -33,6 +33,14 @@
 	text-align: right;
 	margin-top: 5%;
 	margin-right: 3%;
+	}
+	#list_table{
+	width:100%;
+	height: 60%;
+	}
+	#listpage{
+	text-align: right;
+    margin-right: 3%;
 	}
 </style>
 </head>
@@ -48,7 +56,7 @@
 			</td>
 		</tr>
 </table> -->
-
+<div id="list_table">
 <table id="notice_list" >
 <c:forEach var="list2" items="${list2}">
 <tr>
@@ -59,12 +67,11 @@
 </tr>
 </c:forEach>
 </table>
-
+</div>
  <c:if test="${ count > 0 }"> <!--  전체 페이지의 수를 연산 -->
 	    <c:set  var="pageCount"  value="${ count / pageSize + (count % pageSize ==0 ? 0 : 1) }" />
 		<c:set  var="startPage"  value="${ 1 }" /> 
 		<c:set  var="pageBlock"  value="${ 5 }" />
-		
 		
 		<fmt:parseNumber var="result"  value="${ currentPage / pageBlock }" integerOnly="true" />
 		<c:if  test="${ currentPage % pageBlock != 0 }" > 
@@ -81,6 +88,7 @@
 			<c:set  var="endPage"  value="${ pageCount }" />
 		</c:if>
 		
+		<diV id="listpage">
 		<c:if test="${startPage >5 }" >
 			<a href="notice_list.do?pageNum=${ startPage-5  }">[이전] </a>
 		</c:if>
@@ -92,6 +100,8 @@
 	<c:if test="${ endPage < pageCount }" >
 		<a href="notice_list.do?pageNum=${ startPage+5 }">[다음] </a>
 	</c:if>
+		</diV>
+		
 </c:if>
 </body>
 </html>

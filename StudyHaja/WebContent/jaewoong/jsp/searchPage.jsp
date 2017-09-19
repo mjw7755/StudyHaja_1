@@ -24,6 +24,47 @@
  $(function(){
 		 
 	 var checkedValues = [];  
+	 var selValue = null;
+	 var content = null;
+	 
+	 
+	 $("#searchBtn").click(function(){
+		 
+		 content =  $("#subject").val();
+	    	
+	    	
+	    	$("#tableAjax > tbody").empty();
+	    	$.ajax(
+	 				{
+	 					type:"post",
+	 					url:"../../searchPageServlet",
+	 					data:{"subject":content,
+	 						
+	 					},
+	 					
+	 					success:function(data){
+	 						var d = eval("("+data+")");
+	 						var dd = d.result;
+	 						/*페이징 처리  */
+	 						for(var i=0;i<dd.length;i++){
+	 							/* $("#ajaxTable").append('<tr style="cursor:pointer;" id="record'+i+'" onclick="layer_open();return false">'); */
+	 							for(var j=0;j<dd[i].length;j++){
+	 								
+	 								$("#ajaxTable").append('<td>'+dd[i][j].value+'</td>');
+	 							}
+	 							$("#ajaxTable>td").wrapAll('<tr style="cursor:pointer;" id="record"></tr>');
+	 						}		
+	 						
+	 					},
+	 					error : function(msg, error) {
+	 						alert(error);
+	 					}
+	 					
+	 				}		
+	 			)
+	    	
+	    });
+	 
 	    $("input[name=oneChk]").click(function(){
 	    	
 	    	
@@ -45,7 +86,9 @@
 	 				{
 	 					type:"post",
 	 					url:"../../searchPageServlet",
-	 					data:{"check":checkedValues,		
+	 					data:{
+	 						"check":checkedValues,
+	 							
 	 					},
 	 					
 	 					success:function(data){
@@ -91,6 +134,7 @@
 	 						success:function(data){
 	 							var d = eval("("+data+")");
 		 						var dd = d.result;
+		 						
 	 							$("#jae").text(dd[0][0].value);
 	 							$("#bun").text(dd[0][1].value);
 	 							$("#s_d").text(dd[0][2].value);
@@ -125,18 +169,30 @@
 	    });
 	    
 	    $("#subSel").on('change',function(){
-	    	var selValue = $("#subSel option:checked").text();
+	    	selValue = $("#subSel option:checked").text();
+			
 	    	
 	    	$.ajax(
 	 				{
 	 					type:"post",
 	 					url:"../../searchPageServlet",
-	 					data:{"selValue":selValue,		
+	 					data:{
+	 						"selValue":selValue,		
 	 					},
 	 					
 	 					success:function(data){
-	 						
-	 						
+	 						$("#tableAjax > tbody").empty();
+	 						var d = eval("("+data+")");
+	 						var dd = d.result;
+	 						/*페이징 처리  */
+	 						for(var i=0;i<dd.length;i++){
+	 							/* $("#ajaxTable").append('<tr style="cursor:pointer;" id="record'+i+'" onclick="layer_open();return false">'); */
+	 							for(var j=0;j<dd[i].length;j++){
+	 								
+	 								$("#ajaxTable").append('<td>'+dd[i][j].value+'</td>');
+	 							}
+	 							$("#ajaxTable>td").wrapAll('<tr style="cursor:pointer;" id="record"></tr>');
+	 						}	
 	 						
 	 					},
 	 					error : function(msg, error) {
@@ -149,6 +205,8 @@
 	    	
 	    });
 	    
+	    
+	   
 	    
 });
 
