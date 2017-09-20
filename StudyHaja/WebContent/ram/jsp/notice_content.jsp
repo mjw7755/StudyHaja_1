@@ -78,6 +78,9 @@
  	float:left;
  	text-align:right;
  }
+ #bottom_btn{
+     text-align: center;
+ }
 </style>
 </head>
 
@@ -85,13 +88,13 @@
 
 <div id = "view_top">
 	<div id="top_noti">
-	<img src="images/notice2.png"/>
+	<img src="ram/images/notice2.png"/>
 	</div>
 	<div id="top_subj">
 <h3 align="center">${vo.subject }</h3>
 	</div>
 	<div id="top_canc">
-<a href="notice_list.do?pageNum=${ pageNum }"><img src= "images/cancel.png"/></a>
+<a href="notice_list.do?pageNum=${ pageNum }"><img src= "ram/images/cancel.png"/></a>
 	</div>
 </div>
 
