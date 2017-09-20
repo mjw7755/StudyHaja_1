@@ -52,7 +52,7 @@
       <p>가나다라</p>
     </div>
   </figcaption>
-  <a href="#"></a>
+  <a href="searchPage.do"></a>
 </figure>
 <figure class="snip1132">
   <img src="ram/images/3.jpg" alt="sample3" />
