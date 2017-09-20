@@ -78,6 +78,9 @@
  	float:left;
  	text-align:right;
  }
+ #bottom_btn{
+     text-align: center;
+ }
 </style>
 </head>
 
@@ -85,13 +88,13 @@
 
 <div id = "view_top">
 	<div id="top_noti">
-	<img src="images/notice2.png"/>
+	<img src="ram/images/notice2.png"/>
 	</div>
 	<div id="top_subj">
 <h3 align="center">${vo.subject }</h3>
 	</div>
 	<div id="top_canc">
-<a href="notice_list.do?pageNum=${ pageNum }"><img src= "images/cancel.png"/></a>
+<a href="notice_list.do?pageNum=${ pageNum }"><img src= "ram/images/cancel.png"/></a>
 	</div>
 </div>
 
@@ -118,8 +121,8 @@ ${vo.content }
 <p><a href="#">▽ 이후내용</a></p>
 </div>
 </div>
-<p><a href="notice_list.do?pageNum=${ pageNum }">목록</a>
-   <a href="notice_updateForm.do?num=${ vo.num }&pageNum=${ pageNum }">글 수정</a>
+<p id="bottom_btn"><a href="notice_list.do?pageNum=${ pageNum }"><img src="ram/images/list.png"/></a>
+   <a href="notice_updateForm.do?num=${ vo.num }&pageNum=${ pageNum }"><img src="ram/images/change.png"/></a>
    <%-- <a href="notice_deleteForm.do?num=${ vo.num }&pageNum=${ pageNum }">글 삭제</a> --%>
    
    <form action="notice_deletePro.do" name="delForm" id="delForm">
