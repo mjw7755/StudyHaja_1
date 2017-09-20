@@ -11,10 +11,10 @@
     text-shadow: none !important;
     box-shadow: none !important;
   }
-  a,
+/*   a,
   a:visited {
     text-decoration: underline;
-  }
+  } */
   abbr[title]::after {
     content: " (" attr(title) ")";
   }
@@ -61,7 +61,7 @@
     border: 1px solid #ddd !important;
   }
 }
-
+/* 
 html {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -70,7 +70,7 @@ html {
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
-}
+} */
 
 *,
 *::before,
