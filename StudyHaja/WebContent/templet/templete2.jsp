@@ -36,7 +36,7 @@
 	<a href="loginForm.do" >LOGIN</a>&nbsp;&nbsp;&nbsp;
 	<a href="signupForm.do" >SIGN-UP</a>
 </div> -->
-<div id = "templete_top">
+<div id = "templete_top" >
 
 <div id = "main_icon">
 <a href="mainlist.do" id= "icon"><img src="ram/images/logo3_2.png"/></a>
@@ -44,7 +44,7 @@
 
 <div id = "top">
 <ul id = "topMenu">
-	<li><a href="registerForm.do" >Study Together</a></li>
+	<li><a href="registerForm.do">Study Together</a></li>
 	<li><a href="searchPage.do" >Study Search</a></li>
 	<li><a href="roomList.do" >Study Room</a></li>
 	<li><a href="notice_list.do" >Notice</a></li>	

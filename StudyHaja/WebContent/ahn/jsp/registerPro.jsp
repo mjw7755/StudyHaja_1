@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 </head>
-<body onload = "list.do">
+<body onload = "mainlist.do">
 
 </body>
 </html>

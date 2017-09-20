@@ -64,7 +64,7 @@
 			</tr>
 			
 			<tr id="font">
-				<td align="center" colspan="2" ><br><br><br><br><br><img src="ahn/images/phonedining.png" width="30" height="30" id="phone" >&nbsp;&nbsp;${list.tel}</td>
+				<td align="center" colspan="2" ><br><br><br><br><br><br><br><img src="ahn/images/phonedining.png" width="30" height="30" id="phone" >&nbsp;&nbsp;${list.tel}</td>
 			</tr>
 		</table>
 			<i class="ion-ios-arrow-right"></i>
