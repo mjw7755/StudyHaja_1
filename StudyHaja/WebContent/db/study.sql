@@ -34,18 +34,18 @@ create table study_members(
 	reg_date date not null
 )segment creation immediate;
 
+SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE (select id from study_members) = 'aa';
+
 select * from study_members;
 SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE CONTENT='하하하하';
 drop table study_info;
 rollback
 
 create sequence study_num;
-
-SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE kind2 = '토익' and subject like '%할%' and place2 = '인제군';
-
-SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE place2 = '인제군';
+SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE ? = ?;
+SUBJECT LIKE  and COLUMN_NAME=
 select * from study_info;
-SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE KIND2 = '토익' or KIND2 = '토익스피킹';
+
 select * from mvcnotice;
 select count(*) from study_info;
 select subject,kind2,s_date,e_date,day,s_hour,s_minute,e_hour,e_minute,place1,place2,place3,people,content from study_info where num = 47;

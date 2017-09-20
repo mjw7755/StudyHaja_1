@@ -167,11 +167,67 @@ select#soflow-color {
 		  border:1px solid gray;
 		  border-radius: 4px;
 	}
+	.detail6 {
+	 	background:white;
+		  height: auto;
+		  width: auto;
+		  display:none;
+		  text-color:white;
+		  border:1px solid gray;
+		  border-radius: 4px;
+	}
+	.detail7 {
+	 	background:white;
+		  height: auto;
+		  width: auto;
+		  display:none;
+		  text-color:white;
+		  border:1px solid gray;
+		  border-radius: 4px;
+	}
+	.detail8 {
+	 	background:white;
+		  height: auto;
+		  width: auto;
+		  display:none;
+		  text-color:white;
+		  border:1px solid gray;
+		  border-radius: 4px;
+	}
 	
 	.tableDIV{
 		height:auto;
 		width:900;
 		align:center;
 	} 
+	
+	
+table.atable {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+
+}
+table.atable thead th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #369;
+    border-bottom: 3px solid #036;
+}
+table.atable tbody th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #f3f6f7;
+}
+table.atable td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
 
 	

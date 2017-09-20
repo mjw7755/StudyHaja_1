@@ -14,7 +14,7 @@ public class caferegisterformAction implements CommandAction {
 		request.setCharacterEncoding("utf-8");
 		int num = 0, r_no= 1, re_step = 0, re_level = 0;
 		
-		
+		request.setAttribute("pageNum", request.getAttribute("pageNum"));
 		request.setAttribute("num", num);
 		request.setAttribute("r_no", r_no);
 		
