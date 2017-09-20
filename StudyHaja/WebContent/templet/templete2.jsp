@@ -35,7 +35,7 @@
 	<a href="loginForm.do" >LOGIN</a>&nbsp;&nbsp;&nbsp;
 	<a href="signupForm.do" >SIGN-UP</a>
 </div> -->
-<div id = "templete_top">
+<div id = "templete_top" >
 
 <div id = "main_icon">
 <a href="mainlist.do" id= "icon"><img src="ram/images/logo3_2.png"/></a>
