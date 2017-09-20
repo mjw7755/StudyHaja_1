@@ -79,6 +79,37 @@ public class roomDAO {  // controller
 	}*/
 
 	//getListAllCount() : list.jsp 페이지에서 사용할 레코드 갯수 얻어오는 메소드
+	public int getListSearch(String searchlocation){
+		System.out.println("getListSearch : " + searchlocation);
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int count = 0;
+		StringBuffer  sb = new StringBuffer();
+		try {
+			conn = getConnection();
+			
+			//현재 board 테이블의 레코드 수 구하기
+			sb.append("SELECT COUNT(*) FROM ROOM where address like ?" );
+			System.out.println(sb.toString());
+			
+			pstmt = conn.prepareStatement(sb.toString());
+			
+			pstmt.setString(1, "%"+searchlocation+"%");
+			System.out.println("2:" + sb.toString());
+			rs = pstmt.executeQuery();
+			
+			if( rs.next() ) 
+				count = rs.getInt(1);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			CloseUtil.close(rs);			CloseUtil.close(pstmt);			CloseUtil.close(conn);
+		}	
+		return count;
+	}
 	public int getListAllCount() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -162,7 +193,68 @@ public class roomDAO {  // controller
 			return list;
 		}
 // getSelectAll(startRow, endRow) end
-
+		public List<roomVO> selectsearchlist(int pageNum, String searchlocation) {
+			Connection conn = null;
+			PreparedStatement pstmt=null;
+			ResultSet rs = null;
+			List  list = null;
+			String[] arr;
+			try {
+				conn = getConnection();
+				StringBuffer  sb = new StringBuffer();
+			
+				//sb.append("SELECT * FROM ROOM where r_no >= ? and r_no <= ? order by reg_date desc");
+				sb.append("SELECT * FROM ROOM where address LIKE ? order by reg_date desc");
+				System.out.println(sb.toString());
+				
+				/*sb.append("SELECT * R " );
+		        sb.append("FROM(SELECT NUM, R_NO, IMAGES, SUBJECT, ADDRESS, AREA, LOCATION, PAY, OPTIONS, C_DAY, WORKING_HOUR, READCOUNT,TEL, SEATS, REG_DATE, CONTENTS, ROWNUM R " );
+		        sb.append("FROM(SELECT * " );
+		        sb.append("FROM ROOM ORDER BY reg_date DESC) WHERE R>=? AND R<=? " );*/
+		         
+		        //ORDER BY R_NO DESC)
+				
+				pstmt = conn.prepareStatement(sb.toString());
+				pstmt.setString(1, "%"+searchlocation+"%");
+/*				pstmt.setString(1, "'%"+"부산"+"%'");
+*/				System.out.println("2 : " + sb.toString());
+				rs = pstmt.executeQuery();
+				
+				for(int i=0; i<(pageNum-1)*9 && rs.next(); i++) {}
+				for(int i=0; i<9 && rs.next(); i++) {
+					list = new ArrayList(9);
+					
+					do {
+						roomVO vo = new roomVO();
+						vo.setNum(rs.getInt("num"));
+						
+						vo.setImages(rs.getString("images"));
+						vo.setSubject(rs.getString("subject"));
+						vo.setArea(rs.getString("area"));
+						vo.setLocation(rs.getString("location"));
+						vo.setPay(rs.getString("pay"));
+						vo.setOptions(rs.getString("options"));
+						vo.setWorking_hour(rs.getString("working_hour"));
+						vo.setWorking_hour2(rs.getString("working_hour2"));
+						vo.setC_day(rs.getString("c_day"));
+						vo.setTel(rs.getString("tel"));
+						vo.setSeats(rs.getString("seats"));
+						vo.setContents(rs.getString("contents"));
+						vo.setReadcount(rs.getInt("readcount"));
+						vo.setReg_date(rs.getTimestamp("reg_date"));
+						// list 객체에 데이터 저장 Bean인 BoardVO 객체에 저장한다.
+						list.add(vo);
+						
+					} while( rs.next() ) ;	
+				} // if end
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				CloseUtil.close(rs);			CloseUtil.close(pstmt);			CloseUtil.close(conn);
+			}				
+			return list;
+		}
 public roomVO getDataDetail(int num) {
 	 Connection conn = null;
      PreparedStatement pstmt=null;
