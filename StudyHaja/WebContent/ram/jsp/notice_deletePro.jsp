@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
@@ -7,16 +7,24 @@
 
  <c:if test="check == 0">
 		<script type="text/javascript">
-			alert("ë¹„ë°€ ë²ˆí˜¸ê°€ ë§žì§€ ì•ŠìŠµë‹ˆë‹¤.");
+			alert("ºñ¹Ð ¹øÈ£°¡ ¸ÂÁö ¾Ê½À´Ï´Ù.");
 		</script>
 </c:if>
 
 <c:if test="check == 1">
 		<meta  http-equiv="Refresh"  content="0; url=list.do?pageNum=${ pageNum }" >
 </c:if>
-<%-- <a href="list.do?pageNum=${ pageNum }"></a> --%>
+<a href="list.do?pageNum=${ pageNum }"></a>
 <br>
-<a href="javascript:history.go(-1)">[ê¸€ì‚­ì œ í¼ìœ¼ë¡œ ëŒì•„ê°€ê¸°]</a>
-<%-- <c:redirect  url="notice_list.do" /> --%>
+<a href="javascript:history.go(-1)">[±Û»èÁ¦ ÆûÀ¸·Î µ¹¾Æ°¡±â]</a>
+<c:redirect  url="notice_list.do" />
 
 
+ --%>
+ 
+ <%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
+<meta  http-equiv="Refresh"  content="0; url=notice_list.do?pageNum=${ pageNum }" >
+ 

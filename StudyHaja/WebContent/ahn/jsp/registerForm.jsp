@@ -11,23 +11,28 @@
 <link rel="stylesheet" href="ahn/css/ahnSelect.css">
 <link rel="stylesheet" href="ahn/css/ahnText.css">
 <link rel="stylesheet" href="ahn/css/ahnButton.css">
-<link rel="stylesheet" href="ahn/css/bootstrap.css">
+<!-- <link rel="stylesheet" href="ahn/css/bootstrap.css"> -->
 
 <!-- <link rel="stylesheet" type="text/css" href="ram/css/ram4.css" /> -->
 
 
-<link rel="stylesheet" type="text/css" href="ram/css/ram4.css" />
+<!-- <link rel="stylesheet" type="text/css" href="ram/css/ram4.css" />
 
-<link rel="stylesheet" type="text/css" href="ram/css/ram3.css" />
+<link rel="stylesheet" type="text/css" href="ram/css/ram3.css" /> -->
 
 <script src="ahn/js/selectKind.js"></script>
 <script src="ahn/js/selectAddr.js"></script>
 <!-- <script src="jquery-1.9.1.js"></script>
 <script src="jquery-ui.js"></script>
 <script src="js/bootstrap.js"></script> -->
+
+<!-- <style type="text/css">
+
+</style> -->
 </head>
 <center>
 <body>
+<h2><font color="#153d73">스터디 모집</font></h2>
 <form action="registerPro.do" method="post">
 	<input type="hidden" name="num" value="${num }">
 	<table border=2 class="mytable">

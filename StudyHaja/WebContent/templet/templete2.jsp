@@ -2,7 +2,8 @@
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
-<link rel="stylesheet" href="ram/css/templete2.css">
+<!-- <link rel="stylesheet" href="ram/css/templete2.css"> -->
+<link rel="stylesheet" href="ram/css/templete3.css">
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +48,7 @@
 	<li><a href="searchPage.do" >Study Search</a></li>
 	<li><a href="roomList.do" >Study Room</a></li>
 	<li><a href="notice_list.do" >Notice</a></li>	
-	<li><a href="list.do" >Q&A</a></li>	
+	<li><a href="list.do" >Bulletin Board</a></li>	
 </ul>
 </div>
 

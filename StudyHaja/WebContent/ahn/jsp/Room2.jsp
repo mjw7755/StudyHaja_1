@@ -222,6 +222,8 @@ body{
  -->	
  		<form id="frm" action="cafedeletePro.do">
 		<input type="button" value="삭제하기" id="btnDelete" onclick="confirmFunction()">삭제하기</button>
+		
+		
 		<input type="hidden" name="num" value="${list.num}">
 		<input type="hidden" name="pageNum" value="${pageNum}">
 	</form>
