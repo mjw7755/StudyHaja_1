@@ -35,6 +35,7 @@ public class SearchPageServlet extends HttpServlet {
 		
 		String subSearch = request.getParameter("subSearch");
 		
+		
 		/*StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
 		ArrayList<StudyInfoVO> studyInfoList = studyDAO.selectListAll();*/
 		if(subject != null && check != null && selValue != null){
@@ -73,7 +74,6 @@ public class SearchPageServlet extends HttpServlet {
 			System.out.println(subSearch);
 			System.out.println(subject);
 			response.getWriter().write(getJSONsearch(subject,subSearch));
-			System.out.println(getJSON(subject));
 		}
 		
 		if(check == null){
@@ -94,6 +94,7 @@ public class SearchPageServlet extends HttpServlet {
 			td = null;
 		}else {
 			try {
+				
 				response.getWriter().write(getJSONTd(td));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -111,7 +112,7 @@ public class SearchPageServlet extends HttpServlet {
 		StringBuffer result = new StringBuffer("");
 		result.append("{\"result\":[");
 		StudyInfoDAO studyDAO = new StudyInfoDAO();
-		ArrayList<StudyInfoVO> studyInfoList = studyDAO.selectList(content);
+		ArrayList<StudyInfoVO> studyInfoList = studyDAO.selectListSearch(content,subSearch);
 		
 		for(int i=0;i<studyInfoList.size();i++){
 			result.append("[{\"value\": \""+ studyInfoList.get(i).getNum()+"\"},");
@@ -253,11 +254,7 @@ public class SearchPageServlet extends HttpServlet {
 		StringBuffer result = new StringBuffer("");
 		result.append("{\"result\":[");
 		StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
-		System.out.println();
 		StudyInfoVO vo = studyDAO.selectContent(td);
-		
-		
-		
 			result.append("[{\"value\": \""+ vo.getSubject()+"\"},");
 			result.append("{\"value\": \""+ vo.getKind2()+"\"},");
 			result.append("{\"value\": \""+ vo.getS_date()+"\"},");
