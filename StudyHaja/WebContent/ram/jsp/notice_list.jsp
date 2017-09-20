@@ -41,6 +41,7 @@
 	#list_table{
 	width:100%;
 	height: 63%;
+	margin-bottom: 30px;
 	}
 	#listpage{
 	text-align: right;
