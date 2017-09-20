@@ -7,10 +7,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="ahn/css/figcaption2.css">
+<link rel="stylesheet" href="ahn/css/figcaption.css">
 <link rel="stylesheet" href="ahn/css/ahnButton2.css">
 <title>룸 소개</title>
-
+<style type="text/css">
+/* #readc{
+	float:left;
+	width:40px;
+	margin-top:8px;
+}
+#hot{
+	float:left;
+}
+#eye{
+	float:left;
+} */
+</style>
 </head>
 
 <body>
@@ -71,12 +83,18 @@
 		</figcaption>
 		</figure></a><br>
 		
-		<img src="ahn/images/eyeram.png" width="40" height="40">&nbsp;<font size="3" color="gray">${ list.readcount }</font>
+		<div id="eye">
+		<img src="ahn/images/eyeram.png" width="40" height="40">&nbsp;
+		</div>
+		<div id= "readc">
+		<font size="3" color="gray">${ list.readcount }</font>
+		</div>
 		&nbsp;&nbsp;
+		<div id="hot">
 		<c:if test="${list.readcount>=30}">
 			<img src="ahn/images/hot.png" height="40" weight="50">
 		</c:if><br><br><br>
-		
+		</div>
 		<%-- <font size="4" color="gray"><b>${ list.subject }</b></font> --%> 
 		<%-- <hr>
 		<font size="3" color="skyblue"><b>지역</b></font>&nbsp;&nbsp;

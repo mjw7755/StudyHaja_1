@@ -131,3 +131,15 @@ figure.snip1384.hover i {
 #font{
 color: #fff;
 }
+
+#readc{
+	float:left;
+	width:40px;
+	margin-top:8px;
+}
+#hot{
+	float:left;
+}
+#eye{
+	float:left;
+}
