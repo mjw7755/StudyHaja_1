@@ -10,22 +10,37 @@
 <link rel="stylesheet" href="ahn/css/figcaption.css">
 <link rel="stylesheet" href="ahn/css/ahnButton2.css">
 <title>룸 소개</title>
-
+<style>
+.textbox { 
+    height: 25px; 
+    width: 180px; 
+    background-color: transparent;  
+    border-style: solid;  
+    border-width: 0px 0px 2px 0px;  
+    border-color: black; 
+    outline:0; 
+    font-size : 17px;
+ } 
+</style>
 </head>
-
 <body>
-
-		
 <br/><br/>
-	<a href="caferegisterForm.do">
+	
+	<form action="cafesearchlist.do">
+	
+	<input class ="textbox" type="text" name="searchlocation" id="searchlocation" placeholder="지역명을 입력하세요">
+	<input type="image" src="ahn/images/search1.png" width="35" height="35"/>
+	<!-- <input type="submit"  id="locationsearch"><img src = "ahn/images/search.png"/> -->
+	</form>
+	
 	
 	<div class="back">
-    <div class="button_base b05_3d_roll" <!-- onclick="location.href='caferegisterForm.do'" -->
+    <div class="button_base b05_3d_roll"  onclick="location.href='caferegisterForm.do'">
         <div>스터디까페 등록</div>
         <div>스터디까페 등록</div>
     </div>
 </div>
-	</a>
+
 	<center>
 	<c:if test="${ count > 0 }">
 	<table cellpadding="20">
