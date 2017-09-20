@@ -121,8 +121,8 @@ ${vo.content }
 <p><a href="#">▽ 이후내용</a></p>
 </div>
 </div>
-<p><a href="notice_list.do?pageNum=${ pageNum }">목록</a>
-   <a href="notice_updateForm.do?num=${ vo.num }&pageNum=${ pageNum }">글 수정</a>
+<p id="bottom_btn"><a href="notice_list.do?pageNum=${ pageNum }"><img src="ram/images/list.png"/></a>
+   <a href="notice_updateForm.do?num=${ vo.num }&pageNum=${ pageNum }"><img src="ram/images/change.png"/></a>
    <%-- <a href="notice_deleteForm.do?num=${ vo.num }&pageNum=${ pageNum }">글 삭제</a> --%>
    
    <form action="notice_deletePro.do" name="delForm" id="delForm">
