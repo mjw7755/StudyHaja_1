@@ -17,15 +17,14 @@
 
 		
 <br/><br/>
-	<a href="caferegisterForm.do">
-	
+
 	<div class="back">
-    <div class="button_base b05_3d_roll" <!-- onclick="location.href='caferegisterForm.do'" -->
+    <div class="button_base b05_3d_roll"  onclick="location.href='caferegisterForm.do'">
         <div>스터디까페 등록</div>
         <div>스터디까페 등록</div>
     </div>
 </div>
-	</a>
+
 	<center>
 	<c:if test="${ count > 0 }">
 	<table cellpadding="20">
