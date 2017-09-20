@@ -18,6 +18,7 @@
   	<servlet-name>StudyController</servlet-name>
   	<servlet-class>study.controller.StudyController</servlet-class>
   	<init-param>
+<<<<<<< HEAD
   		<param-name>StudyConfig</param-name>
 
   		<param-value>C:\Users\AHN\git\StudyHaja_1\StudyHaja\WebContent\WEB-INF\commandBoard.properties</param-value>
@@ -26,6 +27,8 @@
   		<param-name>StudyConfig</param-name>
   		<param-value>C:\Users\kosta\git\StudyHaja_1\StudyHaja\WebContent\WEB-INF\commandBoard.properties</param-value>
 
+=======
+>>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
   		<param-name>StudyConfig</param-name>
   		<param-value>C:\Users\kosta\git\StudyHaja_1\StudyHaja\WebContent\WEB-INF\commandBoard.properties</param-value>
   	</init-param>

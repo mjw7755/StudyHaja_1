@@ -63,6 +63,7 @@ table.mytable th {
 
 }
 table.mytable td {
+	align : center;
     padding: 10px;
     vertical-align: top;
     border-right: 1px solid #ccc;

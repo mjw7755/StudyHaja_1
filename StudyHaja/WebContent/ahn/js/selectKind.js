@@ -68,13 +68,16 @@ function doChange(first_select,targetId){
 	   addOption('기타', targetE);
    }
    else if(val == '기타'){
+	   
 	   addOption('입시',targetE);
 	   addOption('기타', targetE);
+	   
    }
    else if(val =="1차분류"){
 	   
 	   
 	   alert("1차 분류를 선택해주세요.");
+	   
    }
 }
 function addOption(value, e){

@@ -47,14 +47,15 @@
 	 						var d = eval("("+data+")");
 	 						var dd = d.result;
 	 						/*페이징 처리  */
-	 						for(var i=0;i<dd.length;i++){
-	 							/* $("#ajaxTable").append('<tr style="cursor:pointer;" id="record'+i+'" onclick="layer_open();return false">'); */
-	 							for(var j=0;j<dd[i].length;j++){
-	 								
-	 								$("#ajaxTable").append('<td>'+dd[i][j].value+'</td>');
-	 							}
-	 							$("#ajaxTable>td").wrapAll('<tr style="cursor:pointer;" id="record"></tr>');
-	 						}		
+	 						
+		 						for(var i=0;i<dd.length;i++){
+		 							/* $("#ajaxTable").append('<tr style="cursor:pointer;" id="record'+i+'" onclick="layer_open();return false">'); */
+		 							for(var j=0;j<dd[i].length;j++){
+		 								
+		 								$("#ajaxTable").append('<td>'+dd[i][j].value+'</td>');
+		 							}
+		 							$("#ajaxTable>td").wrapAll('<tr style="cursor:pointer;" id="record"></tr>');
+		 						}		
 	 						
 	 					},
 	 					error : function(msg, error) {
@@ -216,7 +217,7 @@
 	 						var dd = d.result;
 	 						/*페이징 처리  */
 	 						for(var i=0;i<dd.length;i++){
-	 							/* $("#ajaxTable").append('<tr style="cursor:pointer;" id="record'+i+'" onclick="layer_open();return false">'); */
+	 							
 	 							for(var j=0;j<dd[i].length;j++){
 	 								
 	 								$("#ajaxTable").append('<td>'+dd[i][j].value+'</td>');
@@ -593,7 +594,7 @@
 	 								
 	 					    		modalClose:true,
 	 					    		follow: [false,false],
-	 					    		position:[500,400]
+	 					    		position:[600,800]
 	 					    	});
 	 							
 		 					},
@@ -969,29 +970,72 @@
 
 <style type="text/css">
 
+.popupInnerContent{
+	position: relative;
+    padding: 27px 20px;
+}
+
+
+.popupInner{
+	margin-top: -1px;
+    width: 550px;
+    border: 1px solid #8a8a8a;
+}
+
+	.introduce_title{
+	padding-right: 13px;
+    color: #2695f1;
+	
+}
+
+.tree_reple_place {
+	    padding: 0;
+    text-align: left;
+      position: relative;
+	
+}
+.tree_reple_place>div>div {
+		padding-top: 30px;
+	    float: left;
+		padding-right:13px;
+}
+
+.input-text {
+		width: 315px;
+    	border: 1px solid #05a2da;
+		display: inline-block;
+	    padding: 5px 10px;
+	    height: 30px;
+	    line-height: 20px;
+	    font-size: 13px;
+	    color: #5e5e5e;
+}
+
+.repleBtn{
+	padding: 9px 9px 6px 15px;
+    background-color: #05a2da;
+    border: 1px solid #0482af;
+    color: #fff;
+    width: 70px;
+	
+}
+
 	#contentTable {
 		cellspacing:50;
-		text-align:left;
+		text-align:left;	
+	}
+	#contentTable td{
+		cellspacing: 10;
+		cellpadding: 10;
 	}
 
-	#popup {
-	display: none; 
-	background-color: white; 
+	.popupDIV {
+	position: absolute;
+    padding: 30px;
+    background-color: #fff;
+    border: 4px solid #00c6ff;
 	
-	position: fixed;
-    width: 500;
-    left: 50%;
-    margin-left: -20%; /* half of width */
-    height: 600px;
-    top: 50%;
-    margin-top: -150px; /* half of height */
-    overflow: auto;
-
-    /* decoration */
-    border: 1px solid #000;
-    background-color: #eee;
-    padding: 1em;
-    box-sizing: border-box;
+	display: none; 
 	}
 	/* #pophead{
 	width:100px;
@@ -1308,44 +1352,79 @@
 						</div>
 					</table>
 					</div>	
-						<div id="popup" style="border:5px solid">
-							<div id="popupInner" style="border:1px soild gray">
-								<table id="contentTable">
-								<tr>
-									<td>제  목</td><td id="jae" style="text-align:center;"></td>		
-								</tr>
-								<tr>
-									<td>분  류</td><td id="bun" style="text-align:center;"></td>		
-								</tr>
-								<tr>
-									<td>기  간</td><td id="s_d"></td><td id="e_d"></td>		
-								</tr>
-								<tr>
-									<td>요  일</td><td id="yo" style="text-align:center;"></td>		
-								</tr>
-								<tr>
-									<td>시  간</td><td id="s_h"></td><td id="s_m"></td><td id="e_h"></td><td id="e_m"></td>		
-								</tr>
-								<tr>
-									<td>지  역</td><td id="pOne"></td><td id="pTwo"></td>		
-								</tr>
-								<tr>
-									<td>장  소</td><td id="pThr"></td>		
-								</tr>
-								<tr>
-									<td>인  원</td><td id="inWon"></td>		
-								</tr>
-								</table>
-								<br>
-								<div>
-									<h4>스터디 커리큘럼</h4>
-								</div>
-								<br>
-								<div style="border:3px solid black" id="cury">
-										
-								</div>
-										
+						<div class="popupDIV" id="popup">
+							<div class="popupInner">
+								<div class="popupInnerContent">
+									<table id="contentTable">
+									<tr>
+										<td class="introduce_title">제  목</td><td id="jae"></td>		
+									</tr>
+									<tr>
+										<td class="introduce_title">분  류</td><td id="bun"></td>		
+									</tr>
+									<tr>
+										<td class="introduce_title">기  간</td><td id="s_d"></td><td id="e_d"></td>		
+									</tr>
+									<tr>
+										<td class="introduce_title">요  일</td><td id="yo"></td>		
+									</tr>
+									<tr>
+										<td class="introduce_title">시  간</td><td id="s_h"></td><td id="s_m"></td><td id="e_h"></td><td id="e_m"></td>		
+									</tr>
+									<tr>
+										<td class="introduce_title">지  역</td><td id="pOne"></td><td id="pTwo"></td>		
+									</tr>
+									<tr>
+										<td class="introduce_title">장  소</td><td id="pThr"></td>		
+									</tr>
+									<tr>
+										<td class="introduce_title">인  원</td><td id="inWon"></td>		
+									</tr>
+									</table>
+									<br>
+									<div id="curyLabel">
+										<span class="introduce_title">스터디 커리큘럼</span>
+									</div>
+									<br>
+									<div style="border:3px solid black" id="cury">
+											
+									</div>
 									
+									<div id="mojipjang">
+									
+									</div>		
+									
+									<div id="mojpjangContent">
+									
+									</div>	
+									
+									<div class="tree_reple_place">
+									
+										<div class="repleDIV">
+											<div class="repleLabel">
+												<label class="repleBtn">
+													<span>댓글</span>
+													<span>▶</span>
+												</label>
+											</div>
+											<!-- 입력버튼 -->
+											<div>
+												<input type="text" class="input-text" name="content" value maxlength="300">
+											</div>
+											<!-- 작성버튼 -->
+											<div>
+												<input type="button" class="sendBtn" value="작성">
+											</div>
+										</div>
+									
+									</div>
+									<div class="repleList">
+										<ul>
+											
+										</ul>
+									</div>
+									
+								</div>
 							</div>
 						</div>
 					</div>	

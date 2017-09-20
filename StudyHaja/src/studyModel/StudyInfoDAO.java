@@ -123,20 +123,17 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 		ResultSet rs = null;
 		StudyInfoVO vo = null;
 		ArrayList<StudyInfoVO> studyArr = null;
-		
 		if(subSearch.equals("제목")){
 			subSearch = "subject";
 		}else if(subSearch.equals("장소")){
 			subSearch = "place2";
 		}
-			
-		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE ? = ?";
+		
+		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE "+subSearch+" LIKE '%"+content+"%'";
 		try {
 			
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, subSearch);
-			pstmt.setString(2, "%"+content+"%");
 			rs = pstmt.executeQuery();
 			studyArr = new ArrayList<StudyInfoVO>();
 			
@@ -554,6 +551,7 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 					
 			
 			if(rs.next()){
+				
 				vo = new StudyInfoVO();
 				vo.setSubject(rs.getString("subject"));
 				vo.setKind2(rs.getString("kind2"));
@@ -571,6 +569,7 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 				vo.setContent(rs.getString("content"));
 				
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally{
@@ -579,5 +578,7 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 		
 		
 		return vo;
+		
+		
 	}
 }
