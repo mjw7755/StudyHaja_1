@@ -34,6 +34,8 @@
 #view_top{
 	border: 1px solid;
 	border-color: gray;
+	background-color: #F8F8F8;
+	height: 60px;
 }
 #view_con{
 	border: 1px solid;
@@ -63,13 +65,34 @@
 	/* 메뉴바를 한줄로 보여줌 */
  	padding-left:15px;
 } 
+ #top_noti{
+ 	width:23%;
+ 	float:left;
+ }
+ #top_subj{
+ 	width:54%;
+ 	float:left;
+ }
+ #top_canc{
+ 	width:23%;
+ 	float:left;
+ 	text-align:right;
+ }
 </style>
 </head>
 
 <div id="content28">
 
 <div id = "view_top">
+	<div id="top_noti">
+	<img src="images/notice2.png"/>
+	</div>
+	<div id="top_subj">
 <h3 align="center">${vo.subject }</h3>
+	</div>
+	<div id="top_canc">
+<a href="notice_list.do?pageNum=${ pageNum }"><img src= "images/cancel.png"/></a>
+	</div>
 </div>
 
 <div id="view_con">

@@ -23,12 +23,16 @@
     padding: 10px;
   }
 	#num{
-		width : 50px;
-		font-style: inherit;
+	width: 50px;
+    font-style: inherit;
+    color: #4B8FCC;
+    font-size: 20;
+    font-weight: 600;
 	}
+	
 	#subject2{
 	    width: 80%;
-}
+	}
 	#notice_w{
 	text-align: right;
 	margin-top: 5%;
@@ -36,11 +40,14 @@
 	}
 	#list_table{
 	width:100%;
-	height: 60%;
+	height: 63%;
 	}
 	#listpage{
 	text-align: right;
     margin-right: 3%;
+	}
+	#focus a{
+	color: #4B8FCC;
 	}
 </style>
 </head>
@@ -93,10 +100,12 @@
 			<a href="notice_list.do?pageNum=${ startPage-5  }">[이전] </a>
 		</c:if>
 
+		<div id="focus">
 		<c:forEach  var="i" begin="${startPage }" end="${ endPage }">
 			<a href="notice_list.do?pageNum=${i}">[${ i }] </a>
 	   </c:forEach>
-	
+		</div>
+		
 	<c:if test="${ endPage < pageCount }" >
 		<a href="notice_list.do?pageNum=${ startPage+5 }">[다음] </a>
 	</c:if>
