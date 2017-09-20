@@ -10,19 +10,7 @@
 <link rel="stylesheet" href="ahn/css/figcaption.css">
 <link rel="stylesheet" href="ahn/css/ahnButton2.css">
 <title>룸 소개</title>
-<style type="text/css">
-/* #readc{
-	float:left;
-	width:40px;
-	margin-top:8px;
-}
-#hot{
-	float:left;
-}
-#eye{
-	float:left;
-} */
-</style>
+
 </head>
 
 <body>
