@@ -113,20 +113,31 @@
 <div id="con_data">
 ${vo.content }
 </div>
+
+
+<c:set var="maxnum" value="${max_num}"/>
+<c:if test="${vo.num!=maxnum}">
 <div id="prev">
-<%-- <p><a href="noticecontentprevious.do?num=${vo.num }&pageNum=${ pageNum }">△ 이전내용</a></p> --%>
-<%-- <a href="content.do?num=${list2.num }&pageNum=${ currentPage }"> --%>
-<%-- 
-<c:set var = i value=${vo.num }/>
-<c:if test=${ i != 0 }>
-<c:set var = prev_num  value = ${ i-- } / >
-</c:if> --%>
 <p><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=next">△&nbsp;${vo3.subject }</a></p>
 </div>
+</c:if>
+
+<c:if test="${vo.num==maxnum}">
+<br/>
+</c:if>
+
+
+<c:set var="minnum" value="${min_num}"/>
+<c:if test="${vo.num!=minnum}">
 <div id="next">
 <p><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=previous">▽&nbsp;${vo2.subject}</a></p>
 </div>
-</div>
+</c:if>
+<c:if test="${vo.num==minnum}">
+<br/>
+</c:if>
+
+</div> 
 <p id="bottom_btn"><a href="notice_list.do?pageNum=${ pageNum }"><img src="ram/images/list.png"/></a>
    <a href="notice_updateForm.do?num=${ vo.num }&pageNum=${ pageNum }"><img src="ram/images/change.png"/></a>
    <%-- <a href="notice_deleteForm.do?num=${ vo.num }&pageNum=${ pageNum }">글 삭제</a> --%>
