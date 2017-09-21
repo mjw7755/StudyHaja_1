@@ -2,28 +2,22 @@ package study.studyAction;
 
 import java.text.SimpleDateFormat;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import studyModel.NoticeDAO;
 import studyModel.NoticeVO;
 
-public class NoticeContent_Action implements CommandAction {
+public class NoticeContentPrevious_Action implements CommandAction {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		int num = Integer.parseInt(request.getParameter("num"));
-		String pageNum = request.getParameter("pageNum");
-		String result =request.getParameter("result");
 		
-		if(result.equals("previous")){
-			num--;
-		}else if(result.equals("next")){
-			num++;
-		}else
-			num=num;
+		num--;
+		
+		String pageNum = request.getParameter("pageNum");
 		
 		System.out.println("num : " + num);
 		System.out.println("pageNum : " + pageNum);

@@ -83,7 +83,7 @@
  }
 </style>
 </head>
-
+<body>
 <div id="content28">
 
 <div id = "view_top">
@@ -113,12 +113,13 @@
 <div id="con_data">
 ${vo.content }
 </div>
-
 <div id="prev">
-<p><a href="#">△ 이전내용</a></p>
+<%-- <p><a href="noticecontentprevious.do?num=${vo.num }&pageNum=${ pageNum }">△ 이전내용</a></p> --%>
+<%-- <a href="content.do?num=${list2.num }&pageNum=${ currentPage }"> --%>
+<p><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=previous">△ 이전내용</a></p>
 </div>
 <div id="next">
-<p><a href="#">▽ 이후내용</a></p>
+<p><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=next">▽ 이후내용</a></p>
 </div>
 </div>
 <p id="bottom_btn"><a href="notice_list.do?pageNum=${ pageNum }"><img src="ram/images/list.png"/></a>
