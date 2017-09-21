@@ -150,7 +150,7 @@ body{
             <tr>
             <td id="b"><font size="4.5" color="#BDBDBD"><b>운영시간 : </b></font></td>
             <!-- <img src="images/clock.png" width="40" height="40"> -->
-            <td><font size="4.5" color="black">${list.working_hour}</font></td>
+            <td><font size="4.5" color="black">${list.working_hour}&nbsp;&nbsp;${list.working_hour2 }</font></td>
             </tr>
             
             <tr>

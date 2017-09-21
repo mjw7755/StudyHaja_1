@@ -21,7 +21,10 @@
     border-color: #A6A6A6; 
     outline:0; 
     font-size : 17px;
- } 
+ }
+.textbox hover{
+	border-color : black;
+} 
 </style>
 <script>
 function play(){
