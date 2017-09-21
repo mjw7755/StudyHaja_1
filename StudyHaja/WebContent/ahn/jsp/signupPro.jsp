@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<<c:redirect url="main.do"/> 
+<<c:redirect url="mainlist.do"/> 
 
  
 </body>

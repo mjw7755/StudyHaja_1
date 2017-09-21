@@ -83,7 +83,7 @@
  }
 </style>
 </head>
-
+<body>
 <div id="content28">
 
 <div id = "view_top">
@@ -113,12 +113,18 @@
 <div id="con_data">
 ${vo.content }
 </div>
-
 <div id="prev">
-<p><a href="#">△ 이전내용</a></p>
+<%-- <p><a href="noticecontentprevious.do?num=${vo.num }&pageNum=${ pageNum }">△ 이전내용</a></p> --%>
+<%-- <a href="content.do?num=${list2.num }&pageNum=${ currentPage }"> --%>
+<%-- 
+<c:set var = i value=${vo.num }/>
+<c:if test=${ i != 0 }>
+<c:set var = prev_num  value = ${ i-- } / >
+</c:if> --%>
+<p><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=next">△&nbsp;${vo3.subject }</a></p>
 </div>
 <div id="next">
-<p><a href="#">▽ 이후내용</a></p>
+<p><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=previous">▽&nbsp;${vo2.subject}</a></p>
 </div>
 </div>
 <p id="bottom_btn"><a href="notice_list.do?pageNum=${ pageNum }"><img src="ram/images/list.png"/></a>

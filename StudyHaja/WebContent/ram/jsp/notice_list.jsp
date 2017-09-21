@@ -69,7 +69,7 @@
 <c:forEach var="list2" items="${list2}">
 <tr>
 	<td id="num">${list2.num }</td>
-	<td id="subject2"><a href="content.do?num=${list2.num }&pageNum=${ currentPage }">
+	<td id="subject2"><a href="content.do?num=${list2.num }&pageNum=${ currentPage }&result=just">
 					${ list2.subject }</a> </td>
 	<td>${list2.reg_date }</td>
 </tr>
