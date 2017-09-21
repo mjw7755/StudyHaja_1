@@ -122,6 +122,7 @@ body{
 				    } 
 				});    
 			</script>
+			
 			<tr>
 				<td>
 				<font size="6.5"><b>${list.subject }</b></font>
@@ -197,11 +198,18 @@ body{
             <font size="3" color="gray">빔프로젝터</font>
             <!-- <span color="gray">와이파이</span> -->
             </td>
+           
             </tr>
              <br/><br/><br/>
               </table>
 				</td>
+			<td><!-- 댓글 여기다가 해 -->
+			<div>
+				<label>여기로 들어왔나?</label>
+			</div>
+			</td>
 			</tr>
+			
 	</table>
 </center>
 	<br><br><br><br><br><br>
