@@ -58,8 +58,49 @@ public class NoticeDAO {
 	}
 	
 	
+	public int getMaxNum(){
+		int max_num=0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			conn=getConnection();
+			
+			pstmt = conn.prepareStatement("select max(num) from notice");
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				max_num = rs.getInt(1);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			CloseUtil.close(rs); CloseUtil.close(pstmt); CloseUtil.close(conn);
+		}
+		return max_num;
+	}
 	
-	
+	public int getMinNum(){
+		int min_num=0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try{
+			conn=getConnection();
+			
+			pstmt = conn.prepareStatement("select min(num) from notice");
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				min_num = rs.getInt(1);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			CloseUtil.close(rs); CloseUtil.close(pstmt); CloseUtil.close(conn);
+		}
+		return min_num;
+	}
 	
 	
 	public List<NoticeVO> getSelectAll(int start, int end) {

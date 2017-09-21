@@ -13,7 +13,14 @@ public class StudyInfoVO {
 	String content,ip;
 	String s_time,e_time;
 	String s_hour,s_minute,e_hour, e_minute;
+	String format_time;
 
+	public String getFormat_time() {
+		return format_time;
+	}
+	public void setFormat_time(String format_time) {
+		this.format_time = format_time;
+	}
 	public String getS_time() {
 		return s_time;
 	}

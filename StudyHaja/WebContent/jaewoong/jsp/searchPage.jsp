@@ -13,6 +13,7 @@
 <title>Insert title here</title>
  <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
   <script src="jaewoong/js1/jquery.bpopup.min.js"></script>
 
 <script src="jaewoong/js/bootstrap.js"></script>
@@ -31,6 +32,8 @@
 	 var subSearch = null;
 	 
 	 
+	 
+	 
 	 $("#sendBtn").click(function(){
 		var replyContent = $("#replyContent").val();
 		
@@ -43,22 +46,17 @@
  					},
  					
  					success:function(data){
- 						alert(data);
  						var res = eval("("+data+")");
  						var result = res.result;
  						
- 						for(var i=0;i<result.length;i++){
- 							/* $("#ajaxTable").append('<tr style="cursor:pointer;" id="record'+i+'" onclick="layer_open();return false">'); */
- 							for(var j=0;j<result[i].length;j++){
- 								if(j==1){
- 									$("#replyList").append('<li id="contentLi">'+result[i][j].value+'</li>');
- 								}else{
- 									$("#replyList").append('<li id="idLi">'+result[i][j].value+'</li>');
- 								}
- 							}
+ 						
+ 						/* for(var i=0;i<result.length;i++){
+	
+ 							$("#replyUl").append('<li class="replyLi"><span class="replyContent"><img><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+result[i][1].value+'</span></span></li>');
+ 
  							
- 						}
- 						$("#replyList>li").wrapAll('<ul id="replyUL"></ul>');
+ 						} */
+ 						
  						
  					},
  					error : function(msg, error) {
@@ -232,7 +230,7 @@
     	
 	    	$("#tableAjax > tbody").empty();
 	    		var i;
-
+				var checkedValues = []; 
 	    		 if($(this).is(":checked")){
 	    			 checkedValues.push($(this).val());	 
 	    		 }else {
@@ -242,6 +240,8 @@
 	    				 }
 	    			 } 
 	    		 } 
+	    		 
+	    		 
 	  	   jQuery.ajaxSettings.traditional = true;
 	  	   
 	 	    $.ajax(
@@ -1096,6 +1096,13 @@
 		overflow:scroll; 
 		 height:300px;
 	}
+	
+	.replyLi{
+		position: relative;
+	    overflow: hidden;
+	    padding: 15px 0;
+	    border-bottom: 1px solid #c7c7c7;
+	}
 </style>
 </head>
 <body>
@@ -1390,6 +1397,7 @@
 								<td>${list.num }</td>
 								<td>${list.kind2 }</td>
 								<td>${list.subject }</td>
+								<td>${list.format_time }</td>
 								<td>${list.reg_date}</td>
 								<td>${list.readcount }</td>
 							</tr>
@@ -1467,12 +1475,17 @@
 									</div>
 									<br><br><br>
 									<div id="replyList">
-										<c:forEach var="replyList" items="${replyList }">
-										<ul>
-											<li>${replyList.id }</li>
-											<li>${replyList.content }</li>
+										<ul class="replyUl">
+											<c:forEach var="replyList" items="${replyList }">
+											<li class="replyLi">
+												<span class="replyContent"><img><span class="replyName">
+												${replyList.id }
+												<span class="replyDate"></span></span><span class="replyContent">
+												${replyList.content }
+												</span></span>
+											</li>
+											</c:forEach>
 										</ul>
-										</c:forEach>
 									</div>
 									
 								</div>

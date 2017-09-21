@@ -20,7 +20,11 @@
 
   	<init-param>
 
+<<<<<<< HEAD
   		<param-name>StudyConfig</param-name>
+=======
+  		<param-name>StudyConfig</param-name>
+>>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
   		<param-value>C:\Users\LeeRam\git\StudyHaja_1\StudyHaja\WebContent\WEB-INF\commandBoard.properties</param-value>
 
   	</init-param>

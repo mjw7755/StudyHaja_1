@@ -1,6 +1,7 @@
 package studyModel;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -123,13 +124,21 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 		ResultSet rs = null;
 		StudyInfoVO vo = null;
 		ArrayList<StudyInfoVO> studyArr = null;
+		final int SEC = 60;
+	    final int MIN = 60;
+	    final int HOUR = 24;
+	    final int DAY = 30;
+	    final int MONTH = 12;
+		
+	    String msg = "";
+		
 		if(subSearch.equals("제목")){
 			subSearch = "subject";
 		}else if(subSearch.equals("장소")){
 			subSearch = "place2";
 		}
 		
-		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE "+subSearch+" LIKE '%"+content+"%'";
+		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT,FORMAT_TIME FROM STUDY_INFO WHERE "+subSearch+" LIKE '%"+content+"%'";
 		try {
 			
 			conn = getConnection();
@@ -138,12 +147,37 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			studyArr = new ArrayList<StudyInfoVO>();
 			
 			while(rs.next()){
+				long curTime = System.currentTimeMillis();
+			    long regTime = rs.getTimestamp("reg_date").getTime();
+			    long diffTime = (curTime - regTime) / 1000;
+			    
+			    if (diffTime < SEC) {
+		    		// sec
+		    		msg = "방금 전";
+		    	} else if ((diffTime /= SEC) < MIN) {
+		    		// min
+		    		msg = diffTime + "분 전";
+		    	} else if ((diffTime /= MIN) < HOUR) {
+		    		// hour
+		    		msg = (diffTime) + "시간 전";
+		    	} else if ((diffTime /= HOUR) < DAY) {
+		    		// day
+		    		msg = (diffTime) + "일 전";
+		    	} else if ((diffTime /= DAY) < MONTH) {
+		    		// day
+		    		msg = (diffTime) + "달 전";
+		    	} else {
+		    		msg = (diffTime) + "년 전";
+		    	}
+			    
+				
 				vo = new StudyInfoVO();
 				vo.setNum(rs.getInt(1));
 				vo.setKind2(rs.getString(2));
 				vo.setSubject(rs.getString(3));
 				vo.setReg_date(rs.getTimestamp(4));
 				vo.setReadcount(rs.getInt(5));
+				vo.setFormat_time(msg);
 				
 				studyArr.add(vo);
 			}
@@ -167,6 +201,14 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 		StudyInfoVO vo = null;
 		ArrayList<StudyInfoVO> studyArr = null;
 		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE place2 = ?";
+		final int SEC = 60;
+	    final int MIN = 60;
+	    final int HOUR = 24;
+	    final int DAY = 30;
+	    final int MONTH = 12;
+		
+	    String msg = "";
+		
 		try {
 			
 			conn = getConnection();
@@ -176,12 +218,38 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			studyArr = new ArrayList<StudyInfoVO>();
 			
 			while(rs.next()){
+				long curTime = System.currentTimeMillis();
+			    long regTime = rs.getTimestamp("reg_date").getTime();
+			    long diffTime = (curTime - regTime) / 1000;
+			    
+			    if (diffTime < SEC) {
+		    		// sec
+		    		msg = "방금 전";
+		    	} else if ((diffTime /= SEC) < MIN) {
+		    		// min
+		    		msg = diffTime + "분 전";
+		    	} else if ((diffTime /= MIN) < HOUR) {
+		    		// hour
+		    		msg = (diffTime) + "시간 전";
+		    	} else if ((diffTime /= HOUR) < DAY) {
+		    		// day
+		    		msg = (diffTime) + "일 전";
+		    	} else if ((diffTime /= DAY) < MONTH) {
+		    		// day
+		    		msg = (diffTime) + "달 전";
+		    	} else {
+		    		msg = (diffTime) + "년 전";
+		    	}
+
+				
+				
 				vo = new StudyInfoVO();
 				vo.setNum(rs.getInt(1));
 				vo.setKind2(rs.getString(2));
 				vo.setSubject(rs.getString(3));
 				vo.setReg_date(rs.getTimestamp(4));
 				vo.setReadcount(rs.getInt(5));
+				vo.setFormat_time(msg);
 				
 				studyArr.add(vo);
 			}
@@ -412,6 +480,15 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 		StudyInfoVO vo = null;
 		ArrayList<StudyInfoVO> studyArr = null;
 		String sql = "select * from study_info";
+		final int SEC = 60;
+	    final int MIN = 60;
+	    final int HOUR = 24;
+	    final int DAY = 30;
+	    final int MONTH = 12;
+		
+	    String msg = "";
+	    
+		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -419,6 +496,30 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			studyArr = new ArrayList<StudyInfoVO>();
 			
 			while(rs.next()){
+				long curTime = System.currentTimeMillis();
+			    long regTime = rs.getTimestamp("reg_date").getTime();
+			    long diffTime = (curTime - regTime) / 1000;
+			    
+			    if (diffTime < SEC) {
+		    		// sec
+		    		msg = "방금 전";
+		    	} else if ((diffTime /= SEC) < MIN) {
+		    		// min
+		    		msg = diffTime + "분 전";
+		    	} else if ((diffTime /= MIN) < HOUR) {
+		    		// hour
+		    		msg = (diffTime) + "시간 전";
+		    	} else if ((diffTime /= HOUR) < DAY) {
+		    		// day
+		    		msg = (diffTime) + "일 전";
+		    	} else if ((diffTime /= DAY) < MONTH) {
+		    		// day
+		    		msg = (diffTime) + "달 전";
+		    	} else {
+		    		msg = (diffTime) + "년 전";
+		    	}
+			    
+				
 				vo = new StudyInfoVO();
 				vo.setNum(rs.getInt("num"));
 				vo.setSubject(rs.getString("subject"));
@@ -439,7 +540,7 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 				vo.setS_minute(rs.getString("s_minute"));
 				vo.setE_hour(rs.getString("e_hour"));
 				vo.setE_minute(rs.getString("e_minute"));
-				
+				vo.setFormat_time(msg);
 				studyArr.add(vo);
 			}
 			
@@ -453,22 +554,31 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			CloseUtil.close(conn);
 		}
 		
+		
 		return studyArr;
 		
 	}
 	
-	public ArrayList<StudyInfoVO> listCheckAll(String[] check) throws SQLException{
+	public ArrayList<StudyInfoVO> listCheckAll(String[] check) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<StudyInfoVO> studyArr = null;
+		String sql = "";
+		conn = getConnection();
 		
+		final int SEC = 60;
+	    final int MIN = 60;
+	    final int HOUR = 24;
+	    final int DAY = 30;
+	    final int MONTH = 12;
 		
+	    String msg = "";
 		
 		try {
-			conn = getConnection();
 			
-			String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE ";
+			
+			sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE ";
 			
 			
 			if(check.length > 1){
@@ -488,14 +598,40 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			studyArr = new ArrayList<StudyInfoVO>();
 			StudyInfoVO vo = null;
 			while(rs.next()){
+				long curTime = System.currentTimeMillis();
+			    long regTime = rs.getTimestamp("reg_date").getTime();
+			    long diffTime = (curTime - regTime) / 1000;
+			    
+			    if (diffTime < SEC) {
+		    		// sec
+		    		msg = "방금 전";
+		    	} else if ((diffTime /= SEC) < MIN) {
+		    		// min
+		    		msg = diffTime + "분 전";
+		    	} else if ((diffTime /= MIN) < HOUR) {
+		    		// hour
+		    		msg = (diffTime) + "시간 전";
+		    	} else if ((diffTime /= HOUR) < DAY) {
+		    		// day
+		    		msg = (diffTime) + "일 전";
+		    	} else if ((diffTime /= DAY) < MONTH) {
+		    		// day
+		    		msg = (diffTime) + "달 전";
+		    	} else {
+		    		msg = (diffTime) + "년 전";
+		    	}
+			   
+			    
 				vo = new StudyInfoVO();
 				vo.setNum(rs.getInt(1));
 				vo.setKind2(rs.getString(2));
 				vo.setSubject(rs.getString(3));
 				vo.setReg_date(rs.getTimestamp(4));
 				vo.setReadcount(rs.getInt(5));
+				vo.setFormat_time(msg);
 				
 				studyArr.add(vo);
+				
 			}
 			
 		} catch (Exception e) {
@@ -503,6 +639,11 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 		} finally{
 			CloseUtil.close(rs); CloseUtil.close(pstmt); CloseUtil.close(conn);
 		}
+		
+		
+		
+		
+		
 		return studyArr;
 	}
 	
@@ -599,6 +740,8 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			e.printStackTrace();
 		}	
 	}
+	
+	
 	
 	
 }
