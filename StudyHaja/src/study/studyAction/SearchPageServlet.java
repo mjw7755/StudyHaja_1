@@ -101,6 +101,9 @@ public class SearchPageServlet extends HttpServlet {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 		
@@ -132,6 +135,7 @@ public class SearchPageServlet extends HttpServlet {
 			result.append("[{\"value\": \""+ studyInfoList.get(i).getNum()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getKind2()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getSubject()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getFormat_time()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getReg_date()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getReadcount()+"\"}],");
 		}
@@ -229,16 +233,19 @@ public class SearchPageServlet extends HttpServlet {
 	
 	
 	
-	public String getJSONC(String[] check) throws SQLException {
+	public String getJSONC(String[] check) throws Exception {
 		if(check == null) check = null;
 		StringBuffer result = new StringBuffer("");
 		result.append("{\"result\":[");
 		StudyInfoDAO studyDAO = new StudyInfoDAO();
 		ArrayList<StudyInfoVO> studyInfoList = studyDAO.listCheckAll(check);
+		
+		
 		for(int i=0;i<studyInfoList.size();i++){
 			result.append("[{\"value\": \""+ studyInfoList.get(i).getNum()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getKind2()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getSubject()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getFormat_time()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getReg_date()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getReadcount()+"\"}],");
 		}
@@ -271,6 +278,7 @@ public class SearchPageServlet extends HttpServlet {
 		StudyInfoVO vo = studyDAO.selectContent(td);
 		studyDAO.updateReadCount(td);
 		
+		
 			result.append("[{\"value\": \""+ vo.getSubject()+"\"},");
 			result.append("{\"value\": \""+ vo.getKind2()+"\"},");
 			result.append("{\"value\": \""+ vo.getS_date()+"\"},");
@@ -300,6 +308,7 @@ public class SearchPageServlet extends HttpServlet {
 			result.append("[{\"value\": \""+ studyInfoList.get(i).getNum()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getKind2()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getSubject()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getFormat_time()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getReg_date()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getReadcount()+"\"}],");
 		}

@@ -1,15 +1,14 @@
 package study.studyAction;
 
 import java.sql.Timestamp;
-
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import studyModel.StudyInfoDAO;
 import studyModel.StudyInfoVO;
-import studyModel.StudyMemberVO;
 
 public class RegisterProAction implements CommandAction {
 
@@ -18,7 +17,6 @@ public class RegisterProAction implements CommandAction {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		StudyInfoVO studyvo= new StudyInfoVO();
-		
 		//studyvo.setNum(Integer.parseInt(request.getParameter("num")));
 		studyvo.setSubject(request.getParameter("subject"));
 		studyvo.setKind1(request.getParameter("kind1"));
@@ -43,6 +41,7 @@ public class RegisterProAction implements CommandAction {
 		studyvo.setE_minute(request.getParameter("e_minute"));
 		studyvo.setReg_date(new Timestamp(System.currentTimeMillis()));
 		studyvo.setIp(request.getRemoteAddr());
+		
 		
 		StudyInfoDAO sdao = new StudyInfoDAO();
 		sdao.insertStudyInfo(studyvo);
