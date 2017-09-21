@@ -35,16 +35,21 @@ function play(){
 <body>
 <br/><br/>
 	
+	<div id="search">
 	<form action="cafesearchlist.do">
+	<div id="search_t">
 	<input class ="textbox" type="text" name="searchlocation" id="searchlocation" placeholder="지역명을 입력하세요">
+	</div>
+	<div id="search_i">
 	<input type="image" src="ahn/images/search1.png" width="30" height="30"/>
+	</div>
 	</form>
-	
+	</div>
 	
 	<div class="back">
     <div class="button_base b05_3d_roll"  onclick="location.href='caferegisterForm.do'">
-        <div>스터디까페 등록</div>
-        <div>스터디까페 등록</div>
+        <div>스터디카페 등록</div>
+        <div>스터디카페 등록</div>
     </div>
 	</div>
 
