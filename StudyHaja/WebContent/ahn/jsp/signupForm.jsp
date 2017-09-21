@@ -105,7 +105,7 @@
 			<td><input type="submit" value = "가입하기" id="btnReg"></td>
 		</tr>
 		<tr>
-			<td><a href="list.do"><button type="button" id="btnMain">가입취소</button></a>
+			<td><a href="mainlist.do"><button type="button" id="btnMain">가입취소</button></a>
 		<tr>
 </table>
 <button type="button" id="btnEmail">인증코드 발송</button>

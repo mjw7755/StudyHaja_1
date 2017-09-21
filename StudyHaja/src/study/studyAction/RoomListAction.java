@@ -19,6 +19,7 @@ public class RoomListAction implements CommandAction {
 		int pageSize =9; //화면에 출력 레코드 수 
 		int SU = pageSize-1;
 		
+		
 		String pageNum = request.getParameter("pageNum");
 		
 		if( pageNum == null ) pageNum = "1";
@@ -28,21 +29,23 @@ public class RoomListAction implements CommandAction {
 		int startRow = (currentPage * pageSize) - SU ;  // 1
 		int endRow = (currentPage * pageSize) ;  // 7
 		
-		/*int endRow = (currentPage * pageSize) - SU ;  // 1
-		int startRow = (currentPage * pageSize) ;  // 7
-*/		
+		
 		int count = 0, number = 0;
 		
 		List list = null;
+		String msg=null;
 		count = dao.getListAllCount(); //전체 페이지 리턴...  //ex) 10
 		System.out.println("count :" + count);											//1            7
 		
 		if( count > 0 ) {
 			list = dao.getSelectAll(Integer.parseInt(pageNum));  //레코드 목록 보기
+			
+
 		} else {
 			list = Collections.EMPTY_LIST ;
 		}
 		
+		msg = dao.showTimeAgo(41);
 		//System.out.println(list.size());
 		
 	
@@ -65,7 +68,7 @@ public class RoomListAction implements CommandAction {
 		request.setAttribute("number", new Integer(number));
 		System.out.println("8");
 		request.setAttribute("list", list);
-		
+		request.setAttribute("msg", msg);
 		return "/ahn/jsp/roomList.jsp";
 	}		
 

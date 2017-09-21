@@ -18,6 +18,8 @@
 <script type="text/javascript">
 var oEditors = [];
 $(function(){
+	
+	
       nhn.husky.EZCreator.createInIFrame({
           oAppRef: oEditors,
           elPlaceHolder: "contents", //textarea에서 지정한 id와 일치해야 합니다. 

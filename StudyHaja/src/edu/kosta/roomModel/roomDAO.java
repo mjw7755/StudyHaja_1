@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -134,6 +135,68 @@ public class roomDAO {  // controller
 		return count;
 	} // getListAllCount() end
 	
+	public String showTimeAgo(int num){
+		Connection conn = null;
+		PreparedStatement pstmt=null;
+		ResultSet rs = null;
+		List  list = null;
+		
+		final int SEC = 60;
+		final int MIN = 60;
+		final int HOUR = 24;
+		final int DAY = 30;
+		final int MONTH = 30;
+		
+		String msg="";
+		String sql;
+		roomVO vo = null;
+		
+		
+		long curTime=System.currentTimeMillis();
+		
+		try {
+		   	conn = getConnection();
+		   	//조회수 증가
+		   
+		   	pstmt = conn.prepareStatement("select reg_date from room where num = ?");
+		   	pstmt.setInt(1, num);
+		   	rs = pstmt.executeQuery();
+		   	
+		   	if(rs.next()) {
+		   			  vo = new roomVO();
+		              //vo.setReg_date(rs.getTimestamp("reg_date"));
+		              long regTime = rs.getTimestamp("reg_date").getTime();
+		              long diffTime = (curTime - regTime) / 1000;
+		              
+		              if(diffTime<SEC){
+		            	  msg="방금 전";
+		              }else if((diffTime /= SEC)<MIN){
+		            	  msg = diffTime + "분 전";
+		      		} else if ((diffTime /= MIN) < HOUR) {
+		      			// hour
+		      			msg = (diffTime) + "시간 전";
+		      		} else if ((diffTime /=HOUR) < DAY) {
+		      			// day
+		      			msg = (diffTime) + "일 전";
+		      		} else if ((diffTime /= DAY) < MONTH) {
+		      			// day
+		      			msg = (diffTime) + "달 전";
+		      		} else {
+		      			msg = (diffTime) + "년 전";
+		      		}
+		             
+		              System.out.println(regTime);
+		   	}
+		     }catch(Exception e){
+					e.printStackTrace();
+				}finally {
+					CloseUtil.close(rs);
+					CloseUtil.close(pstmt);
+					CloseUtil.close(conn);
+				}
+	
+		return msg;
+	}
 	//getSelectAll(startRow, endRow) : list.jsp 에서 사용할 전체 레코드 출력 메소드
 		public List<roomVO> getSelectAll( int pageNum ) {
 			Connection conn = null;
@@ -141,6 +204,8 @@ public class roomDAO {  // controller
 			ResultSet rs = null;
 			List  list = null;
 			String[] arr;
+			
+			 
 			try {
 				conn = getConnection();
 				StringBuffer  sb = new StringBuffer();
@@ -163,6 +228,7 @@ public class roomDAO {  // controller
 					
 					do {
 						roomVO vo = new roomVO();
+						
 						vo.setNum(rs.getInt("num"));
 						
 						vo.setImages(rs.getString("images"));

@@ -364,7 +364,6 @@ public class NoticeDAO {
 		ResultSet rs = null;
 		num++;
 		NoticeVO vo3 = null;
-		String sql ="";
 			
 			try {
 				conn = getConnection();
