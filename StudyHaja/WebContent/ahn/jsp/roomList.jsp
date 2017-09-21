@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="ahn/css/figcaption.css">
 <link rel="stylesheet" href="ahn/css/ahnButton2.css">
-<script src="http://code.jquery.com/jquery-2.1.4js"></script>
+<!-- <script src="http://code.jquery.com/jquery-2.1.4js"></script> -->
 <title>룸 소개</title>
 <style>
 .textbox { 
@@ -25,6 +25,17 @@
 .textbox hover{
 	border-color : black;
 } 
+#search{
+	float:right;
+	margin-right: 5%;
+}
+#search_t{
+	float:left;
+	margin-top: 5px;
+}
+#search_i{
+	float:left;
+}
 </style>
 <script>
 function play(){
@@ -35,16 +46,21 @@ function play(){
 <body>
 <br/><br/>
 	
+	<div id="search">
 	<form action="cafesearchlist.do">
+	<div id="search_t">
 	<input class ="textbox" type="text" name="searchlocation" id="searchlocation" placeholder="지역명을 입력하세요">
+	</div>
+	<div id="search_i">
 	<input type="image" src="ahn/images/search1.png" width="30" height="30"/>
+	</div>
 	</form>
-	
+	</div>
 	
 	<div class="back">
     <div class="button_base b05_3d_roll"  onclick="location.href='caferegisterForm.do'">
-        <div>스터디까페 등록</div>
-        <div>스터디까페 등록</div>
+        <div>스터디카페 등록</div>
+        <div>스터디카페 등록</div>
     </div>
 	</div>
 
