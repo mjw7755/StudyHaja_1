@@ -324,4 +324,70 @@ public class NoticeDAO {
 		}
 		return result;
 	}
+
+	public NoticeVO getPreviousSubject(int num) {
+		Connection conn= null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		num--;
+		NoticeVO vo2 = null;
+		String sql ="";
+			
+			try {
+				conn = getConnection();
+				
+				pstmt = conn.prepareStatement("select * from notice where num=?");
+				pstmt.setInt(1, num);
+				rs = pstmt.executeQuery();
+		
+				if(rs.next()){
+					vo2 = new NoticeVO();
+					vo2.setNum(rs.getInt("num"));
+					vo2.setWriter(rs.getString("writer"));
+					vo2.setSubject(rs.getString("subject"));
+					vo2.setReg_date(rs.getTimestamp("reg_date"));
+					vo2.setReadcount(rs.getInt("readcount"));
+					vo2.setContent(rs.getString("content"));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally{
+				CloseUtil.close(rs); CloseUtil.close(pstmt);
+			}
+			
+			return vo2;
+	}
+
+	public NoticeVO getNextSubject(int num) {
+		Connection conn= null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		num++;
+		NoticeVO vo3 = null;
+		String sql ="";
+			
+			try {
+				conn = getConnection();
+				
+				pstmt = conn.prepareStatement("select * from notice where num=?");
+				pstmt.setInt(1, num);
+				rs = pstmt.executeQuery();
+		
+				if(rs.next()){
+					vo3 = new NoticeVO();
+					vo3.setNum(rs.getInt("num"));
+					vo3.setWriter(rs.getString("writer"));
+					vo3.setSubject(rs.getString("subject"));
+					vo3.setReg_date(rs.getTimestamp("reg_date"));
+					vo3.setReadcount(rs.getInt("readcount"));
+					vo3.setContent(rs.getString("content"));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally{
+				CloseUtil.close(rs); CloseUtil.close(pstmt);
+			}
+			
+			return vo3;
+	}
 }
