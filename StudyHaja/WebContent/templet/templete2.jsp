@@ -44,18 +44,19 @@
 
 <div id = "top">
 <ul id = "topMenu">
-	<li><a href="registerForm.do">Study Together</a></li>
-	<li><a href="searchPage.do" >Study Search</a></li>
-	<li><a href="roomList.do" >Study Room</a></li>
-	<li><a href="notice_list.do" >Notice</a></li>	
-	<li><a href="list.do" >Bulletin Board</a></li>	
+	<li><a href="registerForm.do" onMouseOver="this.innerHTML='스터디 모집'" onMouseOut="this.innerHTML='Study Together'">
+	Study Together</a></li>
+	<li><a href="searchPage.do" onMouseOver="this.innerHTML='스터디 검색'" onMouseOut="this.innerHTML='Study Search'"  >Study Search</a></li>
+	<li><a href="roomList.do" onMouseOver="this.innerHTML='스터디카페'" onMouseOut="this.innerHTML='Study Cafe'" >Study Cafe</a></li>
+	<li><a href="notice_list.do" onMouseOver="this.innerHTML='공지사항'" onMouseOut="this.innerHTML='Notice'" >Notice</a></li>	
+	<li><a href="list.do" onMouseOver="this.innerHTML='자유게시판'" onMouseOut="this.innerHTML='Bulletin Board'" >Bulletin Board</a></li>	
 </ul>
 </div>
 
 <div id = "login">
 <ul id="login2">
-	<li><a href="loginForm.do">LOGIN</a></li>
-	<li><a href="InsertForm.do">SIGN-UP</a></li>
+	<li><a href="loginForm.do" onMouseOver="this.innerHTML='로그인'" onMouseOut="this.innerHTML='LOGIN'">LOGIN</a></li>
+	<li><a href="InsertForm.do" onMouseOver="this.innerHTML='회원가입'" onMouseOut="this.innerHTML='SIGN-UP'">SIGN-UP</a></li>
 </ul>
 </div>
 </div>
