@@ -49,12 +49,13 @@
  						var res = eval("("+data+")");
  						var result = res.result;
  						
- 						for(var i=0;i<result.length;i++){
+ 						
+ 						/* for(var i=0;i<result.length;i++){
 	
- 							$("#replyList").append('<ul class="replyUl"><li class="replyLi"><span class="replyContent"><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+result[i][1]+'</span></span></li></ul>');
+ 							$("#replyUl").append('<li class="replyLi"><span class="replyContent"><img><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+result[i][1].value+'</span></span></li>');
  
  							
- 						}
+ 						} */
  						
  						
  					},
@@ -1095,6 +1096,13 @@
 		overflow:scroll; 
 		 height:300px;
 	}
+	
+	.replyLi{
+		position: relative;
+	    overflow: hidden;
+	    padding: 15px 0;
+	    border-bottom: 1px solid #c7c7c7;
+	}
 </style>
 </head>
 <body>
@@ -1467,12 +1475,17 @@
 									</div>
 									<br><br><br>
 									<div id="replyList">
-										<c:forEach var="replyList" items="${replyList }">
-										<ul>
-											<li>${replyList.id }</li>
-											<li>${replyList.content }</li>
+										<ul class="replyUl">
+											<c:forEach var="replyList" items="${replyList }">
+											<li class="replyLi">
+												<span class="replyContent"><img><span class="replyName">
+												${replyList.id }
+												<span class="replyDate"></span></span><span class="replyContent">
+												${replyList.content }
+												</span></span>
+											</li>
+											</c:forEach>
 										</ul>
-										</c:forEach>
 									</div>
 									
 								</div>
