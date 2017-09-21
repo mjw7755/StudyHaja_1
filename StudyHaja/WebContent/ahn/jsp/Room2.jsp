@@ -217,12 +217,13 @@ body{
 	<center>
 	<hr border-width="3">
 	<div class="first">
-		<input type="button" id="btnModify" value="수정하기" onclick="document.location.href='cafeupdateForm.do?num=${list.num}&pageNum=${pageNum}'" >
+		<form id="frm" action="cafedeletePro.do">
+		<button type="button" id="btnModify"  onclick="document.location.href='cafeupdateForm.do?num=${list.num}&pageNum=${pageNum}'" >
+		수정하기</button>
 <!-- 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
  -->	
- 		<form id="frm" action="cafedeletePro.do">
-		<input type="button" value="삭제하기" id="btnDelete" onclick="confirmFunction()">삭제하기</button>
-		
+ 		<!-- <form id="frm" action="cafedeletePro.do"> -->
+		<input type="button"  id="btnDelete" value="삭제하기" onclick="confirmFunction()">
 		
 		<input type="hidden" name="num" value="${list.num}">
 		<input type="hidden" name="pageNum" value="${pageNum}">

@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="ahn/css/figcaption.css">
 <link rel="stylesheet" href="ahn/css/ahnButton2.css">
+<script src="http://code.jquery.com/jquery-2.1.4js"></script>
 <title>룸 소개</title>
 <style>
 .textbox { 
@@ -16,21 +17,24 @@
     width: 180px; 
     background-color: transparent;  
     border-style: solid;  
-    border-width: 0px 0px 2px 0px;  
-    border-color: black; 
+    border-width: 0px 0px 3px 0px;  
+    border-color: #A6A6A6; 
     outline:0; 
     font-size : 17px;
  } 
 </style>
+<script>
+function play(){
+	$("#number1").css('color','red');
+}
+</script>
 </head>
 <body>
 <br/><br/>
 	
 	<form action="cafesearchlist.do">
-	
 	<input class ="textbox" type="text" name="searchlocation" id="searchlocation" placeholder="지역명을 입력하세요">
-	<input type="image" src="ahn/images/search1.png" width="35" height="35"/>
-	<!-- <input type="submit"  id="locationsearch"><img src = "ahn/images/search.png"/> -->
+	<input type="image" src="ahn/images/search1.png" width="30" height="30"/>
 	</form>
 	
 	
@@ -39,7 +43,7 @@
         <div>스터디까페 등록</div>
         <div>스터디까페 등록</div>
     </div>
-</div>
+	</div>
 
 	<center>
 	<c:if test="${ count > 0 }">
@@ -90,12 +94,12 @@
 		<img src="ahn/images/eyeram.png" width="40" height="40">&nbsp;
 		</div>
 		<div id= "readc">
-		<font size="3" color="gray">${ list.readcount }</font>
+		<font size="3" color="gray"><b>${ list.readcount }</b></font>
 		</div>
 		&nbsp;&nbsp;
 		<div id="hot">
 		<c:if test="${list.readcount>=30}">
-			<img src="ahn/images/hot.png" height="40" weight="50">
+			<img src="ahn/images/hot5.jpg" height="40" weight="50">
 		</c:if><br><br><br>
 		</div>
 		<%-- <font size="4" color="gray"><b>${ list.subject }</b></font> --%> 
@@ -141,16 +145,39 @@
    		</c:if>
    		
    		<c:if test="${ startPage > 5 }">
-         <a href="roomList.do?pageNum=${ startPage - 5 }">[이전]</a>
+         <a href="roomList.do?pageNum=${ startPage - 5 }"><img src="ahn/images/previous.png" width="50" height="50"/></a>
         </c:if>      
 
-   		<c:forEach var="i" begin="${ startPage }" end="${ endPage }">
-         <a href="roomList.do?pageNum=${ i }">[${ i }]</a>
+   		<%-- <c:forEach var="i" begin="${ startPage }" end="${ endPage }">
+   		 <c:if test="${i==1}">
+        	<a href="roomList.do?pageNum=${ i }">[${ i }]</a>
+        </c:forEach> --%>
+        
+        <c:forEach var="i" begin="${ startPage }" end="${ endPage }">
+   		 <c:if test="${i==1}">
+        	<a href="roomList.do?pageNum=${ i }"><img src="ahn/images/number1.png" id="number1" width="50" height="50"/></a>
+        </c:if>
+         <c:if test="${i==2}">
+        	<a href="roomList.do?pageNum=${ i }"><img src="ahn/images/number2.png"  id="number2" width="50" height="50"/></a>
+        </c:if>
+         <c:if test="${i==3}">
+        	<a href="roomList.do?pageNum=${ i }"><img src="ahn/images/number3.png" id="number3" width="50" height="50"/></a>
+        </c:if>
+         <c:if test="${i==4}">
+        	<a href="roomList.do?pageNum=${ i }"><img src="ahn/images/number4.png" id="number4" width="50" height="50"/></a>
+        </c:if>
+        <c:if test="${i==5}">
+        	<a href="roomList.do?pageNum=${ i }"><img src="ahn/images/number5.png" id="number5" width="50" height="50"/></a>
+        </c:if>
+        <c:if test="${i==6}">
+        	<a href="roomList.do?pageNum=${ i }"><img src="ahn/images/number6.png" id="number6" width="50" height="50"/></a>
+        </c:if>
+        
         </c:forEach>
          
         <c:if test="${ endPage < pageCount }">
-      		<a href="roomList.do?pageNum=${ startPage + 5 }">[다음]</a>   
-         </c:if>
+      		<a href="roomList.do?pageNum=${ startPage + 5 }"><img src="ahn/images/next.png"  width="50" height="50"/></a>   
+        </c:if>
 </c:if>	
 	<input type="hidden" name="pageNum" value="${currentPage}">
 </body>
