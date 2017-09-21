@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="ahn/css/figcaption.css">
 <link rel="stylesheet" href="ahn/css/ahnButton2.css">
-<script src="http://code.jquery.com/jquery-2.1.4js"></script>
+<!-- <script src="http://code.jquery.com/jquery-2.1.4js"></script> -->
 <title>룸 소개</title>
 <style>
 .textbox { 
@@ -25,6 +25,17 @@
 .textbox hover{
 	border-color : black;
 } 
+#search{
+	float:right;
+	margin-right: 5%;
+}
+#search_t{
+	float:left;
+	margin-top: 5px;
+}
+#search_i{
+	float:left;
+}
 </style>
 <script>
 function play(){
