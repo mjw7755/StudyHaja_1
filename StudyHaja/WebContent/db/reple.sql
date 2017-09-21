@@ -11,4 +11,6 @@ insert into Reply(id,content) values('mjw','하지마루욧');
 
 create sequence reply_num;
 
+delete from Reply;
+
 drop table Reply;

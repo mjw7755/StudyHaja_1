@@ -51,14 +51,14 @@
  							/* $("#ajaxTable").append('<tr style="cursor:pointer;" id="record'+i+'" onclick="layer_open();return false">'); */
  							for(var j=0;j<result[i].length;j++){
  								if(j==1){
- 									$("#replyList:last").append('<li id="contentLi">'+result[i][j].value+'</li>');
+ 									$("#replyList").append('<li id="contentLi">'+result[i][j].value+'</li>');
  								}else{
- 									$("#replyList:last").append('<li id="idLi">'+result[i][j].value+'</li>');
+ 									$("#replyList").append('<li id="idLi">'+result[i][j].value+'</li>');
  								}
  							}
  							
  						}
- 						/* $("#replyList>li:last").wrapAll('<ul id="replyUL"></ul>'); */
+ 						$("#replyList>li").wrapAll('<ul id="replyUL"></ul>');
  						
  					},
  					error : function(msg, error) {
