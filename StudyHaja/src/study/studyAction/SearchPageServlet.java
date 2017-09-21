@@ -132,6 +132,7 @@ public class SearchPageServlet extends HttpServlet {
 			result.append("[{\"value\": \""+ studyInfoList.get(i).getNum()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getKind2()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getSubject()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getFormat_time()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getReg_date()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getReadcount()+"\"}],");
 		}

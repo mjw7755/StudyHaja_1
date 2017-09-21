@@ -129,7 +129,7 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			subSearch = "place2";
 		}
 		
-		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE "+subSearch+" LIKE '%"+content+"%'";
+		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT,FORMAT_TIME FROM STUDY_INFO WHERE "+subSearch+" LIKE '%"+content+"%'";
 		try {
 			
 			conn = getConnection();
@@ -144,6 +144,7 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 				vo.setSubject(rs.getString(3));
 				vo.setReg_date(rs.getTimestamp(4));
 				vo.setReadcount(rs.getInt(5));
+				vo.setFormat_time(rs.getString(6));
 				
 				studyArr.add(vo);
 			}
@@ -439,6 +440,7 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 				vo.setS_minute(rs.getString("s_minute"));
 				vo.setE_hour(rs.getString("e_hour"));
 				vo.setE_minute(rs.getString("e_minute"));
+				vo.setFormat_time(rs.getString("format_time"));
 				
 				studyArr.add(vo);
 			}
@@ -452,6 +454,7 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			CloseUtil.close(pstmt);
 			CloseUtil.close(conn);
 		}
+		
 		
 		return studyArr;
 		

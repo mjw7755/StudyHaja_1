@@ -49,6 +49,8 @@ SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE ? = ?;
 SUBJECT LIKE  and COLUMN_NAME=
 select * from study_info;
 
+alter table study_info add(format_time varchar2(10));
+
 select * from mvcnotice;
 select count(*) from study_info;
 select subject,kind2,s_date,e_date,day,s_hour,s_minute,e_hour,e_minute,place1,place2,place3,people,content from study_info where num = 47;

@@ -23,6 +23,7 @@ public class SearchPageAction implements CommandAction {
 		ReplyDAO replyDAO = ReplyDAO.getInstance();
 		replyVO = replyDAO.selectAllReply();
 		
+		
 		request.setAttribute("replyList", replyVO);
 		request.setAttribute("list", vo);
 		

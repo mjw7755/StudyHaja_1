@@ -1390,6 +1390,7 @@
 								<td>${list.num }</td>
 								<td>${list.kind2 }</td>
 								<td>${list.subject }</td>
+								<td>${list.format_time }</td>
 								<td>${list.reg_date}</td>
 								<td>${list.readcount }</td>
 							</tr>
