@@ -20,6 +20,8 @@ public class SearchPageAction implements CommandAction {
 		StudyInfoDAO dao = StudyInfoDAO.getInstance();
 		vo = dao.selectListAll();
 		
+		
+		
 		ReplyDAO replyDAO = ReplyDAO.getInstance();
 		replyVO = replyDAO.selectAllReply();
 		

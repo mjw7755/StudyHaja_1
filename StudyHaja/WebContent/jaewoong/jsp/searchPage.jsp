@@ -13,6 +13,7 @@
 <title>Insert title here</title>
  <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
   <script src="jaewoong/js1/jquery.bpopup.min.js"></script>
 
 <script src="jaewoong/js/bootstrap.js"></script>
@@ -31,6 +32,8 @@
 	 var subSearch = null;
 	 
 	 
+	 
+	 
 	 $("#sendBtn").click(function(){
 		var replyContent = $("#replyContent").val();
 		
@@ -43,22 +46,16 @@
  					},
  					
  					success:function(data){
- 						alert(data);
  						var res = eval("("+data+")");
  						var result = res.result;
  						
  						for(var i=0;i<result.length;i++){
- 							/* $("#ajaxTable").append('<tr style="cursor:pointer;" id="record'+i+'" onclick="layer_open();return false">'); */
- 							for(var j=0;j<result[i].length;j++){
- 								if(j==1){
- 									$("#replyList").append('<li id="contentLi">'+result[i][j].value+'</li>');
- 								}else{
- 									$("#replyList").append('<li id="idLi">'+result[i][j].value+'</li>');
- 								}
- 							}
+	
+ 							$("#replyList").append('<ul class="replyUl"><li class="replyLi"><span class="replyContent"><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+result[i][1]+'</span></span></li></ul>');
+ 
  							
  						}
- 						$("#replyList>li").wrapAll('<ul id="replyUL"></ul>');
+ 						
  						
  					},
  					error : function(msg, error) {
@@ -232,7 +229,7 @@
     	
 	    	$("#tableAjax > tbody").empty();
 	    		var i;
-
+				var checkedValues = []; 
 	    		 if($(this).is(":checked")){
 	    			 checkedValues.push($(this).val());	 
 	    		 }else {
@@ -242,6 +239,8 @@
 	    				 }
 	    			 } 
 	    		 } 
+	    		 
+	    		 
 	  	   jQuery.ajaxSettings.traditional = true;
 	  	   
 	 	    $.ajax(
