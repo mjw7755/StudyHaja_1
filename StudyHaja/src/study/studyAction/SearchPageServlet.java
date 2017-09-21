@@ -4,13 +4,14 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import studyModel.ReplyDAO;
+import studyModel.ReplyVO;
 import studyModel.StudyInfoDAO;
 import studyModel.StudyInfoVO;
 
@@ -32,6 +33,7 @@ public class SearchPageServlet extends HttpServlet {
 		String td = request.getParameter("td");
 		String selValue = request.getParameter("selValue");
 		String subject = request.getParameter("subject");
+		String replyContent = request.getParameter("replyContent");
 		
 		String subSearch = request.getParameter("subSearch");
 		
@@ -52,6 +54,18 @@ public class SearchPageServlet extends HttpServlet {
 			response.getWriter().write(getJSON(check,selValue));
 		}
 		
+		
+		if(replyContent == null){
+			replyContent = null;
+		}else {
+			try {
+				System.out.println(replyContent);
+				response.getWriter().write(getJSONReplyContent(replyContent));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		if(selValue == null){
 			selValue = null;
@@ -255,6 +269,8 @@ public class SearchPageServlet extends HttpServlet {
 		result.append("{\"result\":[");
 		StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
 		StudyInfoVO vo = studyDAO.selectContent(td);
+		studyDAO.updateReadCount(td);
+		
 			result.append("[{\"value\": \""+ vo.getSubject()+"\"},");
 			result.append("{\"value\": \""+ vo.getKind2()+"\"},");
 			result.append("{\"value\": \""+ vo.getS_date()+"\"},");
@@ -290,5 +306,21 @@ public class SearchPageServlet extends HttpServlet {
 		result.append("]}");
 		return result.toString();
 	}
+	
+	
+	public String getJSONReplyContent(String replyContent) throws SQLException {
+			
+			StringBuffer result = new StringBuffer("");
+			result.append("{\"result\":[");
+			ReplyDAO replyDAO = ReplyDAO.getInstance();
+			replyDAO.insertReply(replyContent);
+			ArrayList<ReplyVO> replyList = replyDAO.selectAllReply();
+			for(int i=0;i<replyList.size();i++){
+				result.append("[{\"value\": \""+ replyList.get(i).getId()+"\"},");
+				result.append("{\"value\": \""+ replyList.get(i).getContent()+"\"}],");
+			}
+			result.append("]}");
+			return result.toString();
+		}
 
 }

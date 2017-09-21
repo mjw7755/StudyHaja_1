@@ -30,6 +30,46 @@
 	 var content = null;
 	 var subSearch = null;
 	 
+	 
+	 $("#sendBtn").click(function(){
+		var replyContent = $("#replyContent").val();
+		
+		$("#replyList > ul").empty();
+		$.ajax(
+				{
+ 					type:"post",
+ 					url:"./searchPageServlet",
+ 					data:{"replyContent":replyContent
+ 					},
+ 					
+ 					success:function(data){
+ 						alert(data);
+ 						var res = eval("("+data+")");
+ 						var result = res.result;
+ 						
+ 						for(var i=0;i<result.length;i++){
+ 							/* $("#ajaxTable").append('<tr style="cursor:pointer;" id="record'+i+'" onclick="layer_open();return false">'); */
+ 							for(var j=0;j<result[i].length;j++){
+ 								if(j==1){
+ 									$("#replyList").append('<li id="contentLi">'+result[i][j].value+'</li>');
+ 								}else{
+ 									$("#replyList").append('<li id="idLi">'+result[i][j].value+'</li>');
+ 								}
+ 							}
+ 							
+ 						}
+ 						$("#replyList>li").wrapAll('<ul id="replyUL"></ul>');
+ 						
+ 					},
+ 					error : function(msg, error) {
+ 						alert(error);
+ 					}
+ 					
+ 				}	
+		)
+		
+	 });
+	 
 	 $("#searchBtn").click(function(){
 		 
 		 content =  $("#subject").val();
@@ -569,7 +609,8 @@
 	    			{
 	    				type:"post",
 	 					url:"./searchPageServlet",
-	 					data:{"td":td.eq(0).text()},
+	 					data:{"td":td.eq(0).text(),		
+	 					},
 	    				
 	 						success:function(data){
 	 							var d = eval("("+data+")");
@@ -630,6 +671,7 @@
 	 							for(var j=0;j<dd[i].length;j++){
 	 								
 	 								$("#ajaxTable").append('<td>'+dd[i][j].value+'</td>');
+	 								
 	 							}
 	 							$("#ajaxTable>td").wrapAll('<tr style="cursor:pointer;" id="record"></tr>');
 	 						}	
@@ -1049,6 +1091,11 @@
 	#popcontent ol{
 	width : 300px;
 	}
+	
+	#replyList{
+		overflow:scroll; 
+		 height:300px;
+	}
 </style>
 </head>
 <body>
@@ -1409,19 +1456,23 @@
 											</div>
 											<!-- 입력버튼 -->
 											<div>
-												<input type="text" class="input-text" name="content" value maxlength="300">
+												<input type="text" class="input-text" name="content" id="replyContent" value maxlength="300">
 											</div>
 											<!-- 작성버튼 -->
 											<div>
-												<input type="button" class="sendBtn" value="작성">
+												<input type="button" class="sendBtn" id="sendBtn" value="작성">
 											</div>
 										</div>
 									
 									</div>
-									<div class="repleList">
+									<br><br><br>
+									<div id="replyList">
+										<c:forEach var="replyList" items="${replyList }">
 										<ul>
-											
+											<li>${replyList.id }</li>
+											<li>${replyList.content }</li>
 										</ul>
+										</c:forEach>
 									</div>
 									
 								</div>

@@ -581,4 +581,24 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 		
 		
 	}
+	
+	public void updateReadCount(String td){
+		PreparedStatement pstmt = null;
+		Connection conn = null;
+		
+		String sql = "update study_info set readcount = readcount+1 where num=?";
+		
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(td));
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+	
+	
 }
