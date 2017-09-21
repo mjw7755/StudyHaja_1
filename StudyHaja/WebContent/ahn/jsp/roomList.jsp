@@ -173,6 +173,11 @@ function play(){
         	<a href="roomList.do?pageNum=${ i }"><img src="ahn/images/number6.png" id="number6" width="50" height="50"/></a>
         </c:if>
         
+        
+        
+        
+        
+        
         </c:forEach>
          
         <c:if test="${ endPage < pageCount }">
