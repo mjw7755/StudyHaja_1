@@ -678,7 +678,7 @@ figure.snip1384 figcaption {
 figure.snip1384 h3,
 figure.snip1384 .links {
   width: 100%;
-  margin: 10px 0px;/* h3탑탑탑시발탑 */
+  margin: 10px 0px;
   padding-top: 30%;
 }
 figure.snip1384 h3 {
@@ -726,7 +726,7 @@ figure.snip1384:hover:after,
 figure.snip1384.hover:after {
   opacity: 1;
   position: absolute;
-  top:  60%;/* 박스 시발 탑!!!!!!!!!!!!!!!!!!!!! */
+  top:  60%;
   bottom: 10px;
   left: 10px;
   right: 10px;

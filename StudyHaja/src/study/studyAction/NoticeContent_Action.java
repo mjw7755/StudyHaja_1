@@ -24,7 +24,7 @@ public class NoticeContent_Action implements CommandAction {
 			num--;
 		}else if(result.equals("next")){
 			num++;
-		}else
+		}
 			num=num;
 		
 		System.out.println("num : " + num);

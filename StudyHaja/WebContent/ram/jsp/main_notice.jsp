@@ -51,7 +51,7 @@
 		<c:forEach var="list"  items="${list}" end='4'> 
 	<tr>
 		<td id="icon">&nbsp;▶</td>
-		<td id="subject"><a href="content.do?num=${list.num }&pageNum=${ currentPage }">
+		<td id="subject"><a href="content.do?num=${list.num }&pageNum=${ currentPage }&result=just">
 					${ list.subject }</a></td>
 		<td>${list.reg_date}</td>
 	</tr>
