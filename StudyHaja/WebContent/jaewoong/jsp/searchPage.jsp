@@ -14,7 +14,7 @@
  <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   
-  <script src="jaewoong/js1/jquery.bpopup.min.js"></script>
+ <script src="jaewoong/js1/jquery.bpopup.min.js"></script>
 
 <script src="jaewoong/js/bootstrap.js"></script>
 
@@ -30,32 +30,31 @@
 	 var selValue = null;
 	 var content = null;
 	 var subSearch = null;
-	 
+	 var tdText = null;
 	 
 	 
 	 
 	 $("#sendBtn").click(function(){
 		var replyContent = $("#replyContent").val();
 		
-		$("#replyList > ul").empty();
+		$(".replyUl").empty();
 		$.ajax(
 				{
  					type:"post",
  					url:"./searchPageServlet",
- 					data:{"replyContent":replyContent
+ 					data:{"replyContent":replyContent,
+ 						"tdText":tdText
  					},
  					
  					success:function(data){
  						var res = eval("("+data+")");
  						var result = res.result;
  						
- 						
- 						/* for(var i=0;i<result.length;i++){
+ 						alert(data);
+ 						for(var i=0;i<result.length;i++){
 	
- 							$("#replyUl").append('<li class="replyLi"><span class="replyContent"><img><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+result[i][1].value+'</span></span></li>');
- 
- 							
- 						} */
+ 							$(".replyUl").append('<li class="replyLi"><span class="replyContent"><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+result[i][1].value+'</span></span></li>');
+ 						}
  						
  						
  					},
@@ -230,7 +229,7 @@
     	
 	    	$("#tableAjax > tbody").empty();
 	    		var i;
-				var checkedValues = []; 
+				
 	    		 if($(this).is(":checked")){
 	    			 checkedValues.push($(this).val());	 
 	    		 }else {
@@ -253,14 +252,32 @@
 	 					},
 	 					
 	 					success:function(data){
+	 						alert(data);
 	 						var d = eval("("+data+")");
 	 						var dd = d.result;
 	 						/*페이징 처리  */
 	 						for(var i=0;i<dd.length;i++){
 	 							
 	 							for(var j=0;j<dd[i].length;j++){
-	 								
-	 								$("#ajaxTable").append('<td>'+dd[i][j].value+'</td>');
+	 								if(j == dd[i].length-1){
+	 									
+	 										if(dd[i][j].value==0){
+	 											dd[i][j].value=0;
+	 										}else {
+	 										$(".subjectTd"+i).append('<span>['+dd[i][j].value+']</span>');
+	 										}
+	 									
+	 								}else{ 
+		 								 if(j==2){
+		 									$("#ajaxTable").append('<td class="subjectTd'+i+'">'+dd[i][j].value+'</td>');
+		 								 }else if(j==1){ 
+		 									$("#ajaxTable").append('<td class="tdNum">'+dd[i][j].value+'</td>');
+
+
+		 								 }else {
+			 								$("#ajaxTable").append('<td>'+dd[i][j].value+'</td>');		 									 
+		 								 } 
+	 								 } 
 	 							}
 	 							$("#ajaxTable>td").wrapAll('<tr style="cursor:pointer;" id="record"></tr>');
 	 						}		
@@ -600,21 +617,30 @@
 	    $(document).on("click","#record",function(){
 	    	var tr = $(this);
 	    	var td = tr.children();
+	    	tdText = td.eq(0).text();
 	    	$("pophead").empty();
 	    	$("#popcontent").empty();
-	    	
+	    	$(".replyUl").empty();
 				
 	    	$.ajax(
 	    			
 	    			{
 	    				type:"post",
 	 					url:"./searchPageServlet",
-	 					data:{"td":td.eq(0).text(),		
+	 					data:{"td":tdText,		
 	 					},
 	    				
 	 						success:function(data){
+	 							alert(data);
 	 							var d = eval("("+data+")");
 		 						var dd = d.result;
+		 						
+		 						var aa = d.tdText;
+		 						
+		 						for(var i=0;i<aa.length;i++){
+		 							
+		 							$(".replyUl").append('<li class="replyLi"><span class="replyContent"><span class="replyName">'+aa[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+aa[i][1].value+'</span></span></li>');
+		 						}
 		 						
 	 							$("#jae").text(dd[0][0].value);
 	 							$("#bun").text(dd[0][1].value);
@@ -1476,7 +1502,7 @@
 									<br><br><br>
 									<div id="replyList">
 										<ul class="replyUl">
-											<c:forEach var="replyList" items="${replyList }">
+											<%-- <c:forEach var="replyList" items="${replyList }">
 											<li class="replyLi">
 												<span class="replyContent"><img><span class="replyName">
 												${replyList.id }
@@ -1484,7 +1510,7 @@
 												${replyList.content }
 												</span></span>
 											</li>
-											</c:forEach>
+											</c:forEach> --%>
 										</ul>
 									</div>
 									

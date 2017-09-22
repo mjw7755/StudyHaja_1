@@ -16,14 +16,15 @@ public class SearchPageAction implements CommandAction {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ArrayList<StudyInfoVO> vo = new ArrayList<StudyInfoVO>();
 		ArrayList<ReplyVO> replyVO = new ArrayList<ReplyVO>();
+		int count = 0;
 		
 		StudyInfoDAO dao = StudyInfoDAO.getInstance();
 		vo = dao.selectListAll();
-		
-		
-		
 		ReplyDAO replyDAO = ReplyDAO.getInstance();
-		replyVO = replyDAO.selectAllReply();
+		/*count =replyDAO.selectReplyAllCount();*/
+		
+		/*ReplyDAO replyDAO = ReplyDAO.getInstance();
+		replyVO = replyDAO.selectAllReply(tdText);*/
 		
 		
 		request.setAttribute("replyList", replyVO);
