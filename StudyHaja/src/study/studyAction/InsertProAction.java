@@ -1,13 +1,12 @@
 package study.studyAction;
 
-
 import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import study.studyAction.CommandAction;
-import edu.kosta.roomModel.*;
+import StudyJoinModel.memberJoinDAO;
+import StudyJoinModel.MemberJoinVO;
 
 
 public class InsertProAction implements CommandAction {
@@ -17,7 +16,7 @@ public class InsertProAction implements CommandAction {
 			HttpServletResponse response) throws Exception {
 
 		request.setCharacterEncoding("utf-8");
-		StudymemberVO vo = new StudymemberVO();
+		MemberJoinVO vo = new MemberJoinVO();
 		//vo.setNum(Integer.parseInt(request.getParameter("num")));
 		vo.setName(request.getParameter("name"));
 		vo.setId(request.getParameter("id"));
@@ -31,10 +30,10 @@ public class InsertProAction implements CommandAction {
 		vo.setFlag(0); // 가입만 한 초기상태
 		
 		
-		StudymemberDAO dao = StudymemberDAO.getInstance();
+		memberJoinDAO dao = memberJoinDAO.getInstance();
 		dao.insert(vo);
 		
-		return "/ahn/jsp/InsertPro.jsp";
+		return "/yong/jsp/InsertPro.jsp";
 	}
 
 }

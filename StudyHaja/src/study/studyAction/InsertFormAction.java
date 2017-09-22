@@ -1,10 +1,7 @@
 package study.studyAction;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import study.studyAction.CommandAction;
 
 public class InsertFormAction implements CommandAction{
 
@@ -32,7 +29,7 @@ public class InsertFormAction implements CommandAction{
 		request.setAttribute("re_step", re_step);
 		request.setAttribute("re_level", re_level);*/
 		
-		return "/ahn/jsp/InsertForm.jsp";
+		return "/yong/jsp/InsertForm.jsp";
 		
 	}
 
