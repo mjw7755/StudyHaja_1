@@ -33,6 +33,7 @@
       <param-name>StudyConfig</param-name>
       <param-value>C:\Users\AHN\git\StudyHaja_1\StudyHaja\WebContent\WEB-INF\commandBoard.properties</param-value>
     </init-param>
+>>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
   </servlet>
   
   <servlet-mapping>

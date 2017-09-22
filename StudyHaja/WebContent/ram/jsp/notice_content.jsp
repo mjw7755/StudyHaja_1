@@ -86,6 +86,9 @@
  #delForm{
 	 float: left;
  }
+ #con{
+ 	margin-left: 20px;
+ }
 </style>
 </head>
 <body>
@@ -123,7 +126,8 @@ ${vo.content }
 <c:set var="maxnum" value="${max_num}"/>
 <c:if test="${vo.num!=maxnum}">
 <div id="prev">
-<p><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=next">△&nbsp;${vo3.subject }</a></p>
+<p id="con"><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=next">
+	<img src="ram/images/scroll_top3.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo3.subject }</a></p>
 </div>
 </c:if>
 
@@ -135,7 +139,8 @@ ${vo.content }
 <c:set var="minnum" value="${min_num}"/>
 <c:if test="${vo.num!=minnum}">
 <div id="next">
-<p><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=previous">▽&nbsp;${vo2.subject}</a></p>
+<p id="con"><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=previous">
+	<img src="ram/images/scroll_bottom3.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo2.subject}</a></p>
 </div>
 </c:if>
 <c:if test="${vo.num==minnum}">
