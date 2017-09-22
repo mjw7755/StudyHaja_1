@@ -6,7 +6,7 @@
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%
-	String path = request.getSession().getServletContext().getRealPath("/") + File.separator + "ahn/se2/upload" ; 
+	String path = request.getSession().getServletContext().getRealPath("/") + File.separator + "ram/se2/upload" ; 
  /* String path = "C:/Users/AHN/git/StudyHaja_1/StudyHaja/WebContent/ahn/se2/upload";  */
 	String filename = "";
 
