@@ -38,6 +38,7 @@ public class caferegisterProAction implements CommandAction {
 				vo.setContents(request.getParameter("contents"));
 				vo.setTel(request.getParameter("tel"));
 				vo.setSeats(request.getParameter("seats"));
+				
 				vo.setReg_date(new Timestamp(System.currentTimeMillis()));
 				
 				request.setAttribute("pageNum", request.getParameter("pageNum"));
