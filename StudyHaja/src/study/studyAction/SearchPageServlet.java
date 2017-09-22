@@ -34,8 +34,9 @@ public class SearchPageServlet extends HttpServlet {
 		String selValue = request.getParameter("selValue");
 		String subject = request.getParameter("subject");
 		String replyContent = request.getParameter("replyContent");
-		
+		String tdText = request.getParameter("tdText");
 		String subSearch = request.getParameter("subSearch");
+		
 		
 		
 		/*StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
@@ -60,7 +61,7 @@ public class SearchPageServlet extends HttpServlet {
 		}else {
 			try {
 				System.out.println(replyContent);
-				response.getWriter().write(getJSONReplyContent(replyContent));
+				response.getWriter().write(getJSONReplyContent(replyContent,tdText));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -239,6 +240,7 @@ public class SearchPageServlet extends HttpServlet {
 		result.append("{\"result\":[");
 		StudyInfoDAO studyDAO = new StudyInfoDAO();
 		ArrayList<StudyInfoVO> studyInfoList = studyDAO.listCheckAll(check);
+		ReplyDAO replyDAO = ReplyDAO.getInstance();
 		
 		
 		for(int i=0;i<studyInfoList.size();i++){
@@ -247,7 +249,8 @@ public class SearchPageServlet extends HttpServlet {
 			result.append("{\"value\": \""+ studyInfoList.get(i).getSubject()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getFormat_time()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getReg_date()+"\"},");
-			result.append("{\"value\": \""+ studyInfoList.get(i).getReadcount()+"\"}],");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getReadcount()+"\"},");
+			result.append("{\"value\": \""+ replyDAO.selectReplyAllCount(studyInfoList.get(i).getNum()) +"\"}],");
 		}
 		result.append("]}");
 		return result.toString();
@@ -277,7 +280,8 @@ public class SearchPageServlet extends HttpServlet {
 		StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
 		StudyInfoVO vo = studyDAO.selectContent(td);
 		studyDAO.updateReadCount(td);
-		
+		ReplyDAO reDAO = ReplyDAO.getInstance();
+		ArrayList<ReplyVO> replyVO = reDAO.selectAllReply(td);
 		
 			result.append("[{\"value\": \""+ vo.getSubject()+"\"},");
 			result.append("{\"value\": \""+ vo.getKind2()+"\"},");
@@ -294,6 +298,12 @@ public class SearchPageServlet extends HttpServlet {
 			result.append("{\"value\": \""+ vo.getPeople()+"\"},");
 			result.append("{\"value\": \""+ vo.getContent()+"\"}],");
 		
+		result.append("],\"tdText\":[");
+		for(int i=0;i<replyVO.size();i++){
+		result.append("[{\"value\": \""+ replyVO.get(i).getId()+"\"},");
+		result.append("{\"value\": \""+ replyVO.get(i).getContent()+"\"},");
+		result.append("{\"value\": \""+ replyVO.get(i).getReg_date()+"\"}],");
+		}
 		result.append("]}");
 		return result.toString();
 	}
@@ -317,13 +327,13 @@ public class SearchPageServlet extends HttpServlet {
 	}
 	
 	
-	public String getJSONReplyContent(String replyContent) throws SQLException {
+	public String getJSONReplyContent(String replyContent, String tdText) throws SQLException {
 			
 			StringBuffer result = new StringBuffer("");
 			result.append("{\"result\":[");
 			ReplyDAO replyDAO = ReplyDAO.getInstance();
-			replyDAO.insertReply(replyContent);
-			ArrayList<ReplyVO> replyList = replyDAO.selectAllReply();
+			replyDAO.insertReply(replyContent,tdText);
+			ArrayList<ReplyVO> replyList = replyDAO.selectAllReply(tdText);
 			for(int i=0;i<replyList.size();i++){
 				result.append("[{\"value\": \""+ replyList.get(i).getId()+"\"},");
 				result.append("{\"value\": \""+ replyList.get(i).getContent()+"\"}],");
