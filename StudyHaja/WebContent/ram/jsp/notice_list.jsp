@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
 <!-- <link rel="stylesheet" type="text/css" href="css/notice_list.css" /> -->
+
 <!DOCTYPE html>
 <html> 
 <head>
@@ -50,10 +51,43 @@
 	#focus a{
 	color: #4B8FCC;
 	}
+/* -------left box css------- */	
+	#box_notice{
+	border: 2px solid #4B8FCC;
+	}
+	#box_notice a{
+    display: block;
+    text-align: center;
+    font-size: 20px;
+}
+	#box_board a{
+    display: block;
+    text-align: center;
+    font-size: 20px;
+}
+	#box{
+	margin-top: 4.5%;
+    margin-left: 5%;
+    float: left;
+    border: 1px solid gray;
+    border-collapse: collapse;
+	}
+	#box tr{
+	height: 60px;
+	}
 </style>
 </head>
 
 <body>
+
+<div>
+<table id="box">
+	<tr id="box_notice"><td><a href="notice_list.do">NOTICE</a></td></tr>
+	<tr id="box_board"><td><a href="list.do">BULLETIN BOARD</a></td></tr>
+</table>
+</div>
+
+
 <div id="notice_w">
 	<a href="notice_writeForm.do">글쓰기</a>
 </div>
@@ -113,5 +147,6 @@
 		</diV>
 		
 </c:if>
+
 </body>
 </html>

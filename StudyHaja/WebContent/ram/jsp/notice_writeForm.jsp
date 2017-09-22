@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt"  uri="http://java.sun.com/jstl/fmt_rt" %>
-
+<!-- <link rel="stylesheet" type="text/css" href="ram/se2/css/smart_editor2.css" /> -->
 <!DOCTYPE html>
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -12,7 +12,6 @@
 <script type="text/javascript">
 var oEditors = [];
 $(function(){
-	
 	
       nhn.husky.EZCreator.createInIFrame({
           oAppRef: oEditors,
@@ -35,34 +34,46 @@ function pasteHTML(filepath){
        oEditors.getById["content"].exec("PASTE_HTML", [sHTML]);
    }
 </script>
-</head>
 
+<style type="text/css">
+#sub {
+	color: #4B8FCC;
+	font-weight: 600;
+	padding-right: 30px;
+	text-align: center;
+}
+#text2{
+	width:1000px;
+}
+
+</style>
+</head>
+<center>
 <form action = "notice_writePro.do" method="post"  id = "frm" name = "writeform" onsubmit="return writeSave()">
 <input type="hidden" name="num" value="${ num }" >  <!-- ?????????????????????????????????????????????????????????? -->
 
-<table width='400' border='1' cellspacing='0' cellpadding='0' align="center">
-
+<table id="tab" >
 
 <tr>
-	<td width="70" align = "center"> 이  름</td>
-	<td width="330"><input type="text" size= "10" maxlenth="10" name ="writer"></td>
+	<td id="sub"> 이  름</td>
+	<td id="text"><input type="text" name ="writer"></td>
 </tr>
 <tr>
-	<td width="70" align = "center"> 제  목</td>
-	<td width="330">
+	<td id="sub"> 제  목</td>
+	<td id="text">
 <!-- 	답변인것에 대한 처리 -->
 
 <c:if test="${ num == 0 }">  <!-- 제목글 -->
 	
-	<input type= "textarea" size = "40" maxlength="50" name = "subject"></td>
+	<input type= "textarea"  name = "subject"></td>
 </c:if>
 </tr>
-<!--  --------------------------------------------------------------------------------------------- -->
 
 <tr>
-	<td width="70" align = "center"> 내  용</td>
+	<!-- <td align = "center" id="sub"> 내  용</td> -->
 	<!-- <textarea id = "contents" name = "contents" maxlength="4000"></textarea> -->
-	<td><textarea id = "content"  name = "content" maxlength="4000"></textarea></td>
+	<td colspan="2" id="text2"><textarea id = "content"  name = "content" style="width:100%;"></textarea></td>
+	
 </tr>
 <%-- <tr>
 	<td width="70" bgcolor = "${ value_c }"" align = "center"> 비밀번호</td>
@@ -77,5 +88,6 @@ function pasteHTML(filepath){
 </tr>
 </table>
 </form>
+<center>
 </body>
 </html>

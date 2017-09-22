@@ -79,7 +79,12 @@
  	text-align:right;
  }
  #bottom_btn{
-     text-align: center;
+    text-align: center;
+    width: 200px;
+    margin-left: 44%;
+ }
+ #delForm{
+	 float: left;
  }
 </style>
 </head>
@@ -138,16 +143,18 @@ ${vo.content }
 </c:if>
 
 </div> 
-<p id="bottom_btn"><a href="notice_list.do?pageNum=${ pageNum }"><img src="ram/images/list.png"/></a>
+<div id="bottom_btn">
+	<a href="notice_list.do?pageNum=${ pageNum }"><img src="ram/images/list.png"/></a>
    <a href="notice_updateForm.do?num=${ vo.num }&pageNum=${ pageNum }"><img src="ram/images/change.png"/></a>
    <%-- <a href="notice_deleteForm.do?num=${ vo.num }&pageNum=${ pageNum }">글 삭제</a> --%>
    
    <form action="notice_deletePro.do" name="delForm" id="delForm">
-   <input type ="button" value ="게시물 삭제" name="del" id = "del" onclick="confirmFunction()">
+   <!-- <input type ="button" value ="게시물 삭제" name="del" id = "del" onclick="confirmFunction()"> -->
+   <input type="image" src="ram/images/delete.png" name="del" id = "del" onclick="confirmFunction()" />
   <input type="hidden" name="num" value="${vo.num}">
 		<input type="hidden" name="pageNum" value="${pageNum}">
    </form>
-</p>
+</div>
 
 </div>
 </body>
