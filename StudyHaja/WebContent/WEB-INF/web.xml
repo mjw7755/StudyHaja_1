@@ -11,13 +11,35 @@
     <res-auth>Container</res-auth>
   </resource-ref>
   
+=======
+<<<<<<< HEAD
+  
  
+ <servlet>
+=======
+>>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
+
+<<<<<<< HEAD
+  
+ 
+<<<<<<< HEAD
+=======
+ <servlet>
+=======
+
+  
+
+>>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
   <servlet>
     <servlet-name>StudyController</servlet-name>
     <servlet-class>study.controller.StudyController</servlet-class>
     <init-param>
       <param-name>StudyConfig</param-name>
+<<<<<<< HEAD
+      <param-value>C:\Users\AHN\git\StudyHaja_1\StudyHaja\WebContent\WEB-INF\commandBoard.properties</param-value>
+=======
       <param-value>C:\Users\LeeRam\git\StudyHaja_1\StudyHaja\WebContent\WEB-INF\commandBoard.properties</param-value>
+>>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
     </init-param>
 
   </servlet>

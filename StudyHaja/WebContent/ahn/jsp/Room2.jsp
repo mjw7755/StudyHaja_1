@@ -122,8 +122,8 @@
 				data:{
 					"replycontents": replycontents,
 					"num" : num,
-					"pageNum" : pageNum
-					
+					"pageNum" : pageNum,
+					"point" : point
 				},
 				
 				success : function(data){
@@ -305,7 +305,7 @@
 								리뷰</b></font>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-						<a href ="#" OnClick="contents.style.visibility='visible', replySubmit.style.visibility = 'visible'" 
+						<a href ="#" OnClick="contents.style.visibility='visible',replySubmit.style.visibility = 'visible',point.style.visibility='visible'" 
 						><img src="ahn/images/pencil.png" weight="25"
 							height="25"><font color="black" font-size="1.123rem">리뷰남기기</font></a>
 					</h3>
@@ -331,8 +331,9 @@
 				<textarea id="contents" name="contents" max="500" rows="5"
 						cols="100" placeholder="리뷰를 작성해주세요 "style= "visibility:hidden;" >
 				</textarea>
+				<br>
+				<input type = "textbox" id="point" name="point" placeholder="별점을 주세요" style="visibility:hidden;">
 				<input type="submit" id="replySubmit" value="제출" style="visibility:hidden;" >
-				
 				</td>
 				</form>
 			</tr>
