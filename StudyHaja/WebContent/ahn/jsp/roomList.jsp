@@ -66,7 +66,7 @@ function play(){
 
 	<center>
 	<c:if test="${ count > 0 }">
-	<table cellpadding="20">
+	<table cellpadding="20" width="1500px">
 	<tr>
 	<c:forEach var="list" items="${list }" begin="0" end="8">
 		<c:set var="cnt" value="${cnt+1}"/>
@@ -75,7 +75,7 @@ function play(){
 		<%-- <a href="jsp/Room2.jsp?num=${list.num}"> --%>
 		
 		<a href="Room2.do?num=${list.num }&pageNum=${currentPage}">
-		<div style="border: 1px; float: left; width: auto;">
+		<div style="border: 1px; float: left; width: 500px;">
 		<figure class="snip1384">
 		<img src = "ahn/images/${list.images}" id="mainphoto" alt="sample92" />
 		<figcaption>
