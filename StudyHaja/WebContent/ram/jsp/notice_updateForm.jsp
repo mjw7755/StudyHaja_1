@@ -96,7 +96,7 @@ function pasteHTML(filepath){
 </tr>
 
 <tr>
-	<td colspan="2" id="text2"><textarea id = "content"  name = "content" style="width:100%; ">${ vo.content }</textarea></td>
+	<td colspan="2" id="text2"><textarea id = "content"  name = "content" style="width:100%; height: 400px; ">${ vo.content }</textarea></td>
 </tr>
  <tr>
 	<td align="center" colspan="2">

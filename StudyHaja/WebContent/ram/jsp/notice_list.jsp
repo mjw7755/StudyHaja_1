@@ -10,14 +10,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> 공지사항리스트 </title>
 <style type="text/css">
-
+#a_tag:hover {
+color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
+}
+#a_tag{
+	font-weight : 800;
+	text-decoration:none;
+}
   #notice_list {
-  	margin-top:50px;
-  	margin-right:3%;
+  	margin-top: 50px;
+    margin-right: 3%;
+    margin-left: 22%;
     border-top: 2px solid #4B8FCC;
-    border-bottom :2px solid #4B8FCC;
+    border-bottom: 2px solid #4B8FCC;
     border-collapse: collapse;
-    float:right;
   }
   td {
     border-bottom: 1px solid #BDBDBD;
@@ -82,14 +88,14 @@
 
 <div>
 <table id="box">
-	<tr id="box_notice"><td><a href="notice_list.do">NOTICE</a></td></tr>
-	<tr id="box_board"><td><a href="list.do">BULLETIN BOARD</a></td></tr>
+	<tr id="box_notice"><td><a href="notice_list.do" id="a_tag">NOTICE</a></td></tr>
+	<tr id="box_board"><td><a href="list.do" id="a_tag">BULLETIN BOARD</a></td></tr>
 </table>
 </div>
 
 
 <div id="notice_w">
-	<a href="notice_writeForm.do">글쓰기</a>
+	<a href="notice_writeForm.do" id="a_tag">글쓰기</a>
 </div>
 <!-- <table width="700">
 		<tr>
@@ -103,7 +109,7 @@
 <c:forEach var="list2" items="${list2}">
 <tr>
 	<td id="num">${list2.num }</td>
-	<td id="subject2"><a href="content.do?num=${list2.num }&pageNum=${ currentPage }&result=just">
+	<td id="subject2"><a href="content.do?num=${list2.num }&pageNum=${ currentPage }&result=just" id="a_tag">
 					${ list2.subject }</a> </td>
 	<td>${list2.reg_date }</td>
 </tr>
@@ -132,17 +138,17 @@
 		
 		<diV id="listpage">
 		<c:if test="${startPage >5 }" >
-			<a href="notice_list.do?pageNum=${ startPage-5  }">[이전] </a>
+			<a href="notice_list.do?pageNum=${ startPage-5  }" id="a_tag">[이전] </a>
 		</c:if>
 
 		<div id="focus">
 		<c:forEach  var="i" begin="${startPage }" end="${ endPage }">
-			<a href="notice_list.do?pageNum=${i}">[${ i }] </a>
+			<a href="notice_list.do?pageNum=${i}" id="a_tag">[${ i }] </a>
 	   </c:forEach>
 		</div>
 		
 	<c:if test="${ endPage < pageCount }" >
-		<a href="notice_list.do?pageNum=${ startPage+5 }">[다음] </a>
+		<a href="notice_list.do?pageNum=${ startPage+5 }" id="a_tag">[다음] </a>
 	</c:if>
 		</diV>
 		

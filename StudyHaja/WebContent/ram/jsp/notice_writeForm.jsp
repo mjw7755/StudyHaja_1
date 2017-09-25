@@ -98,7 +98,7 @@ function pasteHTML(filepath){
 <tr>
 	<!-- <td align = "center" id="sub"> 내  용</td> -->
 	<!-- <textarea id = "contents" name = "contents" maxlength="4000"></textarea> -->
-	<td colspan="2" id="text2"><textarea id = "content"  name = "content" style="width:100%;"></textarea></td>
+	<td colspan="2" id="text2"><textarea id = "content"  name = "content" style="width:100%; height: 400px; "></textarea></td>
 	
 </tr>
 <%-- <tr>
