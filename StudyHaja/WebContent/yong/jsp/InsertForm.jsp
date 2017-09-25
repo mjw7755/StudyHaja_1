@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>회원가입 화면</title>
+
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
 		var count = 0;
@@ -202,9 +203,9 @@
 </head>
 <body>
 
-	<link rel="stylesheet" href="../css/ahnTable.css">
-	<link rel="stylesheet" href="../css/toggle.css">
-	<link rel="stylesheet" href="../css/ahnSignup.css">
+	<link rel="stylesheet" href="ahn/css/ahnTable.css">
+	<link rel="stylesheet" href="ahn/css/toggle.css">
+	<link rel="stylesheet" href="ahn/css/ahnSignup.css">
 
 	<form name="Insertform" method="post" action="InsertPro.do" onsubmit="return writeSave()">
 		<input type="hidden" name="reg_date" value="${reg_date}">
