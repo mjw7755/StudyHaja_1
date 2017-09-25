@@ -78,8 +78,8 @@
 				alert("비밀번호를 입력해주세요.")          
 					return false;
 	 
-   		 }else if(!/^[a-zA-Z0-9]{10,15}$/.test(userpasswd)){      
-	 	 		alert("비밀번호는 숫자와 영문자 조합으로 10~15자리를 사용해야 합니다.")
+   		 }else if(!/^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/.test(userpasswd)){      
+	 	 		alert("비밀번호는 숫자와 영문자 조합으로 6~20자리를 사용해야 합니다.")
 					return false;
 	  		
    		 }else if($("#passwdtxt").val()!=$("#passwdtxt2").val()){
@@ -112,6 +112,7 @@
      	}else
      			alert(userid + " 님 회원가입을 축하드립니다.");
 		}
+	
    $(document).ready(function(){            // 회원 입력 값 유효성 검사 start
             $("#idtxt").keyup(function(){   // 아이디 유효성
     		$("#checkMessage").show();  
@@ -137,8 +138,8 @@
       	 $("#checkMessage2").text("비밀번호를 입력해주세요.").css('color','red');
       		return false;
       	 
-        }else if(!/^[a-zA-Z0-9]{10,15}$/.test(userpasswd)){      
-      	  $("#checkMessage2").text("숫자와 영문자 조합으로 10~15자리를 사용해야 합니다.").css('color','red');
+        }else if(!/^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/.test(userpasswd)){      
+      	  $("#checkMessage2").text("숫자와 영문자 조합으로 6~20자리를 사용해야 합니다.").css('color','red');
       		return false;
       		
         }else{
