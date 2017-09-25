@@ -17,6 +17,9 @@ public class loginProAction implements CommandAction {
 		String id= request.getParameter("id");
 		String passwd = request.getParameter("passwd");
 		String name = request.getParameter("name");
+		String tel = request.getParameter("hp");
+		String email = request.getParameter("email");
+		
 		String msg="";
 		int result = 0;
 		memberJoinDAO dao = new memberJoinDAO();
@@ -25,8 +28,10 @@ public class loginProAction implements CommandAction {
 		HttpSession session = request.getSession();
 		System.out.println("name :" + name);
 		session.setAttribute("memname",name);
-		
 		session.setAttribute("sessionid",id);
+		session.setAttribute("memtel", tel);
+		session.setAttribute("mememail", email);
+		
 		
 		return "/ahn/jsp/loginPro.jsp";
 	}

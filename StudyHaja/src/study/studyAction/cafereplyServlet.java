@@ -28,6 +28,7 @@ public class cafereplyServlet extends HttpServlet {
 		String	replycontents = request.getParameter("replycontents");
 		int num= Integer.parseInt(request.getParameter("num"));
 		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
+		
 		System.out.println(replycontents);
 		if(replycontents==null){
 			replycontents = null;

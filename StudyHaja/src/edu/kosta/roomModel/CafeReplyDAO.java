@@ -36,13 +36,12 @@ public class CafeReplyDAO {
 		return ds.getConnection();
 	}
 	
-	public void cafereplyInsert(String replycontents, int num){
+	public void cafereplyInsert( String replycontents, int num){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		CafeReplyVO vo = new CafeReplyVO();
 		String sql = "insert into cafereply(id,cafecontents,reg_date,num) values (?,?,?,?)"; 
-		String sql2 = "select points from room where num = ?";
-		
+		//String sql2 = "select points from room where num = ?";
 		try{
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
