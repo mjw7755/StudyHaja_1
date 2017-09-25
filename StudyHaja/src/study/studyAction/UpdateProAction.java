@@ -2,6 +2,7 @@ package study.studyAction;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import studyBoardModel.*;
 
@@ -16,8 +17,11 @@ public class UpdateProAction implements CommandAction {
 		BoardDAO dao = BoardDAO.getInstance();
 		BoardVO vo = new BoardVO();
 		
+		HttpSession session = request.getSession();
+		session.getAttribute("sessionid");
+		
 		vo.setNum(Integer.parseInt(request.getParameter("num")));
-		vo.setId(request.getParameter("id"));
+		vo.setId(session.getAttribute("sessionid").toString());
 		vo.setTitle(request.getParameter("title"));
 		vo.setContent(request.getParameter("content"));
 		

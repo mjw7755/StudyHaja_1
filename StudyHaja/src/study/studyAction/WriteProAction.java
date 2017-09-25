@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import studyBoardModel.*;
 
@@ -13,11 +14,12 @@ public class WriteProAction implements CommandAction {
 	@Override
 	public String process(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		
+		HttpSession session = request.getSession();
+		session.getAttribute("sessionid");
 		request.setCharacterEncoding("utf-8");
 		BoardVO vo = new BoardVO();
 		vo.setNum(Integer.parseInt(request.getParameter("num")));
-		vo.setId(request.getParameter("id"));
+		vo.setId(session.getAttribute("sessionid").toString());
 		vo.setTitle(request.getParameter("title"));  
 		vo.setContent(request.getParameter("content"));
 		

@@ -89,23 +89,26 @@ public class BoardDAO { // controller
 			} // out if end
 
 			// insert 명령 처리
-			sb.append("INSERT INTO STUDYBOARD(NUM, TITLE, CONTENT, REG_DATE, ");
-			sb.append(" REF, RE_STEP, RE_LEVEL, PATH, READCOUNT) VALUES(STUDYBOARD_NUM.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?) ");
+			sb.append("INSERT INTO STUDYBOARD(NUM, TITLE, CONTENT, REG_DATE, ID, ");
+			sb.append(
+					" REF, RE_STEP, RE_LEVEL, PATH, READCOUNT) VALUES(STUDYBOARD_NUM.NEXTVAL, ?, ?, ?, ? ,? , ?, ?, ?, ?) ");
 			// qeury문 수정
 			pstmt = conn.prepareStatement(sb.toString());
 			pstmt.setString(1, vo.getTitle());
 			pstmt.setString(2, vo.getContent());
 			pstmt.setTimestamp(3, vo.getReg_date());
 
-			pstmt.setInt(4, ref);
-			pstmt.setInt(5, re_step);
-			pstmt.setInt(6, re_level);
+			pstmt.setString(4, vo.getId());
+
+			pstmt.setInt(5, ref);
+			pstmt.setInt(6, re_step);
+			pstmt.setInt(7, re_level);
 			if (vo.getPath() == null) {
-				pstmt.setString(7, "00"); // image file 경로 넣는 부분 default값 null
+				pstmt.setString(8, "00"); // image file 경로 넣는 부분 default값 null
 			} else {
-				pstmt.setString(7, vo.getPath());
+				pstmt.setString(8, vo.getPath());
 			}
-			pstmt.setInt(8, vo.getReadcount());
+			pstmt.setInt(9, vo.getReadcount());
 
 			pstmt.executeUpdate();
 
@@ -253,7 +256,7 @@ public class BoardDAO { // controller
 
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT * FROM board WHERE NUM = ?");
+			pstmt = conn.prepareStatement("SELECT * FROM STUDYBOARD WHERE NUM = ?");
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
 
@@ -292,26 +295,25 @@ public class BoardDAO { // controller
 
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT ID FROM board WHERE NUM = ?");
+			pstmt = conn.prepareStatement("SELECT * FROM STUDYBOARD WHERE NUM = ?");
 			pstmt.setInt(1, vo.getNum());
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				dbid = rs.getString("id");
+				dbid = rs.getString("ID");
 
 				if (dbid.equals(vo.getId())) {
-					sql = "UPDATE board SET ID=?, TITLE=?, CONTENT=? ";
+					sql = "UPDATE STUDYBOARD SET TITLE=?, CONTENT=? ";
 					sql += " WHERE NUM = ?";
 					// query 수정해야하는 부분
 					System.out.println(sql);
 
 					pstmt = conn.prepareStatement(sql);
 
-					pstmt.setString(1, vo.getId());
-					pstmt.setString(2, vo.getTitle());
+					pstmt.setString(1, vo.getTitle());
 
-					pstmt.setString(3, vo.getContent());
-					pstmt.setInt(4, vo.getNum());
+					pstmt.setString(2, vo.getContent());
+					pstmt.setInt(3, vo.getNum());
 
 					pstmt.executeUpdate();
 					result = 1;
@@ -332,7 +334,7 @@ public class BoardDAO { // controller
 	} // update() end
 
 	// delete( num, passwd ) - deletePro.jsp
-	public int delete(int num, String id) {
+	public int delete(int num, BoardVO vo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -342,23 +344,20 @@ public class BoardDAO { // controller
 
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("SELECT ID FROM BOARD WHERE NUM=?");
+			pstmt = conn.prepareStatement("SELECT * FROM STUDYBOARD WHERE NUM=?");
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
-
 			if (rs.next()) {
-				dbid = rs.getString("id");
+				dbid = rs.getString("ID");
+				if (dbid.equals(vo.getId())) {
 
-				if (dbid.equals(id)) {
-					pstmt = conn.prepareStatement("DELETE FROM BOARD WHERE NUM = ?");
+					pstmt = conn.prepareStatement("DELETE FROM STUDYBOARD WHERE NUM = ?");
 					pstmt.setInt(1, num);
 					result = pstmt.executeUpdate();
 					result = 1; // 글삭제 성공
 
-				} else
-					result = 0; // 비밀번호 틀림
-			} // out if end
-
+				} // out if end
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
