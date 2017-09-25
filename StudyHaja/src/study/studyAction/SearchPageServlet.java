@@ -26,9 +26,8 @@ public class SearchPageServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=UTF-8");
-		
+		String id = (String) request.getSession().getAttribute("sessionid");
 		StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
-		
 		String[] check = request.getParameterValues("check");
 		String td = request.getParameter("td");
 		String selValue = request.getParameter("selValue");
@@ -61,7 +60,7 @@ public class SearchPageServlet extends HttpServlet {
 		}else {
 			try {
 				System.out.println(replyContent);
-				response.getWriter().write(getJSONReplyContent(replyContent,tdText));
+				response.getWriter().write(getJSONReplyContent(replyContent,tdText,id));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -279,6 +278,7 @@ public class SearchPageServlet extends HttpServlet {
 	public String getJSONTd(String td) throws Exception {
 		if(td == null)td = null;
 		StringBuffer result = new StringBuffer("");
+		
 		result.append("{\"result\":[");
 		StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
 		StudyInfoVO vo = studyDAO.selectContent(td);
@@ -330,12 +330,12 @@ public class SearchPageServlet extends HttpServlet {
 	}
 	
 	
-	public String getJSONReplyContent(String replyContent, String tdText) throws SQLException {
+	public String getJSONReplyContent(String replyContent, String tdText, String id) throws SQLException {
 			
 			StringBuffer result = new StringBuffer("");
 			result.append("{\"result\":[");
 			ReplyDAO replyDAO = ReplyDAO.getInstance();
-			replyDAO.insertReply(replyContent,tdText);
+			replyDAO.insertReply(replyContent,tdText,id);
 			ArrayList<ReplyVO> replyList = replyDAO.selectAllReply(tdText);
 			for(int i=0;i<replyList.size();i++){
 				result.append("[{\"value\": \""+ replyList.get(i).getId()+"\"},");

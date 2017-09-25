@@ -24,8 +24,11 @@
 
  $(function(){
 	 
-	 
-	 
+	 $(document).on("click",".modBtn",function(){
+		 var id = $(this).attr('id');
+		 
+		 
+	 });
 	 
 	 var checkedValues = [];  
 	 var selValue = null;
@@ -33,10 +36,6 @@
 	 var subSearch = null;
 	 var tdText = null;
 	 
-	 $(".modBtn").click(function(){
-		alert($(this).par)
-		
-	 });
 	 
 	 $("#sendBtn").click(function(){
 		var replyContent = $("#replyContent").val();
@@ -54,10 +53,9 @@
  						var res = eval("("+data+")");
  						var result = res.result;
  						
- 						
  						for(var i=0;i<result.length;i++){
 	
- 							$(".replyUl").append('<li class="replyLi" id="'+i+'"><span class="replyContent"><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span><span class="Content_txt">'+result[i][1].value+'</span></span><div class="btnDIV"><a href="#" class="modBtn">수정</a><a href="#" class="delBtn">삭제</a></div></li>');
+ 							$(".replyUl").append('<li class="replyLi" id="'+i+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][1].value+'</span></div></span><div class="btnDIV"><a href="#" class="modBtn" id="'+result[i][0].value+'">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'">삭제</a></div></li>');
  						}
  						
  						
@@ -644,11 +642,11 @@
 	 							var d = eval("("+data+")");
 		 						var dd = d.result;
 		 						
-		 						var aa = d.tdText;
+		 						var result = d.tdText;
 		 						
-		 						for(var i=0;i<aa.length;i++){
+		 						for(var i=0;i<result.length;i++){
 		 							
-		 							$(".replyUl").append('<li class="replyLi"><span class="replyContent"><span class="replyName">'+aa[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+aa[i][1].value+'</span></span><div class="btnDIV"><a href="#" class="modBtn">수정</a><a href="#" class="modBtn">삭제</a></div></li>');
+		 							$(".replyUl").append('<li class="replyLi" id="'+i+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][1].value+'</span></div></span><div class="btnDIV"><a href="#" class="modBtn" id="'+result[i][0].value+'">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'">삭제</a></div></li>');
 		 						}
 		 						
 	 							$("#jae").text(dd[0][0].value);
@@ -1144,7 +1142,6 @@
 	    position: relative;
 	    padding: 20px 0;
 	    border-bottom: 1px solid #ddd;
-	    width:400px;
 	}
 	
 	.replyUl{
@@ -1158,13 +1155,11 @@
     	top: 20px;
     	right: 0px;
     	display: inline-block;
-	    font-size: 0;
 	    line-height: 0;
-	    text-indent: -9999px;
 	}
 	
 	.replyName{
-		    overflow: hidden;
+	overflow: hidden;
     max-width: 515px;
     font-weight: bold;
     color: #e83227;
@@ -1540,13 +1535,14 @@
 													<span>▶</span>
 												</label>
 											</div>
-											<!-- 입력버튼 -->
+											<!-- 입력텍스트필드 -->
 											<div>
 												<input type="text" class="input-text" name="content" id="replyContent" value maxlength="300">
 											</div>
 											<!-- 작성버튼 -->
 											<div>
 												<input type="button" class="sendBtn" id="sendBtn" value="작성">
+												<input type="hidden" id="sessionID" value="${sessionScope.sessionid }"/>
 											</div>
 										</div>
 									
