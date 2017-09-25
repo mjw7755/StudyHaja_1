@@ -1165,6 +1165,7 @@
 	    padding: 0;
     text-align: left;
       position: relative;
+      height:50px;
 	
 }
 .tree_reple_place>div>div {
@@ -1174,7 +1175,7 @@
 }
 
 .input-text {
-		width: 315px;
+		width: 290px;
     	border: 1px solid #05a2da;
 		display: inline-block;
 	    padding: 5px 10px;
@@ -1195,12 +1196,12 @@
 }
 
 	#contentTable {
-		cellspacing:50;
+		cellspacing:50px;
 		text-align:left;	
 	}
-	#contentTable td{
-		cellspacing: 10;
-		cellpadding: 10;
+	#contentTable>tr>td{
+		cellspacing: 10px;
+		cellpadding: 10px;
 	}
 
 	.popupDIV {
@@ -1226,6 +1227,7 @@
 	
 	.replyContent{
 	 float: left;
+	 width:470px;
 	}
 	
 	#replyList{
@@ -1253,6 +1255,7 @@
     	right: 0px;
     	display: inline-block;
 	    line-height: 0;
+	    padding-top:10px;
 	}
 	
 	.replyName{
@@ -1265,14 +1268,21 @@
 	
 	.Content_txt{
 		display: block;
-    width: 800px;
-    margin-top: 3px;
-    font-size: 13px;
+    width: 470px;
+    margin-top: 20px;
+    font-size: 17px;
     color: #444;
     line-height: 1.5;
 	}
 	
+	.btnDIV>a{
+		text-decoration: none;
+		padding:5px;
+	}
 	
+	.sub_title{
+		width:auto;
+	}
 	
 </style>
 </head>
@@ -1581,43 +1591,41 @@
 						<div class="popupDIV" id="popup">
 							<div class="popupInner">
 								<div class="popupInnerContent">
-									<table id="contentTable">
-									<tr>
-										<td class="introduce_title">제  목</td><td id="jae"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">분  류</td><td id="bun"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">기  간</td><td id="s_d"></td><td id="e_d"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">요  일</td><td id="yo"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">시  간</td><td id="s_h"></td><td id="s_m"></td><td id="e_h"></td><td id="e_m"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">지  역</td><td id="pOne"></td><td id="pTwo"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">장  소</td><td id="pThr"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">인  원</td><td id="inWon"></td>		
-									</tr>
-									</table>
+									<div>
+										<span class="introduce_title">제  목</span><span class="sub_title" id="jae"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">분  류</span><span class="sub_title" id="bun"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">기  간</span><span class="sub_title" id="s_d"></span><span class="sub_title" id="e_d"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">요  일</span><span class="sub_title" id="yo"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">시  간</span><span class="sub_title" id="s_h"></span><span class="sub_title" id="s_m"></span><span class="sub_title" id="e_h"></span><span class="sub_title" id="e_m"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">지  역</span><span class="sub_title" id="pOne"></span><span class="sub_title" id="pTwo"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">장  소</span><span class="sub_title" id="pThr"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">인  원</span><span class="sub_title" id="inWon"></span>		
+									</div>
 									<br>
 									<div id="curyLabel">
 										<span class="introduce_title">스터디 커리큘럼</span>
 									</div>
 									<br>
-									<div style="border:3px solid black" id="cury">
+									<div id="cury">
 											
 									</div>
 									
 									<div id="mojipjang">
-									
+										<span class="mojipjang">모집장 연락정보</span>
 									</div>		
 									
 									<div id="mojpjangContent">
@@ -1627,7 +1635,7 @@
 									<div class="tree_reple_place">
 									
 										<div class="repleDIV">
-											<div class="repleLabel">
+											<div class="repleLabel" style="padding-top:40px">
 												<label class="repleBtn">
 													<span>댓글</span>
 													<span>▶</span>
