@@ -157,15 +157,18 @@ ${vo.content }
 </div> 
 <div id="bottom_btn">
 	<a href="notice_list.do?pageNum=${ pageNum }"><img src="ram/images/list.png"/ id="a_tag"></a>
+   <c:if test="${sessionid eq 'admin' }">
    <a href="notice_updateForm.do?num=${ vo.num }&pageNum=${ pageNum }" id="a_tag"><img src="ram/images/change.png"/></a>
+   </c:if>
    <%-- <a href="notice_deleteForm.do?num=${ vo.num }&pageNum=${ pageNum }">글 삭제</a> --%>
-   
+   <c:if test="${sessionid eq 'admin' }">
    <form action="notice_deletePro.do" name="delForm" id="delForm">
-   <!-- <input type ="button" value ="게시물 삭제" name="del" id = "del" onclick="confirmFunction()"> -->
    <input type="image" src="ram/images/delete.png" name="del" id = "del" onclick="confirmFunction()" />
+   
   <input type="hidden" name="num" value="${vo.num}">
 		<input type="hidden" name="pageNum" value="${pageNum}">
    </form>
+   </c:if>
 </div>
 
 </div>

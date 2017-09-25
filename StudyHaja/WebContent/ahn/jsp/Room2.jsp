@@ -305,10 +305,10 @@
 						<font color="#FF792a" font-size="1.123rem" line-height="1.2em"><b>${list.subject }ÀÇ
 								¸®ºä</b></font>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+						<c:if test="${sessionid!=null}">
 						<a href ="#" OnClick="contents.style.visibility='visible',replySubmit.style.visibility = 'visible',point.style.visibility='visible'" 
 						><img src="ahn/images/pencil.png" weight="25"
-							height="25"><font color="black" font-size="1.123rem">¸®ºä³²±â±â</font></a>
+							height="25"><font color="black" font-size="1.123rem">¸®ºä³²±â±â</font></a></c:if>
 					</h3>
 					<br/>
 					<div class="view">

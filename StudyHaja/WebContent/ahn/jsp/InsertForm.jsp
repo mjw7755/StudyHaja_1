@@ -1,14 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+
 <!DOCTYPE html>
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>회원가입 화면</title>
 <!--  <link href="../css/ahnTable.css" rel="stylesheet" type="text/css">   -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
 <script type="text/javascript">
 
     function openDaumPostcode() {
@@ -75,9 +78,6 @@
 <body>
 <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'> -->
 
-<link rel="stylesheet" href="ahn/css/ahnTable.css">
-<link rel="stylesheet" href="ahn/css/toggle.css">
-<link rel="stylesheet" href="ahn/css/ahnSignup.css">
 
 <form name="Insertform" method="post" action="InsertPro.do" onsubmit="return writeSave()">
 <input type="hidden" name="reg_date" value="${reg_date}">

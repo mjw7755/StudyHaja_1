@@ -31,6 +31,7 @@ public class loginProAction implements CommandAction {
 		
 		request.setAttribute("result", result);
 		HttpSession session = request.getSession();
+		
 		System.out.println("name :" + name);
 		session.setAttribute("memname",name);
 		session.setAttribute("sessionid",id);
