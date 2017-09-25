@@ -41,6 +41,8 @@ public class CafeReplyDAO {
 		PreparedStatement pstmt = null;
 		CafeReplyVO vo = new CafeReplyVO();
 		String sql = "insert into cafereply(id,cafecontents,reg_date,num) values (?,?,?,?)"; 
+		String sql2 = "select points from room where num = ?";
+		
 		try{
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

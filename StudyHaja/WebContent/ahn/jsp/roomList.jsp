@@ -119,8 +119,12 @@ function play(){
 		<div id="hot">
 		<c:if test="${list.readcount>=30}">
 			<img src="ahn/images/hot5.jpg" height="40" weight="50">
-		</c:if><br><br><br>
+		</c:if>
+		<b>${list.points}</b>
+		
+		<br><br><br>
 		</div>
+		
 		<%-- <font size="4" color="gray"><b>${ list.subject }</b></font> --%> 
 		<%-- <hr>
 		<font size="3" color="skyblue"><b>지역</b></font>&nbsp;&nbsp;
