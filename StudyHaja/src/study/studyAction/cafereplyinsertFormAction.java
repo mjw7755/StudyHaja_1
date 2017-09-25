@@ -19,19 +19,19 @@ public class cafereplyinsertFormAction implements CommandAction {
 		String	replycontents = request.getParameter("replycontents");
 		int num= Integer.parseInt(request.getParameter("num"));
 		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
-		
-		response.getWriter().write(getJSONsearch(replycontents,num));
+		int point = Integer.parseInt(request.getParameter("point"));
+		response.getWriter().write(getJSONsearch(replycontents,num,point));
 		//request.setAttribute("num", num);
 		return "/ahn/jsp/roomList.jsp";
 	}
 	
-	public String getJSONsearch(String replycontents, int num) {
+	public String getJSONsearch(String replycontents, int num, int point) {
 	      if(replycontents == null) replycontents = "";
 	      StringBuffer result = new StringBuffer("");
 	      result.append("{\"result\":[");
 	      CafeReplyDAO DAO = new CafeReplyDAO();
 	      
-	      DAO.cafereplyInsert(replycontents, num);
+	      DAO.cafereplyInsert(replycontents, num, point);
 	      
 	      
 	      ArrayList<CafeReplyVO> cafereply_arr = DAO.cafereplySelect(num);

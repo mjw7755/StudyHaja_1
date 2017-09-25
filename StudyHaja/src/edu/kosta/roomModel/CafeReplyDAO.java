@@ -36,12 +36,12 @@ public class CafeReplyDAO {
 		return ds.getConnection();
 	}
 	
-	public void cafereplyInsert(String replycontents, int num){
+	public void cafereplyInsert(String replycontents, int num, int points){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		CafeReplyVO vo = new CafeReplyVO();
-		String sql = "insert into cafereply(id,cafecontents,reg_date,num) values (?,?,?,?)"; 
-		String sql2 = "select points from room where num = ?";
+		String sql = "insert into cafereply(id,cafecontents,reg_date,num,point) values (?,?,?,?,?)"; 
+		//String sql2 = "select points from room where num = ?";
 		
 		try{
 			conn = getConnection();
@@ -51,6 +51,7 @@ public class CafeReplyDAO {
 			pstmt.setString(2, replycontents);
 			pstmt.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
 			pstmt.setInt(4,num);
+			pstmt.setInt(5, points);
 			pstmt.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -84,6 +85,7 @@ public class CafeReplyDAO {
 				vo = new CafeReplyVO();
 				vo.setId(rs.getString("id"));
 				vo.setCafecontents(rs.getString("cafecontents"));
+				vo.setPoint(rs.getInt("point"));
 				voArr.add(vo);
 			}
 			

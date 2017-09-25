@@ -294,7 +294,7 @@
 						<br />
 						<br />
 					</table></td>
-
+				
 				<td height="500px">
 				<input type="hidden" name="num" id="num" value="${list.num }">
 				<input type="hidden" name="pageNum" id="pageNum" value="${pageNum}">
@@ -327,7 +327,6 @@
 				<br />
 				<br />
 				<br /> 
-				
 				<textarea id="contents" name="contents" max="500" rows="5"
 						cols="100" placeholder="리뷰를 작성해주세요 "style= "visibility:hidden;" >
 				</textarea>
@@ -335,7 +334,7 @@
 				<input type = "textbox" id="point" name="point" placeholder="별점을 주세요" style="visibility:hidden;">
 				<input type="submit" id="replySubmit" value="제출" style="visibility:hidden;" >
 				</td>
-				</form>
+				
 			</tr>
 			
 		</table>
@@ -360,6 +359,7 @@
 			<hr border-width="3">
 			<div class="first">
 				<form id="frm" action="cafedeletePro.do">
+					<c:if test="${sessionid eq 'admin' }">
 					<button type="button" id="btnModify"
 						onclick="document.location.href='cafeupdateForm.do?num=${list.num}&pageNum=${pageNum}'">
 						수정하기</button>
@@ -370,6 +370,7 @@
 						onclick="confirmFunction()"> <input type="hidden"
 						name="num" value="${list.num}"> <input type="hidden"
 						name="pageNum" value="${pageNum}">
+					</c:if>
 				</form>
 			</div>
 </body>
