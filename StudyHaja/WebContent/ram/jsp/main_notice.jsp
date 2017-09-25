@@ -48,6 +48,17 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
         align-items: center;
     }
 </style>
+<script type="text/javascript">
+	function checkId(){
+		var loginid = $("#loginid").val();
+		if(loginid==""){
+			alert("로그인이 필요합니다");
+			window.location.href="mainlist.do";
+		}else{
+			window.location.href="registerForm.do";
+		}
+	}
+</script>
 </head>
 <body>
 <div id="main">
@@ -159,7 +170,7 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
       <p>가나다라</p>
     </div>
   </figcaption>
-  <a href="registerForm.do" id="a_tag"></a>
+  <a href="#" id="a_tag" onclick="checkId()"></a>
 </figure>
 
  <figure class="snip1132">
