@@ -54,10 +54,10 @@
  						var res = eval("("+data+")");
  						var result = res.result;
  						
- 						alert(data);
+ 						
  						for(var i=0;i<result.length;i++){
 	
- 							$(".replyUl").append('<li class="replyLi" id="'+i+'"><span class="replyContent"><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+result[i][1].value+'</span></span><div class="btnDIV"><a href="#" class="modBtn">수정</a><a href="#" class="delBtn">삭제</a></div></li>');
+ 							$(".replyUl").append('<li class="replyLi" id="'+i+'"><span class="replyContent"><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span><span class="Content_txt">'+result[i][1].value+'</span></span><div class="btnDIV"><a href="#" class="modBtn">수정</a><a href="#" class="delBtn">삭제</a></div></li>');
  						}
  						
  						
@@ -256,9 +256,7 @@
 	 					},
 	 					
 	 					success:function(data){
-	 						alert(data);	
 	 						var d = eval("("+data+")");
-	 						alert(d);
 	 						var dd = d.result;
 	 						/*페이징 처리  */
 	 						
@@ -1049,6 +1047,8 @@
 
 <style type="text/css">
 
+
+
 .popupInnerContent{
 	position: relative;
     padding: 27px 20px;
@@ -1061,10 +1061,9 @@
     border: 1px solid #8a8a8a;
 }
 
-	.introduce_title{
+.introduce_title{
 	padding-right: 13px;
     color: #2695f1;
-	
 }
 
 .tree_reple_place {
@@ -1091,6 +1090,7 @@
 }
 
 .repleBtn{
+
 	padding: 9px 9px 6px 15px;
     background-color: #05a2da;
     border: 1px solid #0482af;
@@ -1129,23 +1129,58 @@
 	width : 300px;
 	}
 	
+	.replyContent{
+	 float: left;
+	}
+	
 	#replyList{
+		width:500px;
 		overflow:scroll; 
 		 height:300px;
 	}
 	
 	.replyLi{
-		position: relative;
-	    overflow: hidden;
-	    padding: 15px 0;
-	    border-bottom: 1px solid #c7c7c7;
+		overflow: hidden;
+	    position: relative;
+	    padding: 20px 0;
+	    border-bottom: 1px solid #ddd;
+	    width:400px;
+	}
+	
+	.replyUl{
+		padding:0;
+		margin-bottom: 20px;
+    	border-top: 1px solid #65b5dd;
 	}
 	
 	.btnDIV{
 		position: absolute;
     	top: 20px;
     	right: 0px;
+    	display: inline-block;
+	    font-size: 0;
+	    line-height: 0;
+	    text-indent: -9999px;
 	}
+	
+	.replyName{
+		    overflow: hidden;
+    max-width: 515px;
+    font-weight: bold;
+    color: #e83227;
+    white-space: nowrap;
+	}
+	
+	.Content_txt{
+		display: block;
+    width: 800px;
+    margin-top: 3px;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.5;
+	}
+	
+	
 </style>
 </head>
 <body>

@@ -91,7 +91,7 @@ select#soflow-color {
     border-radius: 4px;
     padding: 20px 30px;
     text-align:center;
-    width:100;
+    width:300px;
 }
 
 #a_tag a.button {
@@ -195,10 +195,10 @@ select#soflow-color {
 		  border-radius: 4px;
 	}
 	
-	.tableDIV{
-		height:auto;
-		width:900;
-		align:center;
+	 .tableDIV{
+			height:auto;
+			width:900px;
+			align:center;
 	} 
 	
 	
