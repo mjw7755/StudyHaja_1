@@ -125,25 +125,13 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 
 <div id = "login">
 <ul id="login2">
-<<<<<<< HEAD
-	<c:if test="${sessionScope.sessionid==null}">
+	<c:if test="${sessionScope.result!=1}">
 		<li><a href="loginForm.do" onMouseOver="this.innerHTML='로그인'" onMouseOut="this.innerHTML='LOGIN'" id="a_tag">LOGIN</a></li>
 		<li><a href="InsertForm.do" onMouseOver="this.innerHTML='회원가입'" onMouseOut="this.innerHTML='SIGN-UP'" id="a_tag">SIGN-UP</a></li>
-=======
-	<c:if test="${sessionScope.result!=1}">
-		<li><a href="loginForm.do" onMouseOver="this.innerHTML='로그인'" onMouseOut="this.innerHTML='LOGIN'">LOGIN</a></li>
-		<li><a href="InsertForm.do" onMouseOver="this.innerHTML='회원가입'" onMouseOut="this.innerHTML='SIGN-UP'">SIGN-UP</a></li>
->>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
 	</c:if>
-<<<<<<< HEAD
-	<c:if test="${sessionScope.sessionid!=null}">
+	<c:if test="${sessionScope.result==1}">
 		<li><a href="insertForm.do" onMouseOver="this.innerHTML='회원정보수정'" onMouseOut="this.innerHTML='MODIFY'" id="a_tag">MODIFY</a></li>
 		<li><a href="logout.do" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOG-OUT'" id="a_tag">LOG-OUT</a></li>
-=======
-	<c:if test="${sessionScope.result==1}">
-		<li><a href="insertForm.do" onMouseOver="this.innerHTML='회원정보수정'" onMouseOut="this.innerHTML='MODIFY'">MODIFY</a></li>
-		<li><a href="logout.do" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOG-OUT'">LOG-OUT</a></li>
->>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
 		<br>
 		<font color="blue">${sessionScope.memname}님 환영합니다</font>
 	</c:if>
