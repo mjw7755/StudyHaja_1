@@ -73,13 +73,13 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 
   .scroll_top {
         position: fixed;
-        left: 90%;
+        left: 95%;
         bottom: 400px;
         display: none;
       }
        .scroll_bottom {
         position: fixed;
-        left: 90%;
+        left: 95%;
         bottom: 350px;
         display: none;
       }
@@ -149,8 +149,8 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 </div> --%>
 
 <div class="scroll">
-      <a href="#" class="scroll_top" id="a_tag"><img src="ram/images/scroll_top5.png"/></a>
-      <a href="#" class="scroll_bottom" id="a_tag"><img src="ram/images/scroll_bottom5.png"/></a>
+      <a href="#" class="scroll_top" id="a_tag"><img src="ram/images/scroll_top.png"/></a>
+      <a href="#" class="scroll_bottom" id="a_tag"><img src="ram/images/scroll_bottom.png"/></a>
 </div>
 <script src="ram/js/scroll.js"></script>
 </body>

@@ -200,12 +200,16 @@
       } // 우편번호 검색 end
    	  
 </script>
+<!-- <style type="text/css">
+
+</style>
+ -->
 </head>
 <body>
 
 	<link rel="stylesheet" href="ahn/css/ahnTable.css">
-	<link rel="stylesheet" href="ahn/css/toggle.css">
-	<link rel="stylesheet" href="ahn/css/ahnSignup.css">
+	<link rel="stylesheet" href="ahn/css/toggle2.css">
+	<link rel="stylesheet" href="ahn/css/ahnSignup2.css">
 
 	<form name="Insertform" method="post" action="InsertPro.do" onsubmit="return writeSave()">
 		<input type="hidden" name="reg_date" value="${reg_date}">

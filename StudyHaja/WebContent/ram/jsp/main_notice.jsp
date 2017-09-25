@@ -150,7 +150,7 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 
 <div>
 <figure class="snip1132">
-  <img src="ram/images/1.jpg" alt="sample" />
+  <img src="ram/images/3.jpg" alt="sample" />
   <figcaption>
     <div class="heading">
       <h3><span>Study Together</span></h3>
@@ -175,7 +175,7 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
   <a href="searchPage.do" id="a_tag"></a>
 </figure>
 <figure class="snip1132">
-  <img src="ram/images/3.jpg" alt="sample3" />
+  <img src="ram/images/1.jpg" alt="sample3" />
   <figcaption>
     <div class="heading">
       <h3><span>Study Cafe</span></h3>
