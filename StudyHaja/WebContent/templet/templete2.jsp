@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <!-- <link rel="stylesheet" href="ram/css/templete2.css"> -->
-<link rel="stylesheet" href="ram/css/templete3.css">
+<!-- <link rel="stylesheet" href="ram/css/templete3.css"> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,9 +25,67 @@
 <script src="jquery-ui.js"></script>
 <script src="js/bootstrap.js"></script> -->
 
-<!-- <style type="text/css">
+<style type="text/css">
+#a_tag:hover {
+color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
+}
+#a_tag{
+	font-weight : 800;
+	color:#000;
+	text-decoration:none;
+}
+#templete_top{
+    height: 100px;
+}
+#main_icon{
+	float: left;
+	width:23%;
+	text-align: right;
+}
+#top{
+	float: left;
+	width:53%;
+}
+#login{
+	float: left;
+	width:23%;
+}
+#topMenu{/* 메뉴바 스타일 지정 */
+	list-style: none;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+}
+ #topMenu li{
+	display: inline;
+    padding-left: 30px;
+} 
+ #login2{
+ 	list-style: none;
+    text-align: center;
+    margin-top: 30px;
+ }
 
- </style> -->
+ #login2 li{
+	display:inline;
+	padding-right: 15px;
+}
+
+  .scroll_top {
+        position: fixed;
+        left: 90%;
+        bottom: 400px;
+        display: none;
+      }
+       .scroll_bottom {
+        position: fixed;
+        left: 90%;
+        bottom: 350px;
+        display: none;
+      }
+
+
+ </style>
 
 </head>
 <body>
@@ -39,22 +97,23 @@
 <div id = "templete_top" >
 
 <div id = "main_icon">
-<a href="mainlist.do" id= "icon"><img src="ram/images/logo3_2.png"/></a>
+<a href="mainlist.do" id="a_tag"><img src="ram/images/logo3_2.png"/></a>
 </div>
 
 <div id = "top">
 <ul id = "topMenu">
-	<li><a href="registerForm.do" onMouseOver="this.innerHTML='스터디 모집'" onMouseOut="this.innerHTML='Study Together'">
+	<li><a href="registerForm.do" onMouseOver="this.innerHTML='스터디 모집'" onMouseOut="this.innerHTML='Study Together'" id="a_tag">
 	Study Together</a></li>
-	<li><a href="searchPage.do" onMouseOver="this.innerHTML='스터디 검색'" onMouseOut="this.innerHTML='Study Search'"  >Study Search</a></li>
-	<li><a href="roomList.do" onMouseOver="this.innerHTML='스터디카페'" onMouseOut="this.innerHTML='Study Cafe'" >Study Cafe</a></li>
-	<li><a href="notice_list.do" onMouseOver="this.innerHTML='공지사항'" onMouseOut="this.innerHTML='Notice'" >Notice</a></li>	
-	<li><a href="list.do" onMouseOver="this.innerHTML='자유게시판'" onMouseOut="this.innerHTML='Bulletin Board'" >Bulletin Board</a></li>	
+	<li><a href="searchPage.do" onMouseOver="this.innerHTML='스터디 검색'" onMouseOut="this.innerHTML='Study Search'"  id="a_tag">Study Search</a></li>
+	<li><a href="roomList.do" onMouseOver="this.innerHTML='스터디카페'" onMouseOut="this.innerHTML='Study Cafe'" id="a_tag">Study Cafe</a></li>
+	<li><a href="notice_list.do" onMouseOver="this.innerHTML='공지사항'" onMouseOut="this.innerHTML='Notice'" id="a_tag">Notice</a></li>	
+	<li><a href="list.do" onMouseOver="this.innerHTML='자유게시판'" onMouseOut="this.innerHTML='Bulletin Board'" id="a_tag">Bulletin Board</a></li>	
 </ul>
 </div>
 
 <div id = "login">
 <ul id="login2">
+<<<<<<< HEAD
 	<c:if test="${sessionScope.sessionid==null}">
 		<li><a href="loginForm.do" onMouseOver="this.innerHTML='로그인'" onMouseOut="this.innerHTML='LOGIN'">LOGIN</a></li>
 		<li><a href="InsertForm.do" onMouseOver="this.innerHTML='회원가입'" onMouseOut="this.innerHTML='SIGN-UP'">SIGN-UP</a></li>
@@ -65,6 +124,10 @@
 		<br>
 		<font color="blue">${sessionScope.memname}님 환영합니다</font>
 	</c:if>
+=======
+	<li><a href="loginForm.do" onMouseOver="this.innerHTML='로그인'" onMouseOut="this.innerHTML='LOGIN'" id="a_tag">LOGIN</a></li>
+	<li><a href="InsertForm.do" onMouseOver="this.innerHTML='회원가입'" onMouseOut="this.innerHTML='SIGN-UP'" id="a_tag">SIGN-UP</a></li>
+>>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
 </ul>
 </div>
 </div>
@@ -79,8 +142,8 @@
 </div> --%>
 
 <div class="scroll">
-      <a href="#" class="scroll_top"><img src="ram/images/scroll_top5.png"/></a>
-      <a href="#" class="scroll_bottom"><img src="ram/images/scroll_bottom5.png"/></a>
+      <a href="#" class="scroll_top" id="a_tag"><img src="ram/images/scroll_top5.png"/></a>
+      <a href="#" class="scroll_bottom" id="a_tag"><img src="ram/images/scroll_bottom5.png"/></a>
 </div>
 <script src="ram/js/scroll.js"></script>
 </body>
