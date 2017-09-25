@@ -211,7 +211,9 @@ public class roomDAO {  // controller
 				StringBuffer  sb = new StringBuffer();
 			
 				//sb.append("SELECT * FROM ROOM where r_no >= ? and r_no <= ? order by reg_date desc");
-				sb.append("SELECT * FROM ROOM order by reg_date desc");
+				//sb.append("SELECT * FROM ROOM order by reg_date desc");
+				
+				sb.append("SELECT * FROM ROOM order by points desc");
 				
 				/*sb.append("SELECT * R " );
 		        sb.append("FROM(SELECT NUM, R_NO, IMAGES, SUBJECT, ADDRESS, AREA, LOCATION, PAY, OPTIONS, C_DAY, WORKING_HOUR, READCOUNT,TEL, SEATS, REG_DATE, CONTENTS, ROWNUM R " );
@@ -245,6 +247,7 @@ public class roomDAO {  // controller
 						vo.setContents(rs.getString("contents"));
 						vo.setReadcount(rs.getInt("readcount"));
 						vo.setReg_date(rs.getTimestamp("reg_date"));
+						vo.setPoints(rs.getInt("points"));
 						// list 객체에 데이터 저장 Bean인 BoardVO 객체에 저장한다.
 						list.add(vo);
 						

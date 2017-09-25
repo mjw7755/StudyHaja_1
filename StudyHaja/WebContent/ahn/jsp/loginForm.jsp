@@ -35,7 +35,7 @@
 
 <body  onload="begin()">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
-<form name="myform" method="post" action="mainlist.do" onSubmit="return checkIt()">
+<form name="myform" method="post" action="loginPro.do" onSubmit="return checkIt()">
 
 <div class="box">
 <table align="center">
@@ -47,7 +47,7 @@
 	</tr>
 	<tr>
 		<td>
-			<input type="password" name="pwd" placeholder="비밀번호(6~10자)" id="pwdtxt" />
+			<input type="password" name="passwd" placeholder="비밀번호(6~10자)" id="pwdtxt" />
 		</td>
 	</tr>
 	<tr>
