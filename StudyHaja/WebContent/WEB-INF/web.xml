@@ -9,11 +9,15 @@
     <res-ref-name>jdbc:BoardDB</res-ref-name>
     <res-type>javax.sql.DataSource</res-type>
     <res-auth>Container</res-auth>
+<<<<<<< HEAD
   </resource-ref>
  
 
 
 
+=======
+  </resource-ref>
+>>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
   <servlet>
     <servlet-name>StudyController</servlet-name>
     <servlet-class>study.controller.StudyController</servlet-class>

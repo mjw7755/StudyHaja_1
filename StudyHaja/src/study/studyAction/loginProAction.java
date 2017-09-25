@@ -22,16 +22,21 @@ public class loginProAction implements CommandAction {
 		
 		String msg="";
 		int result = 0;
+		
+		
 		memberJoinDAO dao = new memberJoinDAO();
+		
 		result = dao.loginCheck(id, passwd);
 		name = dao.getName(id);
+		
+		request.setAttribute("result", result);
 		HttpSession session = request.getSession();
 		System.out.println("name :" + name);
 		session.setAttribute("memname",name);
 		session.setAttribute("sessionid",id);
 		session.setAttribute("memtel", tel);
 		session.setAttribute("mememail", email);
-		
+		session.setAttribute("result", result);
 		
 		return "/ahn/jsp/loginPro.jsp";
 	}

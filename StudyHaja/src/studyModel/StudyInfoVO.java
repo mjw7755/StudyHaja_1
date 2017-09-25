@@ -14,7 +14,15 @@ public class StudyInfoVO {
 	String s_time,e_time;
 	String s_hour,s_minute,e_hour, e_minute;
 	String format_time;
-
+	String id;
+	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getFormat_time() {
 		return format_time;
 	}

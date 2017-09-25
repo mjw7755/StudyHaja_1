@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import studyModel.StudyInfoDAO;
 import studyModel.StudyInfoVO;
@@ -16,6 +17,7 @@ public class RegisterProAction implements CommandAction {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
 		StudyInfoVO studyvo= new StudyInfoVO();
 		//studyvo.setNum(Integer.parseInt(request.getParameter("num")));
 		studyvo.setSubject(request.getParameter("subject"));
@@ -41,6 +43,7 @@ public class RegisterProAction implements CommandAction {
 		studyvo.setE_minute(request.getParameter("e_minute"));
 		studyvo.setReg_date(new Timestamp(System.currentTimeMillis()));
 		studyvo.setIp(request.getRemoteAddr());
+		studyvo.setId(session.getAttribute("sessionid").toString());
 		
 		
 		StudyInfoDAO sdao = new StudyInfoDAO();
