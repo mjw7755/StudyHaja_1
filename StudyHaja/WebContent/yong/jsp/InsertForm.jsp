@@ -125,7 +125,7 @@
         	  return false;
         	  
           } else {
-        	 $("#checkMessage").text("유효한 아이디 입니다. 중복확인을 눌러주세요.").css('color','blue');
+        	 $("#checkMessage").text("유효한 아이디 입니다. 중복확인을 눌러주세요.").css('color','#2F9D27');
         	 
           }	  
       });// 아이디 유효성 end
@@ -142,7 +142,7 @@
       		return false;
       		
         }else{
-        	$("#checkMessage2").text("사용 가능한 비밀번호 입니다.").css('color','blue');
+        	$("#checkMessage2").text("사용 가능한 비밀번호 입니다.").css('color','#2F9D27');
         }
     }); // 비밀번호 유효성 버튼 end 
     
@@ -153,7 +153,7 @@
             return false;
            	
         }else{
-           $("#checkMessage3").text("비밀번호가 일치합니다.").css('color','blue');
+           $("#checkMessage3").text("비밀번호가 일치합니다.").css('color','#2F9D27');
         }
      }); // 비밀번호 확인 유효성 end
     
@@ -167,7 +167,7 @@
     		  $("#checkMessage4").text("사용 할 수 없는 전화번호 입니다.").css('color','red');
     		  	  return false;
     	  }else{
-    		  $("#checkMessage4").text("사용 가능한 전화번호 입니다.").css('color','blue');
+    		  $("#checkMessage4").text("사용 가능한 전화번호 입니다.").css('color','#2F9D27');
     	  }  
       }); // 전화번호 확인 유효성 end
     
@@ -181,7 +181,7 @@
     		  $("#checkMessage5").text("사용 할 수 없는 이메일 입니다.").css('color','red');
     		  		return false;
     	  }else{
-    		  $("#checkMessage5").text("사용 가능한 이메일 입니다.").css('color','blue');
+    		  $("#checkMessage5").text("사용 가능한 이메일 입니다.").css('color','#2F9D27');
     	  }  
       }); // 이메일 유효성 end
   }); // 회원 입력 값 유효성 검사 end
