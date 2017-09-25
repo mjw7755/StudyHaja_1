@@ -80,10 +80,10 @@ function pasteHTML(filepath){
 
 <table id="tab" >
 <th colspan="2"><h3>공지사항 작성</h3></th>
-<tr>
+<!-- <tr>
 	<td id="sub"> 이  름</td>
 	<td><input type="text" name ="writer" id="text"></td>
-</tr>
+</tr> -->
 <tr>
 	<td id="sub"> 제  목</td>
 	<td>

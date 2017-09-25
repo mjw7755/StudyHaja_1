@@ -93,10 +93,11 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 </table>
 </div>
 
-
+<c:if test="${sessionid eq 'admin' }">
 <div id="notice_w">
 	<a href="notice_writeForm.do" id="a_tag">글쓰기</a>
 </div>
+</c:if>
 <!-- <table width="700">
 		<tr>
 			<td align="right">
