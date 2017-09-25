@@ -57,12 +57,14 @@ function play(){
 	</form>
 	</div>
 	
+	<c:if test="${sessionid eq 'admin'}">
 	<div class="back">
     <div class="button_base b05_3d_roll"  onclick="location.href='caferegisterForm.do'">
         <div>스터디카페 등록</div>
         <div>스터디카페 등록</div>
     </div>
 	</div>
+	</c:if>
 
 	<center>
 	<c:if test="${ count > 0 }">

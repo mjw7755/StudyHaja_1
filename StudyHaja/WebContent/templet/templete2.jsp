@@ -86,7 +86,14 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 
 
  </style>
-
+<script type="text/javascript">
+	function checkId(){
+		var sessionid = ${sessionid};
+		if(sessionid==null){
+			alert("로그인이 필요합니다");
+		}
+	}
+</script>
 </head>
 <body>
 <!-- <div id= "top">
@@ -102,7 +109,7 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 
 <div id = "top">
 <ul id = "topMenu">
-	<li><a href="registerForm.do" onMouseOver="this.innerHTML='스터디 모집'" onMouseOut="this.innerHTML='Study Together'" id="a_tag">
+	<li><a href="registerForm.do" onMouseOver="this.innerHTML='스터디 모집'" onMouseOut="this.innerHTML='Study Together'" id="a_tag" onclick="checkId()">
 	Study Together</a></li>
 	<li><a href="searchPage.do" onMouseOver="this.innerHTML='스터디 검색'" onMouseOut="this.innerHTML='Study Search'"  id="a_tag">Study Search</a></li>
 	<li><a href="roomList.do" onMouseOver="this.innerHTML='스터디카페'" onMouseOut="this.innerHTML='Study Cafe'" id="a_tag">Study Cafe</a></li>
