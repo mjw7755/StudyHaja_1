@@ -123,11 +123,7 @@
 		 
 	 });
 	 
-	 var checkedValues = [];  
-	 var selValue = null;
-	 var content = null;
-	 var subSearch = null;
-	 var tdText = null;
+	 
 	 
 	 
 	 $("#sendBtn").click(function(){
@@ -1290,26 +1286,26 @@
 				<hr>
 				<table class="categoryOne">
 					<tr>
-					<td id="a_tag">		
-						<a href="#" class="button" id="findjob">취업</a>
+					<td id="aBtn">		
+						<a href="#" class="button" id="findjob">취    업</a>
 					</td>
 						
-					<td id="a_tag">	
-					<a href="#" class="button" id="language">어학</a>
+					<td id="aBtn">	
+					<a href="#" class="button" id="language">어    학</a>
 						
 					</td>
 					
-					<td id="a_tag">	
-					<a href="#" class="button" id="bank">금융</a>
+					<td id="aBtn">	
+					<a href="#" class="button" id="bank">금    융</a>
 					
 					</td>
 					
-					<td id="a_tag">	
+					<td id="aBtn">	
 					<a href="#" class="button" id="programing">프로그래밍</a>
 					
 					</td>
 					
-					<td id="a_tag">	
+					<td id="aBtn">	
 					<a href="#" class="button" id="selfdevelop">자기계발</a>
 					
 					</td>
@@ -1421,18 +1417,18 @@
 					</tr>
 					
 					<tr margin-top=5px;>
-					<td id="a_tag">	
-					<a href="#" class="button" id="hobby">취미</a>
+					<td id="aBtn">	
+					<a href="#" class="button" id="hobby">취    미</a>
 					
 					</td>
 					
-					<td id="a_tag">	
-					<a href="#" class="button" id="gosi">고시</a>
+					<td id="aBtn">	
+					<a href="#" class="button" id="gosi">고    시</a>
 					
 					</td>
 					
-					<td id="a_tag">	
-					<a href="#" class="button" id="etc">기타</a>
+					<td id="aBtn">	
+					<a href="#" class="button" id="etc">기    타</a>
 					
 					</td>
 					</tr>
