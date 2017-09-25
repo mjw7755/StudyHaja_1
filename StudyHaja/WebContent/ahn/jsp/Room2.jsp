@@ -44,10 +44,10 @@
 #b {
 	width: 130px;
 }
-
+/* 
 .ahnbody{
 	font-family: "돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
-}
+} */
 
 /* #contents {
 	background-color: #FFFFFF;
@@ -62,10 +62,10 @@
 } */
 
 .view {
-	width: 500px;
-	height: 150px;
-	overflow: hidden;
-	
+	width: 600px;
+    height: 300px;
+    overflow: hidden;
+    border: 2px solid;
 }
 
 .scrollblind {
@@ -75,13 +75,18 @@
 	overflow-y:scroll;
 }
 .scrollblind ul {
-	width: 500px;
+	list-style: none;
+    padding-left: 10px;
 }
 
 .scrollblind li {
 	height: 50px;
 	line-height: 50px;
 	border-bottom: 1px solid gray; 
+}
+
+#re{
+	padding-left: 10px;
 }
 </style>
 
@@ -152,7 +157,7 @@
 </head>
 <body class="ahnbody">
 
-	<b><font size="5" color="red">기본정보</font></b>
+	<b><font size="5" color="#4B8FCC">기본정보</font></b>
 	<hr border-width="3">
 	<center>
 		<table>
@@ -290,7 +295,7 @@
 						<br />
 					</table></td>
 
-				<td>
+				<td height="500px">
 				<input type="hidden" name="num" id="num" value="${list.num }">
 				<input type="hidden" name="pageNum" id="pageNum" value="${pageNum}">
 					<!-- 댓글 여기다가 해 -->
@@ -304,10 +309,10 @@
 						><img src="ahn/images/pencil.png" weight="25"
 							height="25"><font color="black" font-size="1.123rem">리뷰남기기</font></a>
 					</h3>
-					<br/><br/><br/><br/>
+					<br/>
 					<div class="view">
 						<div class="scrollblind">
-							<br />
+							<h2 id="re">REVIEW</h2>
 							<ul class="replylist">
 							<c:forEach var="reply_arr" items="${reply_arr }" begin="0"> 
 							<li>${reply_arr.cafecontents}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${reply_arr.id}
@@ -340,7 +345,7 @@
 	<br>
 	<br>
 	<br>
-	<b><font size="5" color="red">상세정보</font></b>
+	<b><font size="5" color="#4B8FCC">상세정보</font></b>
 	<hr border-width="3">
 	<center>
 		<br />
