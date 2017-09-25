@@ -260,7 +260,7 @@
 					<tr>
 						<td>전화번호</td>
 						<td>
-							<input type="text" name="hp" id="teltxt" class="txt" placeholder="전화번호를 입력해주세요"><br> 
+							<input type="text" name="hp" id="teltxt" class="txt" placeholder="전화번호를 입력해주세요(***-****-****)"><br> 
 							<label id="checkMessage4"></label>
 						</td>
 					</tr>
@@ -268,7 +268,7 @@
 					<tr>
 						<td>이메일</td>
 						<td>
-							<input type="email" name="email" id="emailtxt" class="txt" placeholder="이메일을 입력해주세요"><br>
+							<input type="email" name="email" id="emailtxt" class="txt" placeholder="이메일을 입력해주세요(***@**.***)"><br>
 							<label id="checkMessage5"></label>
 						</td>
 					</tr>

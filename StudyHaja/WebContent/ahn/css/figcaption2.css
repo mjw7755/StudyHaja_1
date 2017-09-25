@@ -24,10 +24,10 @@ figure.snip1384 * {
   transition: all 0.35s ease;
 }
 figure.snip1384 #mainphoto{
-  width : 530px;
-  height : 520px;
-  backface-visibility: hidden;
-  vertical-align: top;
+    width: 500px;
+    height: 450px;
+    backface-visibility: hidden;
+    vertical-align: top;
 }
 figure.snipt1384 #phone{
 	width : 5px;
