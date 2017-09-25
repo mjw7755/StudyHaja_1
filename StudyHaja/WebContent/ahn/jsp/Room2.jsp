@@ -135,7 +135,7 @@
 					
 					for(var i=0;i<result.length;i++){
 						
-							$(".replylist").append('<li>'+result[i][1].value+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+result[i][0].value+'</li>');
+							$(".replylist").append('<li>'+result[i][1].value+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+result[i][0].value+'</li>');
 						
 						
 					}

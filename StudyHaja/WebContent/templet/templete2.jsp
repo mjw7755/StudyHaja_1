@@ -88,9 +88,12 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
  </style>
 <script type="text/javascript">
 	function checkId(){
-		var sessionid = ${sessionid};
-		if(sessionid==null){
+		var loginid = $("#loginid").val();
+		if(loginid==""){
 			alert("로그인이 필요합니다");
+			window.location.href="mainlist.do";
+		}else{
+			window.location.href="registerForm.do";
 		}
 	}
 </script>
@@ -109,7 +112,9 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 
 <div id = "top">
 <ul id = "topMenu">
-	<li><a href="registerForm.do" onMouseOver="this.innerHTML='스터디 모집'" onMouseOut="this.innerHTML='Study Together'" id="a_tag" onclick="checkId()">
+	<input type="hidden" id = "loginid" value="${sessionScope.sessionid}">
+	<li><a href="#" onMouseOver="this.innerHTML='스터디 모집'" onMouseOut="this.innerHTML='Study Together'" id="a_tag" onclick="checkId()">
+	
 	Study Together</a></li>
 	<li><a href="searchPage.do" onMouseOver="this.innerHTML='스터디 검색'" onMouseOut="this.innerHTML='Study Search'"  id="a_tag">Study Search</a></li>
 	<li><a href="roomList.do" onMouseOver="this.innerHTML='스터디카페'" onMouseOut="this.innerHTML='Study Cafe'" id="a_tag">Study Cafe</a></li>
@@ -120,11 +125,11 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 
 <div id = "login">
 <ul id="login2">
-	<c:if test="${sessionScope.sessionid==null}">
+	<c:if test="${sessionScope.result!=1}">
 		<li><a href="loginForm.do" onMouseOver="this.innerHTML='로그인'" onMouseOut="this.innerHTML='LOGIN'">LOGIN</a></li>
 		<li><a href="InsertForm.do" onMouseOver="this.innerHTML='회원가입'" onMouseOut="this.innerHTML='SIGN-UP'">SIGN-UP</a></li>
 	</c:if>
-	<c:if test="${sessionScope.sessionid!=null}">
+	<c:if test="${sessionScope.result==1}">
 		<li><a href="insertForm.do" onMouseOver="this.innerHTML='회원정보수정'" onMouseOut="this.innerHTML='MODIFY'">MODIFY</a></li>
 		<li><a href="logout.do" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOG-OUT'">LOG-OUT</a></li>
 		<br>
