@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="ahn/css/figcaption.css">
+<link rel="stylesheet" href="ahn/css/figcaption2.css">
 <link rel="stylesheet" href="ahn/css/ahnButton2.css">
 <!-- <script src="http://code.jquery.com/jquery-2.1.4js"></script> -->
 <title>룸 소개</title>
@@ -68,7 +68,7 @@ function play(){
 
 	<center>
 	<c:if test="${ count > 0 }">
-	<table cellpadding="20" width="1500px">
+	<table cellpadding="10">
 	<tr>
 	<c:forEach var="list" items="${list }" begin="0" end="8">
 		<c:set var="cnt" value="${cnt+1}"/>
@@ -77,7 +77,7 @@ function play(){
 		<%-- <a href="jsp/Room2.jsp?num=${list.num}"> --%>
 		
 		<a href="Room2.do?num=${list.num }&pageNum=${currentPage}">
-		<div style="border: 1px; float: left; width: 500px;">
+		<div style="border: 1px; float: left; width: 450px; height: 550px;">
 		<figure class="snip1384">
 		<img src = "ahn/images/${list.images}" id="mainphoto" alt="sample92" />
 		<figcaption>
@@ -104,7 +104,7 @@ function play(){
 			</tr>
 			
 			<tr id="font">
-				<td align="center" colspan="2" ><br><br><br><br><br><br><br><img src="ahn/images/phonedining.png" width="30" height="30" id="phone" >&nbsp;&nbsp;${list.tel}</td>
+				<td align="center" colspan="2" ><br><br><img src="ahn/images/phonedining.png" width="30" height="30" id="phone" >&nbsp;&nbsp;${list.tel}</td>
 			</tr>
 		</table>
 			<i class="ion-ios-arrow-right"></i>

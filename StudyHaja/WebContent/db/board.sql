@@ -18,12 +18,14 @@ create table Board (
 	
 ) SEGMENT creation IMMEDIATE ;
 
+select * from bulletinboard;
+
 -- 2. sequence �깮�꽦
 create sequence board_num;		-- �옄�룞 利앷� 踰덊샇
 
 select max(num) from board;
 
-select * from board;
+select * from studyboard;
 
 insert into board(num, writer, subject, email, content, passwd, reg_date, ref, re_step, re_level, ip) 
 		values(board_num.nextval, 'b', 'b', 'b', 'b', 'b', '2016-03-21', 1, 1, 1, 1);
@@ -31,6 +33,7 @@ insert into board(num, writer, subject, email, content, passwd, reg_date, ref, r
 		
 select count(*) from board;
 
+select * from studymember;
 
 select rownum, num, writer, ref from (select num, writer, ref from BOARD order by ref desc) where writer='a';
 

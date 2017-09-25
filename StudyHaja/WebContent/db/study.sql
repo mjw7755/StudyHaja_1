@@ -41,6 +41,9 @@ SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE CONTENT='하�
 drop table study_info;
 rollback
 
+select * from studymember;
+insert into studymember values (studymember_num.nextval, '주재철', 'asas', 'asas', 'asas@asas', 'male', '010-3568-4296','우리집' , '우리집', 0 ,'2017-09-25');
+
 SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE subject = '토익';
 SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE '%subject%' LIKE '%토익%';
 

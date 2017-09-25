@@ -19,15 +19,13 @@
 	
 	<table width="360" border="1" cellspacing="0" cellpadding="0"  align="center">
 		<tr height="30"> 
-			<td align="center"> 비밀 번호 : 
-			<input type="password"  name="passwd" size="8" maxlength="12">
-			<input type="hidden"  name="num"  value="${ num }">
+			<td align="center"> 글삭제 하시겠습니까?
 			</td>
 		</tr>
 		<tr height="30"> 
 			<td align="center" bgcolor ="${ value_c }">
-			<input type="submit"  value="글삭제">
-			<input type="button"  value="글목록" 
+			<input type="submit"  value="확인">
+			<input type="button"  value="목록으로 돌아가기" 
 			onclick="document.location.href='list.do?pageNum=${ pageNum }'">
 			</td>
 		</tr>

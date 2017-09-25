@@ -28,7 +28,7 @@
 <body bgcolor = "${ bodyback_c }" >
 <center><b>글쓰기</b></center><br>
 <form action = "writePro.do" method="post" name = "writeform" onsubmit="return writeSave()">
-<!-- <input type="hidden" name = "id" value= "${ id }" >-->
+<input type="hidden" name = "id" value= "${ id }" >
 <input type="hidden" name="num" value="${ num }" >
 <input type="hidden" name="ref" value="${ ref }">
 <input type="hidden" name="re_step" value="${ re_step }">
