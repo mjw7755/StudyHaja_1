@@ -339,6 +339,7 @@ public class SearchPageServlet extends HttpServlet {
 			ArrayList<ReplyVO> replyList = replyDAO.selectAllReply(tdText);
 			for(int i=0;i<replyList.size();i++){
 				result.append("[{\"value\": \""+ replyList.get(i).getId()+"\"},");
+				result.append("{\"value\": \""+ replyList.get(i).getNum()+"\"},");
 				result.append("{\"value\": \""+ replyList.get(i).getContent()+"\"}],");
 			}
 			result.append("]}");

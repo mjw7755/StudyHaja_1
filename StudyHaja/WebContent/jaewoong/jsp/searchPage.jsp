@@ -26,7 +26,24 @@
 	 
 	 $(document).on("click",".modBtn",function(){
 		 var id = $(this).attr('id');
+		 var pid = $(this).parent().parent().attr('id');
 		 
+		 $('#'+pid).empty();
+		 $('#'+pid).append('<input type="text" class="modText" value maxlength="300"/>');
+		 
+		 /* $.ajax({
+			 type:"post",
+				url:"./searchPageServlet",
+				data:{"replyContent":replyContent,
+					"tdText":tdText
+				},
+			 
+			 
+			 
+		 }) */
+		 if($("#sessionID").val() == id){
+			 
+		 }
 		 
 	 });
 	 
@@ -52,10 +69,15 @@
  					success:function(data){
  						var res = eval("("+data+")");
  						var result = res.result;
+ 						var id = ${sessionScope.sessionid};
  						
+ 						alert(id);
  						for(var i=0;i<result.length;i++){
-	
- 							$(".replyUl").append('<li class="replyLi" id="'+i+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][1].value+'</span></div></span><div class="btnDIV"><a href="#" class="modBtn" id="'+result[i][0].value+'">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'">삭제</a></div></li>');
+							var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
+							if(sessionScope.sessionid == result[i][0].value)
+								str += '<a href="#" class="modBtn" id="'+result[i][0].value+'" onclick="return false">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'" onclick="return false">삭제</a></div></li>'
+ 							
+							$(".replyUl").append(str);
  						}
  						
  						
@@ -646,7 +668,7 @@
 		 						
 		 						for(var i=0;i<result.length;i++){
 		 							
-		 							$(".replyUl").append('<li class="replyLi" id="'+i+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][1].value+'</span></div></span><div class="btnDIV"><a href="#" class="modBtn" id="'+result[i][0].value+'">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'">삭제</a></div></li>');
+		 							$(".replyUl").append('<li class="replyLi" id="'+i+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][1].value+'</span></div></span><div class="btnDIV"><a href="#" class="modBtn" id="'+result[i][0].value+'" onclick="return false">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'" onclick="return false">삭제</a></div></li>');
 		 						}
 		 						
 	 							$("#jae").text(dd[0][0].value);

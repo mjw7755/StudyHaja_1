@@ -74,7 +74,7 @@ private static ReplyDAO instance = new ReplyDAO();
 				vo = new ReplyVO();
 				vo.setId(rs.getString("id"));
 				vo.setContent(rs.getString("content"));
-				vo.set
+				vo.setNum(rs.getInt("num"));
 				voArr.add(vo);
 			}
 			
