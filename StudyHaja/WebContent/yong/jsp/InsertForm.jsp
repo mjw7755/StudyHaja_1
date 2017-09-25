@@ -78,8 +78,8 @@
 				alert("비밀번호를 입력해주세요.")          
 					return false;
 	 
-   		 }else if(!/^[a-zA-Z0-9]{10,15}$/.test(userpasswd)){      
-	 	 		alert("비밀번호는 숫자와 영문자 조합으로 10~15자리를 사용해야 합니다.")
+   		 }else if(!/^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/.test(userpasswd)){      
+	 	 		alert("비밀번호는 숫자와 영문자 조합으로 6~20자리를 사용해야 합니다.")
 					return false;
 	  		
    		 }else if($("#passwdtxt").val()!=$("#passwdtxt2").val()){
@@ -112,6 +112,7 @@
      	}else
      			alert(userid + " 님 회원가입을 축하드립니다.");
 		}
+	
    $(document).ready(function(){            // 회원 입력 값 유효성 검사 start
             $("#idtxt").keyup(function(){   // 아이디 유효성
     		$("#checkMessage").show();  
@@ -125,7 +126,7 @@
         	  return false;
         	  
           } else {
-        	 $("#checkMessage").text("유효한 아이디 입니다. 중복확인을 눌러주세요.").css('color','blue');
+        	 $("#checkMessage").text("유효한 아이디 입니다. 중복확인을 눌러주세요.").css('color','#2F9D27');
         	 
           }	  
       });// 아이디 유효성 end
@@ -137,12 +138,12 @@
       	 $("#checkMessage2").text("비밀번호를 입력해주세요.").css('color','red');
       		return false;
       	 
-        }else if(!/^[a-zA-Z0-9]{10,15}$/.test(userpasswd)){      
-      	  $("#checkMessage2").text("숫자와 영문자 조합으로 10~15자리를 사용해야 합니다.").css('color','red');
+        }else if(!/^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/.test(userpasswd)){      
+      	  $("#checkMessage2").text("숫자와 영문자 조합으로 6~20자리를 사용해야 합니다.").css('color','red');
       		return false;
       		
         }else{
-        	$("#checkMessage2").text("사용 가능한 비밀번호 입니다.").css('color','blue');
+        	$("#checkMessage2").text("사용 가능한 비밀번호 입니다.").css('color','#2F9D27');
         }
     }); // 비밀번호 유효성 버튼 end 
     
@@ -153,7 +154,7 @@
             return false;
            	
         }else{
-           $("#checkMessage3").text("비밀번호가 일치합니다.").css('color','blue');
+           $("#checkMessage3").text("비밀번호가 일치합니다.").css('color','#2F9D27');
         }
      }); // 비밀번호 확인 유효성 end
     
@@ -167,7 +168,7 @@
     		  $("#checkMessage4").text("사용 할 수 없는 전화번호 입니다.").css('color','red');
     		  	  return false;
     	  }else{
-    		  $("#checkMessage4").text("사용 가능한 전화번호 입니다.").css('color','blue');
+    		  $("#checkMessage4").text("사용 가능한 전화번호 입니다.").css('color','#2F9D27');
     	  }  
       }); // 전화번호 확인 유효성 end
     
@@ -181,7 +182,7 @@
     		  $("#checkMessage5").text("사용 할 수 없는 이메일 입니다.").css('color','red');
     		  		return false;
     	  }else{
-    		  $("#checkMessage5").text("사용 가능한 이메일 입니다.").css('color','blue');
+    		  $("#checkMessage5").text("사용 가능한 이메일 입니다.").css('color','#2F9D27');
     	  }  
       }); // 이메일 유효성 end
   }); // 회원 입력 값 유효성 검사 end
@@ -200,12 +201,16 @@
       } // 우편번호 검색 end
    	  
 </script>
+<!-- <style type="text/css">
+
+</style>
+ -->
 </head>
 <body>
 
 	<link rel="stylesheet" href="ahn/css/ahnTable.css">
-	<link rel="stylesheet" href="ahn/css/toggle.css">
-	<link rel="stylesheet" href="ahn/css/ahnSignup.css">
+	<link rel="stylesheet" href="ahn/css/toggle2.css">
+	<link rel="stylesheet" href="ahn/css/ahnSignup2.css">
 
 	<form name="Insertform" method="post" action="InsertPro.do" onsubmit="return writeSave()">
 		<input type="hidden" name="reg_date" value="${reg_date}">
@@ -255,7 +260,7 @@
 					<tr>
 						<td>전화번호</td>
 						<td>
-							<input type="text" name="hp" id="teltxt" class="txt" placeholder="전화번호를 입력해주세요"><br> 
+							<input type="text" name="hp" id="teltxt" class="txt" placeholder="전화번호를 입력해주세요(***-****-****)"><br> 
 							<label id="checkMessage4"></label>
 						</td>
 					</tr>
@@ -263,7 +268,7 @@
 					<tr>
 						<td>이메일</td>
 						<td>
-							<input type="email" name="email" id="emailtxt" class="txt" placeholder="이메일을 입력해주세요"><br>
+							<input type="email" name="email" id="emailtxt" class="txt" placeholder="이메일을 입력해주세요(***@**.***)"><br>
 							<label id="checkMessage5"></label>
 						</td>
 					</tr>
