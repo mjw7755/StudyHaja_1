@@ -35,41 +35,81 @@ function pasteHTML(filepath){
        oEditors.getById["content"].exec("PASTE_HTML", [sHTML]);
    }
 </script>
+
+<style type="text/css">
+	#sub {
+		color: #4B8FCC;
+	    font-weight: 600;
+	    width: 60px;
+	}
+	#text2{
+	width:700px;
+	}
+	#text {
+    -webkit-border-radius: 3px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
+    box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background-color: white;
+    border: 2px solid #C8C8C8;
+    color: #777;
+    font: 13px Helvetica, Arial, sans-serif;
+    margin: 0 0 10px;
+    padding: 10px 10px 10px 10px;
+    width: 600px;
+    
+}
+#text:focus {
+    -webkit-box-shadow: 0 0 2px #4b8fcc inset;
+    -moz-box-shadow: 0 0 2px #4b8fcc inset;
+    -ms-box-shadow: 0 0 2px #4b8fcc inset;
+    -o-box-shadow: 0 0 2px #4b8fcc inset;
+    box-shadow: 0 0 2px #4b8fcc inset;
+    background-color: #FFF;
+    border: 1px solid #4b8fcc;
+    outline: none;
+}
+</style>	
 </head>
 <!-- 답변글의 경우 : 부모글의 글번호, 그룹화번호, 그룹화내의 순서, 들여쓰기  
 		<=== content.jsp 페이지에서 넘어옴.....
 -->
-<center><b>글 수정하기</b></center><br>
+
 <form action = "notice_updatePro.do?pageNum=${ pageNum }" method="post" id="frm2" name = "updateForm" onsubmit="return writeSave()">
-
-<table width='400' border='1' cellspacing='0' cellpadding='0' align="center">
-
+<center>
+<table>
+<th colspan="2"><h3>공지사항 작성</h3></th>
 <tr>
-	<td width="70" align = "center"> 이  름</td>
-	<td width="330">${ vo.writer }
+	<td id="sub"> 이  름</td>
+	<td>${ vo.writer }
 		<input type="hidden" name="num" value="${ vo.num }"></td>
 	</td>
 	
 </tr>
 <tr>
-	<td width="70" align = "center"> 제  목</td>
-	<td width="330">
+	<td id="sub"> 제  목</td>
+	<td>
 <!-- 	답변인것에 대한 처리 -->
-<input type= "text" size = "40" maxlength="50" name = "subject" value = "${ vo.subject }"></td>
+<input type= "text" id="text" name = "subject" value = "${ vo.subject }"></td>
 </tr>
 
 <tr>
-	<td width="70"  align = "center"> 내  용</td>
-	<td width="330"><textarea rows="13" cols="40" id = "content" name = "content">${ vo.content }</textarea></td>
+	<td colspan="2" id="text2"><textarea id = "content"  name = "content" style="width:100%; height: 400px; ">${ vo.content }</textarea></td>
 </tr>
-
-<tr>
+ <tr>
+	<td align="center" colspan="2">
+	<input type="image" src="ram/images/change.png" id="btnRegister" />
+	</td>
+</tr>
+<%-- <tr>
 	<td align="center" colspan="2" >
 	<input type = "submit" value = "글수정" id="btnRegister">
-	<input type= "reset" value = "다시작성">
 	<p><a href="notice_list.do?pageNum=${ pageNum }">목록목록</a></p>
-</tr>
+</tr> --%>
 </table>
+</center>
 </form>
 </body>
 </html>

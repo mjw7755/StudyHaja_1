@@ -39,14 +39,16 @@ private static ReplyDAO instance = new ReplyDAO();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into Reply(id,content,reg_date,num) values('mjw',?,?,?)";
+		String sql = "insert into Reply(id,content,reg_date,num,reply_num) values('mjw',?,?,?,reply_num.nextval)";
 		try {
 			
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
+			
 			pstmt.setString(1, replyContent);
 			pstmt.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
 			pstmt.setInt(3, Integer.parseInt(tdText));
+			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception

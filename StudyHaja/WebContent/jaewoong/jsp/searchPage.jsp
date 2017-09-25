@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
-<link rel="stylesheet" type="text/css" href="jaewoong/css1/moonCss2.css" />
+<link rel="stylesheet" type="text/css" href="jaewoong/css1/moonCss.css" />
 
 <script src="jaewoong/js1/select_Js.js"></script>
 <!-- <link rel="stylesheet" href="jaewoong/css/bootstrap.css"> -->
@@ -23,7 +23,8 @@
 
 
  $(function(){
-		 
+	 
+	 
 	 
 	 
 	 var checkedValues = [];  
@@ -32,7 +33,10 @@
 	 var subSearch = null;
 	 var tdText = null;
 	 
-	 
+	 $(".modBtn").click(function(){
+		alert($(this).par)
+		
+	 });
 	 
 	 $("#sendBtn").click(function(){
 		var replyContent = $("#replyContent").val();
@@ -53,7 +57,7 @@
  						alert(data);
  						for(var i=0;i<result.length;i++){
 	
- 							$(".replyUl").append('<li class="replyLi"><span class="replyContent"><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+result[i][1].value+'</span></span></li>');
+ 							$(".replyUl").append('<li class="replyLi" id="'+i+'"><span class="replyContent"><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+result[i][1].value+'</span></span><div class="btnDIV"><a href="#" class="modBtn">수정</a><a href="#" class="delBtn">삭제</a></div></li>');
  						}
  						
  						
@@ -242,7 +246,7 @@
 	    		 
 	    		 
 	  	   jQuery.ajaxSettings.traditional = true;
-	  	   
+	  	 
 	 	    $.ajax(
 	 				{
 	 					type:"post",
@@ -252,13 +256,21 @@
 	 					},
 	 					
 	 					success:function(data){
-	 						alert(data);
+	 						alert(data);	
 	 						var d = eval("("+data+")");
+	 						alert(d);
 	 						var dd = d.result;
 	 						/*페이징 처리  */
+	 						
+	 						if(dd == ""){
+	 							$("#ajaxTable").append('<tr><td colspan="6">리스트가 없습니다.</td></tr>')
+	 						}
+	 						
 	 						for(var i=0;i<dd.length;i++){
 	 							
 	 							for(var j=0;j<dd[i].length;j++){
+	 								
+	 								
 	 								if(j == dd[i].length-1){
 	 									
 	 										if(dd[i][j].value==0){
@@ -631,7 +643,6 @@
 	 					},
 	    				
 	 						success:function(data){
-	 							alert(data);
 	 							var d = eval("("+data+")");
 		 						var dd = d.result;
 		 						
@@ -639,7 +650,7 @@
 		 						
 		 						for(var i=0;i<aa.length;i++){
 		 							
-		 							$(".replyUl").append('<li class="replyLi"><span class="replyContent"><span class="replyName">'+aa[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+aa[i][1].value+'</span></span></li>');
+		 							$(".replyUl").append('<li class="replyLi"><span class="replyContent"><span class="replyName">'+aa[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+aa[i][1].value+'</span></span><div class="btnDIV"><a href="#" class="modBtn">수정</a><a href="#" class="modBtn">삭제</a></div></li>');
 		 						}
 		 						
 	 							$("#jae").text(dd[0][0].value);
@@ -1129,6 +1140,12 @@
 	    padding: 15px 0;
 	    border-bottom: 1px solid #c7c7c7;
 	}
+	
+	.btnDIV{
+		position: absolute;
+    	top: 20px;
+    	right: 0px;
+	}
 </style>
 </head>
 <body>
@@ -1502,6 +1519,9 @@
 									<br><br><br>
 									<div id="replyList">
 										<ul class="replyUl">
+										<c:if test="">
+											
+										</c:if>
 											<%-- <c:forEach var="replyList" items="${replyList }">
 											<li class="replyLi">
 												<span class="replyContent"><img><span class="replyName">
@@ -1511,6 +1531,7 @@
 												</span></span>
 											</li>
 											</c:forEach> --%>
+										
 										</ul>
 									</div>
 									

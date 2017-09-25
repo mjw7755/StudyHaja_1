@@ -38,13 +38,39 @@ function pasteHTML(filepath){
 <style type="text/css">
 #sub {
 	color: #4B8FCC;
-	font-weight: 600;
-	padding-right: 30px;
-	text-align: center;
+    font-weight: 600;
+    width: 60px;
 }
 #text2{
-	width:1000px;
+	width:600px;
 }
+#text {
+    -webkit-border-radius: 3px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
+    box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background-color: white;
+    border: 2px solid #C8C8C8;
+    color: #777;
+    font: 13px Helvetica, Arial, sans-serif;
+    margin: 0 0 10px;
+    padding: 10px 10px 15px 40px;
+    width: 600px;
+    
+}
+#text:focus {
+    -webkit-box-shadow: 0 0 2px #4b8fcc inset;
+    -moz-box-shadow: 0 0 2px #4b8fcc inset;
+    -ms-box-shadow: 0 0 2px #4b8fcc inset;
+    -o-box-shadow: 0 0 2px #4b8fcc inset;
+    box-shadow: 0 0 2px #4b8fcc inset;
+    background-color: #FFF;
+    border: 1px solid #4b8fcc;
+    outline: none;
+}
+
 
 </style>
 </head>
@@ -53,26 +79,26 @@ function pasteHTML(filepath){
 <input type="hidden" name="num" value="${ num }" >  <!-- ?????????????????????????????????????????????????????????? -->
 
 <table id="tab" >
-
-<tr>
+<th colspan="2"><h3>공지사항 작성</h3></th>
+<!-- <tr>
 	<td id="sub"> 이  름</td>
-	<td id="text"><input type="text" name ="writer"></td>
-</tr>
+	<td><input type="text" name ="writer" id="text"></td>
+</tr> -->
 <tr>
 	<td id="sub"> 제  목</td>
-	<td id="text">
+	<td>
 <!-- 	답변인것에 대한 처리 -->
 
 <c:if test="${ num == 0 }">  <!-- 제목글 -->
 	
-	<input type= "textarea"  name = "subject"></td>
+	<input type= "textarea"  name = "subject" id="text"></td>
 </c:if>
 </tr>
 
 <tr>
 	<!-- <td align = "center" id="sub"> 내  용</td> -->
 	<!-- <textarea id = "contents" name = "contents" maxlength="4000"></textarea> -->
-	<td colspan="2" id="text2"><textarea id = "content"  name = "content" style="width:100%;"></textarea></td>
+	<td colspan="2" id="text2"><textarea id = "content"  name = "content" style="width:100%; height: 400px; "></textarea></td>
 	
 </tr>
 <%-- <tr>
@@ -82,8 +108,8 @@ function pasteHTML(filepath){
  --%>
  <tr>
 	<td align="center" colspan="2">
-	<input type = "submit" value = "확인" id="btnRegister">
-	<input type= "reset" value = "다시작성">
+	<!-- <input type = "submit" value = "확인" id="btnRegister"> -->
+	<input type="image" src="ram/images/write.png" id="btnRegister" />
 	</td>
 </tr>
 </table>

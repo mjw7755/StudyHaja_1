@@ -39,10 +39,10 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			conn = getConnection();
 			sb.append("insert into study_info(num, subject, kind1, kind2, s_date, e_date, day," );
 			sb.append(" place1, place2, place3, people, content, ip, reg_date, "
-					+ "s_hour, s_minute, e_hour, e_minute) "
+					+ "s_hour, s_minute, e_hour, e_minute, id ) "
 					+ "values(study_num.nextval,?, ?, ?, ?, ?, ?, "
 					+ "?, ?, ?, ?, ?, ?, ?,"
-					+ "?, ?, ?, ?)");
+					+ "?, ?, ?, ?, ?)");
 			
 		
 			pstmt = conn.prepareStatement(sb.toString());
@@ -63,7 +63,7 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			pstmt.setString(15, vo.getS_minute()); //s_minute
 			pstmt.setString(16, vo.getE_hour()); //e_hour
 			pstmt.setString(17, vo.getE_minute()); //e_minute
-		
+			pstmt.setString(18, vo.getId());
 			pstmt.executeUpdate();
 		
 		}catch(Exception e){

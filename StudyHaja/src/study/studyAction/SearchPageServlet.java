@@ -70,7 +70,7 @@ public class SearchPageServlet extends HttpServlet {
 		
 		if(selValue == null){
 			selValue = null;
-			
+		
 		}else {
 			try {
 				System.out.println("1");
@@ -84,6 +84,7 @@ public class SearchPageServlet extends HttpServlet {
 		
 		if(subject == null ){
 			subject = null;
+			
 		}else {
 			System.out.println("2");
 			System.out.println(subSearch);
@@ -92,7 +93,8 @@ public class SearchPageServlet extends HttpServlet {
 		}
 		
 		if(check == null){
-			check = null;
+			check= null;
+			
 		}else{
 			try {
 				System.out.println("3");
@@ -110,6 +112,7 @@ public class SearchPageServlet extends HttpServlet {
 		
 		if(td == null){
 			td = null;
+		
 		}else {
 			try {
 				

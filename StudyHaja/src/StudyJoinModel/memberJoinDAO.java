@@ -286,4 +286,78 @@ import dbclose.util.CloseUtil;
 		   }
 		   return result;
 		   }
+   
+   public int loginCheck(String id, String passwd){
+	   Connection conn = null;
+	   PreparedStatement pstmt = null;
+	   ResultSet rs= null;
+	   String dbpw = "";
+	   String dbname = "";
+	   int result=0;
+	   try{
+		  
+		   conn = getConnection();
+		   StringBuffer sb = new StringBuffer();
+		   sb.append("select passwd, name from studymember where id=?");
+		   pstmt = conn.prepareStatement(sb.toString());
+		   pstmt.setString(1, id);
+		   rs = pstmt.executeQuery();
+		   
+		   if(rs.next()){
+			   dbpw = rs.getString("passwd");
+			   dbname = rs.getString("name");
+			   
+			   if(dbpw.equals(passwd)){
+				   result = 1; //비번이 같으면
+			   }else
+				   result = 0; //비번이 틀리면
+		   }else{
+			   result = -1; // id가 없다면
+		   }
+		   
+	   }catch(Exception e){
+		   e.printStackTrace();
+	   }finally {
+		   try{
+			   if (rs != null) try { rs.close(); } catch(SQLException ex) {}
+			   if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+			   if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+		   }catch(Exception e){
+			   e.printStackTrace();
+		   }
+	   }
+	return result; 
+    } // end logincheck
+   
+    public String getName(String id){
+    	Connection conn = null;
+ 	   PreparedStatement pstmt = null;
+ 	   ResultSet rs= null;
+ 	   String name=null;
+ 	   int result=0;
+ 	   try{
+ 		  
+ 		   conn = getConnection();
+ 		   StringBuffer sb = new StringBuffer();
+ 		   sb.append("select name from studymember where id=?");
+ 		   pstmt = conn.prepareStatement(sb.toString());
+ 		   pstmt.setString(1, id);
+ 		   rs = pstmt.executeQuery();
+ 		   
+ 		   if(rs.next()){
+ 			  name = rs.getString("name");
+ 		   }
+ 	   }catch(Exception e){
+ 		   e.printStackTrace();
+ 	   }finally {
+ 		   try{
+ 			   if (rs != null) try { rs.close(); } catch(SQLException ex) {}
+ 			   if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+ 			   if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+ 		   }catch(Exception e){
+ 			   e.printStackTrace();
+ 		   }
+    	return name;
+    }//end getName
 }
+	}

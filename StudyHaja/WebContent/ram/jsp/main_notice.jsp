@@ -12,6 +12,14 @@
     <link rel="stylesheet" href="ram/css/main_notice2.css">
 <title> </title>
 <style type="text/css">
+#a_tag:hover {
+color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
+}
+#a_tag{
+	font-weight : 800;
+	color:#000;
+	text-decoration:none;
+}
  #swiper{
     	width:600px;
     	height: 300px;
@@ -40,18 +48,29 @@
         align-items: center;
     }
 </style>
+<script type="text/javascript">
+	function checkId(){
+		var loginid = $("#loginid").val();
+		if(loginid==""){
+			alert("로그인이 필요합니다");
+			window.location.href="mainlist.do";
+		}else{
+			window.location.href="registerForm.do";
+		}
+	}
+</script>
 </head>
 <body>
 <div id="main">
 <table id="notice">
 	<tr>
 		<td colspan="2"><h2>NOTICE</h2></td>
-		<td><a href="notice_list.do"><h5>+더보기</h5></a></td>
+		<td><a href="notice_list.do" id="a_tag"><h5>+더보기</h5></a></td>
 	</tr>
 		<c:forEach var="list"  items="${list}" end='4'> 
 	<tr>
 		<td id="icon">&nbsp;▶</td>
-		<td id="subject"><a href="content.do?num=${list.num }&pageNum=${ currentPage }&result=just">
+		<td id="subject"><a href="content.do?num=${list.num }&pageNum=${ currentPage }&result=just" id="a_tag">
 					${ list.subject }</a></td>
 		<td>${list.reg_date}</td>
 	</tr>
@@ -72,7 +91,7 @@
 				              면접스터디, 팀플, 발표연습, 사교모임 등에 최적화되어 있습니다</p>
 				    <i class="ion-ios-arrow-right"></i>
 				  </figcaption>
- 					<a href="Room2.do?num=52&pageNum=3"></a>
+ 					<a href="Room2.do?num=52&pageNum=3" id="a_tag"></a>
 				</figure>
 					</div>
 					
@@ -85,7 +104,7 @@
 					글라스 보드와 모니터가 있어 과외 또는 스터디, 팀플, 대외활동 등을 하기에 <br>적합한 공간 입니다 </p>
 				    <i class="ion-ios-arrow-right"></i>
 				  </figcaption>
- 					<a href="Room2.do?num=49&pageNum=3"></a>
+ 					<a href="Room2.do?num=49&pageNum=3" id="a_tag"></a>
 				</figure>
 			</div>
             
@@ -98,7 +117,7 @@
 					거울이 있어 면접 스터디 및 발표연습등을 하기 좋고, 화이트보드와 빔 프로젝트등이 <br>구비되어있습니다. </p>
 				    <i class="ion-ios-arrow-right"></i>
 				  </figcaption>
- 					<a href="Room2.do?num=48&pageNum=3"></a>
+ 					<a href="Room2.do?num=48&pageNum=3" id="a_tag"></a>
 				</figure>
             </div>
             
@@ -112,7 +131,7 @@
 						과외 또는 스터디, 팀플, 대외활동 등 하기에 적합한 공간입니다 </p>
 				    <i class="ion-ios-arrow-right"></i>
 				  </figcaption>
- 					<a href="Room2.do?num=101&pageNum=1"></a>
+ 					<a href="Room2.do?num=101&pageNum=1" id="a_tag"></a>
 				</figure>
             </div>
             
@@ -126,7 +145,7 @@
 				    <br>과외/그룹 스터디/독서토론회/그룹 세미나등 다양한 모임공간을 제공합니다</p>
 				    <i class="ion-ios-arrow-right"></i>
 				  </figcaption>
- 					<a href="Room2.do?num=53&pageNum=2"></a>
+ 					<a href="Room2.do?num=53&pageNum=2" id="a_tag"></a>
 				</figure>
             </div>
 
@@ -142,7 +161,7 @@
 
 <div>
 <figure class="snip1132">
-  <img src="ram/images/1.jpg" alt="sample" />
+  <img src="ram/images/3.jpg" alt="sample" />
   <figcaption>
     <div class="heading">
       <h3><span>Study Together</span></h3>
@@ -151,7 +170,7 @@
       <p>가나다라</p>
     </div>
   </figcaption>
-  <a href="#"></a>
+  <a href="#" id="a_tag" onclick="checkId()"></a>
 </figure>
 
  <figure class="snip1132">
@@ -164,20 +183,20 @@
       <p>가나다라</p>
     </div>
   </figcaption>
-  <a href="#"></a>
+  <a href="searchPage.do" id="a_tag"></a>
 </figure>
 <figure class="snip1132">
-  <img src="ram/images/3.jpg" alt="sample3" />
+  <img src="ram/images/1.jpg" alt="sample3" />
   <figcaption>
     <div class="heading">
-      <h3><span>Study Room</span></h3>
+      <h3><span>Study Cafe</span></h3>
     </div>
     
     <div class="caption">
       <p>가나다라</p>
     </div>
   </figcaption>
-  <a href="#"></a>
+  <a href="roomList.do" id="a_tag"></a>
 </figure> 
 </div>
 

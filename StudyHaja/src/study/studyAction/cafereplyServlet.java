@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import edu.kosta.roomModel.CafeReplyDAO;
 import edu.kosta.roomModel.CafeReplyVO;
@@ -25,27 +26,29 @@ public class cafereplyServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		
+		HttpSession session = request.getSession();
 		String	replycontents = request.getParameter("replycontents");
 		int num= Integer.parseInt(request.getParameter("num"));
 		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
+		
 		System.out.println(replycontents);
 		if(replycontents==null){
 			replycontents = null;
 		}else{
-			response.getWriter().write(getJSONsearch(replycontents,num));			
+			response.getWriter().write(getJSONsearch(replycontents,num,session.getAttribute("sessionid").toString()));			
 		}
 	}
 	
-	public String getJSONsearch(String replycontents, int num) {
+	public String getJSONsearch(String replycontents, int num, String id) {
 		  
 	
-
+		  	
 	      if(replycontents == null) replycontents = "";
 	      StringBuffer result = new StringBuffer("");
 	      result.append("{\"result\":[");
 	      CafeReplyDAO DAO = new CafeReplyDAO();
 	      
-	      DAO.cafereplyInsert(replycontents, num);
+	      DAO.cafereplyInsert(replycontents, num, id);
 	      
 	      
 	      ArrayList<CafeReplyVO> cafereply_arr = DAO.cafereplySelect(num);

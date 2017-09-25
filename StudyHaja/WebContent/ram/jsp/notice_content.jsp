@@ -30,7 +30,14 @@
 /* #content28{
 	margin-top: 50%;
 } */
-
+#a_tag:hover {
+color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
+}
+#a_tag{
+	font-weight : 800;
+	color:#000;
+	text-decoration:none;
+}
 #view_top{
 	border: 1px solid;
 	border-color: gray;
@@ -86,6 +93,9 @@
  #delForm{
 	 float: left;
  }
+ #con{
+ 	margin-left: 20px;
+ }
 </style>
 </head>
 <body>
@@ -99,7 +109,7 @@
 <h3 align="center">${vo.subject }</h3>
 	</div>
 	<div id="top_canc">
-<a href="notice_list.do?pageNum=${ pageNum }"><img src= "ram/images/cancel.png"/></a>
+<a href="notice_list.do?pageNum=${ pageNum }" id="a_tag"><img src= "ram/images/cancel.png"/></a>
 	</div>
 </div>
 
@@ -123,7 +133,8 @@ ${vo.content }
 <c:set var="maxnum" value="${max_num}"/>
 <c:if test="${vo.num!=maxnum}">
 <div id="prev">
-<p><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=next">△&nbsp;${vo3.subject }</a></p>
+<p id="con"><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=next" id="a_tag">
+	<img src="ram/images/scroll_top3.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo3.subject }</a></p>
 </div>
 </c:if>
 
@@ -135,7 +146,8 @@ ${vo.content }
 <c:set var="minnum" value="${min_num}"/>
 <c:if test="${vo.num!=minnum}">
 <div id="next">
-<p><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=previous">▽&nbsp;${vo2.subject}</a></p>
+<p id="con"><a href="content.do?num=${vo.num }&pageNum=${ pageNum }&result=previous" id="a_tag">
+	<img src="ram/images/scroll_bottom3.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo2.subject}</a></p>
 </div>
 </c:if>
 <c:if test="${vo.num==minnum}">
@@ -144,16 +156,19 @@ ${vo.content }
 
 </div> 
 <div id="bottom_btn">
-	<a href="notice_list.do?pageNum=${ pageNum }"><img src="ram/images/list.png"/></a>
-   <a href="notice_updateForm.do?num=${ vo.num }&pageNum=${ pageNum }"><img src="ram/images/change.png"/></a>
+	<a href="notice_list.do?pageNum=${ pageNum }"><img src="ram/images/list.png"/ id="a_tag"></a>
+   <c:if test="${sessionid eq 'admin' }">
+   <a href="notice_updateForm.do?num=${ vo.num }&pageNum=${ pageNum }" id="a_tag"><img src="ram/images/change.png"/></a>
+   </c:if>
    <%-- <a href="notice_deleteForm.do?num=${ vo.num }&pageNum=${ pageNum }">글 삭제</a> --%>
-   
+   <c:if test="${sessionid eq 'admin' }">
    <form action="notice_deletePro.do" name="delForm" id="delForm">
-   <!-- <input type ="button" value ="게시물 삭제" name="del" id = "del" onclick="confirmFunction()"> -->
    <input type="image" src="ram/images/delete.png" name="del" id = "del" onclick="confirmFunction()" />
+   
   <input type="hidden" name="num" value="${vo.num}">
 		<input type="hidden" name="pageNum" value="${pageNum}">
    </form>
+   </c:if>
 </div>
 
 </div>

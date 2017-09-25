@@ -57,16 +57,18 @@ function play(){
 	</form>
 	</div>
 	
+	<c:if test="${sessionid eq 'admin'}">
 	<div class="back">
     <div class="button_base b05_3d_roll"  onclick="location.href='caferegisterForm.do'">
         <div>스터디카페 등록</div>
         <div>스터디카페 등록</div>
     </div>
 	</div>
+	</c:if>
 
 	<center>
 	<c:if test="${ count > 0 }">
-	<table cellpadding="20">
+	<table cellpadding="20" width="1500px">
 	<tr>
 	<c:forEach var="list" items="${list }" begin="0" end="8">
 		<c:set var="cnt" value="${cnt+1}"/>
@@ -75,7 +77,7 @@ function play(){
 		<%-- <a href="jsp/Room2.jsp?num=${list.num}"> --%>
 		
 		<a href="Room2.do?num=${list.num }&pageNum=${currentPage}">
-		<div style="border: 1px; float: left; width: auto;">
+		<div style="border: 1px; float: left; width: 500px;">
 		<figure class="snip1384">
 		<img src = "ahn/images/${list.images}" id="mainphoto" alt="sample92" />
 		<figcaption>
@@ -119,8 +121,11 @@ function play(){
 		<div id="hot">
 		<c:if test="${list.readcount>=30}">
 			<img src="ahn/images/hot5.jpg" height="40" weight="50">
-		</c:if><br><br><br>
+		</c:if>
+		
+		<br><br><br>
 		</div>
+		
 		<%-- <font size="4" color="gray"><b>${ list.subject }</b></font> --%> 
 		<%-- <hr>
 		<font size="3" color="skyblue"><b>지역</b></font>&nbsp;&nbsp;

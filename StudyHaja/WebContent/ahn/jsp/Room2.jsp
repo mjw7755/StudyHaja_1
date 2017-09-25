@@ -44,10 +44,10 @@
 #b {
 	width: 130px;
 }
-
+/* 
 .ahnbody{
 	font-family: "돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
-}
+} */
 
 /* #contents {
 	background-color: #FFFFFF;
@@ -62,10 +62,10 @@
 } */
 
 .view {
-	width: 500px;
-	height: 150px;
-	overflow: hidden;
-	
+	width: 600px;
+    height: 300px;
+    overflow: hidden;
+    border: 2px solid;
 }
 
 .scrollblind {
@@ -75,13 +75,18 @@
 	overflow-y:scroll;
 }
 .scrollblind ul {
-	width: 500px;
+	list-style: none;
+    padding-left: 10px;
 }
 
 .scrollblind li {
 	height: 50px;
 	line-height: 50px;
 	border-bottom: 1px solid gray; 
+}
+
+#re{
+	padding-left: 10px;
 }
 </style>
 
@@ -106,6 +111,8 @@
 	$(function(){
 		
 		$("#replySubmit").click(function(){
+			alert("들어왓니?");
+			
 			var replycontents = $("#contents").val();
 			var num = $("#num").val();
 			var pageNum = $("#pageNum").val();
@@ -117,8 +124,7 @@
 				data:{
 					"replycontents": replycontents,
 					"num" : num,
-					"pageNum" : pageNum
-					
+					"pageNum" : pageNum,
 				},
 				
 				success : function(data){
@@ -129,7 +135,7 @@
 					
 					for(var i=0;i<result.length;i++){
 						
-							$(".replylist").append('<li>'+result[i][1].value+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+result[i][0].value+'</li>');
+							$(".replylist").append('<li>'+result[i][1].value+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+result[i][0].value+'</li>');
 						
 						
 					}
@@ -152,7 +158,7 @@
 </head>
 <body class="ahnbody">
 
-	<b><font size="5" color="red">기본정보</font></b>
+	<b><font size="5" color="#4B8FCC">기본정보</font></b>
 	<hr border-width="3">
 	<center>
 		<table>
@@ -289,8 +295,8 @@
 						<br />
 						<br />
 					</table></td>
-
-				<td>
+				
+				<td height="500px">
 				<input type="hidden" name="num" id="num" value="${list.num }">
 				<input type="hidden" name="pageNum" id="pageNum" value="${pageNum}">
 					<!-- 댓글 여기다가 해 -->
@@ -299,15 +305,15 @@
 						<font color="#FF792a" font-size="1.123rem" line-height="1.2em"><b>${list.subject }의
 								리뷰</b></font>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-						<a href ="#" OnClick="contents.style.visibility='visible', replySubmit.style.visibility = 'visible'" 
+						<c:if test="${sessionid!=null}">
+						<a href ="#" OnClick="contents.style.visibility='visible',replySubmit.style.visibility = 'visible',point.style.visibility='visible'" 
 						><img src="ahn/images/pencil.png" weight="25"
-							height="25"><font color="black" font-size="1.123rem">리뷰남기기</font></a>
+							height="25"><font color="black" font-size="1.123rem">리뷰남기기</font></a></c:if>
 					</h3>
-					<br/><br/><br/><br/>
+					<br/>
 					<div class="view">
 						<div class="scrollblind">
-							<br />
+							<h2 id="re">REVIEW</h2>
 							<ul class="replylist">
 							<c:forEach var="reply_arr" items="${reply_arr }" begin="0"> 
 							<li>${reply_arr.cafecontents}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${reply_arr.id}
@@ -322,14 +328,13 @@
 				<br />
 				<br />
 				<br /> 
-				
 				<textarea id="contents" name="contents" max="500" rows="5"
 						cols="100" placeholder="리뷰를 작성해주세요 "style= "visibility:hidden;" >
 				</textarea>
+				<br>
 				<input type="submit" id="replySubmit" value="제출" style="visibility:hidden;" >
-				
 				</td>
-				</form>
+				
 			</tr>
 			
 		</table>
@@ -340,7 +345,7 @@
 	<br>
 	<br>
 	<br>
-	<b><font size="5" color="red">상세정보</font></b>
+	<b><font size="5" color="#4B8FCC">상세정보</font></b>
 	<hr border-width="3">
 	<center>
 		<br />
@@ -354,6 +359,7 @@
 			<hr border-width="3">
 			<div class="first">
 				<form id="frm" action="cafedeletePro.do">
+					<c:if test="${sessionid eq 'admin' }">
 					<button type="button" id="btnModify"
 						onclick="document.location.href='cafeupdateForm.do?num=${list.num}&pageNum=${pageNum}'">
 						수정하기</button>
@@ -364,6 +370,7 @@
 						onclick="confirmFunction()"> <input type="hidden"
 						name="num" value="${list.num}"> <input type="hidden"
 						name="pageNum" value="${pageNum}">
+					</c:if>
 				</form>
 			</div>
 </body>

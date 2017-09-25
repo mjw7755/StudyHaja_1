@@ -220,14 +220,14 @@ public class NoticeDAO {
 				number = 1;
 			}
 			
-			sb.append("insert into notice(num, writer, subject, content, reg_date) values(notice_num.nextval, ?, ?, ?, ?)");
+			sb.append("insert into notice(num, writer, subject, content, reg_date, id ) values(notice_num.nextval, ?, ?, ?, ?,?)");
 			
 			pstmt = conn.prepareStatement(sb.toString());
 			pstmt.setString(1, vo.getWriter());
 			pstmt.setString(2, vo.getSubject());
 			pstmt.setString(3, vo.getContent());
 			pstmt.setTimestamp(4, vo.getReg_date());
-			
+			pstmt.setString(5, vo.getId());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
