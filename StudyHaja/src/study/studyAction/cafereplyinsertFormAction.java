@@ -1,4 +1,4 @@
-package study.studyAction;
+/*package study.studyAction;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class cafereplyinsertFormAction implements CommandAction {
 	      result.append("{\"result\":[");
 	      CafeReplyDAO DAO = new CafeReplyDAO();
 	      
-	      DAO.cafereplyInsert(replycontents, num, point);
+	      DAO.cafereplyInsert(id, replycontents, num, point);
 	      
 	      
 	      ArrayList<CafeReplyVO> cafereply_arr = DAO.cafereplySelect(num);
@@ -46,3 +46,4 @@ public class cafereplyinsertFormAction implements CommandAction {
 	   }
 
 }
+*/

@@ -111,6 +111,8 @@
 	$(function(){
 		
 		$("#replySubmit").click(function(){
+			alert("들어왓니?");
+			
 			var replycontents = $("#contents").val();
 			var num = $("#num").val();
 			var pageNum = $("#pageNum").val();
@@ -123,7 +125,6 @@
 					"replycontents": replycontents,
 					"num" : num,
 					"pageNum" : pageNum,
-					"point" : point
 				},
 				
 				success : function(data){
@@ -331,7 +332,6 @@
 						cols="100" placeholder="리뷰를 작성해주세요 "style= "visibility:hidden;" >
 				</textarea>
 				<br>
-				<input type = "textbox" id="point" name="point" placeholder="별점을 주세요" style="visibility:hidden;">
 				<input type="submit" id="replySubmit" value="제출" style="visibility:hidden;" >
 				</td>
 				

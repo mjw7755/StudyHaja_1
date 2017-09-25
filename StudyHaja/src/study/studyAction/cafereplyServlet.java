@@ -28,17 +28,16 @@ public class cafereplyServlet extends HttpServlet {
 		String	replycontents = request.getParameter("replycontents");
 		int num= Integer.parseInt(request.getParameter("num"));
 		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
-		int point = Integer.parseInt(request.getParameter("point"));
 		
 		System.out.println(replycontents);
 		if(replycontents==null){
 			replycontents = null;
 		}else{
-			response.getWriter().write(getJSONsearch(replycontents,num, point));			
+			response.getWriter().write(getJSONsearch(replycontents,num));			
 		}
 	}
 	
-	public String getJSONsearch(String replycontents, int num, int point) {
+	public String getJSONsearch(String replycontents, int num) {
 		  
 	
 
@@ -47,7 +46,7 @@ public class cafereplyServlet extends HttpServlet {
 	      result.append("{\"result\":[");
 	      CafeReplyDAO DAO = new CafeReplyDAO();
 	      
-	      DAO.cafereplyInsert(replycontents, num, point);
+	      DAO.cafereplyInsert(replycontents, num);
 	      
 	      
 	      ArrayList<CafeReplyVO> cafereply_arr = DAO.cafereplySelect(num);
@@ -56,7 +55,6 @@ public class cafereplyServlet extends HttpServlet {
 	    	  
 	         result.append("[{\"value\": \""+ cafereply_arr.get(i).getId()+"\"},");
 	         result.append("{\"value\": \""+ cafereply_arr.get(i).getCafecontents()+"\"}],");
-	         result.append("{\"value\": \""+ cafereply_arr.get(i).getPoint()+"\"}],");
 	      }
 	      result.append("]}");
 	      return result.toString();
