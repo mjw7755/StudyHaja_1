@@ -187,18 +187,18 @@ select#soflow-color {
 	}
 	.detail8 {
 	 	background:white;
-		  height: auto;
-		  width: auto;
-		  display:none;
-		  text-color:white;
-		  border:1px solid gray;
-		  border-radius: 4px;
+		height: auto;
+		width: auto;
+		display:none;
+		text-color:white;
+		border:1px solid gray;
+		border-radius: 4px;
 	}
 	
-	 .tableDIV{
-			height:auto;
-			width:900px;
-			align:center;
+	.tableDIV{
+		height:auto;
+		width:900px;
+		align:center;
 	} 
 	
 	

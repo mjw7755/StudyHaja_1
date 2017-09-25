@@ -23,24 +23,100 @@
 
 
  $(function(){
+	 var id;
+	 var pid;
+	 var modText;
+	 var checkedValues = [];  
+	 var selValue = null;
+	 var content = null;
+	 var subSearch = null;
+	 var tdText = null;
 	 
-	 $(document).on("click",".modBtn",function(){
-		 var id = $(this).attr('id');
-		 var pid = $(this).parent().parent().attr('id');
+	 $(document).on("click",".delBtn",function(){
+		 pid = $(this).parent().parent().attr('id');
+		$(".replyUl").empty();
 		 
-		 $('#'+pid).empty();
-		 $('#'+pid).append('<input type="text" class="modText" value maxlength="300"/>');
-		 
-		 /* $.ajax({
+		 $.ajax({
 			 type:"post",
 				url:"./searchPageServlet",
-				data:{"replyContent":replyContent,
+				data:{"ppid":pid,
 					"tdText":tdText
 				},
+				
+				success:function(data){
+					var res = eval("("+data+")");
+					var result = res.result;
+					var id = "${sessionScope.sessionid}";
+					
+					alert("댓글이 삭제되었습니다.")
+					 for(var i=0;i<result.length;i++){
+						var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
+						if(id == result[i][0].value)
+							str += '<a href="#" class="modBtn" id="'+result[i][0].value+'" onclick="return false">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'" onclick="return false">삭제</a></div></li>'
+						
+						$(".replyUl").append(str);
+					 	
+					}
+					
+					
+				},
+				error : function(msg, error) {
+					alert(error);
+				}
+	 });
+		 
+	 });
+	 
+	 $(document).on("click",".modTextBtn",function(){
+		 modText = $(".modText").val();
+		 $(".replyUl").empty();
+		 
+		 $.ajax({
+			 type:"post",
+				url:"./searchPageServlet",
+				data:{"pid":pid,
+					"modText":modText,
+					"tdText":tdText
+				},
+				
+				success:function(data){
+					var res = eval("("+data+")");
+					var result = res.result;
+					var id = "${sessionScope.sessionid}";
+					
+						alert("댓글이 수정되었습니다.")
+					 for(var i=0;i<result.length;i++){
+						var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
+						if(id == result[i][0].value)
+							str += '<a href="#" class="modBtn" id="'+result[i][0].value+'" onclick="return false">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'" onclick="return false">삭제</a></div></li>'
+						
+						$(".replyUl").append(str);
+					 	
+					}
+					
+					
+				},
+				error : function(msg, error) {
+					alert(error);
+				}
 			 
 			 
-			 
-		 }) */
+		 })
+		 
+		 
+	 });
+	 
+
+	 
+	 $(document).on("click",".modBtn",function(){
+		 id = $(this).attr('id');
+		 pid = $(this).parent().parent().attr('id');
+		 
+		 
+		 $('#'+pid).empty();
+		 $('#'+pid).append('<input type="text" class="modText" value maxlength="300"/><input type="button" class="modTextBtn" value="수정"/>');
+		 
+		
 		 if($("#sessionID").val() == id){
 			 
 		 }
@@ -69,12 +145,11 @@
  					success:function(data){
  						var res = eval("("+data+")");
  						var result = res.result;
- 						var id = ${sessionScope.sessionid};
+ 						var id = "${sessionScope.sessionid}";
  						
- 						alert(id);
- 						for(var i=0;i<result.length;i++){
+ 						 for(var i=0;i<result.length;i++){
 							var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
-							if(sessionScope.sessionid == result[i][0].value)
+							if(id == result[i][0].value)
 								str += '<a href="#" class="modBtn" id="'+result[i][0].value+'" onclick="return false">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'" onclick="return false">삭제</a></div></li>'
  							
 							$(".replyUl").append(str);
@@ -665,10 +740,14 @@
 		 						var dd = d.result;
 		 						
 		 						var result = d.tdText;
+		 						var id = "${sessionScope.sessionid}";
 		 						
-		 						for(var i=0;i<result.length;i++){
+		 						 for(var i=0;i<result.length;i++){
+									var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
+									if(id == result[i][0].value)
+										str += '<a href="#" class="modBtn" id="'+result[i][0].value+'" onclick="return false">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'" onclick="return false">삭제</a></div></li>'
 		 							
-		 							$(".replyUl").append('<li class="replyLi" id="'+i+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][1].value+'</span></div></span><div class="btnDIV"><a href="#" class="modBtn" id="'+result[i][0].value+'" onclick="return false">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'" onclick="return false">삭제</a></div></li>');
+									$(".replyUl").append(str);
 		 						}
 		 						
 	 							$("#jae").text(dd[0][0].value);
@@ -1196,6 +1275,7 @@
     color: #444;
     line-height: 1.5;
 	}
+	
 	
 	
 </style>

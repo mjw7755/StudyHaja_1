@@ -115,4 +115,56 @@ private static ReplyDAO instance = new ReplyDAO();
 		return result;
 	}
 	
+	public int replyModify(String pid, String modText){
+		
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		System.out.println("pid"+pid);
+		System.out.println("modText"+modText);
+		int result = 0;
+		String sql = "update Reply set content=? where num=?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, modText);
+			pstmt.setInt(2, Integer.parseInt(pid));
+			result = pstmt.executeUpdate();
+			
+			System.out.println(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			CloseUtil.close(rs); CloseUtil.close(pstmt); CloseUtil.close(conn);
+		}
+		
+		return result;
+	}
+	public int replyDelete(String pid){
+		
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 0;
+		String sql = "delete from Reply where num=?";
+		System.out.println("pid : "+pid);
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(pid));
+			result = pstmt.executeUpdate();
+			
+			System.out.println(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			CloseUtil.close(rs); CloseUtil.close(pstmt); CloseUtil.close(conn);
+		}
+		
+		return result;
+	}
+	
 }
