@@ -36,7 +36,7 @@ public class CafeReplyDAO {
 		return ds.getConnection();
 	}
 	
-	public void cafereplyInsert( String replycontents, int num){
+	public void cafereplyInsert( String replycontents, int num, String id){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		CafeReplyVO vo = new CafeReplyVO();
@@ -46,7 +46,7 @@ public class CafeReplyDAO {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, "ahn"); //subject
+			pstmt.setString(1, id); //subject
 			pstmt.setString(2, replycontents);
 			pstmt.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
 			pstmt.setInt(4,num);
