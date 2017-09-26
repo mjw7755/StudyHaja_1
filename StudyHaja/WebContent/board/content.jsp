@@ -134,6 +134,9 @@ ${vo.content }
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<input type="image" src="ram/images/list.png" onclick="document.location.href='list.do?pageNum=${ pageNum }'" />
 	</c:if>
+	<c:if test="${ check == -1 }">
+	<input type="image" src="ram/images/list.png" onclick="document.location.href='list.do?pageNum=${ pageNum }'" />
+	</c:if>
 </div>
 
 </div>
