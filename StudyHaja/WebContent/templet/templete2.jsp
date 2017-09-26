@@ -53,10 +53,21 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
  #login2{
  	list-style: none;
     text-align: center;
-    margin-top: 30px;
+    padding-bottom: 30px;
  }
 
  #login2 li{
+	display:inline;
+	padding-right: 15px;
+}
+ #login3{
+ 	list-style: none;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 15px;
+ }
+
+ #login3 li{
 	display:inline;
 	padding-right: 15px;
 }
@@ -73,23 +84,21 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
         display: none;
 }
 .round-button {
-   	display:block; 
-    width:50px;
-    height:50px;
-    line-height:50px; 
-    border: 2px solid #f5f5f5;
+	width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #690000;
     border-radius: 50%;
-    color:#f5f5f5;
     text-align: center;
-    text-decoration:none;
-    /* background: #CC3D3D; */ 
-   	background : #F15F5F; 
-    box-shadow: 0 0 3px gray;
+    background: #690000;
+    box-shadow: 0 0 3px grey;
     font-size: 11px;
-    font-weight:bold;
+    font-weight: bold;
+    float: right;
 }
 .round-button:hover {
-    background: #262626;
+    background: #ccc;
+    border:1px solid #BDBDBD;
 }
   /* alert */   
 .close {
@@ -290,6 +299,14 @@ button.close {
 #a_tag:focus{
 	outline-color: #fff;
 }
+#name{
+	margin-right: 30%;
+	width:50%;
+}
+#logout{
+	width:50%;
+}
+
 </style>
 
 <script>
@@ -337,23 +354,31 @@ $(document).ready(function(){
 </div>
 
 <div id = "login">
-<ul id="login2">
 	<c:if test="${sessionScope.result!=1}">
+	<ul id="login3">
 		<li><a href="loginForm.do" onMouseOver="this.innerHTML='로그인'" onMouseOut="this.innerHTML='LOGIN'" id="a_tag">LOGIN</a></li>
 		<li><a href="InsertForm.do" onMouseOver="this.innerHTML='회원가입'" onMouseOut="this.innerHTML='SIGN-UP'" id="a_tag">SIGN-UP</a></li>
+	</ul>
 	</c:if>
 	
 	<c:if test="${sessionScope.result==1 && sessionScope.sessionid != 'admin'}">
-		<li><a href="memberModifyForm.do"  class="round-button">${sessionScope.memname}</a></li>
+	<ul id="login2">
+		<div id="name">
+		<li><a href="memberModifyForm.do"  class="round-button" id="a_tag"><font color="#fff">${sessionScope.memname}</font></a></li>
+		</div>
 		<!-- <li><a href="insertForm.do" onMouseOver="this.innerHTML='회원정보수정'" onMouseOut="this.innerHTML='MODIFY'" id="a_tag">MODIFY</a></li> -->
+		<div id="logout">
 		<li><a href="logout.do" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOG-OUT'" id="a_tag">LOG-OUT</a></li>
-		<br>
+		</div>
 		<%-- <font color="blue">${sessionScope.memname}님 환영합니다</font> --%>
+		</ul>
 	</c:if>
 	
 	<c:if test="${sessionScope.sessionid eq 'admin'}">
+	<ul id="login3">
 		<li><a href="ListForm.do" onMouseOver="this.innerHTML='회원리스트'" onMouseOut="this.innerHTML='MemberList'" id="a_tag">MemberList</a></li>
 		<li><a href="logout.do" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOG-OUT'" id="a_tag">LOG-OUT</a></li>
+	</ul>
 	</c:if>
 	
 </ul>
