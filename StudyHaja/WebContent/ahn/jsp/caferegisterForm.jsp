@@ -48,6 +48,7 @@ function pasteHTML(filepath){
 	<input type="hidden" name="num" value="${num }">
 	<input type="hidden" name="r_no" value="${r_no }">
 	<input type="hidden" name="pageNum" value="${pageNum }">
+	<label><font color="gray" size="10px">Let's form a Study-Group</font></label>
 	<table border="1" class="mytable">
 		<tr>
 			<th scope="row" style="min-width:100px;"><font color="red" size="2em">* </font>¿Ã ∏ß </th>

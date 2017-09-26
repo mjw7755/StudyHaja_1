@@ -82,7 +82,7 @@
 <form name="Insertform" method="post" action="InsertPro.do" onsubmit="return writeSave()">
 <input type="hidden" name="reg_date" value="${reg_date}">
 <center>
-	<h3 id="signuph3">회원가입</h3>
+	<h3 id="signuph3">Do you want to be our member?</h3>
 <div class="box">
    <table text-align="center">
       <tr>

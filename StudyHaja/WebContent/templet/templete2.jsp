@@ -84,10 +84,18 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
         display: none;
 }
 .round-button {
+<<<<<<< HEAD
+   	/* display:block; */ 
+    width:100px;
+    height:100px;
+/*     line-height:50px; 
+ */    border: 2px solid #f5f5f5;
+=======
 	width: 50px;
     height: 50px;
     line-height: 50px;
     border: 1px solid #690000;
+>>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
     border-radius: 50%;
     text-align: center;
     background: #690000;
@@ -340,7 +348,7 @@ $(document).ready(function(){
 	Study Together</a></li></c:if>
 	
 	<c:if test="${sessionScope.sessionid!=null}">
-	<li><a href="caferegisterForm.do" onMouseOver="this.innerHTML='스터디 모집'" 
+	<li><a href="registerForm.do" onMouseOver="this.innerHTML='스터디 모집'" 
 		onMouseOut="this.innerHTML='Study Together'" id="a_tag" border="0">
 	Study Together</a></li>
 	</c:if>

@@ -451,4 +451,40 @@ import dbclose.util.CloseUtil;
     	return name;
     }//end getName
 }
+    
+    public MemberJoinVO selectTdMember(String tdId) {
+    	Connection conn = null;
+  	   PreparedStatement pstmt = null;
+  	   ResultSet rs= null;
+  	   MemberJoinVO vo = null;
+  	   String sql = "select name,id,email,hp from studymember where id=?";
+  	   try{
+  		  
+  		   conn = getConnection();
+  		   pstmt = conn.prepareStatement(sql);
+  		   pstmt.setString(1, tdId);
+  		   rs = pstmt.executeQuery();
+  		   
+  		   if(rs.next()){
+  			  vo = new MemberJoinVO();
+  		
+  			  vo.setName(rs.getString("name"));
+  			  vo.setId(rs.getString("id"));
+  			  vo.setEmail(rs.getString("email"));
+  			  vo.setHp(rs.getString("hp"));
+  		   }
+  	   }catch(Exception e){
+  		   e.printStackTrace();
+  	   }finally {
+  		   try{
+  			   if (rs != null) try { rs.close(); } catch(SQLException ex) {}
+  			   if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+  			   if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+  		   }catch(Exception e){
+  			   e.printStackTrace();
+  		   }
+    	
+    	return vo;
+    }
+    }
 	}

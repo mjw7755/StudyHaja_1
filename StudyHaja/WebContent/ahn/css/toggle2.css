@@ -47,7 +47,7 @@
 }
 
 .switch-field input:checked + label {
-  background-color: #A5DC86;
+  background-color: #6799FF;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
