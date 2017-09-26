@@ -17,16 +17,13 @@ public class DeleteProAction implements CommandAction {
 		BoardVO vo = new BoardVO();
 		String num = request.getParameter("num");
 		String pageNum = request.getParameter("pageNum");
-		HttpSession session = request.getSession();
-		session.getAttribute("sessionid");
 		
-		int check = dao.delete(Integer.parseInt(num), vo); 
+		int check = dao.delete(Integer.parseInt(num)); 
 		
 		//저장
 		request.setAttribute("num", num);
 		request.setAttribute("pageNum", pageNum);
-		request.setAttribute("check", check);
-		
+
 		return "/board/deletePro.jsp" ;
 	}
 
