@@ -214,12 +214,11 @@ import dbclose.util.CloseUtil;
 	      return null;
 		}
 
-   public List<MemberJoinVO> modifySelectAll(String id ) {
+   public ArrayList<MemberJoinVO> modifySelectAll(String id ) {
 		Connection conn = null;
 		PreparedStatement pstmt=null;
 		ResultSet rs = null;
-		List  list = null;
-		
+		ArrayList<MemberJoinVO>  list = new ArrayList<MemberJoinVO>();
 		try {
 			conn = getConnection();
 			StringBuffer sb = new StringBuffer();
