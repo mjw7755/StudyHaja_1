@@ -237,6 +237,10 @@ table.atable td {
     color: #fff;
     width: 70px;
     height: 42px;
+    cursor: pointer;
+}
+.sendBtn:hover{
+	    background-color: #056e93;
 }
 
 #cury {

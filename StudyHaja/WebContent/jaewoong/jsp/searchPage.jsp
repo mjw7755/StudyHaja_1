@@ -1181,7 +1181,7 @@
 	    padding: 5px 10px;
 	    height: 30px;
 	    line-height: 20px;
-	    font-size: 13px;
+	    font-size: 17px;
 	    color: #5e5e5e;
 }
 
@@ -1282,8 +1282,13 @@
 	
 	.sub_title{
 		width:auto;
+		padding-right:5px;
+		padding-left:5px;
 	}
 	
+	.titleDIV{
+		padding-bottom:10px;
+	}
 </style>
 </head>
 <body>
@@ -1591,28 +1596,28 @@
 						<div class="popupDIV" id="popup">
 							<div class="popupInner">
 								<div class="popupInnerContent">
-									<div>
+									<div class="titleDIV">
 										<span class="introduce_title">제  목</span><span class="sub_title" id="jae"></span>		
 									</div>
-									<div>
+									<div class="titleDIV">
 										<span class="introduce_title">분  류</span><span class="sub_title" id="bun"></span>		
 									</div>
-									<div>
-										<span class="introduce_title">기  간</span><span class="sub_title" id="s_d"></span><span class="sub_title" id="e_d"></span>		
+									<div class="titleDIV">
+										<span class="introduce_title">기  간</span><span class="sub_title" id="s_d"></span><span>~</span><span class="sub_title" id="e_d"></span>		
 									</div>
-									<div>
+									<div class="titleDIV">
 										<span class="introduce_title">요  일</span><span class="sub_title" id="yo"></span>		
 									</div>
-									<div>
-										<span class="introduce_title">시  간</span><span class="sub_title" id="s_h"></span><span class="sub_title" id="s_m"></span><span class="sub_title" id="e_h"></span><span class="sub_title" id="e_m"></span>		
+									<div class="titleDIV">
+										<span class="introduce_title">시  간</span><span class="sub_title" id="s_h"></span><span> : </span><span class="sub_title" id="s_m"></span><span>~</span><span class="sub_title" id="e_h"></span><span> : </span><span class="sub_title" id="e_m"></span>		
 									</div>
-									<div>
+									<div class="titleDIV">
 										<span class="introduce_title">지  역</span><span class="sub_title" id="pOne"></span><span class="sub_title" id="pTwo"></span>		
 									</div>
-									<div>
+									<div class="titleDIV">
 										<span class="introduce_title">장  소</span><span class="sub_title" id="pThr"></span>		
 									</div>
-									<div>
+									<div class="titleDIV">
 										<span class="introduce_title">인  원</span><span class="sub_title" id="inWon"></span>		
 									</div>
 									<br>
