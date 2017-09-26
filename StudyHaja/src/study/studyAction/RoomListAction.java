@@ -1,13 +1,13 @@
 package study.studyAction;
 
-import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import study.studyAction.CommandAction;
+import StudyJoinModel.memberJoinDAO;
 import edu.kosta.roomModel.roomDAO;
 
 public class RoomListAction implements CommandAction {

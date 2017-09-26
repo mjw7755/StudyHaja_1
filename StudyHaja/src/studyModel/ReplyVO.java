@@ -3,9 +3,18 @@ package studyModel;
 import java.sql.Timestamp;
 
 public class ReplyVO {
+	int num;
+	
 	String id,content;
 	Timestamp reg_date;
 	double star;
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public String getId() {
 		return id;
 	}

@@ -33,7 +33,6 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 	width: 50px;
     font-style: inherit;
     color: #4B8FCC;
-    font-size: 20;
     font-weight: 600;
 	}
 	
