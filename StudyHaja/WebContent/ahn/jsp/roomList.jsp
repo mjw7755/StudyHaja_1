@@ -36,6 +36,10 @@
 #search_i{
 	float:left;
 }
+#aa{
+    margin-left: 7%;
+    margin-top: 5%;
+    }
 </style>
 <script>
 function play(){
@@ -68,7 +72,7 @@ function play(){
 
 	<center>
 	<c:if test="${ count > 0 }">
-	<table cellpadding="10">
+	<table id="aa" cellpadding="10">
 	<tr>
 	<c:forEach var="list" items="${list }" begin="0" end="8">
 		<c:set var="cnt" value="${cnt+1}"/>
