@@ -60,10 +60,7 @@ align="center">
 	<td width="70" bgcolor = "${ value_c }"" align = "center"> 내  용</td>
 	<td width="330"><textarea rows="13" cols="40" name = "content"  id="content" style="width:766px; height:412px; display:none;"></textarea></td>
 </tr>
-<tr>
-	<td width="70" bgcolor = "${ value_c }" align = "center"> 파일 경로</td>
-	<td width="330"><input type="text" size= "10" maxlenth="10" name ="path"></td>
-</tr>
+
 <tr>
 	<td align="center" colspan="2" bgcolor="${ value_c }"">
 	<input type = "submit" value = "글쓰기"  onclick="submitContents(this)">

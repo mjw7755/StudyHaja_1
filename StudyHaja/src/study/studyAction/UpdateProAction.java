@@ -24,7 +24,7 @@ public class UpdateProAction implements CommandAction {
 		vo.setId(session.getAttribute("sessionid").toString());
 		vo.setTitle(request.getParameter("title"));
 		vo.setContent(request.getParameter("content"));
-		
+		System.out.println(request.getParameter("content"));
 		
 		int check = dao.update(vo);  //실제 변경 내용 반영 함수 호출
 		

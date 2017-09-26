@@ -10,6 +10,8 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import dbclose.util.CloseUtil;
@@ -301,7 +303,8 @@ public class BoardDAO { // controller
 
 			if (rs.next()) {
 				dbid = rs.getString("ID");
-
+				System.out.println("글 작성자 : " + dbid);
+				System.out.println("로그인 상태 : " + vo.getId());
 				if (dbid.equals(vo.getId())) {
 					sql = "UPDATE STUDYBOARD SET TITLE=?, CONTENT=? ";
 					sql += " WHERE NUM = ?";
@@ -313,13 +316,16 @@ public class BoardDAO { // controller
 					pstmt.setString(1, vo.getTitle());
 
 					pstmt.setString(2, vo.getContent());
+					System.out.println("컨텐츠 값 들어오는지 확인" + vo.getContent());
 					pstmt.setInt(3, vo.getNum());
 
 					pstmt.executeUpdate();
 					result = 1;
+					System.out.println(result);
 
 				} else {
 					result = 0;
+					System.out.println(result);
 				} // in if end
 			} // out if end
 
@@ -334,12 +340,11 @@ public class BoardDAO { // controller
 	} // update() end
 
 	// delete( num, passwd ) - deletePro.jsp
-	public int delete(int num, BoardVO vo) {
+	public int delete(int num) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String dbid = "";
 		int result = 0;
 
 		try {
@@ -348,16 +353,11 @@ public class BoardDAO { // controller
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				dbid = rs.getString("ID");
-				if (dbid.equals(vo.getId())) {
-
 					pstmt = conn.prepareStatement("DELETE FROM STUDYBOARD WHERE NUM = ?");
 					pstmt.setInt(1, num);
 					result = pstmt.executeUpdate();
 					result = 1; // 글삭제 성공
-
-				} // out if end
-			}
+				} 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

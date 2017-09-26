@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import studyBoardModel.*;
 
@@ -26,9 +27,19 @@ public class ContentAction implements CommandAction {
 		//int re_step = vo.getRe_step();
 		//int re_level = vo.getRe_level();
 		
+		
+		HttpSession session = request.getSession();
+		session.getAttribute("sessionid");
+		vo.setId(session.getAttribute("sessionid").toString());
+		
+		int check = dao.update(vo);
+		
+		System.out.println("체크 값" + check);
+		
 		request.setAttribute("num", new Integer(num));
 		request.setAttribute("pageNum", new Integer(pageNum));
-		request.setAttribute("vo", vo);		
+		request.setAttribute("vo", vo);	
+		request.setAttribute("check", check);
 		
 		return "/board/content.jsp";
 	}
