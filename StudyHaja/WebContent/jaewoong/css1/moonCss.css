@@ -217,6 +217,8 @@ select#soflow-color {
     width: 70px;
     height: 36px;
     cursor: pointer;
+    font-size:15px;
+    font-weight:700;
 }
 .sendBtn:hover{
 	    background-color: #056e93;
@@ -309,6 +311,7 @@ select#soflow-color {
     border: 1px solid #0482af;
     color: #fff;
     width: 70px;
+    font-weight:700;
 	
 }
 
