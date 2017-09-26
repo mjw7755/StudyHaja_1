@@ -1,8 +1,5 @@
 @CHARSET "EUC-KR";
 
-* {
-    font-family: Gulim, ±¼¸², Arial, AppleGotihc, Dotum, µ¸¿ò, sans-serif;
-}
 
 select.soflow1, select.soflow1-color {
    -webkit-appearance: button;
