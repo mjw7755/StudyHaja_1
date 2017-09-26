@@ -40,15 +40,24 @@ bgcolor = "${ bodyback_c }" align="center">
 
 <tr height ="30">
 	<td colspan="4" align="right" bgcolor="${ value_c }">
+	<c:if test="${ check == 1 }">
 	<input type="button" value="글수정" onclick="document.location.href='updateForm.do?num=${ vo.num }&pageNum=${ pageNum }'"> 
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<input type ="button" value ="글삭제" onclick="document.location.href='deleteForm.do?num=${ vo.num }&pageNum=${ pageNum }'">
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+	
+	
 <%-- <input type = "button" value = "답글작성" onclick="document.location.href='writeForm.do?num=${ vo.num }&ref=${ vo.ref }&re_step=${ vo.re_step }&re_level=${ vo.re_level }'"> --%>
 	 <input type = "button" value ="답글작성" onclick="document.location.href='writeForm.do?num=${ vo.num }&ref=${ vo.ref }&re_step=${ vo.re_step }&re_level=${ vo.re_level }'">
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<input type = "button" value ="목록 보기" onclick="document.location.href='list.do?pageNum=${ pageNum }'"> 
+	<input type = "button" value ="목록 보기" onclick="document.location.href='list.do?pageNum=${ pageNum }'">
+	</c:if>
+	
+	<c:if test="${ check == 0 }">
+	<input type = "button" value ="답글작성" onclick="document.location.href='writeForm.do?num=${ vo.num }&ref=${ vo.ref }&re_step=${ vo.re_step }&re_level=${ vo.re_level }'">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type = "button" value ="목록 보기" onclick="document.location.href='list.do?pageNum=${ pageNum }'">
+	</c:if>
 	</td>
 </tr>
 </table>

@@ -23,7 +23,7 @@
 -->
 <body bgcolor = "${ bodyback_c }">
 <center><b>글 수정하기</b></center><br>
-<form action = "updatePro.do?pageNum=${ pageNum }" method="post" name = "updateForm" onsubmit="return writeSave()">
+<form action = "updatePro.do?pageNum=${ pageNum }" method="post" name = "updateForm" onsubmit="return updateSave()">
 
 <table width='935' border='1' cellspacing='0' cellpadding='0' bgcolor="${ bodyback_c }"
 align="center">
@@ -35,8 +35,8 @@ align="center">
 	</td>
 </tr>
 <tr>
-	
 </tr>
+
 <tr>
 	<td width="70" bgcolor = "${ value_c }"" align = "center"> 제  목</td>
 	<td width="330">
@@ -50,10 +50,11 @@ align="center">
 </tr>
 <tr>
 	<td align="center" colspan="2" bgcolor="${ value_c }"">
-	<input type = "submit" value = "글수정">
+	<input type = "submit" value = "글수정" onclick="submitContents(this)">
 	<input type= "reset" value = "다시작성">
 	<input type = "button" value = "목록보기" onclick="windows.location='list.do?pageNum=${ pageNum }'">
 </tr>
+
 </table>
 </form>
 
@@ -102,14 +103,6 @@ align="center">
 						if(content.val() == '<br>')
 							content.val('');
 					}
-					function setDefaultFont() {
-						var sDefaultFont = '궁서';
-						var nFontSize = 24;
-						oEditors.getById["content"].setDefaultFont(
-								sDefaultFont, nFontSize);
-					}
-				
-
  		</script>
 
 
