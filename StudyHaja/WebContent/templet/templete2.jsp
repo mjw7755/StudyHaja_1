@@ -8,7 +8,7 @@
 <html>
 <head>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 <!-- <link rel="stylesheet" href="ahn/css/ahnSignup.css">
@@ -70,25 +70,46 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 	display:inline;
 	padding-right: 15px;
 }
-
-  .scroll_top {
+.scroll_top {
         position: fixed;
         left: 95%;
         bottom: 400px;
         display: none;
-      }
-       .scroll_bottom {
+}
+.scroll_bottom {
         position: fixed;
         left: 95%;
         bottom: 350px;
         display: none;
-      }
+}
+.round-button {
+   	display:block; 
+    width:50px;
+    height:50px;
+    line-height:50px; 
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color:#f5f5f5;
+    text-align: center;
+    text-decoration:none;
+    /* background: #CC3D3D; */ 
+   	background : #F15F5F; 
+    box-shadow: 0 0 3px gray;
+    font-size: 11px;
+    font-weight:bold;
+}
+.round-button:hover {
+    background: #262626;
+}
+     
 
+</style>
 
- </style>
-<script type="text/javascript">
+<script>
 	function checkId(){
+		alert("ㅈㅁㄷ렂ㅁㄷ러ㅑㅐㅁㅈ더ㅑㅐ 필요합니다.");
 		var loginid = $("#loginid").val();
+		
 		if(loginid==""){
 			alert("로그인이 필요합니다");
 			window.location.href="loginForm.do";
@@ -128,12 +149,15 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 		<li><a href="loginForm.do" onMouseOver="this.innerHTML='로그인'" onMouseOut="this.innerHTML='LOGIN'" id="a_tag">LOGIN</a></li>
 		<li><a href="InsertForm.do" onMouseOver="this.innerHTML='회원가입'" onMouseOut="this.innerHTML='SIGN-UP'" id="a_tag">SIGN-UP</a></li>
 	</c:if>
+	
 	<c:if test="${sessionScope.result==1 && sessionScope.sessionid != 'admin'}">
-		<li><a href="insertForm.do" onMouseOver="this.innerHTML='회원정보수정'" onMouseOut="this.innerHTML='MODIFY'" id="a_tag">MODIFY</a></li>
+		<li><a href="memberModifyForm.do"  class="round-button">${sessionScope.memname}</a></li>
+		<!-- <li><a href="insertForm.do" onMouseOver="this.innerHTML='회원정보수정'" onMouseOut="this.innerHTML='MODIFY'" id="a_tag">MODIFY</a></li> -->
 		<li><a href="logout.do" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOG-OUT'" id="a_tag">LOG-OUT</a></li>
 		<br>
-		<font color="blue">${sessionScope.memname}님 환영합니다</font>
+		<%-- <font color="blue">${sessionScope.memname}님 환영합니다</font> --%>
 	</c:if>
+	
 	<c:if test="${sessionScope.sessionid eq 'admin'}">
 		<li><a href="ListForm.do" onMouseOver="this.innerHTML='회원리스트'" onMouseOut="this.innerHTML='MemberList'" id="a_tag">MemberList</a></li>
 		<li><a href="logout.do" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOG-OUT'" id="a_tag">LOG-OUT</a></li>
@@ -157,5 +181,6 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
       <a href="#" class="scroll_bottom" id="a_tag"><img src="ram/images/scroll_bottom.png"/></a>
 </div>
 <script src="ram/js/scroll.js"></script>
+
 </body>
 </html>
