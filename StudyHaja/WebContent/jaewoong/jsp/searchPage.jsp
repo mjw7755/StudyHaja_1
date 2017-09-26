@@ -31,7 +31,7 @@
 	 var content = null;
 	 var subSearch = null;
 	 var tdText = null;
-	 
+	 var tdId = null;
 	 $(document).on("click",".delBtn",function(){
 		 pid = $(this).parent().parent().attr('id');
 		$(".replyUl").empty();
@@ -70,7 +70,7 @@
 	 $(document).on("click",".modTextBtn",function(){
 		 modText = $(".modText").val();
 		 $(".replyUl").empty();
-		 
+		 $(".modText").empty();
 		 $.ajax({
 			 type:"post",
 				url:"./searchPageServlet",
@@ -94,7 +94,7 @@
 					 	
 					}
 					
-					
+					$(".modText").focus();
 				},
 				error : function(msg, error) {
 					alert(error);
@@ -365,7 +365,7 @@
 	 										if(dd[i][j].value==0){
 	 											dd[i][j].value=0;
 	 										}else {
-	 										$(".subjectTd"+i).append('<span>['+dd[i][j].value+']</span>');
+	 										$(".subjectTd"+i).append('<span style="color:red; font:bold;">['+dd[i][j].value+']</span>');
 	 										}
 	 									
 	 								}else{ 
@@ -714,8 +714,11 @@
 	 				}		
 	 			)
 	    }); 
-
+var sessionid = "${sessionScope.sessionid}";
+	    
+	  
 	    $(document).on("click","#record",function(){
+	    if(sessionid != ""){
 	    	var tr = $(this);
 	    	var td = tr.children();
 	    	tdText = td.eq(0).text();
@@ -736,7 +739,10 @@
 		 						var dd = d.result;
 		 						
 		 						var result = d.tdText;
+		 						var resMem = d.tdMember;
 		 						var id = "${sessionScope.sessionid}";
+		 						
+		 						tdId = dd[0][14].value;
 		 						
 		 						 for(var i=0;i<result.length;i++){
 									var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
@@ -761,6 +767,11 @@
 	 							$("#inWon").text(dd[0][12].value);
 	 							$("#cury").text(dd[0][13].value);
 	 							
+	 							$("#memNAME").text(resMem[0][0].value);
+	 							$("#memID").text(resMem[0][1].value);
+	 							$("#memHP").text(resMem[0][2].value);
+	 							$("#memEMAIL").text(resMem[0][3].value);
+	 							
 	 							$("#popup").bPopup({
 	 								
 	 					    		modalClose:true,
@@ -776,9 +787,11 @@
 	    			
 	    			}
 	    		)	
-
+		    } else{
+			   alert("로그인이 필요한 서비스 입니다.")
+		   }
 	    });
-	    
+	   
 	    $("#subSel").on('change',function(){
 	    	selValue = $("#subSel option:checked").text();
 			
@@ -1159,6 +1172,7 @@
 .introduce_title{
 	padding-right: 13px;
     color: #2695f1;
+    font-weight:700;
 }
 
 .tree_reple_place {
@@ -1179,9 +1193,9 @@
     	border: 1px solid #05a2da;
 		display: inline-block;
 	    padding: 5px 10px;
-	    height: 30px;
+	    height: 37px;
 	    line-height: 20px;
-	    font-size: 13px;
+	    font-size: 17px;
 	    color: #5e5e5e;
 }
 
@@ -1232,7 +1246,7 @@
 	
 	#replyList{
 		width:500px;
-		overflow:scroll; 
+		overflow-y: auto;
 		 height:300px;
 	}
 	
@@ -1282,8 +1296,14 @@
 	
 	.sub_title{
 		width:auto;
+		padding-right:5px;
+		padding-left:5px;
+		font-weight:700;
 	}
 	
+	.titleDIV{
+		padding-bottom:10px;
+	}
 </style>
 </head>
 <body>
@@ -1573,16 +1593,22 @@
 							</tr>
 						</thead>
 						<tbody id="ajaxTable">
+						
+						
+						<c:set var="i" value="0"/>
 						<c:forEach var="list" items="${list }">
+						
 							<tr style="cursor:pointer;" id="record">
 								<td>${list.num }</td>
 								<td>${list.kind2 }</td>
-								<td>${list.subject }</td>
+								<td>${list.subject }<c:if test="${reArr.get(i) != 0 }"><font style="color:red;">[${reArr.get(i) }]</font></c:if></td>
 								<td>${list.format_time }</td>
 								<td>${list.reg_date}</td>
 								<td>${list.readcount }</td>
 							</tr>
+						<c:set var="i" value="${i+1}"></c:set>
 						</c:forEach>
+						
 						</tbody>
 						
 						</div>
@@ -1591,28 +1617,28 @@
 						<div class="popupDIV" id="popup">
 							<div class="popupInner">
 								<div class="popupInnerContent">
-									<div>
+									<div class="titleDIV">
 										<span class="introduce_title">제  목</span><span class="sub_title" id="jae"></span>		
 									</div>
-									<div>
+									<div class="titleDIV">
 										<span class="introduce_title">분  류</span><span class="sub_title" id="bun"></span>		
 									</div>
-									<div>
-										<span class="introduce_title">기  간</span><span class="sub_title" id="s_d"></span><span class="sub_title" id="e_d"></span>		
+									<div class="titleDIV">
+										<span class="introduce_title">기  간</span><span class="sub_title" id="s_d"></span><span>~</span><span class="sub_title" id="e_d"></span>		
 									</div>
-									<div>
+									<div class="titleDIV">
 										<span class="introduce_title">요  일</span><span class="sub_title" id="yo"></span>		
 									</div>
-									<div>
-										<span class="introduce_title">시  간</span><span class="sub_title" id="s_h"></span><span class="sub_title" id="s_m"></span><span class="sub_title" id="e_h"></span><span class="sub_title" id="e_m"></span>		
+									<div class="titleDIV">
+										<span class="introduce_title">시  간</span><span class="sub_title" id="s_h"></span><span> : </span><span class="sub_title" id="s_m"></span><span>~</span><span class="sub_title" id="e_h"></span><span> : </span><span class="sub_title" id="e_m"></span>		
 									</div>
-									<div>
+									<div class="titleDIV">
 										<span class="introduce_title">지  역</span><span class="sub_title" id="pOne"></span><span class="sub_title" id="pTwo"></span>		
 									</div>
-									<div>
+									<div class="titleDIV">
 										<span class="introduce_title">장  소</span><span class="sub_title" id="pThr"></span>		
 									</div>
-									<div>
+									<div class="titleDIV">
 										<span class="introduce_title">인  원</span><span class="sub_title" id="inWon"></span>		
 									</div>
 									<br>
@@ -1629,7 +1655,9 @@
 									</div>		
 									
 									<div id="mojpjangContent">
-									
+										<div><span class="mojip_intro">이름(아이디)</span><span class="mojip_content" id="memNAME"></span><span class="mojip_content" id="memID"></span></div>
+										<div><span class="mojip_intro">전화번호</span><span class="mojip_content" id="memHP"></span></div>
+										<div><span class="mojip_intro">이메일</span><span class="mojip_content" id="memEMAIL"></span></div>
 									</div>	
 									
 									<div class="tree_reple_place">

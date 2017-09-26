@@ -4,10 +4,18 @@ import java.sql.Timestamp;
 
 public class ReplyVO {
 	int num;
+	int reply_num;
 	
 	String id,content;
 	Timestamp reg_date;
 	double star;
+	
+	public int getReply_num() {
+		return reply_num;
+	}
+	public void setReply_num(int reply_num) {
+		this.reply_num = reply_num;
+	}
 	
 	public int getNum() {
 		return num;

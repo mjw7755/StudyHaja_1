@@ -7,7 +7,6 @@ create table Reply (
 	star number(10)
 )SEGMENT creation IMMEDIATE;
 
-
 drop sequence reply_num;
 create sequence reply_num
 start with 1

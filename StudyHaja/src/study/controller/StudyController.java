@@ -87,7 +87,6 @@ private Map commandMap = new HashMap();
          if(command.indexOf(request.getContextPath()) == 0) {
             command = command.substring(request.getContextPath().length() + 1); //web06_boardMVC
          }
-         
          action = (CommandAction)commandMap.get(command);
          System.out.println("action : "+action);
          System.out.println(action);
@@ -98,8 +97,13 @@ private Map commandMap = new HashMap();
          e.printStackTrace();
       }
       
+<<<<<<< HEAD
+      if(view.equals("/ahn/jsp/signupForm.jsp")){
+          RequestDispatcher dp = request.getRequestDispatcher("/ahn/jsp/signupForm.jsp");
+=======
       /*if(view.equals("/ahn/jsp/signupForm.jsp")){
          RequestDispatcher dp = request.getRequestDispatcher("/ahn/jsp/signupForm.jsp");
+>>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
           dp.forward(request, response);
       }else {*/
          request.setAttribute("CONTENT", view);
