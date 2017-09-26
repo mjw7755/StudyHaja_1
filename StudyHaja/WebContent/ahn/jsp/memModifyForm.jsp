@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="ahn/css/toggle2.css">
 	<link rel="stylesheet" href="ahn/css/ahnSignup2.css">
 
-	<form name="Insertform" method="post" action="InsertPro.do" onsubmit="return writeSave()">
+	<form method="post" action="memberModifyPro.do" onsubmit="return writeSave()">
 		<input type="hidden" name="reg_date" value="${reg_date}">
 		<center>
 			<h3 id="signuph3">회원정보수정</h3>
@@ -22,7 +22,7 @@
 					<tr>
 						<td>아이디</td>
 						<td>
-							<input type="text" name="id" class="txt" id="idtxt" value="${sessionScope.sessionid }">
+							<label id="idtxt" name="id">${sessionScope.sessionid }</label>
 						</td>
 					</tr>
 					<tr>
