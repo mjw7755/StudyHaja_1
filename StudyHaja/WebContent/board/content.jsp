@@ -184,6 +184,10 @@ bgcolor = "${ bodyback_c }" align="center">
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<input type = "button" value ="목록 보기" onclick="document.location.href='list.do?pageNum=${ pageNum }'">
 	</c:if>
+	
+	<c:if test = "${ result == 0 }">
+	<input type = "button" value ="목록 보기" onclick="document.location.href='list.do?pageNum=${ pageNum }'">
+	</c:if>
 	</td>
 </tr>
 </table>
