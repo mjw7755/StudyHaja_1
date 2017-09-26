@@ -746,9 +746,7 @@
 		 						var id = "${sessionScope.sessionid}";
 		 						
 		 						
-		 						alert(dd[0][13].value);
-		 						/* dd[0][13].value = dd[0][13].value.replace(/<br>/g,'\n'); 
-		 						alert(dd[0][13].value);  */
+		 						dd[0][13].value = dd[0][13].value.replace(/<br>/g,'\n'); 
 		 						
 		 						 for(var i=0;i<result.length;i++){
 									var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
@@ -1502,7 +1500,6 @@
 									</div>
 									<br>
 									<div id="cury">
-									
 									</div>
 									
 									<div id="mojipjang">
