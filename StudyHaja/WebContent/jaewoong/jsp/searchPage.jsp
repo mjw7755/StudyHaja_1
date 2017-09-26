@@ -132,8 +132,9 @@
 	 
 	 $("#sendBtn").click(function(){
 		var replyContent = $("#replyContent").val();
-		
+		$("#replyContent").val("");
 		$(".replyUl").empty();
+		
 		$.ajax(
 				{
  					type:"post",
