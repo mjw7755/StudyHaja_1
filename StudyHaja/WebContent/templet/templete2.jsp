@@ -348,7 +348,7 @@ $(document).ready(function(){
 	Study Together</a></li></c:if>
 	
 	<c:if test="${sessionScope.sessionid!=null}">
-	<li><a href="caferegisterForm.do" onMouseOver="this.innerHTML='스터디 모집'" 
+	<li><a href="registerForm.do" onMouseOver="this.innerHTML='스터디 모집'" 
 		onMouseOut="this.innerHTML='Study Together'" id="a_tag" border="0">
 	Study Together</a></li>
 	</c:if>

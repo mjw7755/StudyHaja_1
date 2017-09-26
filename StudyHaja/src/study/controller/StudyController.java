@@ -97,15 +97,7 @@ private Map commandMap = new HashMap();
          e.printStackTrace();
       }
       
-<<<<<<< HEAD
-      if(view.equals("/ahn/jsp/signupForm.jsp")){
-          RequestDispatcher dp = request.getRequestDispatcher("/ahn/jsp/signupForm.jsp");
-=======
-      /*if(view.equals("/ahn/jsp/signupForm.jsp")){
-         RequestDispatcher dp = request.getRequestDispatcher("/ahn/jsp/signupForm.jsp");
->>>>>>> branch 'master' of https://github.com/mjw7755/StudyHaja_1.git
-          dp.forward(request, response);
-      }else {*/
+     
          request.setAttribute("CONTENT", view);
           RequestDispatcher dp = request.getRequestDispatcher("/templet/templete2.jsp");
           dp.forward(request, response);
