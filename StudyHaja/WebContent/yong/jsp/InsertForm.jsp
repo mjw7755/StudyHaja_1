@@ -231,7 +231,23 @@ h1{
 #sex_select:hover{
 	cursor: pointer;
 } */
+/*헤헤 */
+ /*------------------------*/
+ /* 
+  background: none;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 2em 6em;
+  position: relative;
+  text-transform: uppercase; */
 
+
+/* 
 #btnCheck{
     background: #363636;
     width: 150px;
@@ -250,57 +266,82 @@ h1{
 #btnCheck:hover{
   background: #363636; 
   cursor: pointer;
+} */
+#btnCheck,
+#btnCheck::after {
+  -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
-
-
-#btnReg{
-	background: salmon;
-    color: #fff;
-    /* color: skyblue; */
-    border: none;
-    position: relative;
-    height: 40px;
-    font-size: 1.6em;
-    padding: 0 2em;
-    cursor: pointer;
-    transition: 800ms ease all;
-    outline: none;
-    border-radius: 7px;
+#btnCheck {
+  	background: #8C8C8C;
+    width: 150px;
+    height: 60px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    border-radius: 4px;
+    border: #8C8C8C 1px solid;
+    margin-left: 16px;
+    margin-right: 70px;
+    display:block;
+    font-weight: 800;
+ 	float: right;
+ 	cursor : pointer; 
+}
+#btnReg,
+#btnReg::after {
+  -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+#btnReg {
+  	background: #8C8C8C;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    border: #8C8C8C 1px solid;
+    margin-left: 16px;
+    margin-right: 70px;
+    display:block;
+    font-weight: 800;
+ 	float: right;
+ 	cursor : pointer; 
+ 	border-radius: 7px;
     width: 300px;
-    margin-top: 20px;
+    height : 40px;
+    border-radius: 100px;
+	-moz-border-radius: 100px
 }
 
-#btnReg:hover{
-	background: #fff;
-	color: #1AAB8A;
-}
-
-#btnReg:before, #btnReg:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 2px;
-	width: 0;
-	background: #1AAB8A;
-	transition: 400ms ease all;
-}
-
-#btnReg:after {
-	right: inherit;
-	top: inherit;
-	left: 0;
-	bottom: 0;
-}
-
-#btnReg:hover:before, #btnReg:hover:after {
-	width: 100%;
-	transition: 800ms ease all;
+#btnMain,
+#btnMain::after {
+  -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
 #btnMain{
+  	background: #8C8C8C;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    border: #8C8C8C 1px solid;
+    display:block;
+    font-weight: 800;
+ 	float: right;
+ 	cursor : pointer; 
+    width: 300px;
+    height : 40px;
+    border-radius: 100px;
+	-moz-border-radius: 100px;
+}
+/* #btnMain{
 	background: salmon;
 	color: #fff;
-	/*color: skyblue;*/
+	color: skyblue;
 	border: none;
 	position: relative;
 	weight: 20px;
@@ -317,30 +358,9 @@ h1{
 #btnMain:hover{
 	background: #fff;
 	color: #1AAB8A;
-}
+} */
 
-#btnMain:before, #btnMain:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 2px;
-	width: 0;
-	background: #1AAB8A;
-	transition: 400ms ease all;
-}
 
-#btnMain:after {
-	right: inherit;
-	top: inherit;
-	left: 0;
-	bottom: 0;
-}
-
-#btnMain:hover:before, #btnMain:hover:after {
-	width: 100%;
-	transition: 800ms ease all;
-}
 /* text 박스 css */
 #idtxt{
     -webkit-border-radius: 3px;
@@ -838,7 +858,7 @@ table.mytable td {
 						</td>
 					</tr>
 				</table>
-
+				<br><br>
 				<input type="submit" value="가입하기" id="btnReg">
 				<a href="mainlist.do"><button type="button" id="btnMain">가입취소</button></a>
 		</center>
