@@ -73,11 +73,11 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
         display: none;
 }
 .round-button {
-   	display:block; 
-    width:50px;
-    height:50px;
-    line-height:50px; 
-    border: 2px solid #f5f5f5;
+   	/* display:block; */ 
+    width:100px;
+    height:100px;
+/*     line-height:50px; 
+ */    border: 2px solid #f5f5f5;
     border-radius: 50%;
     color:#f5f5f5;
     text-align: center;

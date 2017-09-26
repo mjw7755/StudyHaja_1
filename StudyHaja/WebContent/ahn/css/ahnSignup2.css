@@ -14,16 +14,16 @@ h1{
 }
 
 .box{
-    width: 800px;
+    width: 700px;
     border-radius: 6px;
     padding: 70px 0px 70px 0px;
-    border: #2980b9 4px solid; 
+    border: #999999 2px solid; 
 }
 
 #signuph3{
 	font-size: 40px;
 }
-#sex_select {
+/* #sex_select {
    	width: 250px;
     height: 30px;
     padding-left: 10px;
@@ -36,10 +36,10 @@ h1{
 } 
 #sex_select:hover{
 	cursor: pointer;
-}
+} */
 
 #btnCheck{
-    background: #2ecc71;
+    background: #79ABFF;
     width: 150px;
     height: 60px;
     padding-top: 5px;
@@ -54,31 +54,10 @@ h1{
 }
 
 #btnCheck:hover{
-  background:#2CC06B; 
+  background:#79ABFF; 
   cursor: pointer;
-}
-#btnEmail{
-  background:#2ecc71;
-  width:150px;
-  padding-top:5px;
-  padding-bottom:5px;
-  color:white;
-  border-radius:4px;
-  border: #27ae60 1px solid;
-  margin-top:-100px;
-  margin-bottom:20px;
-  float:right; 
-  margin-left:16px;
-  margin-right : 70px;
-  font-weight:800;
-  font-size:0.8em;
- 
 }
 
-#btnEmail:hover{
-  background:#2CC06B; 
-  cursor: pointer;
-}
 
 #btnReg{
 	background: salmon;
