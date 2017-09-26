@@ -215,7 +215,7 @@ select#soflow-color {
     border: 1px solid #0482af;
     color: #fff;
     width: 70px;
-    height: 37px;
+    height: 36px;
     cursor: pointer;
 }
 .sendBtn:hover{
@@ -296,7 +296,7 @@ select#soflow-color {
     	border: 1px solid #05a2da;
 		display: inline-block;
 	    padding: 5px 10px;
-	    height: 37px;
+	    height: 24px;
 	    line-height: 20px;
 	    font-size: 17px;
 	    color: #5e5e5e;
