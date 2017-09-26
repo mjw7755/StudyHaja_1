@@ -850,7 +850,7 @@ table.mytable td {
 					</tr>
 
 					<tr>
-						<th width="20%">주소</th>
+						<td>주소</td>
 						<td width="80%" style="text-align: left;">
 							<input type="text" name="addr1" id="addr1" style="width: 70%" placeholder="주소찾기를 눌러주세요">
 							<button type="button" class="btngray btn" onclick="openDaumPostcode()">주소 찾기</button><br>
@@ -859,6 +859,7 @@ table.mytable td {
 					</tr>
 				</table>
 				<br><br>
+				
 				<input type="submit" value="가입하기" id="btnReg">
 				<a href="mainlist.do"><button type="button" id="btnMain">가입취소</button></a>
 		</center>

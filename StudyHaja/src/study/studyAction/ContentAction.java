@@ -35,12 +35,9 @@ public class ContentAction implements CommandAction {
 		int check = dao.update(vo);
 		
 		session.getAttribute("sessionid");
-		int result = 0;
-		if(session.getAttribute("sessionid") != null) {
-			result = 1;
-		}else
-			result = 0;
-		
+		if(session.getAttribute("sessionid") == null) {
+			check = -1;
+		}
 		
 		System.out.println("체크 값" + check);
 		
@@ -48,7 +45,6 @@ public class ContentAction implements CommandAction {
 		request.setAttribute("pageNum", new Integer(pageNum));
 		request.setAttribute("vo", vo);	
 		request.setAttribute("check", check);
-		request.setAttribute("result", result);
 		
 		return "/board/content.jsp";
 	}
