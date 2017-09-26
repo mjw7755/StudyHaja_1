@@ -97,7 +97,10 @@ private Map commandMap = new HashMap();
          e.printStackTrace();
       }
       
-     
+      /*if(view.equals("/ahn/jsp/signupForm.jsp")){
+         RequestDispatcher dp = request.getRequestDispatcher("/ahn/jsp/signupForm.jsp");
+          dp.forward(request, response);
+      }else {*/
          request.setAttribute("CONTENT", view);
           RequestDispatcher dp = request.getRequestDispatcher("/templet/templete2.jsp");
           dp.forward(request, response);

@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="jaewoong/css1/moonCss.css" />
 
 <script src="jaewoong/js1/select_Js.js"></script>
+<script src="jaewoong/js1/json2.js"></script>
 <!-- <link rel="stylesheet" href="jaewoong/css/bootstrap.css"> -->
 <!DOCTYPE html>
 <html>
@@ -18,6 +19,9 @@
 
 <script src="jaewoong/js/bootstrap.js"></script>
 
+<style type="text/css">
+
+</style>
 <script type="text/javascript">
 
 
@@ -34,7 +38,7 @@
 	 var tdId = null;
 	 $(document).on("click",".delBtn",function(){
 		 pid = $(this).parent().parent().attr('id');
-		$(".replyUl").empty();
+		 $(".replyUl").empty();
 		 
 		 $.ajax({
 			 type:"post",
@@ -365,7 +369,7 @@
 	 										if(dd[i][j].value==0){
 	 											dd[i][j].value=0;
 	 										}else {
-	 										$(".subjectTd"+i).append('<span style="color:red; font:bold;">['+dd[i][j].value+']</span>');
+	 										$(".subjectTd"+i).append('<span style="color:red; font-weight:bold;">['+dd[i][j].value+']</span>');
 	 										}
 	 									
 	 								}else{ 
@@ -714,7 +718,7 @@
 	 				}		
 	 			)
 	    }); 
-var sessionid = "${sessionScope.sessionid}";
+	    var sessionid = "${sessionScope.sessionid}";
 	    
 	  
 	    $(document).on("click","#record",function(){
@@ -737,12 +741,14 @@ var sessionid = "${sessionScope.sessionid}";
 	 						success:function(data){
 	 							var d = eval("("+data+")");
 		 						var dd = d.result;
-		 						
 		 						var result = d.tdText;
 		 						var resMem = d.tdMember;
 		 						var id = "${sessionScope.sessionid}";
 		 						
-		 						tdId = dd[0][14].value;
+		 						
+		 						alert(dd[0][13].value);
+		 						/* dd[0][13].value = dd[0][13].value.replace(/<br>/g,'\n'); 
+		 						alert(dd[0][13].value);  */
 		 						
 		 						 for(var i=0;i<result.length;i++){
 									var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
@@ -772,7 +778,7 @@ var sessionid = "${sessionScope.sessionid}";
 	 							$("#memHP").text(resMem[0][2].value);
 	 							$("#memEMAIL").text(resMem[0][3].value);
 	 							
-	 							$("#popup").bPopup({
+								$("#popup").bPopup({
 	 								
 	 					    		modalClose:true,
 	 					    		follow: [false,false],
@@ -1153,158 +1159,6 @@ var sessionid = "${sessionScope.sessionid}";
 	
 </script>
 
-<style type="text/css">
-
-
-
-.popupInnerContent{
-	position: relative;
-    padding: 27px 20px;
-}
-
-
-.popupInner{
-	margin-top: -1px;
-    width: 550px;
-    border: 1px solid #8a8a8a;
-}
-
-.introduce_title{
-	padding-right: 13px;
-    color: #2695f1;
-    font-weight:700;
-}
-
-.tree_reple_place {
-	    padding: 0;
-    text-align: left;
-      position: relative;
-      height:50px;
-	
-}
-.tree_reple_place>div>div {
-		padding-top: 30px;
-	    float: left;
-		padding-right:13px;
-}
-
-.input-text {
-		width: 290px;
-    	border: 1px solid #05a2da;
-		display: inline-block;
-	    padding: 5px 10px;
-	    height: 37px;
-	    line-height: 20px;
-	    font-size: 17px;
-	    color: #5e5e5e;
-}
-
-.repleBtn{
-
-	padding: 9px 9px 6px 15px;
-    background-color: #05a2da;
-    border: 1px solid #0482af;
-    color: #fff;
-    width: 70px;
-	
-}
-
-	#contentTable {
-		cellspacing:50px;
-		text-align:left;	
-	}
-	#contentTable>tr>td{
-		cellspacing: 10px;
-		cellpadding: 10px;
-	}
-
-	.popupDIV {
-	position: absolute;
-    padding: 30px;
-    background-color: #fff;
-    border: 4px solid #00c6ff;
-	
-	display: none; 
-	}
-	/* #pophead{
-	width:100px;
-	} */
-	#pophead ol{
-	width : 100px;
-	}
-	/* #popcontent{
-	width:200px;
-	} */
-	#popcontent ol{
-	width : 300px;
-	}
-	
-	.replyContent{
-	 float: left;
-	 width:470px;
-	}
-	
-	#replyList{
-		width:500px;
-		overflow-y: auto;
-		 height:300px;
-	}
-	
-	.replyLi{
-		overflow: hidden;
-	    position: relative;
-	    padding: 20px 0;
-	    border-bottom: 1px solid #ddd;
-	}
-	
-	.replyUl{
-		padding:0;
-		margin-bottom: 20px;
-    	border-top: 1px solid #65b5dd;
-	}
-	
-	.btnDIV{
-		position: absolute;
-    	top: 20px;
-    	right: 0px;
-    	display: inline-block;
-	    line-height: 0;
-	    padding-top:10px;
-	}
-	
-	.replyName{
-	overflow: hidden;
-    max-width: 515px;
-    font-weight: bold;
-    color: #e83227;
-    white-space: nowrap;
-	}
-	
-	.Content_txt{
-		display: block;
-    width: 470px;
-    margin-top: 20px;
-    font-size: 17px;
-    color: #444;
-    line-height: 1.5;
-	}
-	
-	.btnDIV>a{
-		text-decoration: none;
-		padding:5px;
-	}
-	
-	.sub_title{
-		width:auto;
-		padding-right:5px;
-		padding-left:5px;
-		font-weight:700;
-	}
-	
-	.titleDIV{
-		padding-bottom:10px;
-	}
-</style>
 </head>
 <body>
 	<div>
@@ -1521,7 +1375,7 @@ var sessionid = "${sessionScope.sessionid}";
 				<br><br>
 				<h2>지역별 검색</h2>
 				<hr>
-				<table>
+				<table style="padding-top:20px;">
 					<th>지역선택</th><th>시군구 선택</th>
 					<tr>
 					<td>
@@ -1569,6 +1423,7 @@ var sessionid = "${sessionScope.sessionid}";
 				
 				<input type="text" id="subject" class="tb6">
 				<input type="button" id="searchBtn" value="검색">
+				
 				</div>
 				<br><br>
 				<h2>모집중인 스터디</h2>
@@ -1584,12 +1439,12 @@ var sessionid = "${sessionScope.sessionid}";
 					<table class="atable" id="tableAjax" style="text-align:center; border:1px solid #dddddd">
 						<thead>
 							<tr>
-								<td style="background-color: #fafafa; text-align:center;">글번호</td>
-								<td style="background-color: #fafafa; text-align:center;">분류</td>
-								<td style="background-color: #fafafa; text-align:center;">제목</td>
-								<td style="background-color: #fafafa; text-align:center;">시간</td>
-								<td style="background-color: #fafafa; text-align:center;">날짜</td>
-								<td style="background-color: #fafafa; text-align:center;">조회수</td>
+								<th>글번호</th>
+								<th>분류</th>
+								<th>제목</th>
+								<th>시간</th>
+								<th>날짜</th>
+								<th>조회수</th>
 							</tr>
 						</thead>
 						<tbody id="ajaxTable">
@@ -1647,7 +1502,7 @@ var sessionid = "${sessionScope.sessionid}";
 									</div>
 									<br>
 									<div id="cury">
-											
+									
 									</div>
 									
 									<div id="mojipjang">
@@ -1655,7 +1510,7 @@ var sessionid = "${sessionScope.sessionid}";
 									</div>		
 									
 									<div id="mojpjangContent">
-										<div><span class="mojip_intro">이름(아이디)</span><span class="mojip_content" id="memNAME"></span><span class="mojip_content" id="memID"></span></div>
+										<div><span class="mojip_intro">이름(아이디)</span><span class="mojip_content" id="memNAME"></span>(<span class="mojip_content" id="memID"></span>)</div>
 										<div><span class="mojip_intro">전화번호</span><span class="mojip_content" id="memHP"></span></div>
 										<div><span class="mojip_intro">이메일</span><span class="mojip_content" id="memEMAIL"></span></div>
 									</div>	

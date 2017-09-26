@@ -47,6 +47,9 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
         -webkit-align-items: center;
         align-items: center;
     }
+    #aa{
+    margin-left: 5%;
+    }
 </style>
 <script type="text/javascript">
 	function checkId(){
@@ -159,7 +162,8 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 	</div>
 </div>
 
-<div>
+<center>
+<div id="aa">
 <figure class="snip1132">
   <img src="ram/images/3.jpg" alt="sample" />
   <figcaption>
@@ -199,7 +203,7 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
   <a href="roomList.do" id="a_tag"></a>
 </figure> 
 </div>
-
+</center>
    <!-- Swiper JS -->
     <script src="ram/js/swiper.min.js"></script>
 
