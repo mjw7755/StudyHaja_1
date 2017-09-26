@@ -73,7 +73,7 @@
 
 <center>
 <table id="tab" >
-<th colspan="2"><h3>공지사항 작성</h3></th>
+<th colspan="2"><h3>게시판 작성</h3></th>
 
 <tr>
    <td id="sub"> 제  목</td>

@@ -149,7 +149,7 @@ private static ReplyDAO instance = new ReplyDAO();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int result = 0;
-		String sql = "delete from Reply where num=?";
+		String sql = "delete from Reply where reply_num=?";
 		System.out.println("pid : "+pid);
 		try {
 			conn = getConnection();

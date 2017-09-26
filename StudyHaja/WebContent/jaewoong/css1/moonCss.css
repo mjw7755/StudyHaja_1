@@ -1,5 +1,9 @@
 @CHARSET "EUC-KR";
 
+* {
+    font-family: Gulim, ±¼¸², Arial, AppleGotihc, Dotum, µ¸¿ò, sans-serif;
+}
+
 select.soflow1, select.soflow1-color {
    -webkit-appearance: button;
    -webkit-border-radius: 2px;
@@ -66,6 +70,7 @@ select#soflow-color {
 .tb6 {
 	border: 3px double #CCCCCC;
 	width: 230px;
+	height: 25px;
 }
 
 
@@ -91,7 +96,7 @@ select#soflow-color {
     border-radius: 4px;
     padding: 20px 30px;
     text-align:center;
-    width:177px;
+    width:117px;
     font-weight:bold;
 }
 
@@ -203,40 +208,14 @@ select#soflow-color {
 	} 
 	
 	
-table.atable {
-    border-collapse: collapse;
-    text-align: left;
-    line-height: 1.5;
 
-}
-table.atable thead th {
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: top;
-    color: #369;
-    border-bottom: 3px solid #036;
-}
-table.atable tbody th {
-    width: 150px;
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: top;
-    border-bottom: 1px solid #ccc;
-    background: #f3f6f7;
-}
-table.atable td {
-    width: 350px;
-    padding: 10px;
-    vertical-align: top;
-    border-bottom: 1px solid #ccc;
-}
 
 .sendBtn{
 	    background-color: #05a2da;
     border: 1px solid #0482af;
     color: #fff;
     width: 70px;
-    height: 37px;
+    height: 36px;
     cursor: pointer;
 }
 .sendBtn:hover{
@@ -279,4 +258,221 @@ table.atable td {
     background-color: #fff;
     border: 4px solid #00c6ff;
 } */
+	
+	
+	.popupInnerContent{
+	position: relative;
+    padding: 27px 20px;
+}
+
+
+.popupInner{
+	margin-top: -1px;
+    width: 550px;
+    border: 1px solid #8a8a8a;
+}
+
+.introduce_title{
+	padding-right: 13px;
+    color: #2695f1;
+    font-weight:700;
+}
+
+.tree_reple_place {
+	    padding: 0;
+    text-align: left;
+      position: relative;
+      height:50px;
+	
+}
+.tree_reple_place>div>div {
+		padding-top: 30px;
+	    float: left;
+		padding-right:13px;
+}
+
+.input-text {
+		width: 290px;
+    	border: 1px solid #05a2da;
+		display: inline-block;
+	    padding: 5px 10px;
+	    height: 24px;
+	    line-height: 20px;
+	    font-size: 17px;
+	    color: #5e5e5e;
+}
+
+.repleBtn{
+
+	padding: 9px 9px 6px 15px;
+    background-color: #05a2da;
+    border: 1px solid #0482af;
+    color: #fff;
+    width: 70px;
+	
+}
+
+	#contentTable {
+		cellspacing:50px;
+		text-align:left;	
+	}
+	#contentTable>tr>td{
+		cellspacing: 10px;
+		cellpadding: 10px;
+	}
+
+	.popupDIV {
+	position: absolute;
+    padding: 30px;
+    background-color: #fff;
+    border: 4px solid #00c6ff;
+	
+	display: none; 
+	}
+	/* #pophead{
+	width:100px;
+	} */
+	#pophead ol{
+	width : 100px;
+	}
+	/* #popcontent{
+	width:200px;
+	} */
+	#popcontent ol{
+	width : 300px;
+	}
+	
+	.replyContent{
+	 float: left;
+	 width:470px;
+	}
+	
+	#replyList{
+		width:500px;
+		overflow-y: auto;
+		 height:300px;
+	}
+	
+	.replyLi{
+		overflow: hidden;
+	    position: relative;
+	    padding: 20px 0;
+	    border-bottom: 1px solid #ddd;
+	}
+	
+	.replyUl{
+		padding:0;
+		margin-bottom: 20px;
+    	border-top: 1px solid #65b5dd;
+	}
+	
+	.btnDIV{
+		position: absolute;
+    	top: 20px;
+    	right: 0px;
+    	display: inline-block;
+	    line-height: 0;
+	    padding-top:10px;
+	}
+	
+	.replyName{
+	overflow: hidden;
+    max-width: 515px;
+    font-weight: bold;
+    color: #e83227;
+    white-space: nowrap;
+	}
+	
+	.Content_txt{
+		display: block;
+    width: 470px;
+    margin-top: 20px;
+    font-size: 17px;
+    color: #444;
+    line-height: 1.5;
+	}
+	
+	.btnDIV>a{
+		text-decoration: none;
+		padding:5px;
+		color:red;
+		font-weight:bold;
+	}
+	
+	.sub_title{
+		width:auto;
+		padding-right:5px;
+		padding-left:5px;
+		font-weight:700;
+	}
+	
+	.titleDIV{
+		padding-bottom:10px;
+	}
+	
+	.mojip_intro{
+		padding-bottom: 8px;
+    	color: #ff4747;
+    	font-size: 15px;
+    	padding-right: 10px;
+    	font-weight: 700;
+	}
+	.mojip_content{
+		
+	    font-size: 15px;
+	    font-weight: 700;
+	    color: #666;
+	}
+	
+	
+table.atable {
+    border-collapse: separate;
+    text-align: center;
+    line-height: 1.5;
+    margin: 20px 10px;
+}
+table.atable th {
+    width: 155px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+    background: #79ABFF;
+}
+table.atable td {
+    width: 155px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #eee;
+}
+
+
+
+#searchBtn {
+	padding-left: 20px;
+	background: #c1bebe;
+	padding: 0 20px;
+	color: #fff !important;
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	height: 32px;
+	line-height: 32px;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: none !important;
+	-webkit-transition: all .3s ease-in-out !important;
+	t: 30pxt: 30px;
+	margin-left: 15px;
+	margin-top: 5px;
+	font-size: 14px;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+#searchBtn:hover {
+	color: gray !important;
+	background: #fff;
+}
+	
 	

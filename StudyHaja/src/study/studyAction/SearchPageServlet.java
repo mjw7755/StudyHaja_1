@@ -43,26 +43,11 @@ public class SearchPageServlet extends HttpServlet {
 		System.out.println(ppid);
 		/*StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
 		ArrayList<StudyInfoVO> studyInfoList = studyDAO.selectListAll();*/
-		if(subject != null && check != null && selValue != null){
-			System.out.println("1-1");
-			response.getWriter().write(getJSON(subject,check,selValue));
-		}else if(subject != null && check != null && selValue == null){
-			System.out.println("1-2");
-			response.getWriter().write(getJSON(subject,check));
-		}else if(subject != null && check == null && selValue != null){
-			System.out.println("1-3");
-			response.getWriter().write(getJSON(subject,selValue));
-		}else if(subject == null && check != null && selValue != null){
-			System.out.println("1-4");
-			response.getWriter().write(getJSON(check,selValue));
-		}
 		
 		if(ppid==null){
 			
 		}else{
 			try {
-				System.out.println("11");
-				System.out.println(ppid);
 				response.getWriter().write(getJSONReplyDelete(ppid,tdText));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -86,7 +71,6 @@ public class SearchPageServlet extends HttpServlet {
 			replyContent = null;
 		}else {
 			try {
-				System.out.println(replyContent);
 				response.getWriter().write(getJSONReplyContent(replyContent,tdText,id));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -99,8 +83,6 @@ public class SearchPageServlet extends HttpServlet {
 		
 		}else {
 			try {
-				System.out.println("1");
-				System.out.println(selValue);
 				response.getWriter().write(getJSONselValue(selValue));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -112,9 +94,6 @@ public class SearchPageServlet extends HttpServlet {
 			subject = null;
 			
 		}else {
-			System.out.println("2");
-			System.out.println(subSearch);
-			System.out.println(subject);
 			response.getWriter().write(getJSONsearch(subject,subSearch));
 		}
 		
@@ -123,10 +102,7 @@ public class SearchPageServlet extends HttpServlet {
 			
 		}else{
 			try {
-				System.out.println("3");
-				System.out.println(check);
 				response.getWriter().write(getJSONC(check));
-				System.out.println(getJSONC(check));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -141,7 +117,6 @@ public class SearchPageServlet extends HttpServlet {
 		
 		}else {
 			try {
-				
 				response.getWriter().write(getJSONTd(td));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -306,16 +281,16 @@ public class SearchPageServlet extends HttpServlet {
 		if(td == null)td = null;
 		StringBuffer result = new StringBuffer("");
 		
-		result.append("{\"result\":[");
 		StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
 		StudyInfoVO vo = studyDAO.selectContent(td);
 		studyDAO.updateReadCount(td);
 		ReplyDAO reDAO = ReplyDAO.getInstance();
 		ArrayList<ReplyVO> replyVO = reDAO.selectAllReply(td);
-		
 		memberJoinDAO memDAO = memberJoinDAO.getInstance();
 		MemberJoinVO memVO = memDAO.selectTdMember(vo.getId());
 		
+		
+		result.append("{\"result\":[");
 			result.append("[{\"value\": \""+ vo.getSubject()+"\"},");
 			result.append("{\"value\": \""+ vo.getKind2()+"\"},");
 			result.append("{\"value\": \""+ vo.getS_date()+"\"},");
@@ -329,7 +304,7 @@ public class SearchPageServlet extends HttpServlet {
 			result.append("{\"value\": \""+ vo.getPlace2()+"\"},");
 			result.append("{\"value\": \""+ vo.getPlace3()+"\"},");
 			result.append("{\"value\": \""+ vo.getPeople()+"\"},");
-			result.append("{\"value\": \""+ vo.getContent()+"\"}],");
+			result.append("{\"value\": \""+ vo.getContent().replaceAll("\r\n", "<br>")+"\"}],");
 		
 		result.append("],\"tdText\":[");
 		for(int i=0;i<replyVO.size();i++){
@@ -344,6 +319,7 @@ public class SearchPageServlet extends HttpServlet {
 		result.append("{\"value\": \""+ memVO.getEmail()+"\"}],");
 		
 		result.append("]}");
+		
 		return result.toString();
 	}
 	
