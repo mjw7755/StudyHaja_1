@@ -747,7 +747,7 @@
 		 						var id = "${sessionScope.sessionid}";
 		 						
 		 						
-		 						dd[0][13].value = dd[0][13].value.replace(/<br>/g,'\n'); 
+		 						/* dd[0][13].value = dd[0][13].value.replace(/<br>/g,'\n');  */
 		 						
 		 						 for(var i=0;i<result.length;i++){
 									var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
@@ -770,7 +770,7 @@
 	 							$("#pTwo").text(dd[0][10].value);
 	 							$("#pThr").text(dd[0][11].value);
 	 							$("#inWon").text(dd[0][12].value);
-	 							$("#cury").text(dd[0][13].value);
+	 							$("#cury").html(dd[0][13].value);
 	 							
 	 							$("#memNAME").text(resMem[0][0].value);
 	 							$("#memID").text(resMem[0][1].value);
