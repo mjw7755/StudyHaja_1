@@ -2,20 +2,19 @@ drop table board;
 
 -- 1. �뀒�씠釉� �깮�꽦
 create table Board (
-	num number(7) not null,				-- �궡遺��쟻�쑝濡� 泥섎━�맆 湲�踰덊샇 
-	writer varchar2(20) not null,		--�옉�꽦�옄
-	email varchar2(30) ,					-- 硫붿씪
-	subject varchar2(50) not null,		 -- �젣紐�
-	passwd varchar2(12) not null,   	 -- 鍮꾨�踰덊샇
-	reg_date  date not null, 				 -- 湲��벖 �궇吏�   
-	readcount   number(3) default 0,	  -- 議고쉶�닔
-	ref  number  not null, 					-- 洹몃９( 湲��뿉 ���븳...)
-	re_step number not null,					-- 洹몃９ �뒪�뀦
-	re_level  number not null,				-- 洹몃９ �젅踰�
-	content  nvarchar2(2000) not null,	-- 湲��궡�슜
-	ip varchar2(20)  not null,   				--湲� �벖 怨녹쓽 �븘�씠�뵾
+	num number(7) not null,				            -- �궡遺��쟻�쑝濡� 泥섎━�맆 湲�踰덊샇 
+	writer varchar2(20) not null,		                  --�옉�꽦�옄
+	email varchar2(30) ,				                     	-- 硫붿씪
+	subject varchar2(50) not null,		 					 -- �젣紐�
+	passwd varchar2(12) not null,   					 -- 鍮꾨�踰덊샇
+	reg_date  date not null, 								 -- 湲��벖 �궇吏�   
+	readcount   number(3) default 0,						  -- 議고쉶�닔
+	ref  number  not null, 									-- 洹몃９( 湲��뿉 ���븳...)
+	re_step number not null,										-- 洹몃９ �뒪�뀦
+	re_level  number not null,								-- 洹몃９ �젅踰�
+	content  nvarchar2(2000) not null,						-- 湲��궡�슜
+	ip varchar2(20)  not null,   							--湲� �벖 怨녹쓽 �븘�씠�뵾
 	constraint  board_num_pk  primary key(num)
-	
 ) SEGMENT creation IMMEDIATE ;
 
 select * from bulletinboard;

@@ -24,3 +24,11 @@ insert into Reply(id,content) values('mjw','하지마루욧');
 delete from Reply;
 
 drop table Reply;
+
+
+select * from STUDYMEMBER;
+select * from STUDYBOARD;
+select * from REPLY;
+select * from NOTICE;
+select * from STUDY_INFO;
+select * from ROOM;

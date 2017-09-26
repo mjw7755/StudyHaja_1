@@ -91,9 +91,11 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 </table>
 </div>
 
+<c:if test="${ check == 1 }">
 <div id="notice_w">
 	<a href="writeForm.do" id="a_tag">글쓰기</a>
 </div>
+</c:if>
 
 <c:if test="${ count == 0 }">	
 	<table id="notice_list">
