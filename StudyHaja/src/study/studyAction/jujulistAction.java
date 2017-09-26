@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import studyBoardModel.BoardDAO;
 
@@ -41,6 +42,14 @@ public class jujulistAction implements CommandAction {
 		number = count - (currentPage - 1) * pageSize ;		 // ex) 9
 		
 		//?대떦 酉곗뿉???ъ슜???띿꽦(???
+		HttpSession session = request.getSession();
+		session.getAttribute("sessionid");
+		int check = 0;
+		if(session.getAttribute("sessionid") != null) {
+			check = 1;
+		}else
+			check = 0;
+		
 		request.setAttribute("currentPage", new Integer(currentPage));
 		request.setAttribute("startRow", new Integer(startRow));
 		request.setAttribute("endRow", new Integer(endRow));
@@ -48,6 +57,7 @@ public class jujulistAction implements CommandAction {
 		request.setAttribute("pageSize", new Integer(pageSize));
 		request.setAttribute("number", new Integer(number));
 		request.setAttribute("list", list);
+		request.setAttribute("check", check);
 				
 		return "/board/list.jsp";
 	}
