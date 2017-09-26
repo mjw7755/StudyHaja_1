@@ -7,6 +7,65 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<style>
+
+#addr1{
+    -webkit-border-radius: 3px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
+    box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background: white;
+    border: 1px solid #4C4C4C;
+    color: #777;
+    font: 13px Helvetica, Arial, serif;
+    margin: 0 0 10px;
+    padding: 15px 10px 15px 20px;
+    width: 250px;
+    height: 30px;
+}
+#addr1:focus {
+    -webkit-box-shadow: 0 0 2px #ED1C24 inset;
+    -moz-box-shadow: 0 0 2px #ed1c24 inset;
+    -ms-box-shadow: 0 0 2px #ed1c24 inset;
+    -o-box-shadow: 0 0 2px #ed1c24 inset;
+    box-shadow: 0 0 2px #ED1C24 inset;
+    background-color: #FFF;
+    border: 1px solid #ED1C24;
+    outline: none;
+}
+
+#addr2{
+    -webkit-border-radius: 3px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
+    box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background: white;
+    border: 1px solid #4C4C4C;
+    color: #777;
+    font: 13px Helvetica, Arial, serif;
+    margin: 0 0 10px;
+    padding: 15px 10px 15px 20px;
+    width: 250px;
+    height: 30px;
+}
+#addr2:focus {
+    -webkit-box-shadow: 0 0 2px #ED1C24 inset;
+    -moz-box-shadow: 0 0 2px #ed1c24 inset;
+    -ms-box-shadow: 0 0 2px #ed1c24 inset;
+    -o-box-shadow: 0 0 2px #ed1c24 inset;
+    box-shadow: 0 0 2px #ED1C24 inset;
+    background-color: #FFF;
+    border: 1px solid #ED1C24;
+    outline: none;
+}
+#id{
+	padding-bottom: 10px;
+}
+</style>
 </head>
 <body>
 	<link rel="stylesheet" href="ahn/css/ahnTable.css">
@@ -22,7 +81,7 @@
 					<tr>
 						<td>酒捞叼</td>
 						<td>
-							<label id="idtxt" name="id">${sessionScope.sessionid }</label>
+							<p id="id">${sessionScope.sessionid }</p>
 						</td>
 					</tr>
 					<tr>
@@ -57,7 +116,7 @@
 					</tr>
 
 					<tr>
-						<th width="20%">林家</th>
+						<td> <!-- width="20%" -->林家</td>
 						<td width="80%" style="text-align: left;">
 							<input type="text" name="addr1" id="addr1" style="width: 70%" value="${list.get(0).addr1 }">
 							<button type="button" class="btngray btn" onclick="openDaumPostcode()">林家 茫扁</button><br>
