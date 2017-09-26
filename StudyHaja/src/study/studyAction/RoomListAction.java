@@ -33,6 +33,7 @@ public class RoomListAction implements CommandAction {
 		int count = 0, number = 0;
 		
 		List list = null;
+		List list1 = null;
 		String msg=null;
 		count = dao.getListAllCount(); //전체 페이지 리턴...  //ex) 10
 		System.out.println("count :" + count);											//1            7

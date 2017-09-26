@@ -14,6 +14,43 @@
 <style>
 /*--- MBL Custom Label Cloud With CSS3 --- */
 
+#replySubmit{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:40px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+#replySubmit:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+#replySubmit:before, #replySubmit:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+#replySubmit:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+#replySubmit:hover:before, #replySubmit:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
 #option {
 	padding-left: 20px;
 	background: #FF4848;
@@ -280,13 +317,13 @@
 							<td colspan="2"></c:if> </c:forEach>
 						</tr>
 						<tr>
-							<td colspan="2">&nbsp; <img src="ahn/images/parking.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<img src="ahn/images/wifi.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<td colspan="2"><img src="ahn/images/parking.png">&nbsp;&nbsp;&nbsp;
+								<img src="ahn/images/wifi.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<img src="ahn/images/projector.png">&nbsp;&nbsp;&nbsp;&nbsp;<br />
 								<font size="3" color="gray">&nbsp;&nbsp;&nbsp;&nbsp;주차가능</font>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<font size="3" color="gray">와이파이</font>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<font size="3" color="gray">빔프로젝터</font> <!-- <span color="gray">와이파이</span> -->
 							</td>
 
@@ -313,10 +350,10 @@
 					<br/>
 					<div class="view">
 						<div class="scrollblind">
-							<h2 id="re">REVIEW</h2>
+							<h2 id="re">REVIEW(${cnt})</h2>
 							<ul class="replylist">
 							<c:forEach var="reply_arr" items="${reply_arr }" begin="0"> 
-							<li>${reply_arr.cafecontents}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${reply_arr.id}
+							<li>${reply_arr.cafecontents}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[${reply_arr.id}님]
 							</c:forEach>
 							</ul>
 							<!-- <textarea></textarea> -->
@@ -332,7 +369,7 @@
 						cols="100" placeholder="리뷰를 작성해주세요 "style= "visibility:hidden;" >
 				</textarea>
 				<br>
-				<input type="submit" id="replySubmit" value="제출" style="visibility:hidden;" >
+				<input type="submit" id="replySubmit" value="리뷰등록" style="visibility:hidden;" >
 				</td>
 				
 			</tr>
