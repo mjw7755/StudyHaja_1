@@ -74,7 +74,7 @@ private static ReplyDAO instance = new ReplyDAO();
 				vo = new ReplyVO();
 				vo.setId(rs.getString("id"));
 				vo.setContent(rs.getString("content"));
-				vo.setNum(rs.getInt("num"));
+				vo.setReply_num(rs.getInt("reply_num"));
 				voArr.add(vo);
 			}
 			
@@ -121,16 +121,16 @@ private static ReplyDAO instance = new ReplyDAO();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		System.out.println("pid"+pid);
-		System.out.println("modText"+modText);
+		System.out.println("pid : "+pid);
+		System.out.println("modText : "+modText);
 		int result = 0;
-		String sql = "update Reply set content=? where num=?";
+		String sql = "update Reply set content=? where reply_num=?";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, modText);
-			pstmt.setInt(2, Integer.parseInt(pid));
+			pstmt.setString(2, pid);
 			result = pstmt.executeUpdate();
 			
 			System.out.println(result);
