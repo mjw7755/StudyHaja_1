@@ -17,13 +17,83 @@
 	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/editor/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
+
+<style type="text/css">
+	#sub {
+		color: #4B8FCC;
+	    font-weight: 600;
+	    width: 60px;
+	}
+	#text2{
+	width:700px;
+	}
+	#text {
+    -webkit-border-radius: 3px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
+    box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background-color: white;
+    border: 2px solid #C8C8C8;
+    color: #777;
+    font: 13px Helvetica, Arial, sans-serif;
+    margin: 0 0 10px;
+    padding: 10px 10px 10px 10px;
+    width: 600px;
+    
+}
+#text:focus {
+    -webkit-box-shadow: 0 0 2px #4b8fcc inset;
+    -moz-box-shadow: 0 0 2px #4b8fcc inset;
+    -ms-box-shadow: 0 0 2px #4b8fcc inset;
+    -o-box-shadow: 0 0 2px #4b8fcc inset;
+    box-shadow: 0 0 2px #4b8fcc inset;
+    background-color: #FFF;
+    border: 1px solid #4b8fcc;
+    outline: none;
+}
+</style>	
 </head>
 <!-- 답변글의 경우 : 부모글의 글번호, 그룹화번호, 그룹화내의 순서, 들여쓰기  
 		<=== content.jsp 페이지에서 넘어옴.....
 -->
-<body bgcolor = "${ bodyback_c }">
-<center><b>글 수정하기</b></center><br>
+<body >
 <form action = "updatePro.do?pageNum=${ pageNum }" method="post" name = "updateForm" onsubmit="return updateSave()">
+<center>
+<table>
+<th colspan="2"><h3>게시판 작성</h3></th>
+<tr>
+	<td id="sub"> 이  름</td>
+	<td>${ vo.id }
+		<input type="hidden" name="num" value="${ vo.num }"></td>
+
+</tr>
+<tr>
+	<td id="sub"> 제  목</td>
+	<td>
+<!-- 	답변인것에 대한 처리 -->
+<input type= "text" id="text" name = "title" value = "${ vo.title }"></td>
+</tr>
+
+<tr>
+	<td colspan="2" id="text2"><textarea id = "content"  name = "content" style="width:100%; height: 400px; ">${ vo.content }</textarea></td>
+</tr>
+ <tr>
+	<td align="center" colspan="2">
+	<!-- <input type="image" src="ram/images/change.png" onclick="submitContents(this)" /> -->
+	<input type = "submit" value = "글수정" onclick="submitContents(this)">
+	</td>
+</tr>
+<%-- <tr>
+	<td align="center" colspan="2" >
+	<input type = "submit" value = "글수정" id="btnRegister">
+	<p><a href="notice_list.do?pageNum=${ pageNum }">목록목록</a></p>
+</tr> --%>
+</table>
+</center>
+</form>
+<%-- <form action = "updatePro.do?pageNum=${ pageNum }" method="post" name = "updateForm" onsubmit="return updateSave()">
 
 <table width='935' border='1' cellspacing='0' cellpadding='0' bgcolor="${ bodyback_c }"
 align="center">
@@ -56,7 +126,7 @@ align="center">
 </tr>
 
 </table>
-</form>
+</form> --%>
 
 <script type="text/javascript">
 			//form변수로 지정하여 이미지업로드 페이지에서 호출하여 사용됨. form.filepath.value
