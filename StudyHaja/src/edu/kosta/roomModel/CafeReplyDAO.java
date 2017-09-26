@@ -83,9 +83,7 @@ public class CafeReplyDAO {
 		}finally {
 			CloseUtil.close(rs); CloseUtil.close(pstmt); CloseUtil.close(conn);
 		}
-		
 		return cnt;
-		
 	}
 	public ArrayList<CafeReplyVO> cafereplySelect(int num) {
 		Connection conn = null;

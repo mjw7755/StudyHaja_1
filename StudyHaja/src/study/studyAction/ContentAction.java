@@ -30,7 +30,7 @@ public class ContentAction implements CommandAction {
 		
 		HttpSession session = request.getSession();
 		session.getAttribute("sessionid");
-		vo.setId(session.getAttribute("sessionid").toString());
+		vo.setId(vo.getId());
 		
 		int check = dao.update(vo);
 		

@@ -44,6 +44,7 @@ select num, writer, email, subject, passwd, reg_date, ref, re_step, re_level, co
 
 select * from board;
 delete from board;
+select * from cafereply;
 
 UPDATE BOARD SET RE_STEP = RE_STEP + 1, RE_LEVEL = RE_LEVEL + 1 WHERE ref=1;
 

@@ -47,7 +47,7 @@ public class roomContentAction implements CommandAction {
 		//request.setAttribute("options", "#" + arr_options);
 		request.setAttribute("list", vo);
 		request.setAttribute("reply_arr", reply_arr);
-		request.setAttribute("cnt", cnt);
+		request.setAttribute("reply_cnt", cnt);
 		
 		return "/ahn/jsp/Room2.jsp";
 	}

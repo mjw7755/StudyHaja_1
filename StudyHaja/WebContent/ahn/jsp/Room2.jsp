@@ -350,7 +350,7 @@
 					<br/>
 					<div class="view">
 						<div class="scrollblind">
-							<h2 id="re">REVIEW(${cnt})</h2>
+							<h2 id="re">REVIEW(${reply_cnt})</h2>
 							<ul class="replylist">
 							<c:forEach var="reply_arr" items="${reply_arr }" begin="0"> 
 							<li>${reply_arr.cafecontents}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[${reply_arr.id}ดิ]
