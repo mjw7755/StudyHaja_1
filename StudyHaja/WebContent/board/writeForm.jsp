@@ -23,10 +23,47 @@
 	charset="utf-8"></script>
 	
 <%-- 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style_board.css" type="text/css" /> --%>
+ <style type="text/css">
+   #sub {
+   color: #4B8FCC;
+    font-weight: 600;
+    width: 60px;
+}
+#text2{
+   width:600px;
+}
+#text {
+    -webkit-border-radius: 3px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
+    box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background-color: white;
+    border: 2px solid #C8C8C8;
+    color: #777;
+    font: 13px Helvetica, Arial, sans-serif;
+    margin: 0 0 10px;
+    padding: 10px 10px 15px 40px;
+    width: 600px;
+    
+}
+#text:focus {
+    -webkit-box-shadow: 0 0 2px #4b8fcc inset;
+    -moz-box-shadow: 0 0 2px #4b8fcc inset;
+    -ms-box-shadow: 0 0 2px #4b8fcc inset;
+    -o-box-shadow: 0 0 2px #4b8fcc inset;
+    box-shadow: 0 0 2px #4b8fcc inset;
+    background-color: #FFF;
+    border: 1px solid #4b8fcc;
+    outline: none;
+}
+
+   </style>
+
 </head>
 
-<body bgcolor = "${ bodyback_c }" >
-<center><b>글쓰기</b></center><br>
+<body >
 <form action = "writePro.do" method="post" name = "writeform" onsubmit="return writeSave()">
 <input type="hidden" name = "id" value= "${ id }" >
 <input type="hidden" name="num" value="${ num }" >
@@ -34,41 +71,41 @@
 <input type="hidden" name="re_step" value="${ re_step }">
 <input type="hidden" name="re_level" value="${ re_level }">
 
-<table width='935' border='1' cellspacing='0' cellpadding='0' bgcolor="${ bodyback_c }"
-align="center">
+<center>
+<table id="tab" >
+<th colspan="2"><h3>게시판 작성</h3></th>
 
 <tr>
-	<td align = "right" colspan="2"  bgcolor="${ value_c }">
-	<a href = "list.do"> 글목록 보기</a>
-	</td>
-</tr>
-<tr>
-	<td width="70" bgcolor = "${ value_c }"" align = "center""> 제  목</td>
-	<td width="330">
-<!-- 	답변인것에 대한 처리 -->
+   <td id="sub"> 제  목</td>
+   <td >
+<!--    답변인것에 대한 처리 -->
+
 
 <c:if test="${ num == 0 }">  <!-- 제목글 -->
-	<input type= "text" size = "40" maxlength="50" name = "title"></td>
+	<input type= "text" size = "40" maxlength="50" name = "title" id="text"></td>
 </c:if>
 <c:if test="${ num != 0 }">  <!-- 답변글 -->
 	<input type= "text" size = "40" maxlength="50" name = "title" value ="[답변] "></td>
 </c:if>
 </tr>
-<!--  --------------------------------------------------------------------------------------------- -->
 
+
+<!--  --------------------------------------------------------------------------------------------- -->
 <tr>
-	<td width="70" bgcolor = "${ value_c }"" align = "center"> 내  용</td>
-	<td width="330"><textarea rows="13" cols="40" name = "content"  id="content" style="width:766px; height:412px; display:none;"></textarea></td>
+   <td colspan="2" id="text2"><textarea id = "content"  name = "content" style="width:100%; height: 400px; "></textarea></td>
 </tr>
 
+
 <tr>
-	<td align="center" colspan="2" bgcolor="${ value_c }"">
-	<input type = "submit" value = "글쓰기"  onclick="submitContents(this)">
-	<input type= "reset" value = "다시작성">
-	<input type ="button" value = "목록보기" onclick="window.location='list.do' ">
+   <td align="center" colspan="2">
+   <!-- <input type = "submit" value = "확인" id="btnRegister"> -->
+   <input type="image" src="ram/images/write.png" onclick="submitContents(this)" />
+   </td>
 </tr>
 </table>
+</center>
 </form>
+
 
 <script type="text/javascript">
 			//form변수로 지정하여 이미지업로드 페이지에서 호출하여 사용됨. form.filepath.value

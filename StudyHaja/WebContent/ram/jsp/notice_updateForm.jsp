@@ -76,7 +76,7 @@ function pasteHTML(filepath){
 <!-- 답변글의 경우 : 부모글의 글번호, 그룹화번호, 그룹화내의 순서, 들여쓰기  
 		<=== content.jsp 페이지에서 넘어옴.....
 -->
-
+<body>
 <form action = "notice_updatePro.do?pageNum=${ pageNum }" method="post" id="frm2" name = "updateForm" onsubmit="return writeSave()">
 <center>
 <table>

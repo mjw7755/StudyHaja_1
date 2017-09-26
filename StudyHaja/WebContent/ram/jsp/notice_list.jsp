@@ -41,7 +41,6 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 	}
 	#notice_w{
 	text-align: right;
-	margin-top: 5%;
 	margin-right: 3%;
 	}
 	#list_table{
@@ -80,11 +79,14 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 	#box tr{
 	height: 60px;
 	}
+	#n_list{
+	margin-top:5%;
+	}
 </style>
 </head>
 
 <body>
-
+<div id="n_list">
 <div>
 <table id="box">
 	<tr id="box_notice"><td><a href="notice_list.do" id="a_tag">NOTICE</a></td></tr>
@@ -153,6 +155,6 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 		</diV>
 		
 </c:if>
-
+</div>
 </body>
 </html>

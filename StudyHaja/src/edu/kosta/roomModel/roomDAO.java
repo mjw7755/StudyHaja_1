@@ -394,8 +394,9 @@ public int insertStudyCafe(roomVO vo){
 		}
 		
 		r_no = number;
-		sb.append("insert into room(num, images, subject, address, area, location, pay, options, c_day, working_hour,  contents, tel, seats, reg_date, working_hour2, r_no ) " );
-		sb.append(" values(room_num.nextval,?,    ?,        ?,     ?,    ?,       ?,   ?,        ?,     ?, 			?, 	      ?,      ?,      ?,  ?,     ?)");
+		sb.append("insert into room(num, images, subject, address, area, location, pay, options, c_day, working_hour,  "
+				+ "contents, tel, seats, reg_date, working_hour2, r_no ) " );
+		sb.append(" values(room_num.nextval,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		
 	
 		pstmt = conn.prepareStatement(sb.toString());

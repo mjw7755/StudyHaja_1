@@ -63,7 +63,28 @@ public class CafeReplyDAO {
 		}
 		
 	}
-
+	public int countReply(int num){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int cnt=0;
+		String sql = "select count(*) from cafereply where num=?";
+		try{
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				cnt = rs.getInt(1);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			CloseUtil.close(rs); CloseUtil.close(pstmt); CloseUtil.close(conn);
+		}
+		return cnt;
+	}
 	public ArrayList<CafeReplyVO> cafereplySelect(int num) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

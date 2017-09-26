@@ -21,14 +21,11 @@
           // 취소
       }
    }
+   </script>
 <title>게시판</title>
 
-<link href="./view/style.css" rel="stylesheet" type="text/css">
-<script language="JavaScript" src="../view/script.js"></script>
-
 </head>
-<body bgcolor="${ bodyback_c }">  
-<center><b>글삭제</b> <br>
+<body>  <center>
 <form action="deletePro.do?pageNum=${ pageNum }"  method="post"
 		  onsubmit="return deleteSave()"	 name="delForm">
 	<input type = "hidden">

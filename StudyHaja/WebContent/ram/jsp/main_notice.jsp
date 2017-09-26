@@ -47,6 +47,9 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
         -webkit-align-items: center;
         align-items: center;
     }
+    #aa{
+    margin-left: 5%;
+    }
 </style>
 <script type="text/javascript">
 	function checkId(){
@@ -159,7 +162,8 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 	</div>
 </div>
 
-<div>
+<center>
+<div id="aa">
 <figure class="snip1132">
   <img src="ram/images/3.jpg" alt="sample" />
   <figcaption>
@@ -167,7 +171,7 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
       <h3><span>Study Together</span></h3>
     </div>
     <div class="caption">
-      <p><font size="5">"Group-Study" is far better than "Self-Study"</font></p>
+      <p><font size="7">"Group-Study"</font> <font size="5">is far better than "Self-Study"</font></p>
     </div>
   </figcaption>
   <a href="#" id="a_tag" onclick="checkId()"></a>
@@ -180,7 +184,7 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
       <h3><span>Study Search</span></h3>
     </div>
     <div class="caption">
-      <p><font size="5">I want to get in a Group-Study!</font></p>
+      <p><font size="5">Group-Study can lead you to make</font><font size="7">'Synergy'</font></p>
     </div>
   </figcaption>
   <a href="searchPage.do" id="a_tag"></a>
@@ -193,13 +197,13 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
     </div>
     
     <div class="caption">
-      <p><font size="5">Are you looking for a suitable Study Cafe?</font></p>
+      <p><font size="5">Better Study Room, </font><font size="7">'Better Achievement'</font></p>
     </div>
   </figcaption>
   <a href="roomList.do" id="a_tag"></a>
 </figure> 
 </div>
-
+</center>
    <!-- Swiper JS -->
     <script src="ram/js/swiper.min.js"></script>
 
