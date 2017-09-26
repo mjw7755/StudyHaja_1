@@ -11,9 +11,9 @@
 <body>
 
 <c:if test="${result==1}">
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	alert("로그인 성공");
-</script>
+</script> -->
 <body onload="window.location.href='mainlist.do'">	
 </c:if>
 
