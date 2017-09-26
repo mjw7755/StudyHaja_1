@@ -78,7 +78,7 @@ select#soflow-color {
     text-align: center;
 }
 
-#a_tag a {
+#aBtn a {
     -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
     -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
     -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
@@ -86,30 +86,31 @@ select#soflow-color {
     transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
     display: block;
     margin: 20px auto;
-    max-width: 180px;
+    max-width: 200px;
     text-decoration: none;
     border-radius: 4px;
     padding: 20px 30px;
     text-align:center;
-    width:100;
+    width:117px;
+    font-weight:bold;
 }
 
-#a_tag a.button {
+#aBtn a.button {
     color: rgba(30, 22, 54, 0.6);
     box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
 }
 
-#a_tag a.button:hover {
+#aBtn a.button:hover {
     color: rgba(255, 255, 255, 0.85);
     box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
 }
 
-#a_tag a.button2 {
+#aBtn a.button2 {
     color: rgba(30, 22, 54, 0.6);
     box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
 }
 
-#a_tag a.button2:hover {
+#aBtn a.button2:hover {
     color: rgba(255, 255, 255, 0.85);
     box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
 }
@@ -127,7 +128,7 @@ select#soflow-color {
 		  border:1px solid gray;
 		  border-radius: 4px;
 	}
-	
+
 	.detail2 {
 	 	background:white;
 		  height: auto;
@@ -230,9 +231,41 @@ table.atable td {
     border-bottom: 1px solid #ccc;
 }
 
+.sendBtn{
+	    background-color: #05a2da;
+    border: 1px solid #0482af;
+    color: #fff;
+    width: 70px;
+    height: 42px;
+}
 
+#cury {
+	    margin-bottom: 20px;
+    padding: 10px 17px;
+    border: 1px solid #c7c7c7;
+    border-radius: 4px;
+    height: 150px;
+    font-size: 12px;
+    color: #5e5e5e;
+    line-height: 22px;
+    overflow-y: auto;
+	
+}
 
+#mojpjangContent{
+	    margin-top: 20px;
+    padding: 15px 17px 13px;
+    border: 1px solid #ff9797;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+	
+}
 
+.mojipjang{
+	    padding-bottom: 8px;
+    color: #ff4747;
+}
 /* .popupDIV{
 	
 	position: absolute;

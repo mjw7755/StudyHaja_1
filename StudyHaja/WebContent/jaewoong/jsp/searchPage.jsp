@@ -23,20 +23,108 @@
 
 
  $(function(){
-	 
-	 
-	 
-	 
+	 var id;
+	 var pid;
+	 var modText;
 	 var checkedValues = [];  
 	 var selValue = null;
 	 var content = null;
 	 var subSearch = null;
 	 var tdText = null;
 	 
-	 $(".modBtn").click(function(){
-		alert($(this).par)
-		
+	 $(document).on("click",".delBtn",function(){
+		 pid = $(this).parent().parent().attr('id');
+		$(".replyUl").empty();
+		 
+		 $.ajax({
+			 type:"post",
+				url:"./searchPageServlet",
+				data:{"ppid":pid,
+					"tdText":tdText
+				},
+				
+				success:function(data){
+					var res = eval("("+data+")");
+					var result = res.result;
+					var id = "${sessionScope.sessionid}";
+					
+					alert("댓글이 삭제되었습니다.")
+					 for(var i=0;i<result.length;i++){
+						var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
+						if(id == result[i][0].value)
+							str += '<a href="#" class="modBtn" id="'+result[i][0].value+'" onclick="return false">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'" onclick="return false">삭제</a></div></li>'
+						
+						$(".replyUl").append(str);
+					 	
+					}
+					
+					
+				},
+				error : function(msg, error) {
+					alert(error);
+				}
 	 });
+		 
+	 });
+	 
+	 $(document).on("click",".modTextBtn",function(){
+		 modText = $(".modText").val();
+		 $(".replyUl").empty();
+		 
+		 $.ajax({
+			 type:"post",
+				url:"./searchPageServlet",
+				data:{"pid":pid,
+					"modText":modText,
+					"tdText":tdText
+				},
+				
+				success:function(data){
+					var res = eval("("+data+")");
+					var result = res.result;
+					var id = "${sessionScope.sessionid}";
+					
+						alert("댓글이 수정되었습니다.")
+					 for(var i=0;i<result.length;i++){
+						var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
+						if(id == result[i][0].value)
+							str += '<a href="#" class="modBtn" id="'+result[i][0].value+'" onclick="return false">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'" onclick="return false">삭제</a></div></li>'
+						
+						$(".replyUl").append(str);
+					 	
+					}
+					
+					
+				},
+				error : function(msg, error) {
+					alert(error);
+				}
+			 
+			 
+		 })
+		 
+		 
+	 });
+	 
+
+	 
+	 $(document).on("click",".modBtn",function(){
+		 id = $(this).attr('id');
+		 pid = $(this).parent().parent().attr('id');
+		 
+		 
+		 $('#'+pid).empty();
+		 $('#'+pid).append('<input type="text" class="modText" value maxlength="300"/><input type="button" class="modTextBtn" value="수정"/>');
+		 
+		
+		 if($("#sessionID").val() == id){
+			 
+		 }
+		 
+	 });
+	 
+	 
+	 
 	 
 	 $("#sendBtn").click(function(){
 		var replyContent = $("#replyContent").val();
@@ -53,11 +141,14 @@
  					success:function(data){
  						var res = eval("("+data+")");
  						var result = res.result;
+ 						var id = "${sessionScope.sessionid}";
  						
- 						alert(data);
- 						for(var i=0;i<result.length;i++){
-	
- 							$(".replyUl").append('<li class="replyLi" id="'+i+'"><span class="replyContent"><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+result[i][1].value+'</span></span><div class="btnDIV"><a href="#" class="modBtn">수정</a><a href="#" class="delBtn">삭제</a></div></li>');
+ 						 for(var i=0;i<result.length;i++){
+							var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
+							if(id == result[i][0].value)
+								str += '<a href="#" class="modBtn" id="'+result[i][0].value+'" onclick="return false">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'" onclick="return false">삭제</a></div></li>'
+ 							
+							$(".replyUl").append(str);
  						}
  						
  						
@@ -256,9 +347,7 @@
 	 					},
 	 					
 	 					success:function(data){
-	 						alert(data);	
 	 						var d = eval("("+data+")");
-	 						alert(d);
 	 						var dd = d.result;
 	 						/*페이징 처리  */
 	 						
@@ -646,11 +735,15 @@
 	 							var d = eval("("+data+")");
 		 						var dd = d.result;
 		 						
-		 						var aa = d.tdText;
+		 						var result = d.tdText;
+		 						var id = "${sessionScope.sessionid}";
 		 						
-		 						for(var i=0;i<aa.length;i++){
+		 						 for(var i=0;i<result.length;i++){
+									var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
+									if(id == result[i][0].value)
+										str += '<a href="#" class="modBtn" id="'+result[i][0].value+'" onclick="return false">수정</a><a href="#" class="delBtn" id="'+result[i][0].value+'" onclick="return false">삭제</a></div></li>'
 		 							
-		 							$(".replyUl").append('<li class="replyLi"><span class="replyContent"><span class="replyName">'+aa[i][0].value+'<span class="replyDate"></span></span><span class="replyContent">'+aa[i][1].value+'</span></span><div class="btnDIV"><a href="#" class="modBtn">수정</a><a href="#" class="modBtn">삭제</a></div></li>');
+									$(".replyUl").append(str);
 		 						}
 		 						
 	 							$("#jae").text(dd[0][0].value);
@@ -1049,6 +1142,8 @@
 
 <style type="text/css">
 
+
+
 .popupInnerContent{
 	position: relative;
     padding: 27px 20px;
@@ -1061,16 +1156,16 @@
     border: 1px solid #8a8a8a;
 }
 
-	.introduce_title{
+.introduce_title{
 	padding-right: 13px;
     color: #2695f1;
-	
 }
 
 .tree_reple_place {
 	    padding: 0;
     text-align: left;
       position: relative;
+      height:50px;
 	
 }
 .tree_reple_place>div>div {
@@ -1080,7 +1175,7 @@
 }
 
 .input-text {
-		width: 315px;
+		width: 290px;
     	border: 1px solid #05a2da;
 		display: inline-block;
 	    padding: 5px 10px;
@@ -1091,6 +1186,7 @@
 }
 
 .repleBtn{
+
 	padding: 9px 9px 6px 15px;
     background-color: #05a2da;
     border: 1px solid #0482af;
@@ -1100,12 +1196,12 @@
 }
 
 	#contentTable {
-		cellspacing:50;
+		cellspacing:50px;
 		text-align:left;	
 	}
-	#contentTable td{
-		cellspacing: 10;
-		cellpadding: 10;
+	#contentTable>tr>td{
+		cellspacing: 10px;
+		cellpadding: 10px;
 	}
 
 	.popupDIV {
@@ -1129,23 +1225,65 @@
 	width : 300px;
 	}
 	
+	.replyContent{
+	 float: left;
+	 width:470px;
+	}
+	
 	#replyList{
+		width:500px;
 		overflow:scroll; 
 		 height:300px;
 	}
 	
 	.replyLi{
-		position: relative;
-	    overflow: hidden;
-	    padding: 15px 0;
-	    border-bottom: 1px solid #c7c7c7;
+		overflow: hidden;
+	    position: relative;
+	    padding: 20px 0;
+	    border-bottom: 1px solid #ddd;
+	}
+	
+	.replyUl{
+		padding:0;
+		margin-bottom: 20px;
+    	border-top: 1px solid #65b5dd;
 	}
 	
 	.btnDIV{
 		position: absolute;
     	top: 20px;
     	right: 0px;
+    	display: inline-block;
+	    line-height: 0;
+	    padding-top:10px;
 	}
+	
+	.replyName{
+	overflow: hidden;
+    max-width: 515px;
+    font-weight: bold;
+    color: #e83227;
+    white-space: nowrap;
+	}
+	
+	.Content_txt{
+		display: block;
+    width: 470px;
+    margin-top: 20px;
+    font-size: 17px;
+    color: #444;
+    line-height: 1.5;
+	}
+	
+	.btnDIV>a{
+		text-decoration: none;
+		padding:5px;
+	}
+	
+	.sub_title{
+		width:auto;
+	}
+	
 </style>
 </head>
 <body>
@@ -1158,26 +1296,26 @@
 				<hr>
 				<table class="categoryOne">
 					<tr>
-					<td id="a_tag">		
-						<a href="#" class="button" id="findjob">취업</a>
+					<td id="aBtn">		
+						<a href="#" class="button" id="findjob">취    업</a>
 					</td>
 						
-					<td id="a_tag">	
-					<a href="#" class="button" id="language">어학</a>
+					<td id="aBtn">	
+					<a href="#" class="button" id="language">어    학</a>
 						
 					</td>
 					
-					<td id="a_tag">	
-					<a href="#" class="button" id="bank">금융</a>
+					<td id="aBtn">	
+					<a href="#" class="button" id="bank">금    융</a>
 					
 					</td>
 					
-					<td id="a_tag">	
+					<td id="aBtn">	
 					<a href="#" class="button" id="programing">프로그래밍</a>
 					
 					</td>
 					
-					<td id="a_tag">	
+					<td id="aBtn">	
 					<a href="#" class="button" id="selfdevelop">자기계발</a>
 					
 					</td>
@@ -1289,18 +1427,18 @@
 					</tr>
 					
 					<tr margin-top=5px;>
-					<td id="a_tag">	
-					<a href="#" class="button" id="hobby">취미</a>
+					<td id="aBtn">	
+					<a href="#" class="button" id="hobby">취    미</a>
 					
 					</td>
 					
-					<td id="a_tag">	
-					<a href="#" class="button" id="gosi">고시</a>
+					<td id="aBtn">	
+					<a href="#" class="button" id="gosi">고    시</a>
 					
 					</td>
 					
-					<td id="a_tag">	
-					<a href="#" class="button" id="etc">기타</a>
+					<td id="aBtn">	
+					<a href="#" class="button" id="etc">기    타</a>
 					
 					</td>
 					</tr>
@@ -1453,43 +1591,41 @@
 						<div class="popupDIV" id="popup">
 							<div class="popupInner">
 								<div class="popupInnerContent">
-									<table id="contentTable">
-									<tr>
-										<td class="introduce_title">제  목</td><td id="jae"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">분  류</td><td id="bun"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">기  간</td><td id="s_d"></td><td id="e_d"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">요  일</td><td id="yo"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">시  간</td><td id="s_h"></td><td id="s_m"></td><td id="e_h"></td><td id="e_m"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">지  역</td><td id="pOne"></td><td id="pTwo"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">장  소</td><td id="pThr"></td>		
-									</tr>
-									<tr>
-										<td class="introduce_title">인  원</td><td id="inWon"></td>		
-									</tr>
-									</table>
+									<div>
+										<span class="introduce_title">제  목</span><span class="sub_title" id="jae"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">분  류</span><span class="sub_title" id="bun"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">기  간</span><span class="sub_title" id="s_d"></span><span class="sub_title" id="e_d"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">요  일</span><span class="sub_title" id="yo"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">시  간</span><span class="sub_title" id="s_h"></span><span class="sub_title" id="s_m"></span><span class="sub_title" id="e_h"></span><span class="sub_title" id="e_m"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">지  역</span><span class="sub_title" id="pOne"></span><span class="sub_title" id="pTwo"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">장  소</span><span class="sub_title" id="pThr"></span>		
+									</div>
+									<div>
+										<span class="introduce_title">인  원</span><span class="sub_title" id="inWon"></span>		
+									</div>
 									<br>
 									<div id="curyLabel">
 										<span class="introduce_title">스터디 커리큘럼</span>
 									</div>
 									<br>
-									<div style="border:3px solid black" id="cury">
+									<div id="cury">
 											
 									</div>
 									
 									<div id="mojipjang">
-									
+										<span class="mojipjang">모집장 연락정보</span>
 									</div>		
 									
 									<div id="mojpjangContent">
@@ -1499,19 +1635,20 @@
 									<div class="tree_reple_place">
 									
 										<div class="repleDIV">
-											<div class="repleLabel">
+											<div class="repleLabel" style="padding-top:40px">
 												<label class="repleBtn">
 													<span>댓글</span>
 													<span>▶</span>
 												</label>
 											</div>
-											<!-- 입력버튼 -->
+											<!-- 입력텍스트필드 -->
 											<div>
 												<input type="text" class="input-text" name="content" id="replyContent" value maxlength="300">
 											</div>
 											<!-- 작성버튼 -->
 											<div>
 												<input type="button" class="sendBtn" id="sendBtn" value="작성">
+												<input type="hidden" id="sessionID" value="${sessionScope.sessionid }"/>
 											</div>
 										</div>
 									

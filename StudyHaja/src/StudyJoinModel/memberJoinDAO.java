@@ -107,7 +107,7 @@ import dbclose.util.CloseUtil;
    
    
    
-   
+
    public int update(MemberJoinVO vo) {
       Connection conn = null;
       PreparedStatement pstmt = null;
@@ -185,6 +185,72 @@ import dbclose.util.CloseUtil;
       }
       return vo;
    }
+   public MemberJoinVO modifyMember(String id){
+	   Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      ResultSet rs = null;
+	      String sql="";
+	      String dbid = ""; // id값 받아올 변수
+	      try {
+	         conn = getConnection();
+	         sql = "update studymember set passwd = ?, email = ?, hp = ?, addr1=?, addr2=?";
+	         rs = pstmt.executeQuery();
+	               MemberJoinVO vo = new MemberJoinVO();
+	               pstmt = conn.prepareStatement(sql);
+	               
+	               pstmt.setString(1, vo.getPasswd());
+	               pstmt.setString(2, vo.getEmail());
+	               pstmt.setString(3, vo.getHp());
+	               pstmt.setString(4, vo.getAddr1());
+	               pstmt.setString(5, vo.getAddr2());
+	               pstmt.executeUpdate();
+	               
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }finally {
+	         CloseUtil.close(conn);CloseUtil.close(rs);CloseUtil.close(pstmt);
+	      }
+	      
+	      return null;
+		}
+
+   public List<MemberJoinVO> modifySelectAll(String id ) {
+		Connection conn = null;
+		PreparedStatement pstmt=null;
+		ResultSet rs = null;
+		List  list = null;
+		
+		try {
+			conn = getConnection();
+			StringBuffer sb = new StringBuffer();
+		
+			sb.append("SELECT * FROM studymember where id = ? ");
+			
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if( rs.next() ) {
+					MemberJoinVO vo = new MemberJoinVO();
+						vo.setName(rs.getString("name"));
+			            vo.setId(rs.getString("id"));
+			            vo.setEmail(rs.getString("email"));
+			            vo.setPasswd(rs.getString("passwd"));
+			            vo.setHp(rs.getString("hp"));
+			            vo.setAddr1(rs.getString("addr1"));
+			            vo.setAddr2(rs.getString("addr2"));
+			            vo.setFlag(rs.getInt("flag"));;
+					/*vo.setReadcount(rs.getInt("readcount"));*/
+					// list 객체에 데이터 저장 Bean인 BoardVO 객체에 저장한다.
+					list.add(vo);
+					
+				} 	 // if end
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			CloseUtil.close(rs);			CloseUtil.close(pstmt);			CloseUtil.close(conn);
+		}				
+		return list;
+	} // modifySelectALL(startRow, endRow) end
 
   
 	   public int delete(String id) {
