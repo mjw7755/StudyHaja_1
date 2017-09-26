@@ -105,7 +105,33 @@ import dbclose.util.CloseUtil;
 		} // getSelectAll(startRow, endRow) end
    
    
-   
+   public int userModify(MemberJoinVO vo){
+	   Connection conn = null;
+	   PreparedStatement pstmt = null;
+	   ResultSet rs = null;
+	   int result=-1;
+	   try{
+		   conn = getConnection();
+		   pstmt = conn.prepareStatement("Update studymember set passwd = ?,hp=?, email=?, addr1 = ?, addr2 = ? where id=?");
+		   
+		   pstmt.setString(1, vo.getPasswd());
+		   pstmt.setString(2,  vo.getHp());
+		   pstmt.setString(3,  vo.getEmail());
+		   pstmt.setString(4, vo.getAddr1());
+		   pstmt.setString(5, vo.getAddr2());
+		   pstmt.setString(6, vo.getId());
+		   
+		   pstmt.executeUpdate();
+		   
+		   result=1;
+	   }catch (Exception e) {
+	         e.printStackTrace();
+	   }finally {
+	         CloseUtil.close(conn);CloseUtil.close(rs);CloseUtil.close(pstmt);
+	   }
+	   
+	return result;
+   }
    
 
    public int update(MemberJoinVO vo) {
@@ -214,12 +240,11 @@ import dbclose.util.CloseUtil;
 	      return null;
 		}
 
-   public List<MemberJoinVO> modifySelectAll(String id ) {
+   public ArrayList<MemberJoinVO> modifySelectAll(String id ) {
 		Connection conn = null;
 		PreparedStatement pstmt=null;
 		ResultSet rs = null;
-		List  list = null;
-		
+		ArrayList<MemberJoinVO>  list = new ArrayList<MemberJoinVO>();
 		try {
 			conn = getConnection();
 			StringBuffer sb = new StringBuffer();
