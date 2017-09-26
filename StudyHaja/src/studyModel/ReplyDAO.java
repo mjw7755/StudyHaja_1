@@ -35,19 +35,19 @@ private static ReplyDAO instance = new ReplyDAO();
 	}
 	
 	
-	public void insertReply(String replyContent,String tdText){
+	public void insertReply(String replyContent,String tdText, String id){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into Reply(id,content,reg_date,num,reply_num) values('mjw',?,?,?,reply_num.nextval)";
+		String sql = "insert into Reply(id,content,reg_date,num,reply_num) values(?,?,?,?,reply_num.nextval)";
 		try {
 			
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, replyContent);
-			pstmt.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
-			pstmt.setInt(3, Integer.parseInt(tdText));
+			pstmt.setString(1, id);
+			pstmt.setString(2, replyContent);
+			pstmt.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+			pstmt.setInt(4, Integer.parseInt(tdText));
 			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -74,7 +74,7 @@ private static ReplyDAO instance = new ReplyDAO();
 				vo = new ReplyVO();
 				vo.setId(rs.getString("id"));
 				vo.setContent(rs.getString("content"));
-				
+				vo.setNum(rs.getInt("num"));
 				voArr.add(vo);
 			}
 			
@@ -114,4 +114,57 @@ private static ReplyDAO instance = new ReplyDAO();
 		
 		return result;
 	}
+	
+	public int replyModify(String pid, String modText){
+		
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		System.out.println("pid"+pid);
+		System.out.println("modText"+modText);
+		int result = 0;
+		String sql = "update Reply set content=? where num=?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, modText);
+			pstmt.setInt(2, Integer.parseInt(pid));
+			result = pstmt.executeUpdate();
+			
+			System.out.println(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			CloseUtil.close(rs); CloseUtil.close(pstmt); CloseUtil.close(conn);
+		}
+		
+		return result;
+	}
+	public int replyDelete(String pid){
+		
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 0;
+		String sql = "delete from Reply where num=?";
+		System.out.println("pid : "+pid);
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(pid));
+			result = pstmt.executeUpdate();
+			
+			System.out.println(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			CloseUtil.close(rs); CloseUtil.close(pstmt); CloseUtil.close(conn);
+		}
+		
+		return result;
+	}
+	
 }

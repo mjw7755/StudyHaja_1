@@ -26,9 +26,8 @@ public class SearchPageServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=UTF-8");
-		
+		String id = (String) request.getSession().getAttribute("sessionid");
 		StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
-		
 		String[] check = request.getParameterValues("check");
 		String td = request.getParameter("td");
 		String selValue = request.getParameter("selValue");
@@ -36,9 +35,10 @@ public class SearchPageServlet extends HttpServlet {
 		String replyContent = request.getParameter("replyContent");
 		String tdText = request.getParameter("tdText");
 		String subSearch = request.getParameter("subSearch");
-		
-		
-		
+		String pid = request.getParameter("pid");
+		String modText = request.getParameter("modText");
+		String ppid = request.getParameter("ppid");
+		System.out.println(ppid);
 		/*StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
 		ArrayList<StudyInfoVO> studyInfoList = studyDAO.selectListAll();*/
 		if(subject != null && check != null && selValue != null){
@@ -55,13 +55,37 @@ public class SearchPageServlet extends HttpServlet {
 			response.getWriter().write(getJSON(check,selValue));
 		}
 		
+		if(ppid==null){
+			
+		}else{
+			try {
+				System.out.println("11");
+				System.out.println(ppid);
+				response.getWriter().write(getJSONReplyDelete(ppid,tdText));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		if(pid==null && modText==null){
+			
+		}else {
+			try {
+				response.getWriter().write(getJSONReplyModify(pid,modText,tdText));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		
 		if(replyContent == null){
 			replyContent = null;
 		}else {
 			try {
 				System.out.println(replyContent);
-				response.getWriter().write(getJSONReplyContent(replyContent,tdText));
+				response.getWriter().write(getJSONReplyContent(replyContent,tdText,id));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -279,6 +303,7 @@ public class SearchPageServlet extends HttpServlet {
 	public String getJSONTd(String td) throws Exception {
 		if(td == null)td = null;
 		StringBuffer result = new StringBuffer("");
+		
 		result.append("{\"result\":[");
 		StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
 		StudyInfoVO vo = studyDAO.selectContent(td);
@@ -304,8 +329,8 @@ public class SearchPageServlet extends HttpServlet {
 		result.append("],\"tdText\":[");
 		for(int i=0;i<replyVO.size();i++){
 		result.append("[{\"value\": \""+ replyVO.get(i).getId()+"\"},");
-		result.append("{\"value\": \""+ replyVO.get(i).getContent()+"\"},");
-		result.append("{\"value\": \""+ replyVO.get(i).getReg_date()+"\"}],");
+		result.append("{\"value\": \""+ replyVO.get(i).getNum()+"\"},");
+		result.append("{\"value\": \""+ replyVO.get(i).getContent()+"\"}],");
 		}
 		result.append("]}");
 		return result.toString();
@@ -330,19 +355,51 @@ public class SearchPageServlet extends HttpServlet {
 	}
 	
 	
-	public String getJSONReplyContent(String replyContent, String tdText) throws SQLException {
+	public String getJSONReplyContent(String replyContent, String tdText, String id) throws SQLException {
 			
 			StringBuffer result = new StringBuffer("");
 			result.append("{\"result\":[");
 			ReplyDAO replyDAO = ReplyDAO.getInstance();
-			replyDAO.insertReply(replyContent,tdText);
+			replyDAO.insertReply(replyContent,tdText,id);
 			ArrayList<ReplyVO> replyList = replyDAO.selectAllReply(tdText);
 			for(int i=0;i<replyList.size();i++){
 				result.append("[{\"value\": \""+ replyList.get(i).getId()+"\"},");
+				result.append("{\"value\": \""+ replyList.get(i).getNum()+"\"},");
 				result.append("{\"value\": \""+ replyList.get(i).getContent()+"\"}],");
 			}
 			result.append("]}");
 			return result.toString();
 		}
+	
+	public String getJSONReplyModify(String pid, String modText,String tdText) throws SQLException {
+		
+		StringBuffer result = new StringBuffer("");
+		result.append("{\"result\":[");
+		ReplyDAO replyDAO = ReplyDAO.getInstance();
+		int resultmod = replyDAO.replyModify(pid, modText);
+		ArrayList<ReplyVO> replyList = replyDAO.selectAllReply(tdText);
+		for(int i=0;i<replyList.size();i++){
+			result.append("[{\"value\": \""+ replyList.get(i).getId()+"\"},");
+			result.append("{\"value\": \""+ replyList.get(i).getNum()+"\"},");
+			result.append("{\"value\": \""+ replyList.get(i).getContent()+"\"}],");
+		}
+		result.append("]}");
+		return result.toString();
+	}
+	public String getJSONReplyDelete(String ppid,String tdText) throws SQLException {
+		System.out.println("dd");
+		StringBuffer result = new StringBuffer("");
+		result.append("{\"result\":[");
+		ReplyDAO replyDAO = ReplyDAO.getInstance();
+		replyDAO.replyDelete(ppid);
+		ArrayList<ReplyVO> replyList = replyDAO.selectAllReply(tdText);
+		for(int i=0;i<replyList.size();i++){
+			result.append("[{\"value\": \""+ replyList.get(i).getId()+"\"},");
+			result.append("{\"value\": \""+ replyList.get(i).getNum()+"\"},");
+			result.append("{\"value\": \""+ replyList.get(i).getContent()+"\"}],");
+		}
+		result.append("]}");
+		return result.toString();
+	}
 
 }
