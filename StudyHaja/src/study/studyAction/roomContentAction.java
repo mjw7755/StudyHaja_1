@@ -26,6 +26,7 @@ public class roomContentAction implements CommandAction {
 		roomVO vo = null;
 		CafeReplyVO replyvo = null;
 		CafeReplyDAO replydao = null;
+		int cnt=0;
 		ArrayList<CafeReplyVO> reply_arr = new ArrayList<CafeReplyVO>();
 		try{
 			dao = roomDAO.getInstance();
@@ -33,7 +34,7 @@ public class roomContentAction implements CommandAction {
 			vo = dao.getDataDetail(num);
 			
 			reply_arr = replydao.cafereplySelect(num);
-			
+			cnt = replydao.countReply(num);
 		} catch(Exception e){  e.printStackTrace();  }
 		int currentPage = Integer.parseInt(pageNum);
 		int pageSize = 7;
@@ -46,6 +47,7 @@ public class roomContentAction implements CommandAction {
 		//request.setAttribute("options", "#" + arr_options);
 		request.setAttribute("list", vo);
 		request.setAttribute("reply_arr", reply_arr);
+		request.setAttribute("cnt", cnt);
 		
 		return "/ahn/jsp/Room2.jsp";
 	}

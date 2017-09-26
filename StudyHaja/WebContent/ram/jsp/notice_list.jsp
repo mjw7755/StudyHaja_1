@@ -45,13 +45,16 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 	margin-right: 3%;
 	}
 	#list_table{
-	width:100%;
-	height: 63%;
-	margin-bottom: 30px;
+	width: 100%;
+    height: 63%;
+    margin-bottom: 30px;
+    position: fixed;
 	}
 	#listpage{
 	text-align: right;
     margin-right: 3%;
+    position: relative;
+    top: 475px;
 	}
 	#focus a{
 	color: #4B8FCC;

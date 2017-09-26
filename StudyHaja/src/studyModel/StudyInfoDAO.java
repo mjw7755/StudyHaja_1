@@ -683,7 +683,7 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 		StudyInfoVO vo = null;
 		
 		try {
-			sql = "select subject,kind2,s_date,e_date,day,s_hour,s_minute,e_hour,e_minute,place1,place2,place3,people,content from study_info where num = ?";
+			sql = "select id,subject,kind2,s_date,e_date,day,s_hour,s_minute,e_hour,e_minute,place1,place2,place3,people,content from study_info where num = ?";
 						
 			
 			pstmt = conn.prepareStatement(sql);
@@ -694,6 +694,7 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			if(rs.next()){
 				
 				vo = new StudyInfoVO();
+				vo.setId(rs.getString("id"));
 				vo.setSubject(rs.getString("subject"));
 				vo.setKind2(rs.getString("kind2"));
 				vo.setS_date(rs.getString("s_date"));

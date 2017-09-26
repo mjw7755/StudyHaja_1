@@ -91,7 +91,7 @@ select#soflow-color {
     border-radius: 4px;
     padding: 20px 30px;
     text-align:center;
-    width:117px;
+    width:177px;
     font-weight:bold;
 }
 
@@ -236,7 +236,11 @@ table.atable td {
     border: 1px solid #0482af;
     color: #fff;
     width: 70px;
-    height: 42px;
+    height: 37px;
+    cursor: pointer;
+}
+.sendBtn:hover{
+	    background-color: #056e93;
 }
 
 #cury {
@@ -245,7 +249,7 @@ table.atable td {
     border: 1px solid #c7c7c7;
     border-radius: 4px;
     height: 150px;
-    font-size: 12px;
+    font-size: 15px;
     color: #5e5e5e;
     line-height: 22px;
     overflow-y: auto;
@@ -257,14 +261,15 @@ table.atable td {
     padding: 15px 17px 13px;
     border: 1px solid #ff9797;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
 	
 }
 
 .mojipjang{
-	    padding-bottom: 8px;
+	padding-bottom: 8px;
     color: #ff4747;
+    font-weight:700;
 }
 /* .popupDIV{
 	

@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import StudyJoinModel.MemberJoinVO;
+import StudyJoinModel.memberJoinDAO;
 import studyModel.ReplyDAO;
 import studyModel.ReplyVO;
 import studyModel.StudyInfoDAO;
@@ -311,6 +313,9 @@ public class SearchPageServlet extends HttpServlet {
 		ReplyDAO reDAO = ReplyDAO.getInstance();
 		ArrayList<ReplyVO> replyVO = reDAO.selectAllReply(td);
 		
+		memberJoinDAO memDAO = memberJoinDAO.getInstance();
+		MemberJoinVO memVO = memDAO.selectTdMember(vo.getId());
+		
 			result.append("[{\"value\": \""+ vo.getSubject()+"\"},");
 			result.append("{\"value\": \""+ vo.getKind2()+"\"},");
 			result.append("{\"value\": \""+ vo.getS_date()+"\"},");
@@ -329,9 +334,15 @@ public class SearchPageServlet extends HttpServlet {
 		result.append("],\"tdText\":[");
 		for(int i=0;i<replyVO.size();i++){
 		result.append("[{\"value\": \""+ replyVO.get(i).getId()+"\"},");
-		result.append("{\"value\": \""+ replyVO.get(i).getNum()+"\"},");
+		result.append("{\"value\": \""+ replyVO.get(i).getReply_num()+"\"},");
 		result.append("{\"value\": \""+ replyVO.get(i).getContent()+"\"}],");
 		}
+		result.append("],\"tdMember\":[");
+		result.append("[{\"value\": \""+ memVO.getName()+"\"},");
+		result.append("{\"value\": \""+ memVO.getId()+"\"},");
+		result.append("{\"value\": \""+ memVO.getHp()+"\"},");
+		result.append("{\"value\": \""+ memVO.getEmail()+"\"}],");
+		
 		result.append("]}");
 		return result.toString();
 	}
@@ -362,9 +373,11 @@ public class SearchPageServlet extends HttpServlet {
 			ReplyDAO replyDAO = ReplyDAO.getInstance();
 			replyDAO.insertReply(replyContent,tdText,id);
 			ArrayList<ReplyVO> replyList = replyDAO.selectAllReply(tdText);
+			System.out.println("이거 -> "+replyList.get(0).getReply_num());
+			
 			for(int i=0;i<replyList.size();i++){
 				result.append("[{\"value\": \""+ replyList.get(i).getId()+"\"},");
-				result.append("{\"value\": \""+ replyList.get(i).getNum()+"\"},");
+				result.append("{\"value\": \""+ replyList.get(i).getReply_num()+"\"},");
 				result.append("{\"value\": \""+ replyList.get(i).getContent()+"\"}],");
 			}
 			result.append("]}");
