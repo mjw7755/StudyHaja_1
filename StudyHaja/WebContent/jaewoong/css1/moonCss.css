@@ -1,8 +1,5 @@
 @CHARSET "EUC-KR";
 
-* {
-    font-family: Gulim, ±¼¸², Arial, AppleGotihc, Dotum, µ¸¿ò, sans-serif;
-}
 
 select.soflow1, select.soflow1-color {
    -webkit-appearance: button;
@@ -217,6 +214,8 @@ select#soflow-color {
     width: 70px;
     height: 36px;
     cursor: pointer;
+    font-size:15px;
+    font-weight:700;
 }
 .sendBtn:hover{
 	    background-color: #056e93;
@@ -309,6 +308,7 @@ select#soflow-color {
     border: 1px solid #0482af;
     color: #fff;
     width: 70px;
+    font-weight:700;
 	
 }
 
@@ -475,4 +475,30 @@ table.atable td {
 	background: #fff;
 }
 	
+	
+#myListBtn {
+	padding-left: 20px;
+	background: #c1bebe;
+	padding: 0 20px;
+	color: #fff !important;
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	height: 32px;
+	line-height: 32px;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: none !important;
+	-webkit-transition: all .3s ease-in-out !important;
+	t: 30pxt: 30px;
+	margin-left: 15px;
+	margin-top: 5px;
+	font-size: 14px;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+#myListBtn:hover {
+	color: gray !important;
+	background: #fff;
+}
 	
