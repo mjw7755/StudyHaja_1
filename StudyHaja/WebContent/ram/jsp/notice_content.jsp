@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt"  uri="http://java.sun.com/jstl/fmt_rt" %>
-
+<link rel="stylesheet" type="text/css" href="ram/css/notice_content.css" />
 
 <html>
 <head>
@@ -23,80 +23,7 @@
    }
 </script> 
 <title>게시판</title>
-<style type="text/css">
-/* div{
-	margin: auto;
-} */
-/* #content28{
-	margin-top: 50%;
-} */
-#a_tag:hover {
-color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
-}
-#a_tag{
-	font-weight : 800;
-	color:#000;
-	text-decoration:none;
-}
-#view_top{
-	border: 1px solid;
-	border-color: gray;
-	background-color: #F8F8F8;
-	height: 60px;
-}
-#view_con{
-	border: 1px solid;
-	border-color: gray;
-}
-#con_data{
-	text-align: center;
-}
-#prev{
-	border: 1px solid;
-	border-color: gray;
-}
-#next{
-	border: 1px solid;
-	border-color: gray;
-}
-#view_info{
-	margin-right: 15px;
-}
-#info_list{/* 메뉴바 스타일 지정 */
-	list-style: none;
-    text-align: right;
-    font-size: 15px;
-}
- #info_list li{
-	display:inline;
-	/* 메뉴바를 한줄로 보여줌 */
- 	padding-left:15px;
-} 
- #top_noti{
- 	width:23%;
- 	float:left;
- }
- #top_subj{
- 	width:54%;
- 	float:left;
- }
- #top_canc{
- 	width:23%;
- 	float:left;
- 	text-align:right;
- }
- #bottom_btn{
-    text-align: center;
-    width: 200px;
-    margin-left: 44%;
- }
- #delForm{
-	 float: left;
- }
- #con{
- 	margin-left: 20px;
- }
-</style>
+
 </head>
 <body>
 <div id="content28">

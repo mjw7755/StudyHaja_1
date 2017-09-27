@@ -2,87 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
-<!-- <link rel="stylesheet" type="text/css" href="css/notice_list.css" /> -->
+<link rel="stylesheet" type="text/css" href="ram/css/notice_list.css" />
 
 <!DOCTYPE html>
 <html> 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> 공지사항리스트 </title>
-<style type="text/css">
-#a_tag:hover {
-color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
-}
-#a_tag{
-	font-weight : 800;
-	text-decoration:none;
-}
-  #notice_list {
-  	margin-top: 50px;
-    margin-right: 3%;
-    margin-left: 22%;
-    border-top: 2px solid #4B8FCC;
-    border-bottom: 2px solid #4B8FCC;
-    border-collapse: collapse;
-  }
-  td {
-    border-bottom: 1px solid #BDBDBD;
-    padding: 10px;
-  }
-	#num{
-	width: 50px;
-    font-style: inherit;
-    color: #4B8FCC;
-    font-weight: 600;
-	}
-	
-	#subject2{
-	    width: 80%;
-	}
-	#notice_w{
-	text-align: right;
-	margin-right: 3%;
-	}
-	#list_table{
-	width:100%;
-	height: 63%;
-	margin-bottom: 30px;
-	}
-	#listpage{
-	text-align: right;
-    margin-right: 3%;
-	}
-	#focus a{
-	color: #4B8FCC;
-	}
-/* -------left box css------- */	
-	#box_notice{
-	border: 2px solid #4B8FCC;
-	}
-	#box_notice a{
-    display: block;
-    text-align: center;
-    font-size: 20px;
-}
-	#box_board a{
-    display: block;
-    text-align: center;
-    font-size: 20px;
-}
-	#box{
-	margin-top: 4.5%;
-    margin-left: 5%;
-    float: left;
-    border: 1px solid gray;
-    border-collapse: collapse;
-	}
-	#box tr{
-	height: 60px;
-	}
-	#n_list{
-	margin-top:5%;
-	}
-</style>
+
 </head>
 
 <body>

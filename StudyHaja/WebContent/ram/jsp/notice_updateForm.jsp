@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
-
+<link rel="stylesheet" type="text/css" href="ram/css/notice_update.css" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,42 +36,6 @@ function pasteHTML(filepath){
    }
 </script>
 
-<style type="text/css">
-	#sub {
-		color: #4B8FCC;
-	    font-weight: 600;
-	    width: 60px;
-	}
-	#text2{
-	width:700px;
-	}
-	#text {
-    -webkit-border-radius: 3px;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-    box-shadow: 0 1px 0 #FFF, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    background-color: white;
-    border: 2px solid #C8C8C8;
-    color: #777;
-    font: 13px Helvetica, Arial, sans-serif;
-    margin: 0 0 10px;
-    padding: 10px 10px 10px 10px;
-    width: 600px;
-    
-}
-#text:focus {
-    -webkit-box-shadow: 0 0 2px #4b8fcc inset;
-    -moz-box-shadow: 0 0 2px #4b8fcc inset;
-    -ms-box-shadow: 0 0 2px #4b8fcc inset;
-    -o-box-shadow: 0 0 2px #4b8fcc inset;
-    box-shadow: 0 0 2px #4b8fcc inset;
-    background-color: #FFF;
-    border: 1px solid #4b8fcc;
-    outline: none;
-}
-</style>	
 </head>
 <!-- 답변글의 경우 : 부모글의 글번호, 그룹화번호, 그룹화내의 순서, 들여쓰기  
 		<=== content.jsp 페이지에서 넘어옴.....
