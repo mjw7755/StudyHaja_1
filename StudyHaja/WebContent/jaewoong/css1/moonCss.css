@@ -476,3 +476,29 @@ table.atable td {
 }
 	
 	
+#myListBtn {
+	padding-left: 20px;
+	background: #c1bebe;
+	padding: 0 20px;
+	color: #fff !important;
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	height: 32px;
+	line-height: 32px;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: none !important;
+	-webkit-transition: all .3s ease-in-out !important;
+	t: 30pxt: 30px;
+	margin-left: 15px;
+	margin-top: 5px;
+	font-size: 14px;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+#myListBtn:hover {
+	color: gray !important;
+	background: #fff;
+}
+	

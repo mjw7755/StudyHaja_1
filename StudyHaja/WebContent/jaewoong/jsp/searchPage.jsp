@@ -36,6 +36,68 @@
 	 var subSearch = null;
 	 var tdText = null;
 	 var tdId = null;
+	 var id = "${sessionScope.sessionid}";
+	 
+	 
+	 $("#myListBtn").click(function(){
+		 id = "${sessionScope.sessionid}";
+		 $("#tableAjax > tbody").empty();
+		 $.ajax({
+			 type:"post",
+				url:"./searchPageServlet",
+				data:{"myid":id,
+				},
+				
+				success:function(data){
+					alert(data);
+					var d = eval("("+data+")");
+					var dd = d.result;
+						/*페이징 처리  */
+						
+						if(dd == ""){
+							$("#ajaxTable").append('<tr><td colspan="6">리스트가 없습니다.</td></tr>')
+						}
+						
+						for(var i=0;i<dd.length;i++){
+							
+							for(var j=0;j<dd[i].length;j++){
+								
+								
+								if(j == dd[i].length-1){
+									
+										if(dd[i][j].value==0){
+											dd[i][j].value=0;
+										}else {
+										$(".subjectTd"+i).append('<span style="color:red; font-weight:bold;">['+dd[i][j].value+']</span>');
+										}
+									
+								}else{ 
+ 								 if(j==2){
+ 									$("#ajaxTable").append('<td class="subjectTd'+i+'">'+dd[i][j].value+'</td>');
+ 								 }else if(j==1){ 
+ 									$("#ajaxTable").append('<td class="tdNum">'+dd[i][j].value+'</td>');
+
+
+ 								 }else {
+	 								$("#ajaxTable").append('<td>'+dd[i][j].value+'</td>');		 									 
+ 								 } 
+								 } 
+							}
+							$("#ajaxTable>td").wrapAll('<tr style="cursor:pointer;" id="record"></tr>');
+						}		
+					 	
+					
+					
+					
+				},
+				error : function(msg, error) {
+					alert(error);
+				}
+			 
+		 });
+		 
+	 });
+	 
 	 $(document).on("click",".delBtn",function(){
 		 pid = $(this).parent().parent().attr('id');
 		 $(".replyUl").empty();
@@ -50,7 +112,7 @@
 				success:function(data){
 					var res = eval("("+data+")");
 					var result = res.result;
-					var id = "${sessionScope.sessionid}";
+					id = "${sessionScope.sessionid}";
 					
 					alert("댓글이 삭제되었습니다.")
 					 for(var i=0;i<result.length;i++){
@@ -146,7 +208,7 @@
  					success:function(data){
  						var res = eval("("+data+")");
  						var result = res.result;
- 						var id = "${sessionScope.sessionid}";
+ 						id = "${sessionScope.sessionid}";
  						
  						 for(var i=0;i<result.length;i++){
 							var str = '<li class="replyLi" id="'+result[i][1].value+'"><span class="replyContent"><div><span class="replyName">'+result[i][0].value+'<span class="replyDate"></span></span></div><div><span class="Content_txt">'+result[i][2].value+'</span></div></span><div class="btnDIV">'
@@ -1422,7 +1484,9 @@
 				
 				<input type="text" id="subject" class="tb6">
 				<input type="button" id="searchBtn" value="검색">
-				
+				<c:if test="${sessionScope.sessionid != null }">
+				<input type="button" id="myListBtn" value="내 모집글 보기">
+				</c:if>
 				</div>
 				<br><br>
 				<h2>모집중인 스터디</h2>
