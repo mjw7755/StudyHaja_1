@@ -40,9 +40,20 @@ public class SearchPageServlet extends HttpServlet {
 		String pid = request.getParameter("pid");
 		String modText = request.getParameter("modText");
 		String ppid = request.getParameter("ppid");
-		System.out.println(ppid);
+		String myid = request.getParameter("myid");
 		/*StudyInfoDAO studyDAO = StudyInfoDAO.getInstance();
 		ArrayList<StudyInfoVO> studyInfoList = studyDAO.selectListAll();*/
+		
+		if(myid==null){
+			
+		}else {
+			try {
+				response.getWriter().write(getJSONmyList(myid));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		if(ppid==null){
 			
@@ -272,6 +283,26 @@ public class SearchPageServlet extends HttpServlet {
 			result.append("{\"value\": \""+ studyInfoList.get(i).getSubject()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getReg_date()+"\"},");
 			result.append("{\"value\": \""+ studyInfoList.get(i).getReadcount()+"\"}],");
+		}
+		result.append("]}");
+		return result.toString();
+	}
+	
+	public String getJSONmyList(String myid) throws SQLException {
+		
+		StringBuffer result = new StringBuffer("");
+		result.append("{\"result\":[");
+		StudyInfoDAO studyDAO = new StudyInfoDAO();
+		ArrayList<StudyInfoVO> studyInfoList = studyDAO.selectMyListAll(myid);
+		ReplyDAO replyDAO = ReplyDAO.getInstance();
+		for(int i=0;i<studyInfoList.size();i++){
+			result.append("[{\"value\": \""+ studyInfoList.get(i).getNum()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getKind2()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getSubject()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getFormat_time()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getReg_date()+"\"},");
+			result.append("{\"value\": \""+ studyInfoList.get(i).getReadcount()+"\"},");
+			result.append("{\"value\": \""+ replyDAO.selectReplyAllCount(studyInfoList.get(i).getNum()) +"\"}],");
 		}
 		result.append("]}");
 		return result.toString();

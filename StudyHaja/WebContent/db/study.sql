@@ -52,6 +52,8 @@ SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT FROM STUDY_INFO WHERE ? = ?;
 SUBJECT LIKE  and COLUMN_NAME=
 select * from study_info;
 
+select * from study_info where subject like '%한국%' order by reg_date desc;
+
 alter table study_info add(format_time varchar2(10));
 
 select * from studymember;
