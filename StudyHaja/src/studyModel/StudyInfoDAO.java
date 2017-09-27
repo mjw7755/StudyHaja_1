@@ -129,16 +129,18 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 	    final int HOUR = 24;
 	    final int DAY = 30;
 	    final int MONTH = 12;
-		
+		System.out.println(subSearch);
 	    String msg = "";
+	    String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT,FORMAT_TIME FROM STUDY_INFO WHERE "+subSearch+" LIKE '%"+content+"%' order by reg_date desc";
 		
 		if(subSearch.equals("제목")){
 			subSearch = "subject";
 		}else if(subSearch.equals("장소")){
 			subSearch = "place2";
+		}else if(subSearch.equals("전체")){
+			sql = "select * from study_info where subject like '%"+content+"%' or kind1 like '%"+content+"%' or kind2 like '%"+content+"%' or place1 like '%"+content+"%' or place2 like '%"+content+"%' or place3 like '%"+content+"%' or day like '%"+content+"%' order by reg_date desc";
 		}
 		
-		String sql = "SELECT NUM,KIND2,SUBJECT,REG_DATE,READCOUNT,FORMAT_TIME FROM STUDY_INFO WHERE "+subSearch+" LIKE '%"+content+"%' order by reg_date desc";
 		try {
 			
 			conn = getConnection();
@@ -172,11 +174,11 @@ private static StudyInfoDAO instance = new StudyInfoDAO();
 			    
 				
 				vo = new StudyInfoVO();
-				vo.setNum(rs.getInt(1));
-				vo.setKind2(rs.getString(2));
-				vo.setSubject(rs.getString(3));
-				vo.setReg_date(rs.getTimestamp(4));
-				vo.setReadcount(rs.getInt(5));
+				vo.setNum(rs.getInt("num"));
+				vo.setKind2(rs.getString("kind2"));
+				vo.setSubject(rs.getString("subject"));
+				vo.setReg_date(rs.getTimestamp("reg_date"));
+				vo.setReadcount(rs.getInt("readcount"));
 				vo.setFormat_time(msg);
 				
 				studyArr.add(vo);
