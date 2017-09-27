@@ -145,7 +145,7 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 
 		<div id="focus">
 		<c:forEach  var="i" begin="${startPage }" end="${ endPage }">
-			<a href="notice_list.do?pageNum=${i}" id="a_tag">[${ i }] </a>
+			<a href="notice_list.do?pageNum=${i}" id="a_tag" data-bg="red">${ i } </a>
 	   </c:forEach>
 		</div>
 		
@@ -156,5 +156,6 @@ color:gray;/* a선택자에 마우스 올렸을때 color gray 지정 */
 		
 </c:if>
 </div>
+
 </body>
 </html>
