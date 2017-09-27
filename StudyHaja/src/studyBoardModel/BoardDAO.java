@@ -304,8 +304,8 @@ public class BoardDAO { // controller
 			if (rs.next()) {
 				dbid = rs.getString("ID");
 				System.out.println("글 작성자 : " + dbid);
-				System.out.println("로그인 상태 : " + vo.getId());
-				if (dbid.equals(vo.getId())) {
+				System.out.println("로그인 상태 : " + vo.getTemp_id());
+				if (dbid.equals(vo.getTemp_id())) {
 					sql = "UPDATE STUDYBOARD SET TITLE=?, CONTENT=? ";
 					sql += " WHERE NUM = ?";
 					// query 수정해야하는 부분

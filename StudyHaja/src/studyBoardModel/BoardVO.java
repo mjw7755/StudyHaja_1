@@ -8,6 +8,13 @@ public class BoardVO implements Serializable {    //model
 		// 필드 선언
 		private int num;			// 글번호
 		private String id;		// 작성자
+		private String temp_id;
+		public String getTemp_id() {
+			return temp_id;
+		}
+		public void setTemp_id(String temp_id) {
+			this.temp_id = temp_id;
+		}
 		private String title;		// 제목
 		private Timestamp reg_date;		// 글쓴 날짜
 		private int readcount;		// 조회수

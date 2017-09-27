@@ -128,6 +128,15 @@ ${vo.content }
 	<input type="image" src="ram/images/list.png" onclick="document.location.href='list.do?pageNum=${ pageNum }'" />
 	
 	</c:if>
+	<c:if test= "${ check == 2 }">
+	<input type="image" src="ram/images/delete.png" onclick="document.location.href='deleteForm.do?num=${ vo.num }&pageNum=${ pageNum }'" />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	
+	<input type="image" src="ram/images/rep.png" onclick="document.location.href='writeForm.do?num=${ vo.num }&ref=${ vo.ref }&re_step=${ vo.re_step }&re_level=${ vo.re_level }'" />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="image" src="ram/images/list.png" onclick="document.location.href='list.do?pageNum=${ pageNum }'" />
+	</c:if>
 	
 	<c:if test="${ check == 0 }">
 	<input type="image" src="ram/images/rep.png" onclick="document.location.href='writeForm.do?num=${ vo.num }&ref=${ vo.ref }&re_step=${ vo.re_step }&re_level=${ vo.re_level }'" />

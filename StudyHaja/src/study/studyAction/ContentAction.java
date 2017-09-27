@@ -23,22 +23,22 @@ public class ContentAction implements CommandAction {
 		BoardDAO dao = BoardDAO.getInstance();
 		BoardVO vo = dao.getDataDetail(num); 
 		
-		//int ref = vo.getRef();
-		//int re_step = vo.getRe_step();
-		//int re_level = vo.getRe_level();
-		
-		
 		HttpSession session = request.getSession();
 		session.getAttribute("sessionid");
 		vo.setId(vo.getId());
+		vo.setTemp_id((String)session.getAttribute("sessionid"));
 		
 		int check = dao.update(vo);
 		
 		session.getAttribute("sessionid");
 		if(session.getAttribute("sessionid") == null) {
 			check = -1;
+		} else if(session.getAttribute("sessionid").equals("admin")){
+			check = 2;
+			if(vo.getId().equals(session.getAttribute("sessionid"))){
+				check = 1;
+			}
 		}
-		
 		System.out.println("체크 값" + check);
 		
 		request.setAttribute("num", new Integer(num));
